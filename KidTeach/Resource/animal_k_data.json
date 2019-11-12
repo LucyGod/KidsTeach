@@ -1,0 +1,149 @@
+[
+    {
+        "name": "鸡",
+        "content" : "家禽，品种很多，翅膀短，不能高飞；雄性啼能报晓，雄性生的蛋是好食品",
+        "imageName": "",
+        "EnglishName": "Chicken",
+        "PinYin":"jī"
+    },
+    {
+        "name": "鸭子",
+        "content" : "鸭，俗称鸭子，人们在淡水和咸水都可以看见它们的身影。鸭是人类饲养的主要家禽之一。鸭肉和鸭蛋可食用，鸭的羽毛可以加工成为保温材料。",
+        "imageName": "",
+        "EnglishName": "Duck",
+        "PinYin":"yā zi"
+    },
+    {
+        "name": "兔子",
+        "content" : "兔子有一双长长的耳朵，喜欢跳来跳去",
+        "imageName": "",
+        "EnglishName": "Rabbit",
+        "PinYin":"tù zi"
+    },
+    {
+        "name": "马",
+        "content" : "哺乳动物，颈上有鬃，尾生长毛，四肢强健，善跑，供人骑或拉东西",
+        "imageName": "",
+        "EnglishName": "Horse",
+        "PinYin":"mǎ"
+    },
+    {
+        "name": "羊",
+        "content" : "哺乳类动物，反刍类，一般头上有一对角，品种很多",
+        "imageName": "",
+        "EnglishName": "Sheep",
+        "PinYin":"yáng"
+    },
+    {
+        "name": "牛",
+        "content" : "哺乳动物，趾端有蹄，头上长一对角，是反刍类动物，力量很大，能耕田拉车，肉和奶可食",
+        "imageName": "",
+        "EnglishName": "Cow",
+        "PinYin":"niú"
+    },
+    {
+        "name": "驴",
+        "content" : "哺乳动物，像马，比马小，能驼东西、拉车、耕田、供人骑乘",
+        "imageName": "",
+        "EnglishName": "Donkey",
+        "PinYin":"lǘ"
+    },
+    {
+        "name": "猴子",
+        "content" : "猴子是三种类人猿灵长类动物的成员，一般大脑发达",
+        "imageName": "",
+        "EnglishName": "Monkey",
+        "PinYin":"hóu zi"
+    },
+    {
+        "name": "老鼠",
+        "content" : "老鼠俗称耗子，喜欢偷东西吃",
+        "imageName": "",
+        "EnglishName": "Mouse",
+        "PinYin":"lǎo shǔ"
+    },
+    {
+        "name": "猫",
+        "content" : "哺乳动物，面呈圆形，脚有利爪，行动敏捷，会捉老鼠",
+        "imageName": "",
+        "EnglishName": "Cat",
+        "PinYin":"māo"
+    },
+    {
+        "name": "老虎",
+        "content" : "老虎体型大，凶猛，喜欢捕食领养、斑马、长颈鹿等动物",
+        "imageName": "",
+        "EnglishName": "Tiger",
+        "PinYin":"lǎo hǔ"
+    },
+    {
+        "name": "狮子",
+        "content" : "狮子体型大，躯体均匀，四肢中长，趾行性。头大而圆，吻部较短，视、听、嗅觉均很发达。",
+        "imageName": "",
+        "EnglishName": "Lion",
+        "PinYin":"shī zi"
+    },
+    {
+        "name": "狗",
+        "content" : "哺乳动物，种类很多，听觉嗅觉都很敏锐，善于看守门户，有的可以训练成军犬、警犬",
+        "imageName": "",
+        "EnglishName": "Dog",
+        "PinYin":"gǒu"
+    },
+    {
+        "name": "猪",
+        "content" : "哺乳动物，肉可食，皮可制革，粪是很好的肥料，很喜欢偷懒，吃饱就睡。",
+        "imageName": "",
+        "EnglishName": "Pig",
+        "PinYin":"zhū"
+    },
+    {
+        "name": "熊猫",
+        "content" : "熊猫是中国国宝，喜欢吃竹子",
+        "imageName": "",
+        "EnglishName": "Panda",
+        "PinYin":"xióng māo"
+    },
+    {
+        "name": "大象",
+        "content" : "目前陆地上最大的哺乳动物，有条长长的鼻子",
+        "imageName": "",
+        "EnglishName": "Elephant",
+        "PinYin":"dà xiàng"
+    },
+    {
+        "name": "骆驼",
+        "content" : "骆驼，头较小，去提高大，体毛褐色。极能忍饥耐渴，沙漠中常见",
+        "imageName": "",
+        "EnglishName": "Camel",
+        "PinYin":"luò tuo"
+    },
+    {
+        "name": "熊",
+        "content" : "哺乳动物，体大，尾短，四肢短而粗，脚掌大，能直立行走，也能攀树，种类很多",
+        "imageName": "",
+        "EnglishName": "Bear",
+        "PinYin":"xióng"
+    },
+    {
+        "name": "长颈鹿",
+        "content" : "哺乳类动物。产于非洲。脖子很长，奔跑很快",
+        "imageName": "",
+        "EnglishName": "Giraffe",
+        "PinYin":"cháng jǐng lù"
+    },
+    {
+        "name": "鹅",
+        "content" : "家禽，比鸭子大，善于游水",
+        "imageName": "",
+        "EnglishName": "Goose",
+        "PinYin":"é"
+    },
+    {
+        "name": "乌龟",
+        "content" : "生活在河流、湖泊里，龟甲很硬。亦叫金龟，俗称王八",
+        "imageName": "",
+        "EnglishName": "Tortoise",
+        "PinYin":"wū guī"
+    }
+]

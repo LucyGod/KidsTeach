@@ -1,0 +1,85 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - IQKeyboardManager (6.5.2)
+  - JCore (2.1.4)
+  - JhtMarquee (1.0.6)
+  - JPush (3.2.6):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - Masonry (1.1.0)
+  - MJExtension (3.2.1)
+  - MJRefresh (3.2.0)
+  - RTRootNavigationController (0.7.2):
+    - RTRootNavigationController/Core (= 0.7.2)
+  - RTRootNavigationController/Core (0.7.2)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.2.3):
+    - SDWebImage/Core (= 5.2.3)
+  - SDWebImage/Core (5.2.3)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - AFNetworking
+  - FMDB
+  - IQKeyboardManager
+  - JhtMarquee
+  - JPush
+  - Masonry
+  - MJExtension
+  - MJRefresh
+  - RTRootNavigationController
+  - SDCycleScrollView
+  - SDWebImage
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - FMDB
+    - IQKeyboardManager
+    - JCore
+    - JhtMarquee
+    - JPush
+    - Masonry
+    - MJExtension
+    - MJRefresh
+    - RTRootNavigationController
+    - SDCycleScrollView
+    - SDWebImage
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  IQKeyboardManager: 17a44c12fc47b1a0d3cbb8a89378953ac5ad8b1f
+  JCore: d345c049141877eb61c33011455fdb5fcab1673f
+  JhtMarquee: 38eb0ceb3d515092e77a88b9005e2179c7cd1b2d
+  JPush: 41dd48a69bd8c08abc692dc7f2b23c0fb281471f
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  RTRootNavigationController: 8344c2352d6d40fa370d0366efae2c84a945213f
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 89a5f1733227aff8fc4c556744ae21f19b73b253
+
+COCOAPODS: 1.8.4
