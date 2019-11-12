@@ -41,6 +41,8 @@
     [self.speechSynthesizer setParameter:@" tts.pcm" forKey: [IFlySpeechConstant TTS_AUDIO_PATH]];
     [self.speechSynthesizer setParameter:@"10" forKey:[IFlySpeechConstant SPEED]];
     [self.speechSynthesizer setParameter:@"30" forKey:[IFlySpeechConstant PITCH]];
+    
+    self.speechSynthesizer.delegate = self;
 }
 
 
@@ -60,6 +62,10 @@
 
 - (void)stopSpeak {
     [self.speechSynthesizer pauseSpeaking];
+}
+
+- (void) onCompleted:(IFlySpeechError*) error {
+    
 }
 
 

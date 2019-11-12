@@ -11,7 +11,7 @@
 #import <iflyMSC/IFlySpeechSynthesizer.h>
 #import <iflyMSC/IFlySpeechSynthesizerDelegate.h>
 
-@interface VoiceHelper : NSObject
+@interface VoiceHelper : NSObject <IFlySpeechSynthesizerDelegate>
 
 @property (nonatomic, strong) IFlySpeechSynthesizer *speechSynthesizer;
 
