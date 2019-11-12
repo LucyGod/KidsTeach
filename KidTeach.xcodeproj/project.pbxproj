@@ -258,6 +258,7 @@
 		04B3CE9E237A4FD7002CBEC4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE9D237A4FD7002CBEC4 /* QuartzCore.framework */; };
 		04B3CEA0237A4FDD002CBEC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE9F237A4FDD002CBEC4 /* CoreGraphics.framework */; };
 		04B3CEA2237A4FE4002CBEC4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */; };
+		04B3CEAB237A8D80002CBEC4 /* FindPicGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */; };
 		04B5B3B5235EAA34002179AA /* LGScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3AB235EAA34002179AA /* LGScrollContentView.m */; };
 		04B5B3B6235EAA34002179AA /* LGScrollTitleMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3AD235EAA34002179AA /* LGScrollTitleMenuLabel.m */; };
 		04B5B3B7235EAA34002179AA /* LGScrollTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3AE235EAA34002179AA /* LGScrollTitleView.m */; };
@@ -771,6 +772,8 @@
 		04B3CE9D237A4FD7002CBEC4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		04B3CE9F237A4FDD002CBEC4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		04B3CEA9237A8D80002CBEC4 /* FindPicGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPicGameView.h; sourceTree = "<group>"; };
+		04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPicGameView.m; sourceTree = "<group>"; };
 		04B5B3AB235EAA34002179AA /* LGScrollContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGScrollContentView.m; sourceTree = "<group>"; };
 		04B5B3AC235EAA34002179AA /* LGScrollPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGScrollPageView.h; sourceTree = "<group>"; };
 		04B5B3AD235EAA34002179AA /* LGScrollTitleMenuLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGScrollTitleMenuLabel.m; sourceTree = "<group>"; };
@@ -1981,6 +1984,8 @@
 		046882E9237965490024F963 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04B3CEA9237A8D80002CBEC4 /* FindPicGameView.h */,
+				04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */,
 				046882E123795EB40024F963 /* ASODetailContentTopView.h */,
 				046882E223795EB40024F963 /* ASODetailContentTopView.m */,
 				046882E4237964370024F963 /* ASODetailContentTopCollectionViewCell.h */,
@@ -2225,6 +2230,7 @@
 				044A5273235EB22300FDC7D4 /* LanguageTool.m in Sources */,
 				043BC6CA2361AEC900BBF43A /* AppDelegate+JPush.m in Sources */,
 				0426EE0F235EA0F7002A6616 /* WMMenuItem.m in Sources */,
+				04B3CEAB237A8D80002CBEC4 /* FindPicGameView.m in Sources */,
 				044A525A235EB22300FDC7D4 /* KLineViewConfig.m in Sources */,
 				044A526A235EB22300FDC7D4 /* KLineBOLLDrawLogic.m in Sources */,
 				04344183236006BE001CF8C2 /* HXCustomCameraController.m in Sources */,

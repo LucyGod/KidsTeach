@@ -7,8 +7,8 @@
 //
 
 #import "ASODemoViewController.h"
-
-@interface ASODemoViewController (){
+#import "FindPicGameView.h"
+@interface ASODemoViewController ()<GameSuccessDelegate>{
     UIImageView *_contentView;
     UILabel *_contentTitlelabel;
 }
@@ -112,6 +112,24 @@
         make.top.equalTo(kuangView.mas_bottom).offset(80);
     }];
     
+    FindPicGameView *gameView = [[FindPicGameView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_Width - 40 - 16, 200 - 16) withPicName:_dataDic[@"name"]];
+    gameView.delegate = self;
+    gameView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:gameView];
+    [gameView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(bottomView.mas_left).offset(8);
+        make.right.equalTo(bottomView.mas_right).offset(-8);
+        make.top.equalTo(bottomView.mas_top).offset(8);
+        make.bottom.equalTo(bottomView.mas_bottom).offset(-8);
+    }];
+}
+
+- (void)didSuccessGame{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"你真聪明，继续学习！" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)backButtonAction{
