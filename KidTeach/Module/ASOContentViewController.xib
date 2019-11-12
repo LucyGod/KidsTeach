@@ -69,7 +69,7 @@
                         <action selector="tapNextButtonAction:" destination="-1" eventType="touchUpInside" id="8vM-vX-gri"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="马" translatesAutoresizingMaskIntoConstraints="NO" id="lON-dw-ClJ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="马" translatesAutoresizingMaskIntoConstraints="NO" id="lON-dw-ClJ">
                     <rect key="frame" x="152" y="187" width="110" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="CVq-DX-NWa"/>
