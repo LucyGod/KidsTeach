@@ -8,7 +8,7 @@
 
 #import "ASOMainViewController.h"
 #import "ASOContentViewController.h"
-
+#import "MusicHomeViewController.h"
 @interface ASOMainViewController ()
 
 @end
@@ -44,8 +44,11 @@
             break;
         case 4:
             //基础识字
-            break;
-            
+        {
+            MusicHomeViewController *music = [[MusicHomeViewController alloc] init];
+            [self.navigationController pushViewController:music animated:YES];
+            return ;
+        }
         default:
             break;
     }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="PDmarketLandCell">
+            <rect key="frame" x="0.0" y="0.0" width="196" height="179"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="196" height="179"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLf-fo-tGB">
+                        <rect key="frame" x="0.0" y="0.0" width="196" height="179"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shenglv" translatesAutoresizingMaskIntoConstraints="NO" id="EJN-Db-1XQ">
+                                <rect key="frame" x="5" y="5" width="186" height="169"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EJN-Db-1XQ" firstAttribute="top" secondItem="wLf-fo-tGB" secondAttribute="top" constant="5" id="Pb3-4g-ktp"/>
+                            <constraint firstAttribute="trailing" secondItem="EJN-Db-1XQ" secondAttribute="trailing" constant="5" id="Zx6-PO-uNh"/>
+                            <constraint firstAttribute="bottom" secondItem="EJN-Db-1XQ" secondAttribute="bottom" constant="5" id="bOF-bg-6bZ"/>
+                            <constraint firstItem="EJN-Db-1XQ" firstAttribute="centerX" secondItem="wLf-fo-tGB" secondAttribute="centerX" id="czM-wV-2Y5"/>
+                            <constraint firstItem="EJN-Db-1XQ" firstAttribute="leading" secondItem="wLf-fo-tGB" secondAttribute="leading" constant="5" id="mwr-SX-DTW"/>
+                        </constraints>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9O9-X8-gqx">
+                        <rect key="frame" x="0.0" y="178" width="196" height="1"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="fmr-8h-XQk"/>
+                        </constraints>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9k-i7-xIt">
+                        <rect key="frame" x="195" y="0.0" width="1" height="169"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="ZKi-qS-5Tv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wLf-fo-tGB" secondAttribute="bottom" id="1T9-pq-Ihh"/>
+                <constraint firstItem="wLf-fo-tGB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1de-pB-qgP"/>
+                <constraint firstAttribute="trailing" secondItem="wLf-fo-tGB" secondAttribute="trailing" id="9Wj-5N-2dh"/>
+                <constraint firstAttribute="trailing" secondItem="9O9-X8-gqx" secondAttribute="trailing" id="AiX-xE-Vp4"/>
+                <constraint firstAttribute="trailing" secondItem="f9k-i7-xIt" secondAttribute="trailing" id="Er6-33-ufn"/>
+                <constraint firstAttribute="bottom" secondItem="9O9-X8-gqx" secondAttribute="bottom" id="PMQ-SO-CCs"/>
+                <constraint firstItem="f9k-i7-xIt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UEl-m7-ohQ"/>
+                <constraint firstItem="9O9-X8-gqx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Y6m-8w-WcC"/>
+                <constraint firstAttribute="bottom" secondItem="f9k-i7-xIt" secondAttribute="bottom" constant="10" id="evU-uV-sWk"/>
+                <constraint firstItem="wLf-fo-tGB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jyS-br-3oA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="196" height="179"/>
+            <connections>
+                <outlet property="bgView" destination="wLf-fo-tGB" id="H0J-o4-ZxD"/>
+                <outlet property="imgView" destination="EJN-Db-1XQ" id="9u8-lu-isZ"/>
+            </connections>
+            <point key="canvasLocation" x="65.217391304347828" y="135.60267857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="shenglv" width="998" height="600"/>
+    </resources>
+</document>
