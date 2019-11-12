@@ -104,9 +104,9 @@ static NSString *songIdentifier = @"songCellIdentifier";
     MusicModel *model = [[MusicModel alloc] init];
     model = [self.dataArr objectAtIndex:indexPath.row];
     [cell.imgView sd_setImageWithURL:[NSURL URLWithString:model.coverurl] placeholderImage:[UIImage imageNamed:@"PlayerHeader"]];
-    cell.BgImgView.image = [[UIImage imageNamed:_nameStr] applyExtraLightEffect];
-    cell.titleLabel.text = [NSString stringWithFormat:@"%@_%@",  model.audio_name, model.audio_name];
-    
+//    cell.BgImgView.image = [[UIImage imageNamed:_nameStr] applyExtraLightEffect];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%@",  model.audio_name];
+    cell.speLineView.backgroundColor = [UIColor colorWithPatternImage:[[UIImage imageNamed:_nameStr] applyExtraLightEffect]];
     return cell;
 }
 

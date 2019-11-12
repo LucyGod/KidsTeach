@@ -29,10 +29,10 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcn-tC-M5q">
-                        <rect key="frame" x="0.0" y="91" width="355" height="1"/>
+                        <rect key="frame" x="0.0" y="87" width="355" height="5"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="IBM-8M-fwO"/>
+                            <constraint firstAttribute="height" constant="5" id="IBM-8M-fwO"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="锄禾日党务" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwk-xp-JC1">
@@ -62,6 +62,7 @@
             <connections>
                 <outlet property="BgImgView" destination="zBN-GL-54d" id="WrL-Zb-yzV"/>
                 <outlet property="imgView" destination="bsd-XM-qjc" id="Yak-gG-odE"/>
+                <outlet property="speLineView" destination="bcn-tC-M5q" id="tJ6-Ce-2Th"/>
                 <outlet property="titleLabel" destination="Cwk-xp-JC1" id="IqA-49-qSQ"/>
             </connections>
             <point key="canvasLocation" x="160.1449275362319" y="107.8125"/>
