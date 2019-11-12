@@ -9,7 +9,7 @@
 #import "ASOContentViewController.h"
 #import "ASODetailContentTopView.h"
 #import "VoiceHelper.h"
-#import "ASODetailContentViewController.h"
+#import "ASODemoViewController.h"
 
 @interface ASOContentViewController ()<DetailContentTopViewDelegate>{
     ASODetailContentTopView *_topCollectionView;
@@ -122,7 +122,7 @@
 }
 
 - (IBAction)tapNextButtonAction:(id)sender {
-    ASODetailContentViewController *detailContentVC = [[ASODetailContentViewController alloc] init];
+    ASODemoViewController *detailContentVC = [[ASODemoViewController alloc] init];
     detailContentVC.dataDic = _tempDataDic;
     [self.navigationController pushViewController:detailContentVC animated:YES];
 }

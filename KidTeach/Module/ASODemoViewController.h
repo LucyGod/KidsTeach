@@ -1,5 +1,5 @@
 //
-//  ASODetailContentViewController.h
+//  ASODemoViewController.h
 //  KidTeach
 //
 //  Created by LonelyTown on 2019/11/12.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ASODetailContentViewController : UIViewController
+@interface ASODemoViewController : UIViewController
 
 @property (nonatomic,strong) NSDictionary* dataDic;
 
