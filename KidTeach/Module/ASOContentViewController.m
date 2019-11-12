@@ -18,10 +18,13 @@
 
 @implementation ASOContentViewController
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[VoiceHelper sharedInstance] stopSpeak];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [[VoiceHelper sharedInstance] setSpeechSynthesizerDelegate:self];
     
     [self initSubViews];
     
@@ -125,7 +128,4 @@
     [[VoiceHelper sharedInstance] startSpeaking:_tempDataDic[@"content"] withParamaters:nil];
 }
 
-- (void) onCompleted:(IFlySpeechError*) error {
-    
-}
 @end
