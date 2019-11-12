@@ -9,6 +9,8 @@
 #import "ASOContentViewController.h"
 #import "ASODetailContentTopView.h"
 #import "VoiceHelper.h"
+#import "ASODetailContentViewController.h"
+
 @interface ASOContentViewController ()<DetailContentTopViewDelegate>{
     ASODetailContentTopView *_topCollectionView;
     NSDictionary *_tempDataDic;
@@ -112,15 +114,18 @@
 
 - (IBAction)voiceButtonAction:(id)sender {
     //当前json dic
-//    _tempDataDic[@"name"];
+    //    _tempDataDic[@"name"];
     [[VoiceHelper sharedInstance] startSpeaking:_tempDataDic[@"name"] withParamaters:nil];
 }
 
 - (IBAction)tapNextButtonAction:(id)sender {
+    ASODetailContentViewController *detailContentVC = [[ASODetailContentViewController alloc] init];
+    detailContentVC.dataDic = _tempDataDic;
+    [self.navigationController pushViewController:detailContentVC animated:YES];
 }
 
 - (IBAction)contentVoiceButtonAction:(id)sender {
-       //当前json dic
+    //当前json dic
     //    _tempDataDic[@"content"];
     [[VoiceHelper sharedInstance] startSpeaking:_tempDataDic[@"content"] withParamaters:nil];
 }

@@ -242,6 +242,8 @@
 		046882ED237967F00024F963 /* vegetables_k_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 046882EA237967F00024F963 /* vegetables_k_data.json */; };
 		046882EE237967F00024F963 /* person_k_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 046882EB237967F00024F963 /* person_k_data.json */; };
 		046882EF237967F00024F963 /* animal_k_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 046882EC237967F00024F963 /* animal_k_data.json */; };
+		046882F3237A59D80024F963 /* ASODetailContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046882F1237A59D80024F963 /* ASODetailContentViewController.m */; };
+		046882F4237A59D80024F963 /* ASODetailContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046882F2237A59D80024F963 /* ASODetailContentViewController.xib */; };
 		04B3CE87237A4F2B002CBEC4 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE84237A4F2B002CBEC4 /* iflyMSC.framework */; };
 		04B3CE88237A4F2B002CBEC4 /* VoiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CE86237A4F2B002CBEC4 /* VoiceHelper.m */; };
 		04B3CE8A237A4F89002CBEC4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE89237A4F89002CBEC4 /* libz.tbd */; };
@@ -751,6 +753,9 @@
 		046882EA237967F00024F963 /* vegetables_k_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vegetables_k_data.json; sourceTree = "<group>"; };
 		046882EB237967F00024F963 /* person_k_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = person_k_data.json; sourceTree = "<group>"; };
 		046882EC237967F00024F963 /* animal_k_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animal_k_data.json; sourceTree = "<group>"; };
+		046882F0237A59D80024F963 /* ASODetailContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASODetailContentViewController.h; sourceTree = "<group>"; };
+		046882F1237A59D80024F963 /* ASODetailContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASODetailContentViewController.m; sourceTree = "<group>"; };
+		046882F2237A59D80024F963 /* ASODetailContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASODetailContentViewController.xib; sourceTree = "<group>"; };
 		04826B55229F7B9B00FDD82F /* KidTeach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KidTeach.entitlements; sourceTree = "<group>"; };
 		04B3CE84237A4F2B002CBEC4 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		04B3CE85237A4F2B002CBEC4 /* VoiceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceHelper.h; sourceTree = "<group>"; };
@@ -1014,6 +1019,9 @@
 				046882DA237932BB0024F963 /* ASOContentViewController.h */,
 				046882DB237932BB0024F963 /* ASOContentViewController.m */,
 				046882DC237932BB0024F963 /* ASOContentViewController.xib */,
+				046882F0237A59D80024F963 /* ASODetailContentViewController.h */,
+				046882F1237A59D80024F963 /* ASODetailContentViewController.m */,
+				046882F2237A59D80024F963 /* ASODetailContentViewController.xib */,
 				046882E9237965490024F963 /* Views */,
 			);
 			path = Module;
@@ -2128,6 +2136,7 @@
 				046882EF237967F00024F963 /* animal_k_data.json in Resources */,
 				046882EE237967F00024F963 /* person_k_data.json in Resources */,
 				04125B6A23792A4B00D07037 /* ASOMainViewController.xib in Resources */,
+				046882F4237A59D80024F963 /* ASODetailContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2298,6 +2307,7 @@
 				044A5268235EB22300FDC7D4 /* KLineRSIDrawLogic.m in Sources */,
 				044A527F235EB22300FDC7D4 /* JXCategoryIndicatorComponentView.m in Sources */,
 				042F9B542284271500FF7F72 /* NSString+Path.m in Sources */,
+				046882F3237A59D80024F963 /* ASODetailContentViewController.m in Sources */,
 				044A528A235EB22300FDC7D4 /* JXCategoryTitleImageCellModel.m in Sources */,
 				042F9B2B2284241A00FF7F72 /* main.m in Sources */,
 				04344194236006BE001CF8C2 /* FAPCommonUserInfo.m in Sources */,
