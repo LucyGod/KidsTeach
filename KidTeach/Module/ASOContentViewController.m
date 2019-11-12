@@ -8,7 +8,7 @@
 
 #import "ASOContentViewController.h"
 #import "ASODetailContentTopView.h"
-
+#import "VoiceHelper.h"
 @interface ASOContentViewController ()<DetailContentTopViewDelegate>{
     ASODetailContentTopView *_topCollectionView;
     NSDictionary *_tempDataDic;
@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[VoiceHelper sharedInstance] setSpeechSynthesizerDelegate:self];
+    
     [self initSubViews];
     
     [self setDefaultValue];
@@ -31,7 +33,7 @@
     if ([_typeName isEqualToString:@"动物"]) {
         dataDic = @{
             @"name": @"鸡",
-            @"content" : @"家禽，品种很多，翅膀短，不能高飞；雄性啼能报晓，雄性生的蛋是好食品",
+            @"content" : @"家禽，品种很多，翅膀短，不能高飞；雄性啼能报晓，雌性生的蛋是好食品",
             @"imageName": @"",
             @"EnglishName": @"Chicken",
             @"PinYin":@"jī"
@@ -63,6 +65,7 @@
     }
     
     _tempDataDic = dataDic;
+    [self addDefaultVoice];
     [self updateContentItems:dataDic];
 }
 
@@ -84,9 +87,16 @@
 - (void)didSelectdTopViewItemAtIndexpath:(NSIndexPath *)indexpath param:(NSDictionary *)paramDic{
     NSLog(@"%ld____%@",indexpath.row,paramDic);
     _tempDataDic = paramDic;
+    
+    [self addDefaultVoice];
+    
     [self updateContentItems:paramDic];
 }
 
+- (void)addDefaultVoice{
+    NSString *voiceString = [NSString stringWithFormat:@"%@,%@",_tempDataDic[@"name"],_tempDataDic[@"content"]];
+    [[VoiceHelper sharedInstance] startSpeaking:voiceString withParamaters:nil];
+}
 
 /// 刷新页面内容
 - (void)updateContentItems:(NSDictionary*)info{
@@ -103,6 +113,7 @@
 - (IBAction)voiceButtonAction:(id)sender {
     //当前json dic
 //    _tempDataDic[@"name"];
+    [[VoiceHelper sharedInstance] startSpeaking:_tempDataDic[@"name"] withParamaters:nil];
 }
 
 - (IBAction)tapNextButtonAction:(id)sender {
@@ -111,5 +122,10 @@
 - (IBAction)contentVoiceButtonAction:(id)sender {
        //当前json dic
     //    _tempDataDic[@"content"];
+    [[VoiceHelper sharedInstance] startSpeaking:_tempDataDic[@"content"] withParamaters:nil];
+}
+
+- (void) onCompleted:(IFlySpeechError*) error {
+    
 }
 @end
