@@ -242,7 +242,7 @@
 		046882ED237967F00024F963 /* vegetables_k_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 046882EA237967F00024F963 /* vegetables_k_data.json */; };
 		046882EE237967F00024F963 /* person_k_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 046882EB237967F00024F963 /* person_k_data.json */; };
 		046882EF237967F00024F963 /* animal_k_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 046882EC237967F00024F963 /* animal_k_data.json */; };
-		046882F7237A6D960024F963 /* ASODemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046882F6237A6D960024F963 /* ASODemoViewController.m */; };
+		046882F7237A6D960024F963 /* ASOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046882F6237A6D960024F963 /* ASOGameViewController.m */; };
 		04759DCA237BED640063521C /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04759DC8237BED640063521C /* bg.mp3 */; };
 		04759DCB237BED640063521C /* card.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04759DC9237BED640063521C /* card.wav */; };
 		04759DCE237BF74A0063521C /* ASOSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04759DCD237BF74A0063521C /* ASOSettingViewController.m */; };
@@ -794,8 +794,8 @@
 		046882EA237967F00024F963 /* vegetables_k_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vegetables_k_data.json; sourceTree = "<group>"; };
 		046882EB237967F00024F963 /* person_k_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = person_k_data.json; sourceTree = "<group>"; };
 		046882EC237967F00024F963 /* animal_k_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animal_k_data.json; sourceTree = "<group>"; };
-		046882F5237A6D960024F963 /* ASODemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASODemoViewController.h; sourceTree = "<group>"; };
-		046882F6237A6D960024F963 /* ASODemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASODemoViewController.m; sourceTree = "<group>"; };
+		046882F5237A6D960024F963 /* ASOGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASOGameViewController.h; sourceTree = "<group>"; };
+		046882F6237A6D960024F963 /* ASOGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOGameViewController.m; sourceTree = "<group>"; };
 		04759DC8237BED640063521C /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
 		04759DC9237BED640063521C /* card.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = card.wav; sourceTree = "<group>"; };
 		04759DCC237BF7490063521C /* ASOSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOSettingViewController.h; sourceTree = "<group>"; };
@@ -1125,8 +1125,8 @@
 				046882DA237932BB0024F963 /* ASOContentViewController.h */,
 				046882DB237932BB0024F963 /* ASOContentViewController.m */,
 				046882DC237932BB0024F963 /* ASOContentViewController.xib */,
-				046882F5237A6D960024F963 /* ASODemoViewController.h */,
-				046882F6237A6D960024F963 /* ASODemoViewController.m */,
+				046882F5237A6D960024F963 /* ASOGameViewController.h */,
+				046882F6237A6D960024F963 /* ASOGameViewController.m */,
 				04759DCC237BF7490063521C /* ASOSettingViewController.h */,
 				04759DCD237BF74A0063521C /* ASOSettingViewController.m */,
 				046882E9237965490024F963 /* Views */,
@@ -2447,7 +2447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				046882F7237A6D960024F963 /* ASODemoViewController.m in Sources */,
+				046882F7237A6D960024F963 /* ASOGameViewController.m in Sources */,
 				044A5262235EB22300FDC7D4 /* KLineView.m in Sources */,
 				0434418D236006BE001CF8C2 /* HXAlbumModel.m in Sources */,
 				04D71B2C237AD40F00EBFDE7 /* UIResponder+responder.m in Sources */,

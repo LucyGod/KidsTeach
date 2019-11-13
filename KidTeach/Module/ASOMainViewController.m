@@ -125,7 +125,7 @@
         WEAKSELF
         [anview setResultBlock:^{
             ASOSettingViewController *settingVC = [[ASOSettingViewController alloc] init];
-            
+            settingVC.modalPresentationStyle = UIModalPresentationFullScreen;
             [weakSelf presentViewController:settingVC animated:YES completion:nil];
         }];
         UIEdgeInsets padding = UIEdgeInsetsMake(0, 0, 0, 0);

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ASODemoViewController : UIViewController
+@interface ASOGameViewController : UIViewController
 
 @property (nonatomic,strong) NSDictionary* dataDic;
 

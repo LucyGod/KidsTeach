@@ -6,16 +6,16 @@
 //  Copyright © 2019 ghostlord. All rights reserved.
 //
 
-#import "ASODemoViewController.h"
+#import "ASOGameViewController.h"
 #import "FindPicGameView.h"
-@interface ASODemoViewController ()<GameSuccessDelegate>{
+@interface ASOGameViewController ()<GameSuccessDelegate>{
     UIImageView *_contentView;
     UILabel *_contentTitlelabel;
 }
 
 @end
 
-@implementation ASODemoViewController
+@implementation ASOGameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
