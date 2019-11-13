@@ -18,4 +18,6 @@ target 'KidTeach' do
   pod 'MJExtension'
   pod 'JPush'
   pod 'FMDB'
+  pod 'UMCCommon'
+  pod 'UMCAnalytics'
 end
