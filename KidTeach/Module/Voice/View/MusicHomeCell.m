@@ -8,16 +8,16 @@
 //  Copyright © 2019 mac. All rights reserved.
 //
 
-#import "PDmarketLandCell.h"
+#import "MusicHomeCell.h"
 
-@interface PDmarketLandCell ()
+@interface MusicHomeCell ()
 {
 
     __weak IBOutlet UIView *bgView;
 }
 
 @end
-@implementation PDmarketLandCell
+@implementation MusicHomeCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

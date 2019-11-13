@@ -40,10 +40,7 @@ static AudioPlayerController *audioVC;
         audioVC = [[AudioPlayerController alloc] init];
         audioVC.view.backgroundColor = [UIColor whiteColor];
         audioVC.player = [[AVPlayer alloc]init];
-        //后台播放
-        AVAudioSession *session = [AVAudioSession sharedInstance];
-        [session setActive:YES error:nil];
-        [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+
     });
     return audioVC;
 }
@@ -110,7 +107,7 @@ static AudioPlayerController *audioVC;
     }
     MusicModel *model = [_modelArray objectAtIndex:_index];
     _playingModel = model;
-    // 更新界面歌曲信息：歌名，歌手，图片
+   
     [self updateUIDataWith:model];
     
     playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:model.downloadurl]];
@@ -145,7 +142,9 @@ static AudioPlayerController *audioVC;
             [SVProgressHUD dismiss];
             
             CMTime duration = item.duration;// 获取视频总长度
-            [self setMaxDuratuin:CMTimeGetSeconds(duration)];
+            if (duration.value) {
+                [self setMaxDuratuin:CMTimeGetSeconds(duration)];
+            }
             [self play];
            
         }else if([playerItem status] == AVPlayerStatusFailed) {
@@ -173,7 +172,6 @@ static AudioPlayerController *audioVC;
 }
 
 - (void)updateVideoSlider:(float)currentTime{
-    [self setLockViewWith:_playingModel currentTime:currentTime];
     self.paceSlider.value = currentTime;
     self.playingTime.text = [NSString convertTime:currentTime];
 }
@@ -288,26 +286,6 @@ static AudioPlayerController *audioVC;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
 
-#pragma mark - 后台UI设置
-- (void)setLockViewWith:(MusicModel*)model currentTime:(CGFloat)currentTime
-{
-    NSMutableDictionary *musicInfo = [NSMutableDictionary dictionary];
-    // 设置Singer
-    [musicInfo setObject:model.audio_name forKey:MPMediaItemPropertyArtist];
-    // 设置歌曲名
-    [musicInfo setObject:model.audio_name forKey:MPMediaItemPropertyTitle];
-    // 设置封面
-    MPMediaItemArtwork *artwork;
-    
-    artwork = [[MPMediaItemArtwork alloc] initWithImage:self.rotatingView.imageView.image];
-    [musicInfo setObject:artwork forKey:MPMediaItemPropertyArtwork];
-    // 音乐剩余时长
-    [musicInfo setObject:[NSNumber numberWithDouble:_totalTime] forKey:MPMediaItemPropertyPlaybackDuration];
-    // 音乐当前播放时间
-    [musicInfo setObject:[NSNumber numberWithDouble:currentTime] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
-    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:musicInfo];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
@@ -316,9 +294,10 @@ static AudioPlayerController *audioVC;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
-    if (isPlaying) { //暂停播放
-              [self stop];
-    }
+    [SVProgressHUD dismiss];
+//     if (isPlaying) { //暂停播放
+            [self stop];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
