@@ -11,14 +11,11 @@
 #import "MusicHomeViewController.h"
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "ASOSettingViewController.h"
 
-@interface ASOMainViewController (){
-    
-}
+@interface ASOMainViewController ()
 
 @property (nonatomic, strong) AVPlayer *player;
-#import "ASOSettingViewController.h"
-@interface ASOMainViewController ()
 
 @end
 
@@ -128,7 +125,9 @@
 }
 
 - (IBAction)settingAction:(id)sender {
+    ASOSettingViewController *settingVC = [[ASOSettingViewController alloc] init];
     
+    [self presentViewController:settingVC animated:YES completion:nil];
 }
 
 @end

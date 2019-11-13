@@ -245,6 +245,7 @@
 		046882F7237A6D960024F963 /* ASODemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046882F6237A6D960024F963 /* ASODemoViewController.m */; };
 		04759DCA237BED640063521C /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04759DC8237BED640063521C /* bg.mp3 */; };
 		04759DCB237BED640063521C /* card.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04759DC9237BED640063521C /* card.wav */; };
+		04759DCE237BF74A0063521C /* ASOSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04759DCD237BF74A0063521C /* ASOSettingViewController.m */; };
 		04B3CE87237A4F2B002CBEC4 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE84237A4F2B002CBEC4 /* iflyMSC.framework */; };
 		04B3CE88237A4F2B002CBEC4 /* VoiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CE86237A4F2B002CBEC4 /* VoiceHelper.m */; };
 		04B3CE8A237A4F89002CBEC4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE89237A4F89002CBEC4 /* libz.tbd */; };
@@ -261,7 +262,6 @@
 		04B3CEA0237A4FDD002CBEC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE9F237A4FDD002CBEC4 /* CoreGraphics.framework */; };
 		04B3CEA2237A4FE4002CBEC4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */; };
 		04B3CEAB237A8D80002CBEC4 /* FindPicGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */; };
-		04B3CEAE237BA410002CBEC4 /* ASOSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */; };
 		04B3CEB1237BD5C5002CBEC4 /* ASOCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEB0237BD5C5002CBEC4 /* ASOCustomButton.m */; };
 		04B5B3B5235EAA34002179AA /* LGScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3AB235EAA34002179AA /* LGScrollContentView.m */; };
 		04B5B3B6235EAA34002179AA /* LGScrollTitleMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3AD235EAA34002179AA /* LGScrollTitleMenuLabel.m */; };
@@ -787,6 +787,8 @@
 		046882F6237A6D960024F963 /* ASODemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASODemoViewController.m; sourceTree = "<group>"; };
 		04759DC8237BED640063521C /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
 		04759DC9237BED640063521C /* card.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = card.wav; sourceTree = "<group>"; };
+		04759DCC237BF7490063521C /* ASOSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOSettingViewController.h; sourceTree = "<group>"; };
+		04759DCD237BF74A0063521C /* ASOSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASOSettingViewController.m; sourceTree = "<group>"; };
 		04826B55229F7B9B00FDD82F /* KidTeach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KidTeach.entitlements; sourceTree = "<group>"; };
 		04B3CE84237A4F2B002CBEC4 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		04B3CE85237A4F2B002CBEC4 /* VoiceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceHelper.h; sourceTree = "<group>"; };
@@ -806,8 +808,6 @@
 		04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		04B3CEA9237A8D80002CBEC4 /* FindPicGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPicGameView.h; sourceTree = "<group>"; };
 		04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPicGameView.m; sourceTree = "<group>"; };
-		04B3CEAC237BA410002CBEC4 /* ASOSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASOSettingViewController.h; sourceTree = "<group>"; };
-		04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOSettingViewController.m; sourceTree = "<group>"; };
 		04B3CEAF237BD5C5002CBEC4 /* ASOCustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASOCustomButton.h; sourceTree = "<group>"; };
 		04B3CEB0237BD5C5002CBEC4 /* ASOCustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOCustomButton.m; sourceTree = "<group>"; };
 		04B5B3AB235EAA34002179AA /* LGScrollContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGScrollContentView.m; sourceTree = "<group>"; };
@@ -1101,8 +1101,8 @@
 				046882DC237932BB0024F963 /* ASOContentViewController.xib */,
 				046882F5237A6D960024F963 /* ASODemoViewController.h */,
 				046882F6237A6D960024F963 /* ASODemoViewController.m */,
-				04B3CEAC237BA410002CBEC4 /* ASOSettingViewController.h */,
-				04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */,
+				04759DCC237BF7490063521C /* ASOSettingViewController.h */,
+				04759DCD237BF74A0063521C /* ASOSettingViewController.m */,
 				046882E9237965490024F963 /* Views */,
 			);
 			path = Module;
@@ -2533,6 +2533,7 @@
 				04D24AAD235FE83800B18F28 /* FAPHTTPRequest.m in Sources */,
 				044A528F235EB22300FDC7D4 /* JXCategoryImageCell.m in Sources */,
 				0426EDEF235E9C6F002A6616 /* FAPBaseCollectionViewController.m in Sources */,
+				04759DCE237BF74A0063521C /* ASOSettingViewController.m in Sources */,
 				04344176236006BE001CF8C2 /* UIImageView+HXExtension.m in Sources */,
 				04D24AAA235FE7EF00B18F28 /* HSCustomCellModel.m in Sources */,
 				04344143236006BE001CF8C2 /* HDAlertView.m in Sources */,
@@ -2602,7 +2603,6 @@
 				0426EE4423603D19002A6616 /* LLNoDataView.m in Sources */,
 				042F9B552284271500FF7F72 /* NSString+Verify.m in Sources */,
 				044A5290235EB22300FDC7D4 /* JXCategoryImageCellModel.m in Sources */,
-				04B3CEAE237BA410002CBEC4 /* ASOSettingViewController.m in Sources */,
 				044A5276235EB22300FDC7D4 /* HorizontalView.m in Sources */,
 				04344106236006BD001CF8C2 /* myUILabel.m in Sources */,
 				0434410B236006BD001CF8C2 /* StringManager.m in Sources */,
