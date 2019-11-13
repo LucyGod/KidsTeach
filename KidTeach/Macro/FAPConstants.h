@@ -85,7 +85,7 @@
 #define RandomColor RGBColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
 // 项目中主要颜色的定义
-#define ASOColorTheme                           HexColor(0xA35128)     // 主题颜色
+#define ASOColorTheme                           HexColor(0x2CB4DC)     // 主题颜色
 #define APPColor ASOColorTheme
 
 #define ASOColorLong                            HexColor(0x28A351)     // 上涨颜色(绿色)
