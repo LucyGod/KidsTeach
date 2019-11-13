@@ -89,6 +89,13 @@
         make.height.mas_equalTo(20);
     }];
     
+    UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buyButton addTarget:self action:@selector(buyAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buyButton];
+    [buyButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(contentView);
+    }];
+    
     UIButton *reBuyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [reBuyBtn addTarget:self action:@selector(reBuyAction) forControlEvents:UIControlEventTouchUpInside];
     [reBuyBtn setBackgroundImage:[UIImage imageNamed:@"reBuy"] forState:UIControlStateNormal];
@@ -126,10 +133,13 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+/// 内购
 - (void)buyAction{
     
 }
 
+/// 回复购买
 - (void)reBuyAction{
     
 }
