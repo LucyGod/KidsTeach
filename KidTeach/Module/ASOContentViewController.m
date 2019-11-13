@@ -53,10 +53,9 @@
         make.width.equalTo(@230);
         make.height.equalTo(@200);
         if (IS_HETERO_SCREEN) {
-            make.top.equalTo(_topCollectionView.mas_bottom).offset(18);
+            make.top.equalTo(_topCollectionView.mas_bottom).offset(25);
         }else{
             if (ASO_iPhone_6x) {
-                //                 make.width.equalTo(@210);
                 make.height.equalTo(@180);
                 make.top.equalTo(_topCollectionView.mas_bottom).offset(16);
             }else{
