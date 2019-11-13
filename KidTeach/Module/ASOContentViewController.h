@@ -13,6 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ASOContentViewController : UIViewController
 
 @property (nonatomic, strong) NSString *typeName;
+@property (weak, nonatomic) IBOutlet UIButton *nameVoiceButton;
+@property (weak, nonatomic) IBOutlet UIButton *detailButton;
+@property (weak, nonatomic) IBOutlet UIButton *contentVoiceButton;
+
+@property (weak, nonatomic) IBOutlet UIImageView *kuangImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
 
