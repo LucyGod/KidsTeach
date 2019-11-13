@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *paceSlider; // 进度条
 @property (weak, nonatomic) IBOutlet UIButton *playButton; // 播放按钮
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel; // 歌名Label
-@property (weak, nonatomic) IBOutlet UILabel *singerLabel; // 歌手Label
+@property (weak, nonatomic) IBOutlet UILabel *singerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *playingTime; // 当前播放时间Label
 @property (weak, nonatomic) IBOutlet UILabel *maxTime; // 总时间Label
 @property (nonatomic, strong) AVPlayer *player;
@@ -196,9 +196,9 @@ static AudioPlayerController *audioVC;
 //分享音乐
 - (IBAction)shareMusic:(id)sender {
     //分享的标题
-    NSString *textToShare = _playingModel.audio_name;
+    NSString *textToShare = [NSString stringWithFormat:@"宝宝快来听一听：%@",_playingModel.audio_name];
     //分享的图片
-    UIImage *imageToShare = [UIImage imageNamed:@"PlayerHeader"];
+    UIImage *imageToShare =  self.rotatingView.imageView.image;
     //分享的url
     NSURL *urlToShare = [NSURL URLWithString:_playingModel.downloadurl];
     //在这里呢 如果想分享图片 就把图片添加进去  文字什么的通上
