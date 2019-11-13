@@ -12,6 +12,8 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "ASOSettingViewController.h"
+#import "YCAnswerView.h"
+#import "SDAutoLayout.h"
 
 @interface ASOMainViewController (){
     NSString *_isQuite;
