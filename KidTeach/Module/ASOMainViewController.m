@@ -10,6 +10,8 @@
 #import "ASOContentViewController.h"
 #import "MusicHomeViewController.h"
 #import "ASOSettingViewController.h"
+#import "YCAnswerView.h"
+#import "SDAutoLayout.h"
 @interface ASOMainViewController ()
 
 @end
