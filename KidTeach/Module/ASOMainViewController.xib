@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASOMainViewController">
             <connections>
+                <outlet property="iconImageView" destination="aUG-4T-DJs" id="HqF-EI-c0f"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,15 +29,8 @@
                         <constraint firstAttribute="height" constant="128" id="sUI-jl-nfg"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_shizi" translatesAutoresizingMaskIntoConstraints="NO" id="JsQ-OX-mDs">
-                    <rect key="frame" x="47" y="196" width="320" height="150"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="150" id="HPE-nE-YQy"/>
-                        <constraint firstAttribute="width" constant="320" id="fp8-yF-Jjw"/>
-                    </constraints>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G55-4T-4zk">
-                    <rect key="frame" x="47" y="371" width="130" height="130"/>
+                    <rect key="frame" x="47" y="216" width="130" height="130"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="Sqq-7B-DJm"/>
                         <constraint firstAttribute="width" constant="130" id="dLB-mU-WRh"/>
@@ -47,67 +41,84 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eM6-fK-LDf">
-                    <rect key="frame" x="237" y="371" width="130" height="130"/>
+                    <rect key="frame" x="237" y="216" width="130" height="130"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="Hue-pY-mR6"/>
                         <constraint firstAttribute="width" constant="130" id="WFo-z6-EsH"/>
                     </constraints>
-                    <state key="normal" image="btn_shuiguo"/>
+                    <state key="normal" image="shuiguo"/>
                     <connections>
                         <action selector="menuButtonAction:" destination="-1" eventType="touchUpInside" id="5Xg-Oi-qQN"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFE-D4-ysO">
-                    <rect key="frame" x="47" y="534" width="130" height="130"/>
+                    <rect key="frame" x="47" y="379" width="130" height="130"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="c0w-On-bTF"/>
                         <constraint firstAttribute="width" constant="130" id="gpo-rM-qjS"/>
                     </constraints>
-                    <state key="normal" title="Button" image="btn_shucai"/>
+                    <state key="normal" title="Button" image="sucai"/>
                     <connections>
                         <action selector="menuButtonAction:" destination="-1" eventType="touchUpInside" id="dkX-dM-srr"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfQ-ML-tAI">
-                    <rect key="frame" x="237" y="534" width="130" height="130"/>
+                    <rect key="frame" x="237" y="379" width="130" height="130"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="Bfj-9g-0uf"/>
                         <constraint firstAttribute="width" constant="130" id="ubC-5x-g1J"/>
                     </constraints>
-                    <state key="normal" image="btn_jiating"/>
+                    <state key="normal" image="jiating"/>
                     <connections>
                         <action selector="menuButtonAction:" destination="-1" eventType="touchUpInside" id="UoN-85-K8w"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COJ-Bt-ZyS">
-                    <rect key="frame" x="47" y="196" width="320" height="150"/>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COJ-Bt-ZyS">
+                    <rect key="frame" x="47" y="542" width="130" height="130"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="vwW-Lj-8xp"/>
+                        <constraint firstAttribute="height" constant="130" id="wWX-co-hVB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" image="tingli"/>
                     <connections>
                         <action selector="menuButtonAction:" destination="-1" eventType="touchUpInside" id="i25-ep-W1n"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6J-n1-pGU">
+                    <rect key="frame" x="237" y="542" width="130" height="130"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="a32-QB-DnW"/>
+                        <constraint firstAttribute="width" constant="130" id="dkH-OW-wTm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <state key="normal" image="btn_setting"/>
+                    <connections>
+                        <action selector="settingAction:" destination="-1" eventType="touchUpInside" id="6Xb-xI-3IM"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="G55-4T-4zk" firstAttribute="leading" secondItem="JsQ-OX-mDs" secondAttribute="leading" id="2zf-Ez-ky4"/>
+                <constraint firstItem="G55-4T-4zk" firstAttribute="top" secondItem="aUG-4T-DJs" secondAttribute="bottom" constant="20" id="2sf-e9-yPh"/>
                 <constraint firstItem="gFE-D4-ysO" firstAttribute="top" secondItem="G55-4T-4zk" secondAttribute="bottom" constant="33" id="753-BF-JDk"/>
-                <constraint firstItem="COJ-Bt-ZyS" firstAttribute="leading" secondItem="kfp-20-rbM" secondAttribute="trailing" constant="-367" id="7Rf-ge-qoh"/>
-                <constraint firstItem="eM6-fK-LDf" firstAttribute="trailing" secondItem="JsQ-OX-mDs" secondAttribute="trailing" id="8Ij-O0-kYK"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eM6-fK-LDf" secondAttribute="trailing" constant="47" id="ATE-7T-Q3V"/>
                 <constraint firstItem="kfp-20-rbM" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="B2H-3D-jP7"/>
                 <constraint firstItem="aUG-4T-DJs" firstAttribute="centerX" secondItem="kfp-20-rbM" secondAttribute="centerX" id="EJS-nw-luN"/>
-                <constraint firstItem="COJ-Bt-ZyS" firstAttribute="centerY" secondItem="JsQ-OX-mDs" secondAttribute="centerY" id="F2t-b5-6Sk"/>
-                <constraint firstItem="JsQ-OX-mDs" firstAttribute="centerX" secondItem="kfp-20-rbM" secondAttribute="centerX" id="GTU-Jj-dUe"/>
-                <constraint firstItem="COJ-Bt-ZyS" firstAttribute="top" secondItem="aUG-4T-DJs" secondAttribute="bottom" id="JtU-pn-2WK"/>
                 <constraint firstAttribute="bottom" secondItem="kfp-20-rbM" secondAttribute="bottom" id="Jwg-O5-E7x"/>
+                <constraint firstItem="h6J-n1-pGU" firstAttribute="centerY" secondItem="COJ-Bt-ZyS" secondAttribute="centerY" id="UJI-90-KHO"/>
                 <constraint firstItem="kfp-20-rbM" firstAttribute="top" secondItem="aUG-4T-DJs" secondAttribute="bottom" constant="-196" id="VC4-Do-mRp"/>
-                <constraint firstItem="JsQ-OX-mDs" firstAttribute="top" secondItem="aUG-4T-DJs" secondAttribute="bottom" id="VqD-ac-WnY"/>
                 <constraint firstItem="FfQ-ML-tAI" firstAttribute="centerX" secondItem="eM6-fK-LDf" secondAttribute="centerX" id="W1N-bO-4oW"/>
                 <constraint firstItem="FfQ-ML-tAI" firstAttribute="centerY" secondItem="gFE-D4-ysO" secondAttribute="centerY" id="a8H-Qe-n4A"/>
-                <constraint firstItem="G55-4T-4zk" firstAttribute="top" secondItem="JsQ-OX-mDs" secondAttribute="bottom" constant="25" id="bCq-vG-VmA"/>
                 <constraint firstItem="eM6-fK-LDf" firstAttribute="centerY" secondItem="G55-4T-4zk" secondAttribute="centerY" id="dmN-3M-X03"/>
                 <constraint firstItem="kfp-20-rbM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f4W-B9-hsf"/>
-                <constraint firstItem="COJ-Bt-ZyS" firstAttribute="leading" secondItem="kfp-20-rbM" secondAttribute="trailing" constant="-367" id="iuW-o0-Y9B"/>
+                <constraint firstItem="h6J-n1-pGU" firstAttribute="centerX" secondItem="FfQ-ML-tAI" secondAttribute="centerX" id="jJT-kE-caC"/>
                 <constraint firstItem="gFE-D4-ysO" firstAttribute="leading" secondItem="G55-4T-4zk" secondAttribute="leading" id="l4c-iw-mQW"/>
-                <constraint firstItem="COJ-Bt-ZyS" firstAttribute="centerX" secondItem="JsQ-OX-mDs" secondAttribute="centerX" id="zIF-Pt-xea"/>
+                <constraint firstItem="COJ-Bt-ZyS" firstAttribute="top" secondItem="gFE-D4-ysO" secondAttribute="bottom" constant="33" id="ncU-cl-xYC"/>
+                <constraint firstItem="kfp-20-rbM" firstAttribute="leading" secondItem="G55-4T-4zk" secondAttribute="trailing" constant="-177" id="oYr-Zo-2lj"/>
+                <constraint firstItem="COJ-Bt-ZyS" firstAttribute="leading" secondItem="gFE-D4-ysO" secondAttribute="leading" id="yIf-Bv-EWZ"/>
                 <constraint firstItem="kfp-20-rbM" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="zVE-F0-uks"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
@@ -116,11 +127,12 @@
     </objects>
     <resources>
         <image name="bg_game" width="960" height="1704"/>
-        <image name="btn_dongwu" width="612" height="555"/>
-        <image name="btn_jiating" width="612" height="555"/>
-        <image name="btn_shizi" width="869" height="360"/>
-        <image name="btn_shucai" width="612" height="555"/>
-        <image name="btn_shuiguo" width="612" height="555"/>
+        <image name="btn_dongwu" width="556" height="556"/>
+        <image name="btn_setting" width="556" height="556"/>
+        <image name="jiating" width="556" height="556"/>
+        <image name="shuiguo" width="556" height="556"/>
+        <image name="sucai" width="556" height="556"/>
+        <image name="tingli" width="556" height="556"/>
         <image name="title" width="588" height="321"/>
     </resources>
 </document>

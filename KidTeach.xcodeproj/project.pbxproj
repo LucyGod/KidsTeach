@@ -243,6 +243,9 @@
 		046882EE237967F00024F963 /* person_k_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 046882EB237967F00024F963 /* person_k_data.json */; };
 		046882EF237967F00024F963 /* animal_k_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 046882EC237967F00024F963 /* animal_k_data.json */; };
 		046882F7237A6D960024F963 /* ASODemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046882F6237A6D960024F963 /* ASODemoViewController.m */; };
+		04759DCA237BED640063521C /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04759DC8237BED640063521C /* bg.mp3 */; };
+		04759DCB237BED640063521C /* card.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04759DC9237BED640063521C /* card.wav */; };
+		04759DCE237BF74A0063521C /* ASOSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04759DCD237BF74A0063521C /* ASOSettingViewController.m */; };
 		04B3CE87237A4F2B002CBEC4 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE84237A4F2B002CBEC4 /* iflyMSC.framework */; };
 		04B3CE88237A4F2B002CBEC4 /* VoiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CE86237A4F2B002CBEC4 /* VoiceHelper.m */; };
 		04B3CE8A237A4F89002CBEC4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE89237A4F89002CBEC4 /* libz.tbd */; };
@@ -259,7 +262,6 @@
 		04B3CEA0237A4FDD002CBEC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE9F237A4FDD002CBEC4 /* CoreGraphics.framework */; };
 		04B3CEA2237A4FE4002CBEC4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */; };
 		04B3CEAB237A8D80002CBEC4 /* FindPicGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */; };
-		04B3CEAE237BA410002CBEC4 /* ASOSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */; };
 		04B3CEB1237BD5C5002CBEC4 /* ASOCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEB0237BD5C5002CBEC4 /* ASOCustomButton.m */; };
 		04B3CEBD237C142E002CBEC4 /* btn_answer_number@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B3CEB3237C142E002CBEC4 /* btn_answer_number@2x.png */; };
 		04B3CEBE237C142E002CBEC4 /* result_answer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B3CEB4237C142E002CBEC4 /* result_answer@2x.png */; };
@@ -342,7 +344,7 @@
 		0426EE4023603D19002A6616 /* LLNoData.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LLNoData.bundle; sourceTree = "<group>"; };
 		0426EE4123603D19002A6616 /* LLNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNoDataView.h; sourceTree = "<group>"; };
 		0426EE4223603D19002A6616 /* LLNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNoDataView.m; sourceTree = "<group>"; };
-		042F9B062284168700FF7F72 /* 宝宝早教.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "宝宝早教.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		042F9B062284168700FF7F72 /* 宝宝拼音识字.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "宝宝拼音识字.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		042F9B122284168800FF7F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		042F9B152284168800FF7F72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		042F9B262284241A00FF7F72 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -794,6 +796,10 @@
 		046882EC237967F00024F963 /* animal_k_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animal_k_data.json; sourceTree = "<group>"; };
 		046882F5237A6D960024F963 /* ASODemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASODemoViewController.h; sourceTree = "<group>"; };
 		046882F6237A6D960024F963 /* ASODemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASODemoViewController.m; sourceTree = "<group>"; };
+		04759DC8237BED640063521C /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
+		04759DC9237BED640063521C /* card.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = card.wav; sourceTree = "<group>"; };
+		04759DCC237BF7490063521C /* ASOSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOSettingViewController.h; sourceTree = "<group>"; };
+		04759DCD237BF74A0063521C /* ASOSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASOSettingViewController.m; sourceTree = "<group>"; };
 		04826B55229F7B9B00FDD82F /* KidTeach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KidTeach.entitlements; sourceTree = "<group>"; };
 		04B3CE84237A4F2B002CBEC4 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		04B3CE85237A4F2B002CBEC4 /* VoiceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceHelper.h; sourceTree = "<group>"; };
@@ -813,8 +819,6 @@
 		04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		04B3CEA9237A8D80002CBEC4 /* FindPicGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPicGameView.h; sourceTree = "<group>"; };
 		04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPicGameView.m; sourceTree = "<group>"; };
-		04B3CEAC237BA410002CBEC4 /* ASOSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASOSettingViewController.h; sourceTree = "<group>"; };
-		04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOSettingViewController.m; sourceTree = "<group>"; };
 		04B3CEAF237BD5C5002CBEC4 /* ASOCustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASOCustomButton.h; sourceTree = "<group>"; };
 		04B3CEB0237BD5C5002CBEC4 /* ASOCustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOCustomButton.m; sourceTree = "<group>"; };
 		04B3CEB3237C142E002CBEC4 /* btn_answer_number@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_answer_number@2x.png"; sourceTree = "<group>"; };
@@ -1002,7 +1006,7 @@
 		042F9B072284168700FF7F72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				042F9B062284168700FF7F72 /* 宝宝早教.app */,
+				042F9B062284168700FF7F72 /* 宝宝拼音识字.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1061,6 +1065,8 @@
 		042F9B212284241900FF7F72 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				04759DC8237BED640063521C /* bg.mp3 */,
+				04759DC9237BED640063521C /* card.wav */,
 				046882EC237967F00024F963 /* animal_k_data.json */,
 				046882EB237967F00024F963 /* person_k_data.json */,
 				046882EA237967F00024F963 /* vegetables_k_data.json */,
@@ -1121,8 +1127,8 @@
 				046882DC237932BB0024F963 /* ASOContentViewController.xib */,
 				046882F5237A6D960024F963 /* ASODemoViewController.h */,
 				046882F6237A6D960024F963 /* ASODemoViewController.m */,
-				04B3CEAC237BA410002CBEC4 /* ASOSettingViewController.h */,
-				04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */,
+				04759DCC237BF7490063521C /* ASOSettingViewController.h */,
+				04759DCD237BF74A0063521C /* ASOSettingViewController.m */,
 				046882E9237965490024F963 /* Views */,
 			);
 			path = Module;
@@ -2303,7 +2309,7 @@
 			);
 			name = KidTeach;
 			productName = ASOFutureProject;
-			productReference = 042F9B062284168700FF7F72 /* 宝宝早教.app */;
+			productReference = 042F9B062284168700FF7F72 /* 宝宝拼音识字.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2354,8 +2360,10 @@
 			files = (
 				04B3CEC2237C142E002CBEC4 /* result_answer@3x.png in Resources */,
 				042F9C412284295A00FF7F72 /* HSSetTableViewController.bundle in Resources */,
+				04759DCA237BED640063521C /* bg.mp3 in Resources */,
 				04D71B2F237AD40F00EBFDE7 /* yisuo.json in Resources */,
 				042F9B162284168800FF7F72 /* LaunchScreen.storyboard in Resources */,
+				04759DCB237BED640063521C /* card.wav in Resources */,
 				04D71B30237AD40F00EBFDE7 /* tangshi.json in Resources */,
 				046882ED237967F00024F963 /* vegetables_k_data.json in Resources */,
 				04D71B33237AD40F00EBFDE7 /* dizigui.json in Resources */,
@@ -2591,6 +2599,7 @@
 				04D24AAD235FE83800B18F28 /* FAPHTTPRequest.m in Sources */,
 				044A528F235EB22300FDC7D4 /* JXCategoryImageCell.m in Sources */,
 				0426EDEF235E9C6F002A6616 /* FAPBaseCollectionViewController.m in Sources */,
+				04759DCE237BF74A0063521C /* ASOSettingViewController.m in Sources */,
 				04344176236006BE001CF8C2 /* UIImageView+HXExtension.m in Sources */,
 				04D24AAA235FE7EF00B18F28 /* HSCustomCellModel.m in Sources */,
 				04344143236006BE001CF8C2 /* HDAlertView.m in Sources */,
@@ -2662,7 +2671,6 @@
 				0426EE4423603D19002A6616 /* LLNoDataView.m in Sources */,
 				042F9B552284271500FF7F72 /* NSString+Verify.m in Sources */,
 				044A5290235EB22300FDC7D4 /* JXCategoryImageCellModel.m in Sources */,
-				04B3CEAE237BA410002CBEC4 /* ASOSettingViewController.m in Sources */,
 				044A5276235EB22300FDC7D4 /* HorizontalView.m in Sources */,
 				04344106236006BD001CF8C2 /* myUILabel.m in Sources */,
 				0434410B236006BD001CF8C2 /* StringManager.m in Sources */,
@@ -2850,7 +2858,7 @@
 					"$(PROJECT_DIR)/KidTeach/Vendor/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.baby.jianji;
-				PRODUCT_NAME = "宝宝早教";
+				PRODUCT_NAME = "宝宝拼音识字";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e";
@@ -2885,7 +2893,7 @@
 					"$(PROJECT_DIR)/KidTeach/Vendor/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.baby.jianji;
-				PRODUCT_NAME = "宝宝早教";
+				PRODUCT_NAME = "宝宝拼音识字";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e";
