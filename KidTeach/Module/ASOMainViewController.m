@@ -17,6 +17,8 @@
 }
 
 @property (nonatomic, strong) AVPlayer *player;
+#import "ASOSettingViewController.h"
+@interface ASOMainViewController ()
 
 @end
 
