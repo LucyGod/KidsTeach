@@ -121,20 +121,17 @@
     if (tag == 1 || tag == 2 || tag == 3 || tag == 4) {
         
         //判断用户是否已经购买
-        
-        
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"此模块为付费功能，付费购买一次即可终身免费使用，是否继续购买？" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addAction:[UIAlertAction actionWithTitle:@"购买" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [self showBuyVC];
-        }]];
-        
-        [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            return ;
-        }]];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
+        YCAnswerView *anview = [[YCAnswerView alloc]init];
+        WEAKSELF
+        [anview setResultBlock:^{
+            ASOSettingViewController *settingVC = [[ASOSettingViewController alloc] init];
+            
+            [weakSelf presentViewController:settingVC animated:YES completion:nil];
+        }];
+        UIEdgeInsets padding = UIEdgeInsetsMake(0, 0, 0, 0);
+        [self.view addSubview:anview];
+        anview.sd_layout.spaceToSuperView(padding);
+        return;
     }
     
     ASOContentViewController *contentVC = [[ASOContentViewController alloc] init];
