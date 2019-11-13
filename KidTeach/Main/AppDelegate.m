@@ -56,6 +56,8 @@
 }
 
 - (void)p_setUpServer {
+
+    [[NSUserDefaults standardUserDefaults] setValue:@"开" forKey:@"isQuite"];
     
     [[ASOServerManager manager]switchServerType:DisServer];
 }

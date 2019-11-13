@@ -13,7 +13,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ASOSettingViewController.h"
 
-@interface ASOMainViewController ()
+@interface ASOMainViewController (){
+    NSString *_isQuite;
+    UIButton *_backButton;
+}
 
 @property (nonatomic, strong) AVPlayer *player;
 
@@ -25,18 +28,58 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    _isQuite = [[NSUserDefaults standardUserDefaults] valueForKey:@"isQuite"];
+    
     [_iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
         if (ASO_iPhone_6x) {
             make.top.equalTo(self.view).offset(30);
         }
     }];
+    
+    _backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    if ([_isQuite isEqualToString:@"关"]) {
+        [_backButton setBackgroundImage:[UIImage imageNamed:@"voice_open"] forState:UIControlStateNormal];
+    }else{
+        [_backButton setBackgroundImage:[UIImage imageNamed:@"voice_close"] forState:UIControlStateNormal];
+    }
+    _backButton.adjustsImageWhenHighlighted = NO;
+    [_backButton addTarget:self action:@selector(voiceCloseButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_backButton];
+    [_backButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@45);
+        make.right.equalTo(self.view).offset(-16);
+        make.top.equalTo(self.view).offset(Status_H);
+    }];
+    
+}
 
+/// 开关声音
+- (void)voiceCloseButtonAction{
+    
+    if ([_isQuite isEqualToString:@"开"]) {
+        _isQuite = @"关";
+        [self playerPause];
+        [_backButton setBackgroundImage:[UIImage imageNamed:@"voice_open"] forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setValue:@"关" forKey:@"isQuite"];
+    }else{
+        _isQuite = @"开";
+        [_backButton setBackgroundImage:[UIImage imageNamed:@"voice_close"] forState:UIControlStateNormal];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bg" ofType:@".mp3"];
+        [self playerStart:filePath];
+        [[NSUserDefaults standardUserDefaults] setValue:@"开" forKey:@"isQuite"];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bg" ofType:@".mp3"];
-    [self playerStart:filePath];
+    
+    NSString *quite = [[NSUserDefaults standardUserDefaults] valueForKey:@"isQuite"];
+    
+    if ([quite isEqualToString:@"开"]) {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bg" ofType:@".mp3"];
+        [self playerStart:filePath];
+    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -49,7 +92,7 @@
         NSLog(@"无效的文件");
         return;
     }
-
+    
     // 设置播放的url
     NSURL *url = [NSURL fileURLWithPath:filePath];
     if ([filePath hasPrefix:@"http://"] || [filePath hasPrefix:@"https://"]) {
@@ -58,7 +101,7 @@
     // 设置播放的项目
     AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:url];
     if (self.player == nil) {
-       self.player = [[AVPlayer alloc] init];
+        self.player = [[AVPlayer alloc] init];
     }
     [self.player replaceCurrentItemWithPlayerItem:playerItem];
     [self.player play];
@@ -80,8 +123,8 @@
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"此模块为付费功能，付费购买一次即可终身免费使用，是否继续购买？" preferredStyle:UIAlertControllerStyleAlert];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"购买" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
+        [alertController addAction:[UIAlertAction actionWithTitle:@"购买" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [self showBuyVC];
         }]];
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -125,8 +168,12 @@
 }
 
 - (IBAction)settingAction:(id)sender {
+    [self showBuyVC];
+}
+
+- (void)showBuyVC{
     ASOSettingViewController *settingVC = [[ASOSettingViewController alloc] init];
-    
+    settingVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:settingVC animated:YES completion:nil];
 }
 

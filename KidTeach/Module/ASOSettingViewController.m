@@ -32,7 +32,7 @@
     [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@28);
         make.left.equalTo(self.view).offset(16);
-        make.top.equalTo(self.view).offset(NavMustAdd);
+        make.top.equalTo(self.view).offset(Status_H);
     }];
     
     UIImageView *contentView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"buyBg"]];
