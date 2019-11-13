@@ -8,7 +8,7 @@
 
 #import "MusicHomeViewController.h"
 #import "UIResponder+responder.h"
-#import "PDmarketLandCell.h"
+#import "MusicHomeCell.h"
 #import "MusicViewController.h"
 
 @interface MusicHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -25,27 +25,32 @@
     [super viewDidLoad];
     self.dataSource = [NSMutableArray array];
     self.title = @"宝宝听一听";
-    [self xq_createUI];
+    [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
+    [self xq_loadData];
     UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     closeBtn.frame = CGRectMake(15, 25, 30, 30);
     [closeBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [closeBtn addTarget:self action:@selector(dismis) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:closeBtn];
+    [self.view addSubview:closeBtn];
+}
+- (void)dismis
+{
+    [self .navigationController popViewControllerAnimated:YES];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
     self.navigationController.navigationBar.hidden = YES;
 }
-- (void)dismis
-{
-    [self .navigationController popViewControllerAnimated:YES];
-}
+
 -(NSMutableArray *)imgArr
 {
     if (!_imgArr) {
@@ -53,12 +58,6 @@
     }
     return _imgArr;
 }
-- (void)xq_createUI
-{
-    [self.view addSubview:self.collectionView];
-    [self xq_loadData];
-}
-
 - (UICollectionView *)collectionView
 {
     if (!_collectionView) {
@@ -66,12 +65,13 @@
         layout.itemSize = CGSizeMake((SCREEN_Width-20)/2.0, 180);
         layout.sectionInset = UIEdgeInsetsMake(5, 5, 10, 5);
 //        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_Width, ScreenHeight) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        _collectionView.backgroundColor = [UIColor whiteColor];
-        [_collectionView registerNib:[UINib nibWithNibName:@"PDmarketLandCell" bundle:nil] forCellWithReuseIdentifier:@"PDmarketLandCell"];
+//        _collectionView.backgroundColor = [UIColor whiteColor];
+         _collectionView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+        [_collectionView registerNib:[UINib nibWithNibName:@"MusicHomeCell" bundle:nil] forCellWithReuseIdentifier:@"MusicHomeCell"];
     
     }
     
@@ -100,9 +100,10 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PDmarketLandCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PDmarketLandCell" forIndexPath:indexPath];
+    MusicHomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MusicHomeCell" forIndexPath:indexPath];
     cell.imgView.image = [UIImage imageNamed:self.imgArr[indexPath.row]];
     cell.titleLabel.text = self.dataSource[indexPath.row];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

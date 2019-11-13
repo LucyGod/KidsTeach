@@ -275,11 +275,11 @@
 		04D71B1F237AD40F00EBFDE7 /* MusicHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71AF2237AD40F00EBFDE7 /* MusicHomeViewController.m */; };
 		04D71B20237AD40F00EBFDE7 /* AudioPlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D71AF4237AD40F00EBFDE7 /* AudioPlayerController.xib */; };
 		04D71B21237AD40F00EBFDE7 /* MusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71AF9237AD40F00EBFDE7 /* MusicModel.m */; };
-		04D71B22237AD40F00EBFDE7 /* PDmarketLandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D71AFC237AD40F00EBFDE7 /* PDmarketLandCell.xib */; };
+		04D71B22237AD40F00EBFDE7 /* MusicHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D71AFC237AD40F00EBFDE7 /* MusicHomeCell.xib */; };
 		04D71B23237AD40F00EBFDE7 /* RotatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71AFD237AD40F00EBFDE7 /* RotatingView.m */; };
 		04D71B24237AD40F00EBFDE7 /* MusicHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71AFE237AD40F00EBFDE7 /* MusicHeadView.m */; };
 		04D71B25237AD40F00EBFDE7 /* MusicHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D71B00237AD40F00EBFDE7 /* MusicHeadView.xib */; };
-		04D71B26237AD40F00EBFDE7 /* PDmarketLandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71B01237AD40F00EBFDE7 /* PDmarketLandCell.m */; };
+		04D71B26237AD40F00EBFDE7 /* MusicHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71B01237AD40F00EBFDE7 /* MusicHomeCell.m */; };
 		04D71B27237AD40F00EBFDE7 /* MusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D71B03237AD40F00EBFDE7 /* MusicTableViewCell.xib */; };
 		04D71B28237AD40F00EBFDE7 /* MusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71B04237AD40F00EBFDE7 /* MusicTableViewCell.m */; };
 		04D71B29237AD40F00EBFDE7 /* UITableViewCell+UMReusable.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71B09237AD40F00EBFDE7 /* UITableViewCell+UMReusable.m */; };
@@ -833,13 +833,13 @@
 		04D71AF6237AD40F00EBFDE7 /* AudioPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerController.h; sourceTree = "<group>"; };
 		04D71AF8237AD40F00EBFDE7 /* MusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
 		04D71AF9237AD40F00EBFDE7 /* MusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicModel.m; sourceTree = "<group>"; };
-		04D71AFB237AD40F00EBFDE7 /* PDmarketLandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDmarketLandCell.h; sourceTree = "<group>"; };
-		04D71AFC237AD40F00EBFDE7 /* PDmarketLandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PDmarketLandCell.xib; sourceTree = "<group>"; };
+		04D71AFB237AD40F00EBFDE7 /* MusicHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicHomeCell.h; sourceTree = "<group>"; };
+		04D71AFC237AD40F00EBFDE7 /* MusicHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicHomeCell.xib; sourceTree = "<group>"; };
 		04D71AFD237AD40F00EBFDE7 /* RotatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotatingView.m; sourceTree = "<group>"; };
 		04D71AFE237AD40F00EBFDE7 /* MusicHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicHeadView.m; sourceTree = "<group>"; };
 		04D71AFF237AD40F00EBFDE7 /* MusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTableViewCell.h; sourceTree = "<group>"; };
 		04D71B00237AD40F00EBFDE7 /* MusicHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicHeadView.xib; sourceTree = "<group>"; };
-		04D71B01237AD40F00EBFDE7 /* PDmarketLandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDmarketLandCell.m; sourceTree = "<group>"; };
+		04D71B01237AD40F00EBFDE7 /* MusicHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicHomeCell.m; sourceTree = "<group>"; };
 		04D71B02237AD40F00EBFDE7 /* RotatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotatingView.h; sourceTree = "<group>"; };
 		04D71B03237AD40F00EBFDE7 /* MusicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicTableViewCell.xib; sourceTree = "<group>"; };
 		04D71B04237AD40F00EBFDE7 /* MusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTableViewCell.m; sourceTree = "<group>"; };
@@ -2136,17 +2136,17 @@
 		04D71AFA237AD40F00EBFDE7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04D71AFB237AD40F00EBFDE7 /* PDmarketLandCell.h */,
-				04D71AFC237AD40F00EBFDE7 /* PDmarketLandCell.xib */,
-				04D71AFD237AD40F00EBFDE7 /* RotatingView.m */,
+				04D71AFB237AD40F00EBFDE7 /* MusicHomeCell.h */,
+				04D71B01237AD40F00EBFDE7 /* MusicHomeCell.m */,
+				04D71AFC237AD40F00EBFDE7 /* MusicHomeCell.xib */,
+				04D71B05237AD40F00EBFDE7 /* MusicHeadView.h */,
 				04D71AFE237AD40F00EBFDE7 /* MusicHeadView.m */,
 				04D71B00237AD40F00EBFDE7 /* MusicHeadView.xib */,
-				04D71B01237AD40F00EBFDE7 /* PDmarketLandCell.m */,
 				04D71AFF237AD40F00EBFDE7 /* MusicTableViewCell.h */,
 				04D71B04237AD40F00EBFDE7 /* MusicTableViewCell.m */,
 				04D71B03237AD40F00EBFDE7 /* MusicTableViewCell.xib */,
 				04D71B02237AD40F00EBFDE7 /* RotatingView.h */,
-				04D71B05237AD40F00EBFDE7 /* MusicHeadView.h */,
+				04D71AFD237AD40F00EBFDE7 /* RotatingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2319,7 +2319,7 @@
 				046882EF237967F00024F963 /* animal_k_data.json in Resources */,
 				04D71B20237AD40F00EBFDE7 /* AudioPlayerController.xib in Resources */,
 				04D71B25237AD40F00EBFDE7 /* MusicHeadView.xib in Resources */,
-				04D71B22237AD40F00EBFDE7 /* PDmarketLandCell.xib in Resources */,
+				04D71B22237AD40F00EBFDE7 /* MusicHomeCell.xib in Resources */,
 				046882EE237967F00024F963 /* person_k_data.json in Resources */,
 				04125B6A23792A4B00D07037 /* ASOMainViewController.xib in Resources */,
 			);
@@ -2445,7 +2445,7 @@
 				044A529D235EB22300FDC7D4 /* JXCategoryBaseCellModel.m in Sources */,
 				042F9C162284295A00FF7F72 /* ReachabilityManager.m in Sources */,
 				044A526D235EB22300FDC7D4 /* KLineBGDrawLogic.m in Sources */,
-				04D71B26237AD40F00EBFDE7 /* PDmarketLandCell.m in Sources */,
+				04D71B26237AD40F00EBFDE7 /* MusicHomeCell.m in Sources */,
 				044A5295235EB22300FDC7D4 /* JXCategoryFactory.m in Sources */,
 				04D71B2A237AD40F00EBFDE7 /* NetworkTool.m in Sources */,
 				04344178236006BE001CF8C2 /* HXDatePhotoInteractiveTransition.m in Sources */,

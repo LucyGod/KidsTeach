@@ -26,9 +26,17 @@ static NSString *songIdentifier = @"songCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     [self.view addSubview:self.tableView];
-   
+    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    closeBtn.frame = CGRectMake(15, 15, 30, 30);
+    [closeBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [closeBtn addTarget:self action:@selector(dismis) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeBtn];
+}
+- (void)dismis
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -76,34 +84,41 @@ static NSString *songIdentifier = @"songCellIdentifier";
     self.headView.imgView.image = [UIImage imageNamed:nameStr];
     self.headView.bgImgView.image = [[UIImage imageNamed:nameStr] applyDarkEffect];
     NSInteger rand = arc4random() % 10000+100;
-    self.headView.playCountLabel.text = [NSString stringWithFormat:@"播放 %ld 次",rand];
+    self.headView.playCountLabel.text = [NSString stringWithFormat:@"%ld 次",rand];
 }
 -(UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_Width, ScreenHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_Width, ScreenHeight) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
-        _tableView.tableHeaderView = self.headView;
         _tableView.tableFooterView = [UIView new];
     }
     return _tableView;
+}
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.headView;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 200;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArr.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 70;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MusicTableViewCell *cell = [MusicTableViewCell um_cellWithTableView:tableView];
     MusicModel *model = [[MusicModel alloc] init];
     model = [self.dataArr objectAtIndex:indexPath.row];
-    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:model.coverurl] placeholderImage:[UIImage imageNamed:@"PlayerHeader"]];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:model.coverurl] placeholderImage:[UIImage imageNamed:@"kuang_sz02"]];
 //    cell.BgImgView.image = [[UIImage imageNamed:_nameStr] applyExtraLightEffect];
     cell.titleLabel.text = [NSString stringWithFormat:@"%@",  model.audio_name];
     cell.speLineView.backgroundColor = [UIColor colorWithPatternImage:[[UIImage imageNamed:_nameStr] applyExtraLightEffect]];
