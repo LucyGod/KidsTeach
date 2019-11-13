@@ -259,6 +259,8 @@
 		04B3CEA0237A4FDD002CBEC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE9F237A4FDD002CBEC4 /* CoreGraphics.framework */; };
 		04B3CEA2237A4FE4002CBEC4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */; };
 		04B3CEAB237A8D80002CBEC4 /* FindPicGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */; };
+		04B3CEAE237BA410002CBEC4 /* ASOSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */; };
+		04B3CEB1237BD5C5002CBEC4 /* ASOCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CEB0237BD5C5002CBEC4 /* ASOCustomButton.m */; };
 		04B5B3B5235EAA34002179AA /* LGScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3AB235EAA34002179AA /* LGScrollContentView.m */; };
 		04B5B3B6235EAA34002179AA /* LGScrollTitleMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3AD235EAA34002179AA /* LGScrollTitleMenuLabel.m */; };
 		04B5B3B7235EAA34002179AA /* LGScrollTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3AE235EAA34002179AA /* LGScrollTitleView.m */; };
@@ -800,6 +802,10 @@
 		04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		04B3CEA9237A8D80002CBEC4 /* FindPicGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPicGameView.h; sourceTree = "<group>"; };
 		04B3CEAA237A8D80002CBEC4 /* FindPicGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPicGameView.m; sourceTree = "<group>"; };
+		04B3CEAC237BA410002CBEC4 /* ASOSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASOSettingViewController.h; sourceTree = "<group>"; };
+		04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOSettingViewController.m; sourceTree = "<group>"; };
+		04B3CEAF237BD5C5002CBEC4 /* ASOCustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASOCustomButton.h; sourceTree = "<group>"; };
+		04B3CEB0237BD5C5002CBEC4 /* ASOCustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASOCustomButton.m; sourceTree = "<group>"; };
 		04B5B3AB235EAA34002179AA /* LGScrollContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGScrollContentView.m; sourceTree = "<group>"; };
 		04B5B3AC235EAA34002179AA /* LGScrollPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGScrollPageView.h; sourceTree = "<group>"; };
 		04B5B3AD235EAA34002179AA /* LGScrollTitleMenuLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGScrollTitleMenuLabel.m; sourceTree = "<group>"; };
@@ -1089,6 +1095,8 @@
 				046882DC237932BB0024F963 /* ASOContentViewController.xib */,
 				046882F5237A6D960024F963 /* ASODemoViewController.h */,
 				046882F6237A6D960024F963 /* ASODemoViewController.m */,
+				04B3CEAC237BA410002CBEC4 /* ASOSettingViewController.h */,
+				04B3CEAD237BA410002CBEC4 /* ASOSettingViewController.m */,
 				046882E9237965490024F963 /* Views */,
 			);
 			path = Module;
@@ -2058,6 +2066,8 @@
 				046882E4237964370024F963 /* ASODetailContentTopCollectionViewCell.h */,
 				046882E5237964370024F963 /* ASODetailContentTopCollectionViewCell.m */,
 				046882E6237964370024F963 /* ASODetailContentTopCollectionViewCell.xib */,
+				04B3CEAF237BD5C5002CBEC4 /* ASOCustomButton.h */,
+				04B3CEB0237BD5C5002CBEC4 /* ASOCustomButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2417,6 +2427,7 @@
 				04344170236006BE001CF8C2 /* HXPhotoConfiguration.m in Sources */,
 				042F9C3F2284295A00FF7F72 /* NSBundle+HSImage.m in Sources */,
 				04344173236006BE001CF8C2 /* HXDatePhotoPreviewBottomView.m in Sources */,
+				04B3CEB1237BD5C5002CBEC4 /* ASOCustomButton.m in Sources */,
 				04344184236006BE001CF8C2 /* UIImage+HXExtension.m in Sources */,
 				042F9C422284295A00FF7F72 /* HSSetTableViewMainController.m in Sources */,
 				04D24AA5235FE76E00B18F28 /* JXCategoryNumberCell.m in Sources */,
@@ -2583,6 +2594,7 @@
 				0426EE4423603D19002A6616 /* LLNoDataView.m in Sources */,
 				042F9B552284271500FF7F72 /* NSString+Verify.m in Sources */,
 				044A5290235EB22300FDC7D4 /* JXCategoryImageCellModel.m in Sources */,
+				04B3CEAE237BA410002CBEC4 /* ASOSettingViewController.m in Sources */,
 				044A5276235EB22300FDC7D4 /* HorizontalView.m in Sources */,
 				04344106236006BD001CF8C2 /* myUILabel.m in Sources */,
 				0434410B236006BD001CF8C2 /* StringManager.m in Sources */,

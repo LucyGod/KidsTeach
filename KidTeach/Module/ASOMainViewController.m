@@ -9,6 +9,7 @@
 #import "ASOMainViewController.h"
 #import "ASOContentViewController.h"
 #import "MusicHomeViewController.h"
+#import "ASOSettingViewController.h"
 @interface ASOMainViewController ()
 
 @end
