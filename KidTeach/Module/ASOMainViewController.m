@@ -202,7 +202,14 @@
 - (IBAction)settingAction:(id)sender {
     AudioServicesPlaySystemSound(1519);
     
-    [self showBuyVC];
+    //判断用户是否已经购买
+    YCAnswerView *anview = [[YCAnswerView alloc]init];
+    [anview setResultBlock:^{
+        [self showBuyVC];
+    }];
+    UIEdgeInsets padding = UIEdgeInsetsMake(0, 0, 0, 0);
+    [self.view addSubview:anview];
+    anview.sd_layout.spaceToSuperView(padding);
 }
 
 - (void)showBuyVC{
