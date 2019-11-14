@@ -205,7 +205,7 @@
 - (UILabel *)textLB{
     if(!_textLB){
         _textLB = [[UILabel alloc]init];
-        _textLB.text = @"请确认你是家长:";
+        _textLB.text = @"请确认您是家长:";
         _textLB.textColor = RGBA(116, 103, 34, 1);
         _textLB.font = [UIFont systemFontOfSize:10*WidthRate];
     }

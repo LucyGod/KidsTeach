@@ -37,9 +37,16 @@
     _isQuite = [[NSUserDefaults standardUserDefaults] valueForKey:@"isQuite"];
     
     [_iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        if (ASO_iPhone_6x) {
-            make.top.equalTo(self.view).offset(30);
+        if (IS_HETERO_SCREEN) {
+            make.top.equalTo(self.view).offset(NavMustAdd);
+            make.width.equalTo(@240);
+        }else{
+            make.top.equalTo(self.view).offset(20);
+            make.width.equalTo(@200);
+            make.height.equalTo(@100);
         }
+        make.centerX.equalTo(self.view);
+        
     }];
     
     _backButton = [UIButton buttonWithType:UIButtonTypeSystem];

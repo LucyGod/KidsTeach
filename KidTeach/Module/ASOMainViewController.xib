@@ -133,12 +133,12 @@
     </objects>
     <resources>
         <image name="bg_game" width="960" height="1713"/>
-        <image name="btn_dongwu" width="556" height="556"/>
-        <image name="btn_setting" width="556" height="556"/>
-        <image name="jiating" width="556" height="556"/>
-        <image name="shuiguo" width="556" height="556"/>
-        <image name="sucai" width="556" height="556"/>
-        <image name="tingli" width="556" height="556"/>
-        <image name="title" width="618" height="403"/>
+        <image name="btn_dongwu" width="600" height="633"/>
+        <image name="btn_setting" width="600" height="600"/>
+        <image name="jiating" width="591" height="593"/>
+        <image name="shuiguo" width="556" height="565"/>
+        <image name="sucai" width="556" height="565"/>
+        <image name="tingli" width="556" height="565"/>
+        <image name="title" width="332" height="186"/>
     </resources>
 </document>

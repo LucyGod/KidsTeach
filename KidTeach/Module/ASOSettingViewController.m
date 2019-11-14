@@ -75,8 +75,22 @@
         make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
     
+    UILabel *pricyLabel = [[UILabel alloc] init];
+       pricyLabel.font = [UIFont systemFontOfSize:12.0 weight:UIFontWeightLight];
+       pricyLabel.textColor = [UIColor grayColor];
+       pricyLabel.numberOfLines = 0;
+       pricyLabel.text = @"购买确认时，付款将记入iTunes帐户。除非在当前期间结束前至少24小时关闭自动续订，否则订阅将自动续订。在本期结束前24小时内，账户将收取续期费用，并确定续期费用。";
+       [self.view addSubview:pricyLabel];
+       [pricyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+           make.left.equalTo(self.view).offset(12);
+           make.right.equalTo(self.view).offset(-12);
+           if (@available(iOS 11.0, *)) {
+               make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-20);
+           } else {
+               make.bottom.equalTo(self.view.mas_bottom).offset(-20);
+           }
+       }];
     
-//
     ASOCustomButton *shareButton = [[ASOCustomButton alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     [shareButton addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     [shareButton setTitle:@"分享" forState:UIControlStateNormal];
@@ -84,11 +98,12 @@
     [self.view addSubview:shareButton];
     [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX).offset(- 70);
-        if (@available(iOS 11.0, *)) {
-            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-60);
-        } else {
-            make.bottom.equalTo(self.view.mas_bottom).offset(-60);
-        }
+//        if (@available(iOS 11.0, *)) {
+//            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-60);
+//        } else {
+//            make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+//        }
+        make.bottom.equalTo(pricyLabel.mas_top).offset(-40);
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
 
@@ -99,13 +114,16 @@
     [self.view addSubview:storeButton];
     [storeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX).offset(70);
-        if (@available(iOS 11.0, *)) {
-            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-60);
-        } else {
-            make.bottom.equalTo(self.view.mas_bottom).offset(-60);
-        }
+//        if (@available(iOS 11.0, *)) {
+//            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-60);
+//        } else {
+//            make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+//        }
+        make.bottom.equalTo(pricyLabel.mas_top).offset(-40);
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
+    
+   
 }
 
 - (void)backButtonAction{
@@ -124,10 +142,10 @@
 }
 
 - (void)shareAction{
-     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-     //app名称
-     NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    //app名称
+    NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    
     //分享的标题
     NSString *textToShare = app_Name;
     //分享的图片
@@ -163,6 +181,6 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
- [super viewWillAppear:YES];
+    [super viewWillAppear:YES];
 }
 @end
