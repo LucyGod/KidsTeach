@@ -77,7 +77,6 @@
     
 }
 
-
 - (void)paymentSuccess{
     [_fruitButton setImage:[UIImage imageNamed:@"btn_shuiguo"] forState:UIControlStateNormal];
     [_vagetableButton setImage:[UIImage imageNamed:@"btn_shucai"] forState:UIControlStateNormal];
@@ -240,7 +239,7 @@
         contentVC.typeName = @"动物";
         [self.navigationController pushViewController:contentVC animated:YES];
     }else{
-        if ([PayHelp.sharePayHelp isApplePay]) {
+        if (![PayHelp.sharePayHelp isApplePay]) {
             //已购买
             switch (tag) {
                 case 1:
