@@ -39,6 +39,13 @@
     
     _tapNumber = 0;
     
+    if (![[PayHelp sharePayHelp] isApplePay]) {
+        [self initADView];
+    }
+}
+
+/// 初始化广告视图
+- (void)initADView{
     //banner广告
     GADBannerView *bannerAdView = [[GADBannerView alloc] init];
     bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/5269911852";
@@ -54,12 +61,6 @@
         make.left.bottom.right.equalTo(self.view);
         make.height.equalTo(@50);
     }];
-    
-    [self initADView];
-}
-
-/// 初始化广告视图
-- (void)initADView{
     //插屏广告
     self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-6864430072527422/7321360127"];
     GADRequest *request1 = [GADRequest request];
@@ -70,14 +71,18 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-        if ([self.Interstitial isReady]) {
-            [self.Interstitial presentFromRootViewController:self];
-        }
+    if ([self.Interstitial isReady]) {
+        [self.Interstitial presentFromRootViewController:self];
+    }
 }
 
 - (void)remakeConstraints{
     [_backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@28);
+        if (IS_HETERO_SCREEN) {
+            make.width.height.equalTo(@35);
+        }else{
+            make.width.height.equalTo(@28);
+        }
         make.left.equalTo(self.view).offset(16);
         make.top.equalTo(self.view).offset(NavMustAdd);
     }];
@@ -216,12 +221,12 @@
 
 - (void)didSelectdTopViewItemAtIndexpath:(NSIndexPath *)indexpath param:(NSDictionary *)paramDic{
     NSLog(@"%ld____%@",indexpath.row,paramDic);
-
-      _tapNumber ++;
-      
-      if (_tapNumber % 3 == 0) {
-             [self initADView];
-      }
+    
+    _tapNumber ++;
+    
+    if (_tapNumber % 5 == 0) {
+        [self initADView];
+    }
     
     _tempDataDic = paramDic;
     

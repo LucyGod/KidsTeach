@@ -57,6 +57,61 @@
         make.top.equalTo(self.view).offset(Status_H);
     }];
     
+    [self reMakeConstraints];
+    
+    if (![[PayHelp sharePayHelp] isApplePay]) {
+        [self addAdViews];
+    }
+}
+
+- (void)reMakeConstraints{
+    if (ASO_iPhone_6x) {
+        [_animalButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@110);
+        }];
+        
+        [_fruitButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@110);
+        }];
+        
+        [_vagetableButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@110);
+        }];
+        
+        [_peopleButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@110);
+        }];
+        
+        [_voiceButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@110);
+        }];
+        
+        [_settingButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@110);
+        }];
+    }
+    
+    [self setImageForButton];
+}
+
+- (void)setImageForButton{
+    if ([PayHelp.sharePayHelp isApplePay]) {
+        //已购买
+        [_fruitButton setImage:[UIImage imageNamed:@"btn_shuiguo"] forState:UIControlStateNormal];
+        [_vagetableButton setImage:[UIImage imageNamed:@"btn_shucai"] forState:UIControlStateNormal];
+        [_peopleButton setImage:[UIImage imageNamed:@"btn_jiating"] forState:UIControlStateNormal];
+        [_voiceButton setImage:[UIImage imageNamed:@"btn_voice"] forState:UIControlStateNormal];
+        
+    }else{
+        //未购买
+        [_fruitButton setImage:[UIImage imageNamed:@"shuiguo"] forState:UIControlStateNormal];
+        [_vagetableButton setImage:[UIImage imageNamed:@"sucai"] forState:UIControlStateNormal];
+        [_peopleButton setImage:[UIImage imageNamed:@"jiating"] forState:UIControlStateNormal];
+        [_voiceButton setImage:[UIImage imageNamed:@"tingli"] forState:UIControlStateNormal];
+    }
+}
+
+- (void)addAdViews{
     //加载广告
     GADBannerView *bannerAdView = [[GADBannerView alloc] init];
     bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/5269911852";
@@ -151,52 +206,54 @@
     NSInteger tag = sender.tag;
     NSLog(@"%ld",tag);
     
-    if (tag == 1 || tag == 2 || tag == 3 || tag == 4) {
-        
-        //判断用户是否已经购买
-        YCAnswerView *anview = [[YCAnswerView alloc]init];
-        WEAKSELF
-        [anview setResultBlock:^{
-            ASOSettingViewController *settingVC = [[ASOSettingViewController alloc] init];
-            settingVC.modalPresentationStyle = UIModalPresentationFullScreen;
-            [weakSelf presentViewController:settingVC animated:YES completion:nil];
-        }];
-        UIEdgeInsets padding = UIEdgeInsetsMake(0, 0, 0, 0);
-        [self.view addSubview:anview];
-        anview.sd_layout.spaceToSuperView(padding);
-        return;
-    }
-    
     ASOContentViewController *contentVC = [[ASOContentViewController alloc] init];
-    switch (tag) {
-        case 0:
-            //认识动物
-            contentVC.typeName = @"动物";
-            break;
-        case 1:
-            //认识水果
-            contentVC.typeName = @"水果";
-            break;
-        case 2:
-            //认识蔬菜
-            contentVC.typeName = @"蔬菜";
-            break;
-        case 3:
-            //家庭成员
-            contentVC.typeName = @"家庭成员";
-            break;
-        case 4:
-            //基础识字
-        {
-            MusicHomeViewController *music = [[MusicHomeViewController alloc] init];
-            [self.navigationController pushViewController:music animated:YES];
-            return ;
-        }
-        default:
-            break;
-    }
     
-    [self.navigationController pushViewController:contentVC animated:YES];
+    if (tag == 0) {
+        contentVC.typeName = @"动物";
+        [self.navigationController pushViewController:contentVC animated:YES];
+    }else{
+        if ([PayHelp.sharePayHelp isApplePay]) {
+            //已购买
+            switch (tag) {
+                case 1:
+                    //认识水果
+                    contentVC.typeName = @"水果";
+                    break;
+                case 2:
+                    //认识蔬菜
+                    contentVC.typeName = @"蔬菜";
+                    break;
+                case 3:
+                    //家庭成员
+                    contentVC.typeName = @"家庭成员";
+                    break;
+                case 4:
+                    //宝宝听听
+                {
+                    MusicHomeViewController *music = [[MusicHomeViewController alloc] init];
+                    [self.navigationController pushViewController:music animated:YES];
+                    return ;
+                }
+                default:
+                    break;
+            }
+            
+            [self.navigationController pushViewController:contentVC animated:YES];
+        }else{
+            //未购买，经过家长验证后进入购买页面
+            YCAnswerView *anview = [[YCAnswerView alloc]init];
+            WEAKSELF
+            [anview setResultBlock:^{
+                ASOSettingViewController *settingVC = [[ASOSettingViewController alloc] init];
+                settingVC.modalPresentationStyle = UIModalPresentationFullScreen;
+                [weakSelf presentViewController:settingVC animated:YES completion:nil];
+            }];
+            UIEdgeInsets padding = UIEdgeInsetsMake(0, 0, 0, 0);
+            [self.view addSubview:anview];
+            anview.sd_layout.spaceToSuperView(padding);
+            return;
+        }
+    }
 }
 
 - (IBAction)settingAction:(id)sender {

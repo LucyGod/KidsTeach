@@ -44,7 +44,11 @@
     [backButton addTarget:self action:@selector(backButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [bottomKuangView addSubview:backButton];
     [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@28);
+        if (IS_HETERO_SCREEN) {
+            make.width.height.equalTo(@35);
+        }else{
+            make.width.height.equalTo(@28);
+        }
         make.left.equalTo(self.view).offset(16);
         make.top.equalTo(self.view).offset(NavMustAdd);
     }];
@@ -126,7 +130,9 @@
         make.bottom.equalTo(bottomView.mas_bottom).offset(-8);
     }];
     
-    [self addAdView];
+    if (![[PayHelp sharePayHelp] isApplePay]) {
+        [self addAdView];
+    }
 }
 
 - (void)addAdView{

@@ -78,5 +78,7 @@
 #import "FAPBaseListView.h"
 #import "FAPBaseNaviController.h"
 
+#import "PayHelp.h"
+
 
 #endif /* ASOPrefixHeader_pch */

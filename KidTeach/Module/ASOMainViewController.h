@@ -11,6 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ASOMainViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *animalButton;
+@property (weak, nonatomic) IBOutlet UIButton *fruitButton;
+@property (weak, nonatomic) IBOutlet UIButton *vagetableButton;
+@property (weak, nonatomic) IBOutlet UIButton *peopleButton;
+@property (weak, nonatomic) IBOutlet UIButton *voiceButton;
+@property (weak, nonatomic) IBOutlet UIButton *settingButton;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
