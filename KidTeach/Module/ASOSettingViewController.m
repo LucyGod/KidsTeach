@@ -72,7 +72,11 @@
     [self.view addSubview:shareButton];
     [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX).offset(- 70);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-60);
+        } else {
+            make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+        }
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
 
@@ -83,7 +87,11 @@
     [self.view addSubview:storeButton];
     [storeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX).offset(70);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-60);
+        } else {
+            make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+        }
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
 }
