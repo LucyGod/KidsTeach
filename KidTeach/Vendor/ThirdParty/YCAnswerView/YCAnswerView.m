@@ -105,7 +105,7 @@
     }
     if (_indexCount == 2) {
         _secondNumber = index;
-        if ([self.number1.text integerValue]*[self.number2.text integerValue] == _firstNumber+_secondNumber) {
+        if ([self.number1.text integerValue]+[self.number2.text integerValue] == _firstNumber+_secondNumber) {
             [self changeAnswerState];
             if (self.resultBlock) {
                 self.resultBlock();
@@ -246,7 +246,7 @@
 - (UILabel *)xLB{
     if(!_xLB){
         _xLB = [[UILabel alloc]init];
-        _xLB.text = @"×";
+        _xLB.text = @"+";
         _xLB.textAlignment = NSTextAlignmentCenter;
         _xLB.textColor = RGBA(150, 99, 21, 1);
         _xLB.font = [UIFont fontWithName:@"Arial" size:16*WidthRate];

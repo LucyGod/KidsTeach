@@ -18,6 +18,8 @@
 @interface ASOMainViewController (){
     NSString *_isQuite;
     UIButton *_backButton;
+    
+    GADBannerView *_bannerAdView;
 }
 
 @property (nonatomic, strong) AVPlayer *player;
@@ -69,6 +71,25 @@
     if (![[PayHelp sharePayHelp] isApplePay]) {
         [self addAdViews];
     }
+    
+    
+       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(paymentSuccess) name:@"paySuccess" object:nil];
+    
+}
+
+
+- (void)paymentSuccess{
+    [_fruitButton setImage:[UIImage imageNamed:@"btn_shuiguo"] forState:UIControlStateNormal];
+    [_vagetableButton setImage:[UIImage imageNamed:@"btn_shucai"] forState:UIControlStateNormal];
+    [_peopleButton setImage:[UIImage imageNamed:@"btn_jiating"] forState:UIControlStateNormal];
+    [_voiceButton setImage:[UIImage imageNamed:@"btn_voice"] forState:UIControlStateNormal];
+    
+    [_bannerAdView removeFromSuperview];
+    self.Interstitial = nil;
+}
+
+- (void)dealloc{
+       [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)reMakeConstraints{
@@ -120,17 +141,17 @@
 
 - (void)addAdViews{
     //加载广告
-    GADBannerView *bannerAdView = [[GADBannerView alloc] init];
-    bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/5269911852";
-    bannerAdView.rootViewController = self;
+    _bannerAdView = [[GADBannerView alloc] init];
+    _bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/5269911852";
+    _bannerAdView.rootViewController = self;
     
     GADRequest *request = [GADRequest request];
     GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
     
-    [bannerAdView loadRequest:request];
-    [self.view addSubview:bannerAdView];
+    [_bannerAdView loadRequest:request];
+    [self.view addSubview:_bannerAdView];
     
-    [bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.view);
         make.height.equalTo(@50);
     }];
