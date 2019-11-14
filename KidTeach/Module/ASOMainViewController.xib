@@ -10,8 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASOMainViewController">
             <connections>
+                <outlet property="animalButton" destination="G55-4T-4zk" id="Zl8-bb-7cW"/>
+                <outlet property="fruitButton" destination="eM6-fK-LDf" id="MA9-Ao-J70"/>
                 <outlet property="iconImageView" destination="aUG-4T-DJs" id="HqF-EI-c0f"/>
+                <outlet property="peopleButton" destination="FfQ-ML-tAI" id="oML-40-z7s"/>
+                <outlet property="settingButton" destination="h6J-n1-pGU" id="JbP-0a-ROM"/>
+                <outlet property="vagetableButton" destination="gFE-D4-ysO" id="YeS-yw-EyA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="voiceButton" destination="COJ-Bt-ZyS" id="Mrz-7E-3eT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
