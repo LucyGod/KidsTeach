@@ -154,6 +154,19 @@
     if (tag == 1 || tag == 2 || tag == 3 || tag == 4) {
         
         //判断用户是否已经购买
+    
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"此模块为付费功能，付费购买一次即可终身免费使用，是否继续购买？" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"购买" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            return ;
+        }]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
         YCAnswerView *anview = [[YCAnswerView alloc]init];
         WEAKSELF
         [anview setResultBlock:^{
@@ -200,6 +213,7 @@
 }
 
 - (IBAction)settingAction:(id)sender {
+    ASOSettingViewController *settingVC = [[ASOSettingViewController alloc] init];
     AudioServicesPlaySystemSound(1519);
     
     //判断用户是否已经购买

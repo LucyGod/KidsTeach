@@ -309,6 +309,8 @@
 		04D71B34237AD40F00EBFDE7 /* why.json in Resources */ = {isa = PBXBuildFile; fileRef = 04D71B1A237AD40F00EBFDE7 /* why.json */; };
 		04D71B35237AD40F00EBFDE7 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71B1B237AD40F00EBFDE7 /* UIImage+ImageEffects.m */; };
 		04D71B36237AD40F00EBFDE7 /* NSString+time.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71B1C237AD40F00EBFDE7 /* NSString+time.m */; };
+		04E1D89D237C091E00E0BA26 /* PayHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1D89C237C091E00E0BA26 /* PayHelp.m */; };
+		04E1D89F237C0BF300E0BA26 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E1D89E237C0BF300E0BA26 /* StoreKit.framework */; };
 		04FF36882289699D00920D3F /* server_protocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 04FF36852289699D00920D3F /* server_protocol.html */; };
 		4BCF0443E650D680546E9D7E /* Pods_KidTeach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E915767D7DD28060838A4D /* Pods_KidTeach.framework */; };
 /* End PBXBuildFile section */
@@ -894,6 +896,9 @@
 		04D71B1A237AD40F00EBFDE7 /* why.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = why.json; sourceTree = "<group>"; };
 		04D71B1B237AD40F00EBFDE7 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		04D71B1C237AD40F00EBFDE7 /* NSString+time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+time.m"; sourceTree = "<group>"; };
+		04E1D89B237C091E00E0BA26 /* PayHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayHelp.h; sourceTree = "<group>"; };
+		04E1D89C237C091E00E0BA26 /* PayHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayHelp.m; sourceTree = "<group>"; };
+		04E1D89E237C0BF300E0BA26 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		04FF36852289699D00920D3F /* server_protocol.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = server_protocol.html; sourceTree = "<group>"; };
 		2AF6C2DEE48DD516E3710650 /* Pods-KidTeach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidTeach.debug.xcconfig"; path = "Target Support Files/Pods-KidTeach/Pods-KidTeach.debug.xcconfig"; sourceTree = "<group>"; };
 		3604EFAA2F3B8847605B14A0 /* Pods_ASOFutureProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASOFutureProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -911,6 +916,7 @@
 				04B3CEA2237A4FE4002CBEC4 /* libc++.tbd in Frameworks */,
 				04B3CEA0237A4FDD002CBEC4 /* CoreGraphics.framework in Frameworks */,
 				04B3CE9E237A4FD7002CBEC4 /* QuartzCore.framework in Frameworks */,
+				04E1D89F237C0BF300E0BA26 /* StoreKit.framework in Frameworks */,
 				04B3CE9C237A4FD1002CBEC4 /* AddressBook.framework in Frameworks */,
 				04B3CE9A237A4FCA002CBEC4 /* Contacts.framework in Frameworks */,
 				04B3CE98237A4FC3002CBEC4 /* CoreLocation.framework in Frameworks */,
@@ -2217,6 +2223,7 @@
 		04D71B06237AD40F00EBFDE7 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				04E1D89A237C091E00E0BA26 /* ApplePay */,
 				04D71B07237AD40F00EBFDE7 /* UIImage+ImageEffects.h */,
 				04D71B08237AD40F00EBFDE7 /* UIResponder+responder.h */,
 				04D71B09237AD40F00EBFDE7 /* UITableViewCell+UMReusable.m */,
@@ -2257,9 +2264,19 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		04E1D89A237C091E00E0BA26 /* ApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				04E1D89B237C091E00E0BA26 /* PayHelp.h */,
+				04E1D89C237C091E00E0BA26 /* PayHelp.m */,
+			);
+			path = ApplePay;
+			sourceTree = "<group>";
+		};
 		07EA8BD656AB2E69831A54E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04E1D89E237C0BF300E0BA26 /* StoreKit.framework */,
 				04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */,
 				04B3CE9F237A4FDD002CBEC4 /* CoreGraphics.framework */,
 				04B3CE9D237A4FD7002CBEC4 /* QuartzCore.framework */,
@@ -2631,6 +2648,7 @@
 				042F9C4B2284295A00FF7F72 /* HSTitleCellModel.m in Sources */,
 				044A526B235EB22300FDC7D4 /* KLineTimeDrawLogic.m in Sources */,
 				042F9B592284271500FF7F72 /* UIView+DrawBGColor.m in Sources */,
+				04E1D89D237C091E00E0BA26 /* PayHelp.m in Sources */,
 				04D71B2B237AD40F00EBFDE7 /* ACSMError.m in Sources */,
 				0434418C236006BE001CF8C2 /* HXPhotoSubViewCell.m in Sources */,
 				042F9C4F2284295A00FF7F72 /* HSBaseTableViewCell.m in Sources */,
