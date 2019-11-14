@@ -25,13 +25,24 @@
         make.edges.equalTo(self.view);
     }];
     
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [closeButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    closeButton.adjustsImageWhenHighlighted = NO;
+    [closeButton addTarget:self action:@selector(backButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeButton];
+    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.top.equalTo(self.view).offset(Status_H +  15);
+        make.size.mas_equalTo(CGSizeMake(36, 36));
+    }];
+    
     UIButton *reBuyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [reBuyBtn addTarget:self action:@selector(reBuyAction) forControlEvents:UIControlEventTouchUpInside];
     [reBuyBtn setBackgroundImage:[UIImage imageNamed:@"reBuy"] forState:UIControlStateNormal];
     [self.view addSubview:reBuyBtn];
     [reBuyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view.mas_right).offset(-20);
-        make.top.equalTo(self.view).offset(Status_H +  20);
+        make.top.equalTo(self.view).offset(Status_H +  15);
         make.size.mas_equalTo(CGSizeMake(58*2, 18*2));
     }];
     

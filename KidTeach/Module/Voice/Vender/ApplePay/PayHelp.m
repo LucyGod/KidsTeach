@@ -51,7 +51,7 @@ static DPDatabaseManager *_instance;
 //        [Help showHUDWithTitle:SKPLocalizedString(@"Purchasing...")];
 //        [Help disableRightSlipBack];//关闭右滑动返回手势
         [self getRequestAppleProductWithProductId:productId];
-        [SVProgressHUD showWithStatus:@"购买中，请耐心等待"];
+        [SVProgressHUD show];
     }
     else {
         NSLog(@"not");
@@ -116,7 +116,7 @@ static DPDatabaseManager *_instance;
 #pragma mark 恢复内购
 -(void)restorePurchase{
 //    [Help showHUDWithTitle:SKPLocalizedString(@"Restoring...")];
-    [SVProgressHUD showWithStatus:@"恢复购买中……"];
+    [SVProgressHUD show];
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];//回调已经购买过的项目
 }
 //获取已经购买过的内购项目
