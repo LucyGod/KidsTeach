@@ -138,6 +138,7 @@ static DPDatabaseManager *_instance;
 //恢复内购失败调用-比如用户没有登录apple id 手动取消恢复
 - (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error{
 //    [Help hideHUDWithTitle:SKPLocalizedString(@"The Restore failed, please try again")];
+    [SVProgressHUD dismiss];
 }
 #pragma mark 购买和恢复都会回调
 // 13.监听购买结果
