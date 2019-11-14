@@ -13,6 +13,9 @@
     UILabel *_contentTitlelabel;
 }
 
+/// 插屏广告
+@property (nonatomic, strong) GADInterstitial *Interstitial;
+
 @end
 
 @implementation ASOGameViewController
@@ -122,6 +125,39 @@
         make.top.equalTo(bottomView.mas_top).offset(8);
         make.bottom.equalTo(bottomView.mas_bottom).offset(-8);
     }];
+    
+    [self addAdView];
+}
+
+- (void)addAdView{
+    //banner广告
+    GADBannerView *bannerAdView = [[GADBannerView alloc] init];
+    bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/5269911852";
+    bannerAdView.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    
+    [bannerAdView loadRequest:request];
+    [self.view addSubview:bannerAdView];
+    
+    [bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.equalTo(@50);
+    }];
+    
+    //插屏广告
+    self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-6864430072527422/7321360127"];
+    GADRequest *request1 = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    [self.Interstitial loadRequest:request1];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    if ([self.Interstitial isReady]) {
+        [self.Interstitial presentFromRootViewController:self];
+    }
 }
 
 - (void)didSuccessGame{
