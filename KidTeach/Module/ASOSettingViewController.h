@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ASOSettingViewController : UIViewController
 
+@property (nonatomic, assign) BOOL needVerify;
+
 @end
 
 NS_ASSUME_NONNULL_END

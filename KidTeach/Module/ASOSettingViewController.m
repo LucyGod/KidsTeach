@@ -24,108 +24,67 @@
         make.edges.equalTo(self.view);
     }];
     
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [backButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    backButton.adjustsImageWhenHighlighted = NO;
-    [backButton addTarget:self action:@selector(backButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:backButton];
-    [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@28);
-        make.left.equalTo(self.view).offset(16);
-        make.top.equalTo(self.view).offset(Status_H);
-    }];
-    
-    UIImageView *contentView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"buyBg"]];
-    [self.view addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.top.equalTo(self.view).offset(NavMustAdd + 160);
-        make.size.mas_equalTo(CGSizeMake(75*2, 96*2));
-    }];
-    
-    UILabel *moneyLabel = [[UILabel alloc] init];
-    moneyLabel.textAlignment = NSTextAlignmentCenter;
-    moneyLabel.font = [UIFont boldSystemFontOfSize:38];
-    moneyLabel.text = @"￥ 45";
-    [contentView addSubview:moneyLabel];
-    [moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(contentView);
-        make.top.equalTo(contentView.mas_top).offset(40);
-        make.height.mas_equalTo(20);
-    }];
-    
-    UILabel *foreverLabel = [[UILabel alloc] init];
-    foreverLabel.textColor = [UIColor whiteColor];
-    foreverLabel.textAlignment = NSTextAlignmentCenter;
-    foreverLabel.font = [UIFont boldSystemFontOfSize:14];
-    foreverLabel.text = @"永久";
-    [contentView addSubview:foreverLabel];
-    [foreverLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(contentView);
-        make.bottom.equalTo(contentView.mas_bottom).offset(0);
-        make.height.mas_equalTo(30);
-    }];
-    
-    
-    UILabel *messageLabel = [[UILabel alloc] init];
-    messageLabel.textAlignment = NSTextAlignmentCenter;
-    messageLabel.font = [UIFont boldSystemFontOfSize:14];
-    messageLabel.text = @"去除广告";
-    [contentView addSubview:messageLabel];
-    [messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(contentView);
-        make.bottom.equalTo(contentView.mas_bottom).offset(-50);
-        make.height.mas_equalTo(20);
-    }];
-    
-    UILabel *detailLabel = [[UILabel alloc] init];
-    detailLabel.textAlignment = NSTextAlignmentCenter;
-    detailLabel.font = [UIFont boldSystemFontOfSize:14];
-    detailLabel.text = @"解锁所有功能";
-    [contentView addSubview:detailLabel];
-    [detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(contentView);
-        make.bottom.equalTo(messageLabel.mas_top).offset(0);
-        make.height.mas_equalTo(20);
-    }];
-    
-    UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [buyButton addTarget:self action:@selector(buyAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:buyButton];
-    [buyButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(contentView);
-    }];
-    
     UIButton *reBuyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [reBuyBtn addTarget:self action:@selector(reBuyAction) forControlEvents:UIControlEventTouchUpInside];
     [reBuyBtn setBackgroundImage:[UIImage imageNamed:@"reBuy"] forState:UIControlStateNormal];
     [self.view addSubview:reBuyBtn];
     [reBuyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.top.equalTo(contentView.mas_bottom).offset(30);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.top.equalTo(self.view).offset(Status_H +  20);
         make.size.mas_equalTo(CGSizeMake(58*2, 18*2));
     }];
     
+    UIImageView *contentView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"set_price"]];
+    [self.view addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(self.view).offset(NavMustAdd + 190);
+        make.size.mas_equalTo(CGSizeMake(294, 177));
+    }];
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [backButton setBackgroundImage:[UIImage imageNamed:@"set_close"] forState:UIControlStateNormal];
+    backButton.adjustsImageWhenHighlighted = NO;
+    [backButton addTarget:self action:@selector(backButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+    [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(contentView.mas_left).offset(40);
+        make.bottom.equalTo(contentView.mas_bottom).offset(15);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
+    
+    UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buyButton setBackgroundImage:[UIImage imageNamed:@"set_ok"] forState:UIControlStateNormal];
+    [buyButton addTarget:self action:@selector(buyAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buyButton];
+    [buyButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(contentView.mas_right).offset(-40);
+        make.bottom.equalTo(contentView.mas_bottom).offset(15);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
+    
+    
+//
     ASOCustomButton *shareButton = [[ASOCustomButton alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     [shareButton addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     [shareButton setTitle:@"分享" forState:UIControlStateNormal];
     [shareButton setImage:[UIImage imageNamed:@"share_icon"] forState:UIControlStateNormal];
     [self.view addSubview:shareButton];
     [shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view.mas_centerX).offset(- 60);
-        make.top.equalTo(reBuyBtn.mas_bottom).offset(30);
-        make.size.mas_equalTo(CGSizeMake(80, 80));
+        make.centerX.equalTo(self.view.mas_centerX).offset(- 70);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+        make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
-    
+
     ASOCustomButton *storeButton = [[ASOCustomButton alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     [storeButton addTarget:self action:@selector(storeAction) forControlEvents:UIControlEventTouchUpInside];
     [storeButton setTitle:@"评分" forState:UIControlStateNormal];
     [storeButton setImage:[UIImage imageNamed:@"zan_icon"] forState:UIControlStateNormal];
     [self.view addSubview:storeButton];
     [storeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view.mas_centerX).offset(60);
-        make.top.equalTo(reBuyBtn.mas_bottom).offset(30);
-        make.size.mas_equalTo(CGSizeMake(80, 80));
+        make.centerX.equalTo(self.view.mas_centerX).offset(70);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+        make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
 }
 
