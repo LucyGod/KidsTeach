@@ -9,12 +9,17 @@
 #import "ASOContentViewController.h"
 #import "ASODetailContentTopView.h"
 #import "VoiceHelper.h"
-#import "ASODemoViewController.h"
+#import "ASOGameViewController.h"
 
 @interface ASOContentViewController ()<DetailContentTopViewDelegate>{
     ASODetailContentTopView *_topCollectionView;
     NSDictionary *_tempDataDic;
+    
+    NSInteger _tapNumber;
 }
+
+/// 插屏广告
+@property (nonatomic, strong) GADInterstitial *Interstitial;
 
 @end
 
@@ -31,6 +36,43 @@
     [self remakeConstraints];
     
     [self setDefaultValue];
+    
+    _tapNumber = 0;
+    
+    //banner广告
+    GADBannerView *bannerAdView = [[GADBannerView alloc] init];
+    bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/5269911852";
+    bannerAdView.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    
+    [bannerAdView loadRequest:request];
+    [self.view addSubview:bannerAdView];
+    
+    [bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.equalTo(@50);
+    }];
+    
+    [self initADView];
+}
+
+/// 初始化广告视图
+- (void)initADView{
+    //插屏广告
+    self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-6864430072527422/7321360127"];
+    GADRequest *request1 = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    [self.Interstitial loadRequest:request1];
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+        if ([self.Interstitial isReady]) {
+            [self.Interstitial presentFromRootViewController:self];
+        }
 }
 
 - (void)remakeConstraints{
@@ -174,6 +216,13 @@
 
 - (void)didSelectdTopViewItemAtIndexpath:(NSIndexPath *)indexpath param:(NSDictionary *)paramDic{
     NSLog(@"%ld____%@",indexpath.row,paramDic);
+
+      _tapNumber ++;
+      
+      if (_tapNumber % 3 == 0) {
+             [self initADView];
+      }
+    
     _tempDataDic = paramDic;
     
     [self addDefaultVoice];
@@ -201,16 +250,19 @@
 - (IBAction)voiceButtonAction:(id)sender {
     //当前json dic
     //    _tempDataDic[@"name"];
+    AudioServicesPlaySystemSound(1519);
     [[VoiceHelper sharedInstance] startSpeaking:_tempDataDic[@"name"] withParamaters:nil];
 }
 
 - (IBAction)tapNextButtonAction:(id)sender {
-    ASODemoViewController *detailContentVC = [[ASODemoViewController alloc] init];
+    AudioServicesPlaySystemSound(1519);
+    ASOGameViewController *detailContentVC = [[ASOGameViewController alloc] init];
     detailContentVC.dataDic = _tempDataDic;
     [self.navigationController pushViewController:detailContentVC animated:YES];
 }
 
 - (IBAction)contentVoiceButtonAction:(id)sender {
+    AudioServicesPlaySystemSound(1519);
     //当前json dic
     //    _tempDataDic[@"content"];
     [[VoiceHelper sharedInstance] startSpeaking:_tempDataDic[@"content"] withParamaters:nil];

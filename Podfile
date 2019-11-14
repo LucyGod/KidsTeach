@@ -18,4 +18,7 @@ target 'KidTeach' do
   pod 'MJExtension'
   pod 'JPush'
   pod 'FMDB'
+  pod 'UMCCommon'
+  pod 'UMCAnalytics'
+  pod 'Google-Mobile-Ads-SDK'
 end

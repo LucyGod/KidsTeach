@@ -9,14 +9,23 @@
 #import "AppDelegate.h"
 #import "ASOMainViewController.h"
 #import <iflyMSC/iflyMSC.h>
+#import "AppDelegate+JPush.h"
+#import <UMAnalytics/MobClick.h>
+#import <UMCommon/UMCommon.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [UMConfigure initWithAppkey:@"5dcbce42570df39fad00044f" channel:@"App Store"];
+    [self jpushRegWithAppKey:@"5ffcc70af91a611b474d2642" launchOptions:launchOptions];
+    //GoogleAd
+    [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
+
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    
+
     ASOMainViewController *homeVC = [[ASOMainViewController alloc] init];
     homeVC.title = @"首页";
     homeVC.hidesBottomBarWhenPushed = NO;
@@ -25,9 +34,7 @@
     self.window.rootViewController = homeNV;
     
     [self.window makeKeyAndVisible];
-    
-    [self p_setUpServer];
-    
+        
     [self p_setUpSVHUD];
     
     [self p_setUPIfly];
@@ -48,16 +55,8 @@
     NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"5dc92b76"];
     //所有服务启动前，需要确保执行createUtility
     [IFlySpeechUtility createUtility:initString];
-}
-
-- (void)p_setUpKeyboardManager {
     
-    [[IQKeyboardManager sharedManager] setEnable:YES];
-}
-
-- (void)p_setUpServer {
-    
-    [[ASOServerManager manager]switchServerType:DisServer];
+    [[NSUserDefaults standardUserDefaults] setValue:@"开" forKey:@"isQuite"];
 }
 
 - (void)p_setUpSVHUD {

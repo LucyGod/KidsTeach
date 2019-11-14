@@ -126,13 +126,13 @@
         </view>
     </objects>
     <resources>
-        <image name="bg_game" width="960" height="1704"/>
+        <image name="bg_game" width="960" height="1713"/>
         <image name="btn_dongwu" width="556" height="556"/>
         <image name="btn_setting" width="556" height="556"/>
         <image name="jiating" width="556" height="556"/>
         <image name="shuiguo" width="556" height="556"/>
         <image name="sucai" width="556" height="556"/>
         <image name="tingli" width="556" height="556"/>
-        <image name="title" width="588" height="321"/>
+        <image name="title" width="618" height="403"/>
     </resources>
 </document>
