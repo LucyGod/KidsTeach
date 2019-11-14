@@ -94,6 +94,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了第%ld个item",indexPath.row);
+    AudioServicesPlaySystemSound(1519);
     NSDictionary *paramDic = _dataArray[indexPath.row];
     if ([self.delegate respondsToSelector:@selector(didSelectdTopViewItemAtIndexpath:param:)]) {
         [self.delegate didSelectdTopViewItemAtIndexpath:indexPath param:paramDic];

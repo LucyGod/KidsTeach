@@ -22,6 +22,10 @@
 
 @property (nonatomic, strong) AVPlayer *player;
 
+
+/// 插屏广告
+@property (nonatomic, strong) GADInterstitial *Interstitial;
+
 @end
 
 @implementation ASOMainViewController
@@ -53,11 +57,39 @@
         make.top.equalTo(self.view).offset(Status_H);
     }];
     
+    //加载广告
+    GADBannerView *bannerAdView = [[GADBannerView alloc] init];
+    bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/5269911852";
+    bannerAdView.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    
+    [bannerAdView loadRequest:request];
+    [self.view addSubview:bannerAdView];
+    
+    [bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.equalTo(@50);
+    }];
+    
+    //插屏广告
+    self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-6864430072527422/7321360127"];
+    GADRequest *request1 = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    [self.Interstitial loadRequest:request1];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    if ([self.Interstitial isReady]) {
+        [self.Interstitial presentFromRootViewController:self];
+    }
 }
 
 /// 开关声音
 - (void)voiceCloseButtonAction{
-    
+    AudioServicesPlaySystemSound(1519);
     if ([_isQuite isEqualToString:@"开"]) {
         _isQuite = @"关";
         [self playerPause];
@@ -115,6 +147,7 @@
 }
 
 - (IBAction)menuButtonAction:(UIButton *)sender {
+    AudioServicesPlaySystemSound(1519);
     NSInteger tag = sender.tag;
     NSLog(@"%ld",tag);
     
@@ -167,6 +200,8 @@
 }
 
 - (IBAction)settingAction:(id)sender {
+    AudioServicesPlaySystemSound(1519);
+    
     [self showBuyVC];
 }
 

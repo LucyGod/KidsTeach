@@ -19,6 +19,9 @@
     
     [UMConfigure initWithAppkey:@"5dcbce42570df39fad00044f" channel:@"App Store"];
     [self jpushRegWithAppKey:@"5ffcc70af91a611b474d2642" launchOptions:launchOptions];
+    //GoogleAd
+    [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
+
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];

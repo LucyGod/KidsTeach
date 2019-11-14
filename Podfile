@@ -20,4 +20,5 @@ target 'KidTeach' do
   pod 'FMDB'
   pod 'UMCCommon'
   pod 'UMCAnalytics'
+  pod 'Google-Mobile-Ads-SDK'
 end

@@ -25,6 +25,8 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <MJExtension/MJExtension.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 // ------------- 项目常量配置及常用公共类 ------
 #import "FAPPublicEnum.h"
