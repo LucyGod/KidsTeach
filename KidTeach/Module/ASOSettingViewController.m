@@ -9,6 +9,7 @@
 #import "ASOSettingViewController.h"
 #import "ASOCustomButton.h"
 #import <StoreKit/StoreKit.h>
+#import "PayHelp.h"
 @interface ASOSettingViewController ()
 
 @end
@@ -136,12 +137,12 @@
 
 /// 内购
 - (void)buyAction{
-    
+    [[PayHelp sharePayHelp] applePayWithProductId:@"com.baby.jianji.45"];
 }
 
 /// 回复购买
 - (void)reBuyAction{
-    
+    [[PayHelp sharePayHelp]restorePurchase];
 }
 
 - (void)shareAction{
@@ -178,5 +179,12 @@
         [SKStoreReviewController requestReview];
     }
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+ [super viewWillAppear:YES];
+}
 @end

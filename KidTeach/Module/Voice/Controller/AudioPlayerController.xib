@@ -33,6 +33,7 @@
                         <constraint firstAttribute="height" constant="44" id="HCO-ZL-UP8"/>
                         <constraint firstAttribute="width" constant="44" id="IOO-gQ-ByA"/>
                     </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                     <state key="normal" title="分享">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -216,6 +217,6 @@
         <image name="NextSong" width="40" height="40"/>
         <image name="OnPause" width="68" height="68"/>
         <image name="PlayerFuzzyBg" width="375" height="667"/>
-        <image name="back" width="64" height="62.5"/>
+        <image name="back" width="128" height="125"/>
     </resources>
 </document>
