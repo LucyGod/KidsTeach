@@ -239,7 +239,7 @@
         contentVC.typeName = @"动物";
         [self.navigationController pushViewController:contentVC animated:YES];
     }else{
-        if (![PayHelp.sharePayHelp isApplePay]) {
+        if ([PayHelp.sharePayHelp isApplePay]) {
             //已购买
             switch (tag) {
                 case 1:
