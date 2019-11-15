@@ -99,7 +99,7 @@
 #define ASOColorBorder                          HexColor(0xcccccc)     // 边框颜色，提示性信息
 #define ASOColorSeparator                       HexColor(0xeeeeee)     // 分割线颜色，宽度1像素
 #define ASOColorGap                             HexColor(0xF8F8F8)     // 背景间隔色彩
-#define ASOColorBackGround                      HexColor(0xf7f7f7)     // 白色背景色HexColor(0xf7f7f7)
+#define ASOColorBackGround                      RGBColor(16, 23, 36)    // 白色背景色HexColor(0xf7f7f7)
 #define ASOColorText_000000                     HexColor(0x000000)     // 黑色背景色
 #define ASOColorAlert_f8f8f8                    HexColor(0xf8f8f8)     // 首页收藏视图弹框颜色
 #define ASOColorWarning                         HexColor(0xFA0000)     // 警告颜色
@@ -127,7 +127,7 @@
 #define C999 RGBColor(153, 153, 153)
 #define DefaultRedColor RGBColor(207, 76, 102)
 #define DefaultGreenColor RGBColor(27, 157, 123)
-#define kTabBarBackgroundColor RGBColor(153, 153, 153)
+#define kTabBarBackgroundColor RGBColor(19, 29, 50)
 
 #define FDefaultFont14 [UIFont systemFontOfSize:14.0f]
 #define FDefaultFont16 [UIFont systemFontOfSize:16.0f]

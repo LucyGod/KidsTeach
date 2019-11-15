@@ -24,10 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationBar.hidden = YES;
+//    self.navigationBar.hidden = YES;
     
     //设置导航栏背景图片
-    self.navigationBar.barTintColor=ASOColorTheme;
+    self.navigationBar.barTintColor=kTabBarBackgroundColor;
     //设置导航栏不穿透
     self.navigationBar.translucent=NO;
     //设置

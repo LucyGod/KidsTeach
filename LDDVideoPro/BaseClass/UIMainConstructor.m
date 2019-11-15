@@ -11,6 +11,7 @@
 #import "SecondViewController.h"
 #import "FirstViewController.h"
 #import "ThirdViewController.h"
+#import "LYTBaseNavigationController.h"
 static const NSArray *imageNames;
 static const NSArray *selectedImageNames;
 static UIMainConstructor *constructor;
@@ -41,24 +42,24 @@ static UIMainConstructor *constructor;
     if (self = [super init])
     {
         if (!imageNames) {
-            imageNames = @[@"tabbar_home_nor",
-                           @"tabbar_fine_nor",
-                          
-                           @"tabbar_circle_nor",
-                           @"tabbar_me_nor"
-                           ];
+            imageNames = @[@"1",
+                           @"1",
+                           
+                           @"1",
+                           @"1"
+            ];
         }
         
         if (!selectedImageNames) {
-            selectedImageNames = @[@"tabbar_home_sel",
-                                   @"tabbar_fine_sel",
-                                  
-                                   @"tabbar_circle_sel",
-                                   @"tabbar_me_sel"
-                                   ];
+            selectedImageNames = @[@"a",
+                                   @"a",
+                                   
+                                   @"a",
+                                   @"a"
+            ];
         }
         
-      
+        
     }
     return self;
 }
@@ -69,53 +70,50 @@ static UIMainConstructor *constructor;
 {
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
-//        [UIApplication sharedApplication].keyWindow.rootViewController = self.rootNavigationController;
     [self setupViewControllers];
- 
+    
     return self.tabBarController;
 }
 
 //设置UI层次结构
 - (void)setupViewControllers
 {
-
+    
     
     // 主页
     FourthViewController *homeVc = [[FourthViewController alloc] init];
-
+    
     homeVc.title = @"主页";
     homeVc.hidesBottomBarWhenPushed = NO;
-    UINavigationController *homeNC = [[UINavigationController alloc] initWithRootViewController:homeVc];
+    LYTBaseNavigationController *homeNC = [[LYTBaseNavigationController alloc] initWithRootViewController:homeVc];
     
     //发现
     SecondViewController *findVc = [[SecondViewController alloc] init];
     findVc.title = @"发现";
     findVc.hidesBottomBarWhenPushed =NO;
-    UINavigationController *findNC = [[UINavigationController alloc] initWithRootViewController:findVc];
-    
-
+    LYTBaseNavigationController *findNC = [[LYTBaseNavigationController alloc] initWithRootViewController:findVc];
     
     //社区
     FirstViewController *CircleVc = [[FirstViewController alloc] init];
     CircleVc.title = @"课程";
     CircleVc.hidesBottomBarWhenPushed =NO;
-    UINavigationController *circleNC = [[UINavigationController alloc] initWithRootViewController:CircleVc];
+    LYTBaseNavigationController *circleNC = [[LYTBaseNavigationController alloc] initWithRootViewController:CircleVc];
     
     //我的
     ThirdViewController *meVc = [[ThirdViewController alloc] init];
     meVc.title = @"我的";
     meVc.hidesBottomBarWhenPushed =NO;
-    UINavigationController *meNC = [[UINavigationController alloc] initWithRootViewController:meVc];
+    LYTBaseNavigationController *meNC = [[LYTBaseNavigationController alloc] initWithRootViewController:meVc];
     
-
+    
     
     self.tabBarController.viewControllers = @[
-                                              homeNC,
-                                              findNC,
-                                              circleNC,
-                                              meNC
-                                             ];
-
+        homeNC,
+        findNC,
+        circleNC,
+        meNC
+    ];
+    
     
     [self.tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem *item, NSUInteger idx, BOOL *stop) {
         UIImage *image = [UIImage imageNamed:imageNames[idx]];
@@ -124,11 +122,12 @@ static UIMainConstructor *constructor;
         item.selectedImage = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }];
     
-    self.tabBarController.tabBar.backgroundColor = HexColor(0xFFFFFF);
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:HexColor(0x666666),
+    self.tabBarController.tabBar.barTintColor = RGBCOLOR(19, 29, 50);
+    self.tabBarController.tabBar.translucent = NO;
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.whiteColor,
                                                         NSFontAttributeName:[UIFont fontWithName:fFont size:10.f]
-                                                        } forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:HexColor(0x000000)} forState:UIControlStateSelected];
+    } forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:RGBCOLOR(13, 117, 254)} forState:UIControlStateSelected];
     [UITabBarItem appearance].titlePositionAdjustment = UIOffsetMake(0, -2.0f);
 }
 
