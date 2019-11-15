@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
 //    self.navigationBar.hidden = YES;
-    
+    self.navigationBar.tintColor = [UIColor whiteColor];
     //设置导航栏背景图片
     self.navigationBar.barTintColor=kTabBarBackgroundColor;
     //设置导航栏不穿透
@@ -72,6 +72,20 @@
 
     return YES;
 }
+
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    [super pushViewController:viewController animated:animated];
+    
+    if (self.viewControllers.count > 1) {
+        viewController.hidesBottomBarWhenPushed=YES;
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bt_navigation_white_nor"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    }
+}
+
+- (void)backAction{
+    [self popViewControllerAnimated:YES];
+}
+
 //解决手势失效问题
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {

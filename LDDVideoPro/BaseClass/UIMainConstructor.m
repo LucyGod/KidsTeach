@@ -81,7 +81,7 @@ static UIMainConstructor *constructor;
     
     
     // 主页
-    FourthViewController *homeVc = [[FourthViewController alloc] init];
+    FirstViewController *homeVc = [[FirstViewController alloc] init];
     
     homeVc.title = @"主页";
     homeVc.hidesBottomBarWhenPushed = NO;
@@ -94,17 +94,16 @@ static UIMainConstructor *constructor;
     LYTBaseNavigationController *findNC = [[LYTBaseNavigationController alloc] initWithRootViewController:findVc];
     
     //社区
-    FirstViewController *CircleVc = [[FirstViewController alloc] init];
+    ThirdViewController *CircleVc = [[ThirdViewController alloc] init];
     CircleVc.title = @"课程";
     CircleVc.hidesBottomBarWhenPushed =NO;
     LYTBaseNavigationController *circleNC = [[LYTBaseNavigationController alloc] initWithRootViewController:CircleVc];
     
     //我的
-    ThirdViewController *meVc = [[ThirdViewController alloc] init];
+    FourthViewController *meVc = [[FourthViewController alloc] init];
     meVc.title = @"我的";
     meVc.hidesBottomBarWhenPushed =NO;
     LYTBaseNavigationController *meNC = [[LYTBaseNavigationController alloc] initWithRootViewController:meVc];
-    
     
     
     self.tabBarController.viewControllers = @[

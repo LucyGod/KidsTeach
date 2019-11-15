@@ -1,7 +1,11 @@
 PODS:
-  - FMDB (2.7.5):
-    - FMDB/standard (= 2.7.5)
-  - FMDB/standard (2.7.5)
+  - CocoaAsyncSocket (7.6.3)
+  - CocoaHTTPServer (2.3):
+    - CocoaAsyncSocket
+    - CocoaLumberjack
+  - CocoaLumberjack (3.6.0):
+    - CocoaLumberjack/Core (= 3.6.0)
+  - CocoaLumberjack/Core (3.6.0)
   - Google-Mobile-Ads-SDK (7.52.0):
     - GoogleAppMeasurement (~> 6.0)
   - GoogleAppMeasurement (6.1.5):
@@ -38,9 +42,6 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - RTRootNavigationController (0.7.2):
-    - RTRootNavigationController/Core (= 0.7.2)
-  - RTRootNavigationController/Core (0.7.2)
   - SDCycleScrollView (1.80):
     - SDWebImage (>= 5.0.0)
   - SDWebImage (5.2.3):
@@ -52,14 +53,13 @@ PODS:
   - UMCCommon (2.1.1)
 
 DEPENDENCIES:
-  - FMDB
+  - CocoaHTTPServer
   - Google-Mobile-Ads-SDK
   - IQKeyboardManager
   - JPush
   - Masonry
   - MJExtension
   - MJRefresh
-  - RTRootNavigationController
   - SDCycleScrollView
   - SDWebImage
   - SVProgressHUD
@@ -68,7 +68,9 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - FMDB
+    - CocoaAsyncSocket
+    - CocoaHTTPServer
+    - CocoaLumberjack
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
@@ -79,7 +81,6 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - nanopb
-    - RTRootNavigationController
     - SDCycleScrollView
     - SDWebImage
     - SVProgressHUD
@@ -87,7 +88,9 @@ SPEC REPOS:
     - UMCCommon
 
 SPEC CHECKSUMS:
-  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
+  CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   Google-Mobile-Ads-SDK: 62f6244637306cb60a1b4adda067f53224c7a860
   GoogleAppMeasurement: 037f46d1d8ae8b312720f1042585ab961a1289e3
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
@@ -98,13 +101,12 @@ SPEC CHECKSUMS:
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  RTRootNavigationController: 8344c2352d6d40fa370d0366efae2c84a945213f
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
   UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
 
-PODFILE CHECKSUM: 96fc0a81045107a3612aa1a5f317e0b27863bd79
+PODFILE CHECKSUM: e60b62f0d3192b5e462222a82691151f5d714653
 
 COCOAPODS: 1.8.4

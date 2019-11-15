@@ -12,11 +12,11 @@ target 'LDDVideoPro' do
   pod 'Masonry'
   pod 'SDCycleScrollView'
   pod 'IQKeyboardManager'           
-  pod 'RTRootNavigationController'
   pod 'MJExtension'
   pod 'JPush'
-  pod 'FMDB'
   pod 'UMCCommon'
   pod 'UMCAnalytics'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'CocoaHTTPServer'
+
 end
