@@ -9,7 +9,7 @@
 #import "UIMainConstructor.h"
 #import "FourthViewController.h"
 #import "SecondViewController.h"
-#import "FirstViewController.h"
+#import "FileSystemViewController.h"
 #import "ThirdViewController.h"
 #import "LYTBaseNavigationController.h"
 static const NSArray *imageNames;
@@ -81,7 +81,7 @@ static UIMainConstructor *constructor;
     
     
     // 主页
-    FirstViewController *homeVc = [[FirstViewController alloc] init];
+    FileSystemViewController *homeVc = [[FileSystemViewController alloc] init];
     
     homeVc.title = @"主页";
     homeVc.hidesBottomBarWhenPushed = NO;

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0420D5A4237E881D0088A799 /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420D5A3237E881D0088A799 /* PaymentViewController.m */; };
+		0420D5A7237E938F0088A799 /* PaymentContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420D5A6237E938F0088A799 /* PaymentContentView.m */; };
+		0420D5AB237E97720088A799 /* PaymentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420D5A9237E97720088A799 /* PaymentCollectionViewCell.m */; };
+		0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0420D5AA237E97720088A799 /* PaymentCollectionViewCell.xib */; };
+		0420D5B3237EA6E10088A799 /* FIleSystemMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420D5B2237EA6E10088A799 /* FIleSystemMainView.m */; };
+		0420D5B7237EAA410088A799 /* FileSystemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420D5B5237EAA410088A799 /* FileSystemCollectionViewCell.m */; };
+		0420D5B8237EAA410088A799 /* FileSystemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0420D5B6237EAA410088A799 /* FileSystemCollectionViewCell.xib */; };
 		04233957235F0D1E00909703 /* UIColor+DarkMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04233955235F0D1E00909703 /* UIColor+DarkMode.m */; };
 		0426EDFE235E9EE9002A6616 /* FAPBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426EDFD235E9EE9002A6616 /* FAPBaseModel.m */; };
 		042F9B132284168800FF7F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 042F9B122284168800FF7F72 /* Assets.xcassets */; };
@@ -36,7 +43,7 @@
 		042F9C5822842A2F00FF7F72 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F9C5622842A2F00FF7F72 /* UITextView+Placeholder.m */; };
 		0431CB17237E598D00CCE626 /* PayHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB15237E598C00CCE626 /* PayHelp.m */; };
 		0431CB25237E5A1B00CCE626 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB1B237E5A1800CCE626 /* FourthViewController.m */; };
-		0431CB26237E5A1B00CCE626 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB1E237E5A1900CCE626 /* FirstViewController.m */; };
+		0431CB26237E5A1B00CCE626 /* FileSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB1E237E5A1900CCE626 /* FileSystemViewController.m */; };
 		0431CB27237E5A1B00CCE626 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB21237E5A1A00CCE626 /* SecondViewController.m */; };
 		0431CB28237E5A1B00CCE626 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB24237E5A1B00CCE626 /* ThirdViewController.m */; };
 		0431CB2B237E5B8C00CCE626 /* UIMainConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB29237E5B8B00CCE626 /* UIMainConstructor.m */; };
@@ -123,6 +130,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0420D5A2237E881D0088A799 /* PaymentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		0420D5A3237E881D0088A799 /* PaymentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
+		0420D5A5237E938F0088A799 /* PaymentContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentContentView.h; sourceTree = "<group>"; };
+		0420D5A6237E938F0088A799 /* PaymentContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentContentView.m; sourceTree = "<group>"; };
+		0420D5A8237E97720088A799 /* PaymentCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentCollectionViewCell.h; sourceTree = "<group>"; };
+		0420D5A9237E97720088A799 /* PaymentCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentCollectionViewCell.m; sourceTree = "<group>"; };
+		0420D5AA237E97720088A799 /* PaymentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCollectionViewCell.xib; sourceTree = "<group>"; };
+		0420D5B1237EA6E10088A799 /* FIleSystemMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIleSystemMainView.h; sourceTree = "<group>"; };
+		0420D5B2237EA6E10088A799 /* FIleSystemMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIleSystemMainView.m; sourceTree = "<group>"; };
+		0420D5B4237EAA410088A799 /* FileSystemCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSystemCollectionViewCell.h; sourceTree = "<group>"; };
+		0420D5B5237EAA410088A799 /* FileSystemCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileSystemCollectionViewCell.m; sourceTree = "<group>"; };
+		0420D5B6237EAA410088A799 /* FileSystemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileSystemCollectionViewCell.xib; sourceTree = "<group>"; };
 		04233955235F0D1E00909703 /* UIColor+DarkMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DarkMode.m"; sourceTree = "<group>"; };
 		04233956235F0D1E00909703 /* UIColor+DarkMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DarkMode.h"; sourceTree = "<group>"; };
 		0426EDFC235E9EE9002A6616 /* FAPBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPBaseModel.h; sourceTree = "<group>"; };
@@ -182,8 +201,8 @@
 		0431CB16237E598D00CCE626 /* PayHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayHelp.h; sourceTree = "<group>"; };
 		0431CB1A237E5A1800CCE626 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
 		0431CB1B237E5A1800CCE626 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
-		0431CB1D237E5A1900CCE626 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		0431CB1E237E5A1900CCE626 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		0431CB1D237E5A1900CCE626 /* FileSystemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemViewController.h; sourceTree = "<group>"; };
+		0431CB1E237E5A1900CCE626 /* FileSystemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemViewController.m; sourceTree = "<group>"; };
 		0431CB20237E5A1A00CCE626 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		0431CB21237E5A1A00CCE626 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		0431CB23237E5A1B00CCE626 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
@@ -378,6 +397,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0420D5A1237E87F10088A799 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				0420D5A2237E881D0088A799 /* PaymentViewController.h */,
+				0420D5A3237E881D0088A799 /* PaymentViewController.m */,
+				0420D5AE237E978B0088A799 /* View */,
+				0420D5AD237E97810088A799 /* Cell */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		0420D5AD237E97810088A799 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0420D5A8237E97720088A799 /* PaymentCollectionViewCell.h */,
+				0420D5A9237E97720088A799 /* PaymentCollectionViewCell.m */,
+				0420D5AA237E97720088A799 /* PaymentCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0420D5AE237E978B0088A799 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0420D5A5237E938F0088A799 /* PaymentContentView.h */,
+				0420D5A6237E938F0088A799 /* PaymentContentView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0420D5AF237EA6A00088A799 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0431CB1D237E5A1900CCE626 /* FileSystemViewController.h */,
+				0431CB1E237E5A1900CCE626 /* FileSystemViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0420D5B0237EA6A80088A799 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0420D5B1237EA6E10088A799 /* FIleSystemMainView.h */,
+				0420D5B2237EA6E10088A799 /* FIleSystemMainView.m */,
+				0420D5B9237EB05C0088A799 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0420D5B9237EB05C0088A799 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0420D5B4237EAA410088A799 /* FileSystemCollectionViewCell.h */,
+				0420D5B5237EAA410088A799 /* FileSystemCollectionViewCell.m */,
+				0420D5B6237EAA410088A799 /* FileSystemCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		04233954235F0D1E00909703 /* UIColor+DarkMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,7 +555,8 @@
 		042F9B242284241A00FF7F72 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				0431CB1C237E5A1900CCE626 /* First */,
+				0420D5A1237E87F10088A799 /* Payment */,
+				0431CB1C237E5A1900CCE626 /* FileSystem */,
 				0431CB1F237E5A1A00CCE626 /* Second */,
 				0431CB22237E5A1B00CCE626 /* Third */,
 				0431CB19237E5A1800CCE626 /* Fourth */,
@@ -587,13 +666,13 @@
 			path = Fourth;
 			sourceTree = "<group>";
 		};
-		0431CB1C237E5A1900CCE626 /* First */ = {
+		0431CB1C237E5A1900CCE626 /* FileSystem */ = {
 			isa = PBXGroup;
 			children = (
-				0431CB1D237E5A1900CCE626 /* FirstViewController.h */,
-				0431CB1E237E5A1900CCE626 /* FirstViewController.m */,
+				0420D5B0237EA6A80088A799 /* View */,
+				0420D5AF237EA6A00088A799 /* Controller */,
 			);
-			path = First;
+			path = FileSystem;
 			sourceTree = "<group>";
 		};
 		0431CB1F237E5A1A00CCE626 /* Second */ = {
@@ -968,8 +1047,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				042F9B162284168800FF7F72 /* LaunchScreen.storyboard in Resources */,
+				0420D5B8237EAA410088A799 /* FileSystemCollectionViewCell.xib in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
+				0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,6 +1107,7 @@
 				042F9B4E2284271500FF7F72 /* NSString+GLDate.m in Sources */,
 				043441A123605EFF001CF8C2 /* UIImage+HAFExtension.m in Sources */,
 				044A5289235EB22300FDC7D4 /* JXCategoryTitleImageCell.m in Sources */,
+				0420D5B3237EA6E10088A799 /* FIleSystemMainView.m in Sources */,
 				042F9B622284275300FF7F72 /* FAPBaseViewController.m in Sources */,
 				0434410E236006BD001CF8C2 /* UIView+UIViewController.m in Sources */,
 				044A529C235EB22300FDC7D4 /* JXCategoryBaseCell.m in Sources */,
@@ -1035,6 +1117,7 @@
 				04344111236006BD001CF8C2 /* UIView+Extension.m in Sources */,
 				0426EDFE235E9EE9002A6616 /* FAPBaseModel.m in Sources */,
 				044A529A235EB22300FDC7D4 /* UIColor+JXAdd.m in Sources */,
+				0420D5AB237E97720088A799 /* PaymentCollectionViewCell.m in Sources */,
 				044A5286235EB22300FDC7D4 /* JXCategoryDotView.m in Sources */,
 				04344110236006BD001CF8C2 /* WTTextView.m in Sources */,
 				04344113236006BD001CF8C2 /* UPLoadManager.m in Sources */,
@@ -1071,8 +1154,9 @@
 				044A5291235EB22300FDC7D4 /* JXCategoryNumberView.m in Sources */,
 				042F9C1A2284295A00FF7F72 /* ASORefreshFooter.m in Sources */,
 				044A5278235EB22300FDC7D4 /* JXCategoryTitleVerticalZoomCell.m in Sources */,
-				0431CB26237E5A1B00CCE626 /* FirstViewController.m in Sources */,
+				0431CB26237E5A1B00CCE626 /* FileSystemViewController.m in Sources */,
 				044A5283235EB22300FDC7D4 /* JXCategoryIndicatorCell.m in Sources */,
+				0420D5B7237EAA410088A799 /* FileSystemCollectionViewCell.m in Sources */,
 				04344114236006BD001CF8C2 /* UIImage+fixOrientation.m in Sources */,
 				044A528F235EB22300FDC7D4 /* JXCategoryImageCell.m in Sources */,
 				04233957235F0D1E00909703 /* UIColor+DarkMode.m in Sources */,
@@ -1093,8 +1177,10 @@
 				042F9B4F2284271500FF7F72 /* NSObject+DrawText.m in Sources */,
 				044A5287235EB22300FDC7D4 /* JXCategoryDotCellModel.m in Sources */,
 				042F9B572284271500FF7F72 /* NSString+NumberFormatter.m in Sources */,
+				0420D5A7237E938F0088A799 /* PaymentContentView.m in Sources */,
 				044A5284235EB22300FDC7D4 /* JXCategoryIndicatorView.m in Sources */,
 				044A5279235EB22300FDC7D4 /* JXCategoryTitleVerticalZoomView.m in Sources */,
+				0420D5A4237E881D0088A799 /* PaymentViewController.m in Sources */,
 				044A5293235EB22300FDC7D4 /* JXCategoryNumberCellModel.m in Sources */,
 				043BC6CE2361AF5F00BBF43A /* AppDelegate.m in Sources */,
 				044A5277235EB22300FDC7D4 /* JXCategoryTitleVerticalZoomCellModel.m in Sources */,
