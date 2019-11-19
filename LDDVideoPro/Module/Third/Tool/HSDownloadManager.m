@@ -7,10 +7,12 @@
 //
 
 // 缓存主目录
-#define HSCachesDirectory [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"HSCache"]
+#define PlistCachesDirectory [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
+#define HSCachesDirectory [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 // 保存文件名
-#define HSFileName(url) url.md5String
+//#define HSFileName(url) url.md5String
+#define HSFileName(url) [url lastPathComponent]
 
 // 文件的存放路径（caches）
 #define HSFileFullpath(url) [HSCachesDirectory stringByAppendingPathComponent:HSFileName(url)]
@@ -19,7 +21,7 @@
 #define HSDownloadLength(url) [[[NSFileManager defaultManager] attributesOfItemAtPath:HSFileFullpath(url) error:nil][NSFileSize] integerValue]
 
 // 存储文件总长度的文件路径（caches）
-#define HSTotalLengthFullpath [HSCachesDirectory stringByAppendingPathComponent:@"totalLength.plist"]
+#define HSTotalLengthFullpath [PlistCachesDirectory stringByAppendingPathComponent:@"totalLength.plist"]
 
 #import "HSDownloadManager.h"
 #import "NSString+Hash.h"
@@ -98,6 +100,7 @@ static HSDownloadManager *_downloadManager;
     if (!url) return;
     if ([self isCompletion:url]) {
         stateBlock(DownloadStateCompleted);
+        [SVProgressHUD showSuccessWithStatus:@"该资源已下载完成"];
         NSLog(@"----该资源已下载完成");
         return;
     }
@@ -200,6 +203,15 @@ static HSDownloadManager *_downloadManager;
         return YES;
     }
     return NO;
+}
+
+- (BOOL)isPause:(NSString *)url {
+    NSURLSessionDataTask *task = [self getTask:url];
+    if (task.state == NSURLSessionTaskStateRunning) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 /**

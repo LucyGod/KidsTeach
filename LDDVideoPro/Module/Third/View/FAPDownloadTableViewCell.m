@@ -1,18 +1,20 @@
 //
-//  FAPNetworkHistoryCell.m
+//  FAPDownloadTableViewCell.m
 //  LDDVideoPro
 //
-//  Created by MAC on 18/11/2019.
+//  Created by MAC on 19/11/2019.
 //  Copyright © 2019 ghostlord. All rights reserved.
 //
 
-#import "FAPNetworkHistoryCell.h"
+#import "FAPDownloadTableViewCell.h"
 
-@implementation FAPNetworkHistoryCell
+@implementation FAPDownloadTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [self.progressView setProgress:0];
+    [self.statuButton addTarget:self action:@selector(statuClick) forControlEvents:UIControlEventTouchUpInside];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.bottomLine = [[UILabel alloc] init];
     self.bottomLine.backgroundColor = [UIColor lightGrayColor];
@@ -25,9 +27,10 @@
         make.height.mas_equalTo(0.5);
     }];
 }
-- (IBAction)delAction:(id)sender {
-    if (self.delSuccess) {
-        self.delSuccess();
+
+- (void)statuClick {
+    if (self.successBlock) {
+        self.successBlock(self.progressLabel, self.progressView, self.statuButton);
     }
 }
 

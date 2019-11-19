@@ -129,6 +129,8 @@
 		04B2C592238392A00049F5F0 /* HSDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C58E238392A00049F5F0 /* HSDownloadManager.m */; };
 		04B2C593238392A00049F5F0 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C590238392A00049F5F0 /* NSString+Hash.m */; };
 		04B2C596238392C80049F5F0 /* FAPDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C595238392C80049F5F0 /* FAPDownloadViewController.m */; };
+		04B2C59B2383A6630049F5F0 /* FAPDownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C5992383A6630049F5F0 /* FAPDownloadTableViewCell.m */; };
+		04B2C59C2383A6630049F5F0 /* FAPDownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B2C59A2383A6630049F5F0 /* FAPDownloadTableViewCell.xib */; };
 		04B3CE8A237A4F89002CBEC4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE89237A4F89002CBEC4 /* libz.tbd */; };
 		04B3CE8C237A4F92002CBEC4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE8B237A4F91002CBEC4 /* AVFoundation.framework */; };
 		04B3CE8E237A4F9B002CBEC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE8D237A4F9B002CBEC4 /* SystemConfiguration.framework */; };
@@ -403,6 +405,9 @@
 		04B2C590238392A00049F5F0 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		04B2C594238392C80049F5F0 /* FAPDownloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPDownloadViewController.h; sourceTree = "<group>"; };
 		04B2C595238392C80049F5F0 /* FAPDownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPDownloadViewController.m; sourceTree = "<group>"; };
+		04B2C5982383A6630049F5F0 /* FAPDownloadTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPDownloadTableViewCell.h; sourceTree = "<group>"; };
+		04B2C5992383A6630049F5F0 /* FAPDownloadTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPDownloadTableViewCell.m; sourceTree = "<group>"; };
+		04B2C59A2383A6630049F5F0 /* FAPDownloadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAPDownloadTableViewCell.xib; sourceTree = "<group>"; };
 		04B3CE89237A4F89002CBEC4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		04B3CE8B237A4F91002CBEC4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		04B3CE8D237A4F9B002CBEC4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -778,6 +783,7 @@
 		0431CB22237E5A1B00CCE626 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				04B2C5972383A63E0049F5F0 /* View */,
 				04B2C58A238392600049F5F0 /* Tool */,
 				0431CB23237E5A1B00CCE626 /* ThirdViewController.h */,
 				0431CB24237E5A1B00CCE626 /* ThirdViewController.m */,
@@ -1060,6 +1066,16 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		04B2C5972383A63E0049F5F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B2C5982383A6630049F5F0 /* FAPDownloadTableViewCell.h */,
+				04B2C5992383A6630049F5F0 /* FAPDownloadTableViewCell.m */,
+				04B2C59A2383A6630049F5F0 /* FAPDownloadTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04B5B3AA235EAA34002179AA /* LGPageManner */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,6 +1203,7 @@
 				0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */,
 				04B2C57B238278D30049F5F0 /* FAPNetworkHistoryCell.xib in Resources */,
 				04B2C5862382933F0049F5F0 /* FAPiTunesShareViewController.xib in Resources */,
+				04B2C59C2383A6630049F5F0 /* FAPDownloadTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1342,6 +1359,7 @@
 				0434410D236006BD001CF8C2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				042F9B552284271500FF7F72 /* NSString+Verify.m in Sources */,
 				044A5290235EB22300FDC7D4 /* JXCategoryImageCellModel.m in Sources */,
+				04B2C59B2383A6630049F5F0 /* FAPDownloadTableViewCell.m in Sources */,
 				04344106236006BD001CF8C2 /* myUILabel.m in Sources */,
 				0434410B236006BD001CF8C2 /* StringManager.m in Sources */,
 				0431CB28237E5A1B00CCE626 /* ThirdViewController.m in Sources */,
