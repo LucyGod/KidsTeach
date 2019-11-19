@@ -27,6 +27,7 @@
 #import <MJExtension/MJExtension.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <YYCategories/YYCategories.h>
 
 // ------------- 项目常量配置及常用公共类 ------
 #import "FAPConstants.h"
@@ -63,6 +64,7 @@
 #import "FAPBaseListView.h"
 #import "UIMainConstructor.h"
 #import "PayHelp.h"
+#import "LYTBaseNavigationController.h"
 
 
 #endif /* ASOPrefixHeader_pch */

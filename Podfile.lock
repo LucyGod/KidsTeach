@@ -51,6 +51,9 @@ PODS:
   - UMCAnalytics (6.0.5):
     - UMCCommon
   - UMCCommon (2.1.1)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
   - CocoaHTTPServer
@@ -65,6 +68,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - UMCAnalytics
   - UMCCommon
+  - YYCategories
 
 SPEC REPOS:
   trunk:
@@ -86,6 +90,7 @@ SPEC REPOS:
     - SVProgressHUD
     - UMCAnalytics
     - UMCCommon
+    - YYCategories
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
@@ -106,7 +111,8 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
   UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: e60b62f0d3192b5e462222a82691151f5d714653
+PODFILE CHECKSUM: 45dc0c91a2a7b0daaa46ce819512633b2f6ec192
 
 COCOAPODS: 1.8.4

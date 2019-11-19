@@ -18,7 +18,7 @@
 //    [self configSys:launchOptions];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor clearColor];
     
     UITabBarController *tabBarController = [[UIMainConstructor sharedUIConstructor] constructUI];
     self.window.rootViewController = tabBarController;
@@ -34,7 +34,7 @@
     //GoogleAd
     [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
     
-    [SVProgressHUD setMinimumDismissTimeInterval:2.0f];
+    [SVProgressHUD setMinimumDismissTimeInterval:1.0f];
 }
 
 @end

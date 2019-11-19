@@ -10,10 +10,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FileSystemCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *fileNameLabel;
+@protocol FileSysCellDelegate <NSObject>
 
+- (void)didClickedDeleteButton:(UICollectionViewCell*)cell;
+
+@end
+
+@interface FileSystemCollectionViewCell : UICollectionViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *directoryNameLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *deleteIconButton;
+
+@property (weak, nonatomic) id <FileSysCellDelegate> delegate;
+
+
+/// 显示删除图标
+- (void)showDeleteIcon;
+
+
+/// 隐藏删除图标
+- (void)hideDeleteIcon;
+
+
+/// 点击了删除按钮
+/// @param sender btn
+- (IBAction)deleteBtnAction:(id)sender;
 @end
 
 NS_ASSUME_NONNULL_END
