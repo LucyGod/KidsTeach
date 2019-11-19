@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,weak) id <FileSystemMoveViewDelegate> delegate;
 
+- (void)updateSelectedCount:(NSMutableArray*)array;
+
 @end
 
 NS_ASSUME_NONNULL_END

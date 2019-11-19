@@ -48,26 +48,6 @@
 }
 
 - (void)getFileViewData{
-    
-    //    NSFileManager *fileManager = [NSFileManager defaultManager];
-    
-    
-    //    [[FileManagerTool sharedManagerTool] createDirectoryWithDirectoryName:@"测试文件夹"];
-    
-    //获取Document文件
-    //       NSString * docsdir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    //       NSString * rarFilePath = [docsdir stringByAppendingPathComponent:@"电影"];//将需要创建的串拼接到后面
-    //       BOOL isDir = NO;
-    //       // fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
-    //       BOOL existed = [fileManager fileExistsAtPath:rarFilePath isDirectory:&isDir];
-    //       if ( !(isDir == YES && existed == YES) ) {//如果文件夹不存在
-    //           [fileManager createDirectoryAtPath:rarFilePath withIntermediateDirectories:YES attributes:nil error:nil];
-    //       }
-    
-    //    NSArray *array = [fileManager contentsOfDirectoryAtPath:DocumentsPath error:nil];
-    //
-    //    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:array];
-    //    [tempArray removeObject:@".DS_Store"];
     NSMutableArray *dataArray = [[FileManagerTool sharedManagerTool] contentsOfDirectory:DocumentsPath];
     [self.fileSysView updateFileWithDataArray:dataArray];
 }

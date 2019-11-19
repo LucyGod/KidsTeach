@@ -8,6 +8,12 @@
 
 #import "FileSystemMoveSelecteView.h"
 
+@interface FileSystemMoveSelecteView(){
+    UILabel *_selectedLabel;
+}
+
+@end
+
 @implementation FileSystemMoveSelecteView
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -22,12 +28,12 @@
     self.backgroundColor = kTabBarBackgroundColor;
     
     //已选
-    UILabel *selectedLabel = [[UILabel alloc] init];
-    selectedLabel.font = [UIFont systemFontOfSize:13.0 weight:UIFontWeightThin];
-    selectedLabel.text = [NSString stringWithFormat:@"已选：%d",2];
-    selectedLabel.textColor = [UIColor lightGrayColor];
-    [self addSubview:selectedLabel];
-    [selectedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    _selectedLabel = [[UILabel alloc] init];
+    _selectedLabel.font = [UIFont systemFontOfSize:13.0 weight:UIFontWeightThin];
+    _selectedLabel.text = [NSString stringWithFormat:@"已选：%d",0];
+    _selectedLabel.textColor = [UIColor lightGrayColor];
+    [self addSubview:_selectedLabel];
+    [_selectedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self).offset(-NavMustAdd/2);
         make.left.equalTo(self).offset(12);
     }];
@@ -47,14 +53,24 @@
                
         make.right.equalTo(self).offset(-12);
         make.width.equalTo(@50);
-        make.centerY.equalTo(selectedLabel.mas_centerY);
+        make.centerY.equalTo(_selectedLabel.mas_centerY);
     }];
 }
 
 - (void)moveButtonAction{
+    
+    if ([_selectedLabel.text isEqualToString:@"已选：0"]) {
+        [SVProgressHUD showErrorWithStatus:@"未选择任何文件！"];
+        return;
+    }
+    
     if ([self.delegate respondsToSelector:@selector(moveFilesCompletionHandler)]) {
         [self.delegate moveFilesCompletionHandler];
     }
+}
+
+- (void)updateSelectedCount:(NSMutableArray*)array{
+    _selectedLabel.text = [NSString stringWithFormat:@"已选：%ld",array.count];
 }
 
 @end

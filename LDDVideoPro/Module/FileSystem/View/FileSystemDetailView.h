@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)didClickedFileWithFilePath:(NSString*)filePath;
 
+- (void)updateSelectedData:(NSMutableArray*)selectedArray;
+
 @end
 
 @interface FileSystemDetailView : UIView

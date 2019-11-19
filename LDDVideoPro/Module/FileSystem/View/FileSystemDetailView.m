@@ -13,6 +13,7 @@
 
 @interface FileSystemDetailView()<UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray *_dataArray;
+    NSMutableArray *_selectedArray;
 }
 
 @property (nonatomic, strong) FileSystemDetailSectionView *bottomView;
@@ -71,6 +72,8 @@
 }
 
 - (void)initSubViews{
+    _selectedArray = [NSMutableArray array];
+    
     [self addSubview:self.bottomView];
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self);
@@ -106,14 +109,36 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (!_tableView.isEditing) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
-    
+    //非编辑状态下
     NSString *fileName = _dataArray[indexPath.row];
     
-    if ([self.delegate respondsToSelector:@selector(didClickedFileWithFilePath:)]) {
-        [self.delegate didClickedFileWithFilePath:fileName];
+    if (!_tableView.isEditing) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        NSString *fileName = _dataArray[indexPath.row];
+          
+          if ([self.delegate respondsToSelector:@selector(didClickedFileWithFilePath:)]) {
+              [self.delegate didClickedFileWithFilePath:fileName];
+          }
+    }
+    
+    //编辑状态下 记录所选索引或其他参数
+    if (![_selectedArray containsObject:fileName]) {
+        [_selectedArray addObject:fileName];
+        
+        //回调选择数据
+        if ([self.delegate respondsToSelector:@selector(updateSelectedData:)]) {
+            [self.delegate updateSelectedData:_selectedArray];
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *fileName = _dataArray[indexPath.row];
+    [_selectedArray removeObject:fileName];
+    
+    //回调选择数据
+    if ([self.delegate respondsToSelector:@selector(updateSelectedData:)]) {
+        [self.delegate updateSelectedData:_selectedArray];
     }
 }
 

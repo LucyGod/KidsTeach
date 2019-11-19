@@ -70,16 +70,40 @@
     
     UIView *selectedView = [[UIView alloc] initWithFrame:cell.bounds];
     selectedView.backgroundColor = kTabBarBackgroundColor;
-    
     cell.selectedBackgroundView = selectedView;
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *dirName = _dataArray[indexPath.row];
+
+    
+    if ([dirName isEqualToString:self.originDirectory]) {
+        [SVProgressHUD showErrorWithStatus:@"不可移动到当原始文件夹！"];
+        return;
+    }
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"是否确认将所选文件移到“%@”?",_dataArray[indexPath.row]] preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
        
+        
+        for (NSString *oldPath in self.originPaths) {
+            //获取文件旧路径以及设置新路径
+            NSString *fileName = [[oldPath componentsSeparatedByString:@"/"] lastObject];
+            NSString *newsPath = [[DocumentsPath stringByAppendingPathComponent:dirName] stringByAppendingPathComponent:fileName];
+            //移动文件
+            if ([[FileManagerTool sharedManagerTool] moveItemAtPath:oldPath toPath:newsPath]) {
+                NSLog(@"文件移动成功，oldPath:%@\n newPath:%@ \n 文件名：%@",oldPath,newsPath,fileName);
+            }
+            
+        }
+        
+        if ([self.delegate respondsToSelector:@selector(didMoveFileSuccessHandler:)]) {
+            [self.delegate didMoveFileSuccessHandler:self.originPaths];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
         
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];

@@ -59,11 +59,8 @@
 }
 
 - (void)headerRefresh{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self->_collectionView.refreshControl endRefreshing];
-    });
-//    NSMutableArray *dataArray = [[FileManagerTool sharedManagerTool] contentsOfDirectory:DocumentsPath];
-//    [self updateFileWithDataArray:dataArray];
+    NSMutableArray *dataArray = [[FileManagerTool sharedManagerTool] contentsOfDirectory:DocumentsPath];
+    [self updateFileWithDataArray:dataArray];
 }
 
 - (void)initSubViews{

@@ -12,11 +12,13 @@
 #import "FileSystemMoveSelecteView.h"
 #import "MoveFileViewController.h"
 
-@interface FileSysDetailViewController ()<FileSystemMoveViewDelegate,DirectoryDetailDelegate>
+@interface FileSysDetailViewController ()<FileSystemMoveViewDelegate,DirectoryDetailDelegate,MoveFileSuccessDelegate>
 
 @property (nonatomic, strong) FileSystemDetailView *detailView;
 
 @property (nonatomic, strong) FileSystemMoveSelecteView *moveSelecteView;
+
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 
 @end
@@ -42,15 +44,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.dataArray = [NSMutableArray array];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"move_right"] style:UIBarButtonItemStyleDone target:self action:@selector(moveItemAction)];
 
 
     [self.view addSubview:self.detailView];
     [self.detailView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
-//        if (@available(iOS 11.0, *)) {
-//            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-//        }
     }];
     
     [self getDirectoryDetailInfo];
@@ -63,6 +64,19 @@
     NSLog(@"所点击的文件路径L：%@",finalPath);
 }
 
+- (void)updateSelectedData:(NSMutableArray *)selectedArray{
+    NSLog(@"所选数据条数：%ld\n所选数据：%@",selectedArray.count,selectedArray);
+    [_moveSelecteView updateSelectedCount:selectedArray];
+    
+    [self.dataArray removeAllObjects];
+
+    for (NSString *fileNmae in selectedArray) {
+        NSString *originPath = [[DocumentsPath stringByAppendingPathComponent:self.title] stringByAppendingPathComponent:fileNmae];
+        
+        [self.dataArray addObject:originPath];
+    }
+    
+}
 
 /// 移动文件
 - (void)moveItemAction{
@@ -83,11 +97,12 @@
 
 - (void)moveFilesCompletionHandler{
     MoveFileViewController *moveFileVC = [[MoveFileViewController alloc] init];
-    
+    moveFileVC.originPaths = self.dataArray;
+    moveFileVC.originDirectory = self.title;
+    moveFileVC.delegate = self;
     LYTBaseNavigationController *nav = [[LYTBaseNavigationController alloc] initWithRootViewController:moveFileVC];
     
     [self presentViewController:nav animated:YES completion:nil];
-//    [self.navigationController pushViewController:moveFileVC animated:YES];
 }
 
 - (void)getDirectoryDetailInfo{
@@ -101,6 +116,14 @@
     }else{
         [SVProgressHUD showErrorWithStatus:@"文件目录不存在！"];
     }
+}
+
+#pragma mark - 移动文件成功的回调
+- (void)didMoveFileSuccessHandler:(NSMutableArray *)originPaths{
+    self.detailView.tableView.editing = NO;
+    NSLog(@"移动文件成功，文件原始路径:%@",originPaths);
+    //刷新数据
+    [self getDirectoryDetailInfo];
 }
 
 /*
