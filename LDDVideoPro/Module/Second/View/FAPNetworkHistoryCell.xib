@@ -61,7 +61,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="btn_image_close" width="22" height="22"/>
+        <image name="btn_image_close" width="16" height="16"/>
         <image name="net_link" width="20" height="20"/>
     </resources>
 </document>

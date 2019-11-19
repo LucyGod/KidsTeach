@@ -13,6 +13,7 @@
 @interface ThirdViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableV;
 @property (nonatomic, strong) NSMutableArray *dirArray; // 存储沙盒里面的所有文件
+@property (nonatomic, copy) NSString *downloadUrl;
 @end
 
 @implementation ThirdViewController
@@ -43,6 +44,7 @@
     [net setAddSuccess:^(NSString * _Nonnull url) {
         [weakSelf.dirArray addObject:url];
         [ThirdViewController addUrlToHistoryList:url];
+        weakSelf.downloadUrl = url;
         [weakSelf.tableV reloadData];
     }];
     net.hidesBottomBarWhenPushed = YES;
@@ -71,10 +73,14 @@
     static NSString *identifier = @"FAPDownloadTableViewCell";
     FAPDownloadTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     NSString *url = self.dirArray[indexPath.row];
-    cell.nameLabel.text = url;
-    if (![[HSDownloadManager sharedInstance] isPause:url]) {
+    cell.nameLabel.text = [url lastPathComponent];
+    cell.progressLabel.text = [NSString stringWithFormat:@"%.f%%", [[HSDownloadManager sharedInstance] progress:url] * 100];
+    cell.progressView.progress = [[HSDownloadManager sharedInstance] progress:url];
+    if ([url isEqualToString:self.downloadUrl]) {
         [self download:url progressLabel:cell.progressLabel progressView:cell.progressView button:cell.statuButton];
+        self.downloadUrl = nil;
     }
+    
     WEAKSELF
     [cell setSuccessBlock:^(UILabel * _Nonnull progressLabel, UIProgressView * _Nonnull progressView, UIButton * _Nonnull statuButton) {
         [weakSelf download:url progressLabel:progressLabel progressView:progressView button:statuButton];
