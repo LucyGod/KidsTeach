@@ -44,6 +44,10 @@
         make.edges.equalTo(self.view);
     }];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self getFileViewData];
 }
 
