@@ -26,5 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param fontSize 字体大小
  */
 - (CGFloat)getHeightWithWidth:(CGFloat)width fontSize:(CGFloat)fontSize;
+
+- (CGSize)getSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
 @end
 NS_ASSUME_NONNULL_END

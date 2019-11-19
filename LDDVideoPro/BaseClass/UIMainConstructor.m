@@ -89,13 +89,13 @@ static UIMainConstructor *constructor;
     
     //发现
     SecondViewController *findVc = [[SecondViewController alloc] init];
-    findVc.title = @"发现";
+    findVc.title = @"传输";
     findVc.hidesBottomBarWhenPushed =NO;
     LYTBaseNavigationController *findNC = [[LYTBaseNavigationController alloc] initWithRootViewController:findVc];
     
     //社区
     ThirdViewController *CircleVc = [[ThirdViewController alloc] init];
-    CircleVc.title = @"课程";
+    CircleVc.title = @"下载";
     CircleVc.hidesBottomBarWhenPushed =NO;
     LYTBaseNavigationController *circleNC = [[LYTBaseNavigationController alloc] initWithRootViewController:CircleVc];
     
