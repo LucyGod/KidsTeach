@@ -6,7 +6,8 @@
 //
 
 #import "ThirdViewController.h"
-
+#import "FAPDownloadViewController.h"
+#import "UIBarButtonItem+Extension.h"
 
 @interface ThirdViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableV;
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithBackgroudImageName:@"icon_add" highBackgroudImageName:@"icon_add" target:self action:@selector(addClick)];
     [self setupTableView];
     [self setupView];
 }
@@ -47,6 +49,16 @@
     [self.tableV reloadData];
 }
 
+- (void)addClick {
+//    FAPNetworkViewController *net = [[FAPNetworkViewController alloc] init];
+//    net.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:net animated:YES];
+//    return;
+    FAPDownloadViewController *net = [[FAPDownloadViewController alloc] init];
+    net.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:net animated:YES];
+    return;
+}
 - (void)setupTableView {
     self.tableV = [[UITableView alloc] initWithFrame:self.view.bounds style:(UITableViewStylePlain)];
     self.tableV.backgroundColor = [UIColor lightGrayColor];

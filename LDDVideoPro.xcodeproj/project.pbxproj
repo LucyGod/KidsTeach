@@ -108,6 +108,17 @@
 		044A529D235EB22300FDC7D4 /* JXCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A5255235EB22300FDC7D4 /* JXCategoryBaseCellModel.m */; };
 		048CC766237EB5DC0080EF28 /* HmTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CC762237EB5DB0080EF28 /* HmTool.m */; };
 		048CC767237EB5DC0080EF28 /* HmHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CC764237EB5DC0080EF28 /* HmHTTPConnection.m */; };
+		04B2C571238230760049F5F0 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */; };
+		04B2C574238270670049F5F0 /* FAPNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C573238270670049F5F0 /* FAPNetworkViewController.m */; };
+		04B2C57A238278D30049F5F0 /* FAPNetworkHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C578238278D30049F5F0 /* FAPNetworkHistoryCell.m */; };
+		04B2C57B238278D30049F5F0 /* FAPNetworkHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B2C579238278D30049F5F0 /* FAPNetworkHistoryCell.xib */; };
+		04B2C57E2382859A0049F5F0 /* FAPNetworkHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C57D2382859A0049F5F0 /* FAPNetworkHeader.m */; };
+		04B2C5852382933F0049F5F0 /* FAPiTunesShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C5832382933F0049F5F0 /* FAPiTunesShareViewController.m */; };
+		04B2C5862382933F0049F5F0 /* FAPiTunesShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B2C5842382933F0049F5F0 /* FAPiTunesShareViewController.xib */; };
+		04B2C591238392A00049F5F0 /* HSSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C58D238392A00049F5F0 /* HSSessionModel.m */; };
+		04B2C592238392A00049F5F0 /* HSDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C58E238392A00049F5F0 /* HSDownloadManager.m */; };
+		04B2C593238392A00049F5F0 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C590238392A00049F5F0 /* NSString+Hash.m */; };
+		04B2C596238392C80049F5F0 /* FAPDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C595238392C80049F5F0 /* FAPDownloadViewController.m */; };
 		04B3CE8A237A4F89002CBEC4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE89237A4F89002CBEC4 /* libz.tbd */; };
 		04B3CE8C237A4F92002CBEC4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE8B237A4F91002CBEC4 /* AVFoundation.framework */; };
 		04B3CE8E237A4F9B002CBEC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE8D237A4F9B002CBEC4 /* SystemConfiguration.framework */; };
@@ -343,6 +354,26 @@
 		048CC763237EB5DB0080EF28 /* HmHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmHTTPConnection.h; sourceTree = "<group>"; };
 		048CC764237EB5DC0080EF28 /* HmHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HmHTTPConnection.m; sourceTree = "<group>"; };
 		048CC765237EB5DC0080EF28 /* HmTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmTool.h; sourceTree = "<group>"; };
+		04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		04B2C570238230760049F5F0 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		04B2C572238270670049F5F0 /* FAPNetworkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPNetworkViewController.h; sourceTree = "<group>"; };
+		04B2C573238270670049F5F0 /* FAPNetworkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPNetworkViewController.m; sourceTree = "<group>"; };
+		04B2C577238278D30049F5F0 /* FAPNetworkHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPNetworkHistoryCell.h; sourceTree = "<group>"; };
+		04B2C578238278D30049F5F0 /* FAPNetworkHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPNetworkHistoryCell.m; sourceTree = "<group>"; };
+		04B2C579238278D30049F5F0 /* FAPNetworkHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAPNetworkHistoryCell.xib; sourceTree = "<group>"; };
+		04B2C57C2382859A0049F5F0 /* FAPNetworkHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPNetworkHeader.h; sourceTree = "<group>"; };
+		04B2C57D2382859A0049F5F0 /* FAPNetworkHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPNetworkHeader.m; sourceTree = "<group>"; };
+		04B2C5822382933F0049F5F0 /* FAPiTunesShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPiTunesShareViewController.h; sourceTree = "<group>"; };
+		04B2C5832382933F0049F5F0 /* FAPiTunesShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPiTunesShareViewController.m; sourceTree = "<group>"; };
+		04B2C5842382933F0049F5F0 /* FAPiTunesShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAPiTunesShareViewController.xib; sourceTree = "<group>"; };
+		04B2C58B238392A00049F5F0 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		04B2C58C238392A00049F5F0 /* HSDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSDownloadManager.h; sourceTree = "<group>"; };
+		04B2C58D238392A00049F5F0 /* HSSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSSessionModel.m; sourceTree = "<group>"; };
+		04B2C58E238392A00049F5F0 /* HSDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDownloadManager.m; sourceTree = "<group>"; };
+		04B2C58F238392A00049F5F0 /* HSSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSSessionModel.h; sourceTree = "<group>"; };
+		04B2C590238392A00049F5F0 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		04B2C594238392C80049F5F0 /* FAPDownloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPDownloadViewController.h; sourceTree = "<group>"; };
+		04B2C595238392C80049F5F0 /* FAPDownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPDownloadViewController.m; sourceTree = "<group>"; };
 		04B3CE89237A4F89002CBEC4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		04B3CE8B237A4F91002CBEC4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		04B3CE8D237A4F9B002CBEC4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -507,6 +538,8 @@
 		042F9B202284241900FF7F72 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				04B2C570238230760049F5F0 /* UIBarButtonItem+Extension.h */,
+				04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */,
 				04233954235F0D1E00909703 /* UIColor+DarkMode */,
 				042F9B392284271300FF7F72 /* NSDictionary+InfoDictionary.h */,
 				042F9B3D2284271300FF7F72 /* NSDictionary+InfoDictionary.m */,
@@ -684,12 +717,12 @@
 		0431CB1F237E5A1A00CCE626 /* Second */ = {
 			isa = PBXGroup;
 			children = (
+				04B2C576238278950049F5F0 /* Controller */,
+				04B2C5752382788C0049F5F0 /* View */,
 				048CC763237EB5DB0080EF28 /* HmHTTPConnection.h */,
 				048CC764237EB5DC0080EF28 /* HmHTTPConnection.m */,
 				048CC765237EB5DC0080EF28 /* HmTool.h */,
 				048CC762237EB5DB0080EF28 /* HmTool.m */,
-				0431CB20237E5A1A00CCE626 /* SecondViewController.h */,
-				0431CB21237E5A1A00CCE626 /* SecondViewController.m */,
 			);
 			path = Second;
 			sourceTree = "<group>";
@@ -697,8 +730,11 @@
 		0431CB22237E5A1B00CCE626 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				04B2C58A238392600049F5F0 /* Tool */,
 				0431CB23237E5A1B00CCE626 /* ThirdViewController.h */,
 				0431CB24237E5A1B00CCE626 /* ThirdViewController.m */,
+				04B2C594238392C80049F5F0 /* FAPDownloadViewController.h */,
+				04B2C595238392C80049F5F0 /* FAPDownloadViewController.m */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -937,6 +973,45 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		04B2C5752382788C0049F5F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B2C577238278D30049F5F0 /* FAPNetworkHistoryCell.h */,
+				04B2C578238278D30049F5F0 /* FAPNetworkHistoryCell.m */,
+				04B2C579238278D30049F5F0 /* FAPNetworkHistoryCell.xib */,
+				04B2C57C2382859A0049F5F0 /* FAPNetworkHeader.h */,
+				04B2C57D2382859A0049F5F0 /* FAPNetworkHeader.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04B2C576238278950049F5F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0431CB20237E5A1A00CCE626 /* SecondViewController.h */,
+				0431CB21237E5A1A00CCE626 /* SecondViewController.m */,
+				04B2C572238270670049F5F0 /* FAPNetworkViewController.h */,
+				04B2C573238270670049F5F0 /* FAPNetworkViewController.m */,
+				04B2C5822382933F0049F5F0 /* FAPiTunesShareViewController.h */,
+				04B2C5832382933F0049F5F0 /* FAPiTunesShareViewController.m */,
+				04B2C5842382933F0049F5F0 /* FAPiTunesShareViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04B2C58A238392600049F5F0 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				04B2C58C238392A00049F5F0 /* HSDownloadManager.h */,
+				04B2C58E238392A00049F5F0 /* HSDownloadManager.m */,
+				04B2C58F238392A00049F5F0 /* HSSessionModel.h */,
+				04B2C58D238392A00049F5F0 /* HSSessionModel.m */,
+				04B2C58B238392A00049F5F0 /* NSString+Hash.h */,
+				04B2C590238392A00049F5F0 /* NSString+Hash.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		04B5B3AA235EAA34002179AA /* LGPageManner */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,6 +1136,8 @@
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */,
+				04B2C57B238278D30049F5F0 /* FAPNetworkHistoryCell.xib in Resources */,
+				04B2C5862382933F0049F5F0 /* FAPiTunesShareViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1123,6 +1200,7 @@
 				044A529C235EB22300FDC7D4 /* JXCategoryBaseCell.m in Sources */,
 				043440FE236006BD001CF8C2 /* UIView+Extend.m in Sources */,
 				042F9B5C2284273000FF7F72 /* FAPBaseView.m in Sources */,
+				04B2C5852382933F0049F5F0 /* FAPiTunesShareViewController.m in Sources */,
 				044A527B235EB22300FDC7D4 /* JXCategoryIndicatorTriangleView.m in Sources */,
 				04344111236006BD001CF8C2 /* UIView+Extension.m in Sources */,
 				0426EDFE235E9EE9002A6616 /* FAPBaseModel.m in Sources */,
@@ -1149,6 +1227,7 @@
 				0434410C236006BD001CF8C2 /* YYhelp.m in Sources */,
 				044A5298235EB22300FDC7D4 /* JXCategoryViewAnimator.m in Sources */,
 				044A528C235EB22300FDC7D4 /* JXCategoryTitleCell.m in Sources */,
+				04B2C571238230760049F5F0 /* UIBarButtonItem+Extension.m in Sources */,
 				044A527C235EB22300FDC7D4 /* JXCategoryIndicatorRainbowLineView.m in Sources */,
 				04344112236006BD001CF8C2 /* UIColor+expanded.m in Sources */,
 				042F9B522284271500FF7F72 /* NSNumber+digitalValue.m in Sources */,
@@ -1159,6 +1238,7 @@
 				044A527F235EB22300FDC7D4 /* JXCategoryIndicatorComponentView.m in Sources */,
 				042F9B542284271500FF7F72 /* NSString+Path.m in Sources */,
 				044A528A235EB22300FDC7D4 /* JXCategoryTitleImageCellModel.m in Sources */,
+				04B2C57A238278D30049F5F0 /* FAPNetworkHistoryCell.m in Sources */,
 				048CC766237EB5DC0080EF28 /* HmTool.m in Sources */,
 				042F9B2B2284241A00FF7F72 /* main.m in Sources */,
 				0431CB27237E5A1B00CCE626 /* SecondViewController.m in Sources */,
@@ -1166,6 +1246,7 @@
 				042F9C1A2284295A00FF7F72 /* ASORefreshFooter.m in Sources */,
 				044A5278235EB22300FDC7D4 /* JXCategoryTitleVerticalZoomCell.m in Sources */,
 				0431CB26237E5A1B00CCE626 /* FileSystemViewController.m in Sources */,
+				04B2C592238392A00049F5F0 /* HSDownloadManager.m in Sources */,
 				044A5283235EB22300FDC7D4 /* JXCategoryIndicatorCell.m in Sources */,
 				0420D5B7237EAA410088A799 /* FileSystemCollectionViewCell.m in Sources */,
 				04344114236006BD001CF8C2 /* UIImage+fixOrientation.m in Sources */,
@@ -1176,20 +1257,24 @@
 				044A5294235EB22300FDC7D4 /* JXCategoryListContainerView.m in Sources */,
 				044A5285235EB22300FDC7D4 /* JXCategoryDotCell.m in Sources */,
 				04344109236006BD001CF8C2 /* LYTRefreshTableView.m in Sources */,
+				04B2C593238392A00049F5F0 /* NSString+Hash.m in Sources */,
 				044A5282235EB22300FDC7D4 /* JXCategoryIndicatorCellModel.m in Sources */,
 				04B5B3B9235EAA34002179AA /* LGScrollTitleViewStyle.m in Sources */,
 				0431CB17237E598D00CCE626 /* PayHelp.m in Sources */,
 				04B5B3B8235EAA34002179AA /* LGScrollPageView.m in Sources */,
 				042F9C382284295A00FF7F72 /* TabControlView.m in Sources */,
+				04B2C591238392A00049F5F0 /* HSSessionModel.m in Sources */,
 				042F9B592284271500FF7F72 /* UIView+DrawBGColor.m in Sources */,
 				044A527D235EB22300FDC7D4 /* JXCategoryIndicatorImageView.m in Sources */,
 				044A5281235EB22300FDC7D4 /* JXCategoryIndicatorBackgroundView.m in Sources */,
 				0431CB2B237E5B8C00CCE626 /* UIMainConstructor.m in Sources */,
 				042F9B4F2284271500FF7F72 /* NSObject+DrawText.m in Sources */,
 				044A5287235EB22300FDC7D4 /* JXCategoryDotCellModel.m in Sources */,
+				04B2C574238270670049F5F0 /* FAPNetworkViewController.m in Sources */,
 				042F9B572284271500FF7F72 /* NSString+NumberFormatter.m in Sources */,
 				0420D5A7237E938F0088A799 /* PaymentContentView.m in Sources */,
 				044A5284235EB22300FDC7D4 /* JXCategoryIndicatorView.m in Sources */,
+				04B2C596238392C80049F5F0 /* FAPDownloadViewController.m in Sources */,
 				044A5279235EB22300FDC7D4 /* JXCategoryTitleVerticalZoomView.m in Sources */,
 				0420D5A4237E881D0088A799 /* PaymentViewController.m in Sources */,
 				044A5293235EB22300FDC7D4 /* JXCategoryNumberCellModel.m in Sources */,
@@ -1209,6 +1294,7 @@
 				048CC767237EB5DC0080EF28 /* HmHTTPConnection.m in Sources */,
 				044A527A235EB22300FDC7D4 /* JXCategoryIndicatorLineView.m in Sources */,
 				042F9B35228424D800FF7F72 /* FAPConstants.m in Sources */,
+				04B2C57E2382859A0049F5F0 /* FAPNetworkHeader.m in Sources */,
 				042F9C192284295A00FF7F72 /* ASORefreshHeader.m in Sources */,
 				0431CB25237E5A1B00CCE626 /* FourthViewController.m in Sources */,
 				04B5B3B7235EAA34002179AA /* LGScrollTitleView.m in Sources */,

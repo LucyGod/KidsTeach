@@ -9,7 +9,9 @@
 #import "HmHTTPConnection.h"
 #import "HmTool.h"
 #import <HTTPServer.h>
-
+#import "UIBarButtonItem+Extension.h"
+#import "FAPNetworkViewController.h"
+#import "FAPiTunesShareViewController.h"
 @interface SecondViewController (){
     HTTPServer *httpServer;
 }
@@ -29,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithBackgroudImageName:@"bt_navigation_refresh" highBackgroudImageName:@"bt_navigation_refresh" target:self action:@selector(refreshClick)];
     UIView *bgView = [[UIView alloc] init];
     bgView.backgroundColor = [UIColor colorWithHexString:@"5fa6f8"];
     [self.view addSubview:bgView];
@@ -73,6 +76,31 @@
 
 }
 
+- (void)refreshClick {
+//    FAPNetworkViewController *net = [[FAPNetworkViewController alloc] init];
+//    net.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:net animated:YES];
+//    return;
+    FAPiTunesShareViewController *net = [[FAPiTunesShareViewController alloc] init];
+    net.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:net animated:YES];
+    return;
+    
+    httpServer = [[HTTPServer alloc] init];
+    [httpServer setType:@"_http._tcp."];
+    // webPath是server搜寻HTML等文件的路径
+    NSString *webPath = [[NSBundle mainBundle] resourcePath];
+    [httpServer setDocumentRoot:webPath];
+    [httpServer setConnectionClass:[HmHTTPConnection class]];
+    NSError *error;
+    if ([httpServer start:&error]) {
+        self.urlLabel.text = [NSString stringWithFormat:@"http://%@:%hu",[HmTool getIPAddress:YES],[httpServer listeningPort]];
+        NSLog(@"IP: %@:%hu", [HmTool getIPAddress:YES], [httpServer listeningPort]);
+    }else {
+        self.urlLabel.text = @"http://error";
+    }
+}
+
 // 初始化本地服务器
 - (void)initServer {
     httpServer = [[HTTPServer alloc] init];
@@ -86,7 +114,7 @@
         self.urlLabel.text = [NSString stringWithFormat:@"http://%@:%hu",[HmTool getIPAddress:YES],[httpServer listeningPort]];
         NSLog(@"IP: %@:%hu", [HmTool getIPAddress:YES], [httpServer listeningPort]);
     }else {
-        NSLog(@"%@", error);
+        self.urlLabel.text = @"http://error";
     }
 }
 
