@@ -52,15 +52,14 @@
     //分享的标题
     NSString *textToShare = app_Name;
     
-    NSString *filePath = [DocumentsPath stringByAppendingPathComponent:@"WX20191115-171552@2x.png"];
     //分享的url
-    NSURL *urlToShare = [NSURL fileURLWithPath:filePath];
+    NSURL *urlToShare = [NSURL fileURLWithPath:self.filePath];
     
     //分享的图片
-    UIImage *imageToShare = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlToShare]];
+//    UIImage *imageToShare = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlToShare]];
     
     //在这里呢 如果想分享图片 就把图片添加进去  文字什么的通上
-    NSArray *activityItems = @[textToShare, imageToShare];
+    NSArray *activityItems = @[textToShare];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
     //不出现在活动项目
     activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll];

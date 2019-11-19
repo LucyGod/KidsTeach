@@ -92,6 +92,7 @@
         }];
     }else{
         [self.moveSelecteView removeFromSuperview];
+        self.moveSelecteView = nil;
     }
 }
 
@@ -120,8 +121,11 @@
 
 #pragma mark - 移动文件成功的回调
 - (void)didMoveFileSuccessHandler:(NSMutableArray *)originPaths{
-    self.detailView.tableView.editing = NO;
     NSLog(@"移动文件成功，文件原始路径:%@",originPaths);
+    
+    [_moveSelecteView updateSelectedCount:[NSMutableArray array]];
+
+    [self moveItemAction];
     //刷新数据
     [self getDirectoryDetailInfo];
 }
