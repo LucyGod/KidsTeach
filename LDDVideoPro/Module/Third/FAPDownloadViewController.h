@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FAPDownloadViewController : FAPBaseViewController
 
+@property (nonatomic, copy) void(^addSuccess)(NSString *url);
+
 @end
 
 NS_ASSUME_NONNULL_END

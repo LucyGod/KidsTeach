@@ -98,6 +98,7 @@ static HSDownloadManager *_downloadManager;
     if (!url) return;
     if ([self isCompletion:url]) {
         stateBlock(DownloadStateCompleted);
+        [SVProgressHUD showSuccessWithStatus:@"该资源已下载完成"];
         NSLog(@"----该资源已下载完成");
         return;
     }
@@ -200,6 +201,15 @@ static HSDownloadManager *_downloadManager;
         return YES;
     }
     return NO;
+}
+
+- (BOOL)isPause:(NSString *)url {
+    NSURLSessionDataTask *task = [self getTask:url];
+    if (task.state == NSURLSessionTaskStateRunning) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 /**

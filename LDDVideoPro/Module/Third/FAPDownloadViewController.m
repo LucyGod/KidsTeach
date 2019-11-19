@@ -55,6 +55,7 @@
     UIButton *downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [downloadButton setTitle:@"开始下载" forState:UIControlStateNormal];
     [downloadButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [downloadButton addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
     downloadButton.backgroundColor = [UIColor colorWithHexString:@"5fa6f8"];
     [self.view addSubview:downloadButton];
     [downloadButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -75,6 +76,14 @@
         make.height.mas_equalTo(40);
         make.top.equalTo(downloadButton.mas_bottom).offset(20);
     }];
+}
+
+- (void)addClick {
+    
+    if (self.addSuccess) {
+        self.addSuccess(self.textField.text);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (UITextField *)textField {

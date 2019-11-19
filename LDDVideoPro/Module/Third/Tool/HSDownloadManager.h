@@ -54,6 +54,8 @@
  */
 - (BOOL)isCompletion:(NSString *)url;
 
+- (BOOL)isPause:(NSString *)url;
+
 /**
  *  删除该资源
  *
