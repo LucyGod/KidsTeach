@@ -83,7 +83,7 @@ static UIMainConstructor *constructor;
     // 主页
     FileSystemViewController *homeVc = [[FileSystemViewController alloc] init];
     
-    homeVc.title = @"主页";
+    homeVc.title = @"文件";
     homeVc.hidesBottomBarWhenPushed = NO;
     LYTBaseNavigationController *homeNC = [[LYTBaseNavigationController alloc] initWithRootViewController:homeVc];
     

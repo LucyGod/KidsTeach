@@ -8,14 +8,27 @@
 
 #import "FIleSystemMainView.h"
 #import "FileSystemCollectionViewCell.h"
+#import "FileSystemNoDataView.h"
+#import "FileManagerTool.h"
 
-@interface FIleSystemMainView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface FIleSystemMainView()<UICollectionViewDelegate,UICollectionViewDataSource,FileSysCellDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) FileSystemNoDataView *noDataView;
 
 @end
 
 @implementation FIleSystemMainView
+
+- (FileSystemNoDataView*)noDataView{
+    if (!_noDataView) {
+        _noDataView = [[FileSystemNoDataView alloc] initWithFrame:CGRectZero desc:@"还没有创建文件夹~"];
+    }
+    return _noDataView;
+}
 
 - (UICollectionView*)collectionView{
     if (!_collectionView) {
@@ -29,6 +42,10 @@
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerNib:[UINib nibWithNibName:@"FileSystemCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"mainCell"];
+        UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+        refresh.tintColor = [UIColor whiteColor];
+        [refresh addTarget:self action:@selector(headerRefresh) forControlEvents:UIControlEventValueChanged];
+        _collectionView.refreshControl = refresh;
     }
     return _collectionView;
 }
@@ -41,8 +58,17 @@
     return self;
 }
 
+- (void)headerRefresh{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self->_collectionView.refreshControl endRefreshing];
+    });
+//    NSMutableArray *dataArray = [[FileManagerTool sharedManagerTool] contentsOfDirectory:DocumentsPath];
+//    [self updateFileWithDataArray:dataArray];
+}
+
 - (void)initSubViews{
     self.backgroundColor = ASOColorBackGround;
+    self.dataArray = [NSMutableArray array];
     
     [self addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -51,22 +77,60 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 5;
+    return _dataArray.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FileSystemCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"mainCell" forIndexPath:indexPath];
-    
+    cell.delegate = self;
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"FileSystemCollectionViewCell" owner:self options:nil] firstObject];
     }
         
+    NSString *directoryName = self.dataArray[indexPath.row];
+    cell.directoryNameLabel.text = directoryName;
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.delegate respondsToSelector:@selector(didSelecteFileItemAtIndexPath:)]) {
         [self.delegate didSelecteFileItemAtIndexPath:indexPath];
+    }
+}
+
+- (void)editFileView{
+    for (FileSystemCollectionViewCell *cell in _collectionView.visibleCells) {
+        [cell showDeleteIcon];
+    }
+}
+
+- (void)endEditFileView{
+    for (FileSystemCollectionViewCell *cell in _collectionView.visibleCells) {
+        [cell hideDeleteIcon];
+    }
+}
+
+- (void)updateFileWithDataArray:(NSMutableArray*)dataArray{
+    [_collectionView.refreshControl endRefreshing];
+    if (dataArray.count == 0) {
+        [self addSubview:self.noDataView];
+        [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self);
+        }];
+    }else{
+        [self.noDataView removeFromSuperview];
+    }
+    self.dataArray = dataArray;
+    [self.collectionView reloadData];
+}
+
+- (void)didClickedDeleteButton:(UICollectionViewCell *)cell{
+    FileSystemCollectionViewCell *fileCell = (FileSystemCollectionViewCell*)cell;
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:fileCell];
+    
+    if ([self.delegate respondsToSelector:@selector(didDeleteFileItemAtIndexPath:collectionItem:)]) {
+        [self.delegate didDeleteFileItemAtIndexPath:indexPath collectionItem:fileCell];
     }
 }
 

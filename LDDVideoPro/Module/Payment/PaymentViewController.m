@@ -145,7 +145,16 @@
         make.bottom.equalTo(contentView.mas_top).offset(-8);
     }];
     
+//    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] init];
+//    swipe.direction = UISwipeGestureRecognizerDirectionDown;
+//    [swipe addTarget:self action:@selector(swipeAction:)];
+//    [self.view addGestureRecognizer:swipe];
+//
 }
+
+//- (void)swipeAction:(UISwipeGestureRecognizer*)swipe{
+////    NSLog(@"%f",swipe.)
+//}
 
 - (void)dismissCurrentVC{
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -18,5 +18,5 @@ target 'LDDVideoPro' do
   pod 'UMCAnalytics'
   pod 'Google-Mobile-Ads-SDK'
   pod 'CocoaHTTPServer'
-
+  pod 'YYCategories'
 end
