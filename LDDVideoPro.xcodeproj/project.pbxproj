@@ -134,6 +134,8 @@
 		04B2C596238392C80049F5F0 /* FAPDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C595238392C80049F5F0 /* FAPDownloadViewController.m */; };
 		04B2C59B2383A6630049F5F0 /* FAPDownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C5992383A6630049F5F0 /* FAPDownloadTableViewCell.m */; };
 		04B2C59C2383A6630049F5F0 /* FAPDownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B2C59A2383A6630049F5F0 /* FAPDownloadTableViewCell.xib */; };
+		04B2C5A023851D0C0049F5F0 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 04B2C59E23851D0C0049F5F0 /* index.html */; };
+		04B2C5A123851D0C0049F5F0 /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 04B2C59F23851D0C0049F5F0 /* upload.html */; };
 		04B3CE8A237A4F89002CBEC4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE89237A4F89002CBEC4 /* libz.tbd */; };
 		04B3CE8C237A4F92002CBEC4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE8B237A4F91002CBEC4 /* AVFoundation.framework */; };
 		04B3CE8E237A4F9B002CBEC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B3CE8D237A4F9B002CBEC4 /* SystemConfiguration.framework */; };
@@ -415,6 +417,8 @@
 		04B2C5982383A6630049F5F0 /* FAPDownloadTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPDownloadTableViewCell.h; sourceTree = "<group>"; };
 		04B2C5992383A6630049F5F0 /* FAPDownloadTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPDownloadTableViewCell.m; sourceTree = "<group>"; };
 		04B2C59A2383A6630049F5F0 /* FAPDownloadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAPDownloadTableViewCell.xib; sourceTree = "<group>"; };
+		04B2C59E23851D0C0049F5F0 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		04B2C59F23851D0C0049F5F0 /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
 		04B3CE89237A4F89002CBEC4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		04B3CE8B237A4F91002CBEC4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		04B3CE8D237A4F9B002CBEC4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -581,6 +585,7 @@
 		042F9B082284168700FF7F72 /* LDDVideoPro */ = {
 			isa = PBXGroup;
 			children = (
+				04B2C59D23851D0B0049F5F0 /* web */,
 				04826B55229F7B9B00FDD82F /* LDDVideoPro.entitlements */,
 				042F9B222284241900FF7F72 /* BaseClass */,
 				042F9B202284241900FF7F72 /* Categories */,
@@ -1095,6 +1100,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04B2C59D23851D0B0049F5F0 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				04B2C59E23851D0C0049F5F0 /* index.html */,
+				04B2C59F23851D0C0049F5F0 /* upload.html */,
+			);
+			path = web;
+			sourceTree = "<group>";
+		};
 		04B5B3AA235EAA34002179AA /* LGPageManner */ = {
 			isa = PBXGroup;
 			children = (
@@ -1219,10 +1233,12 @@
 				0436DFCD23828A23001DA7FF /* FileSysDetailTableViewCell.xib in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
+				04B2C5A123851D0C0049F5F0 /* upload.html in Resources */,
 				04AAE6FC238512430097E230 /* tu.mov in Resources */,
 				0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */,
 				04B2C57B238278D30049F5F0 /* FAPNetworkHistoryCell.xib in Resources */,
 				04B2C5862382933F0049F5F0 /* FAPiTunesShareViewController.xib in Resources */,
+				04B2C5A023851D0C0049F5F0 /* index.html in Resources */,
 				04AAE6FE238512430097E230 /* PlayerImage.bundle in Resources */,
 				04B2C59C2383A6630049F5F0 /* FAPDownloadTableViewCell.xib in Resources */,
 			);

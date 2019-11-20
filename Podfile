@@ -11,7 +11,7 @@ target 'LDDVideoPro' do
   pod 'SVProgressHUD'
   pod 'Masonry'
   pod 'SDCycleScrollView'
-  pod 'IQKeyboardManager'           
+  pod 'IQKeyboardManager'
   pod 'MJExtension'
   pod 'JPush'
   pod 'UMCCommon'
