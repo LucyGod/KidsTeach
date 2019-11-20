@@ -55,13 +55,33 @@
 @property (nonatomic, assign)BOOL isQuickPlay;
 @property (nonatomic, assign) BOOL isWiFi;
 
+@property (nonatomic ,assign) BOOL isFullScreen;
+
 @end
 
 @implementation PlayerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:)
+                                                 name:UIApplicationWillResignActiveNotification object:nil]; //监听是否触发home键挂起程序.
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil]; //监听是否重新进入程序程序.
+}
+
+- (void)applicationWillResignActive:(NSNotification *)notification
+
+{
+    [self.player stop];
+}
+
+- (void)applicationDidBecomeActive:(NSNotification *)notification
+{
+   
 }
 #pragma Mark 添加视图
 -(UIView *)mediaView
@@ -79,9 +99,10 @@
         }];
         
         _isWiFi = YES;
+        _isFullScreen = NO;
         [self setUI];
         [self initCAGradientLayer];
-
+        
         [self cofigGestureRecognizer];
     }
     return _mediaView;
@@ -90,6 +111,7 @@
     _topGradientLayer.frame = self.topView.bounds;
     _bottomGradientLayer.frame = self.bottomView.bounds;
 }
+#pragma mark -布局 mas
 - (void)setUI {
     
     [self.mediaView.superview addSubview:self.backgroundImage];
@@ -106,25 +128,26 @@
     [_bottomView addSubview:self.progressView];
     [_bottomView addSubview:self.videoSlider];
     [_bottomView addSubview:self.totalTimeLabel];
-    [self.mediaView addSubview:self.loadingView];
+    [self.backgroundImage addSubview:self.loadingView];
     
     [_backgroundImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.mediaView);
     }];
     
     [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.equalTo(self.mediaView);
+        make.left.right.equalTo(self.mediaView);
+        make.top.equalTo(self.mediaView).with.offset(20);
         make.height.mas_equalTo(30);
     }];
     
     [_backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mediaView).with.offset(5);
-        make.top.equalTo(self.mediaView).with.offset(0);
+        make.left.equalTo(self.topView).with.offset(5);
+        make.top.equalTo(self.topView).with.offset(0);
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
     [_lockBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mediaView).with.offset(15);
-        make.top.equalTo(self.mediaView).with.offset(60);
+        make.centerY.equalTo(self.mediaView);
         make.size.mas_equalTo(CGSizeMake(50, 50));
     }];
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -192,19 +215,21 @@
         _positionWhenTouched = _player.time.numberValue.integerValue;
         _isQuickPlay = NO;
     }
-    
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if (!self.lockBtn.selected)
     {
-        [self startLoading];
         UITouch *touch = [touches anyObject];
         CGPoint currPoint = [touch  locationInView:self.backgroundImage];
-        
+        [self startLoading];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self stopLoading];
+        });
         CGFloat horizontal = currPoint.x - _beginPoint.x;
         CGFloat vertical = currPoint.y - _beginPoint.y;
         CGFloat l = sqrt(horizontal*horizontal+vertical*vertical);
         if (l<10) {
+            [self stopLoading];
             return;
         }
         if(fabs(vertical) < 30 && fabs(horizontal) < 30){
@@ -292,6 +317,7 @@
         _currentTimeLabel.text = @"00:00";
     }
     _totalTimeLabel.text = @"00:00";
+    [self startLoading];
     [_player play];
 }
 -(void)playWithVideoFilePath:(NSString *)FilePath
@@ -304,6 +330,7 @@
     VLCMedia *media = [VLCMedia mediaWithPath:[[NSBundle mainBundle] pathForResource:[self compareFilePath:FilePath].firstObject ofType:[NSString stringWithFormat:@".%@",[self compareFilePath:FilePath].lastObject]]];
     [_player setMedia:media];
     _totalTimeLabel.text = @"00:00";
+    [self startLoading];
     [_player play];
 }
 - (NSArray*)compareFilePath:(NSString*)filePath
@@ -404,9 +431,10 @@
         if (_player.state != VLCMediaPlayerStatePlaying) {
             return;
         }
-        [self stopLoading];
+//
         VLCTime *vlcTime = [VLCTime timeWithInt:_touchEndValue];
         _player.time = vlcTime;
+        [self stopLoading];
         [self hidePlayerSubviewWithTimer];
     }
     
@@ -437,14 +465,15 @@
             _playBtn.selected = NO;
             _currentTimeLabel.text = @"00:00";
             [_videoSlider setValue:0 animated:YES];
-            
         }
             break;
         case VLCMediaPlayerStateBuffering://2
         {
             _playBtn.selected = YES;
             [self showPlayerSubview];
-            [self startLoading];
+            if (_player.playing) {
+                [self stopLoading];
+            }
         }
             break;
         case VLCMediaPlayerStatePaused://6
@@ -467,15 +496,17 @@
             _currentTimeLabel.text = @"00:00";
             [_videoSlider setValue:0 animated:YES];
             [self showPlayerSubview];
-            
         }
             break;
         case VLCMediaPlayerStateStopped://0
         {
-            [self stopLoading];
+            [self.player stop];
             _playBtn.selected = NO;
             _currentTimeLabel.text = @"00:00";
             [_videoSlider setValue:0 animated:YES];
+            VLCTime *time = [VLCTime timeWithInt:0];
+            _player.time = time;
+            [_player play];
             [self showPlayerSubview];
         }
             break;
@@ -487,14 +518,12 @@
             
             {
                 _playBtn.selected = YES;
-                [self stopLoading];
+//                [self stopLoading];
                 [self hidePlayerSubviewWithTimer];
-                
             }
             break;
         }
     }
-    
 }
 
 //播放时间改变的回调
@@ -502,21 +531,6 @@
     _currentTimeLabel.text = _player.time.stringValue;
     [_videoSlider setValue:_player.position animated:YES];
 }
-
-// 视频源加载时调用 ，返回视频的缓冲长度
-// */
-//- (void)ZQPlayerLoadTime:(ZQPlayer *)player loadTime:(CGFloat)time {
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(ZQPlayerLoadTime:loadTime:)]) {
-//        [self.delegate ZQPlayerLoadTime:player loadTime:time];
-//    }
-//    // 判断视频长度
-//    if (player.timeInterval > 0) {
-//        [_progressView setProgress:time / player.timeInterval animated:YES];
-//    }
-//}
-//
-///**
-
 #pragma mark - Events
 // 是否显示控件
 - (void)showOrHideWith:(BOOL)isShow {
@@ -531,21 +545,15 @@
         self.bottomView.hidden = YES;
         self.topView.hidden = YES;
     }
-    
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        _backBtn.hidden = YES;
-    }else {
-        _backBtn.hidden = !isShow;
-    }
 }
 
 // 开始加载
 - (void)startLoading {
-    if (!_player.isPlaying) {
-        return;
+    if (_player.isPlaying) {
+        [self stopLoading];
     }
     self.loadingView.hidden = NO;
+    self.loadingImage.hidden = NO;
     self.loadingImage.image = [self imagesNamedFromCustomBundle:@"icon_video_loading"];
     if (![self.loadingImage.layer animationForKey:@"loading"]) {
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
@@ -560,6 +568,7 @@
 }
 - (void)stopLoading {
     self.loadingView.hidden = YES;
+    self.loadingImage.hidden = YES;
     [self.loadingImage.layer removeAnimationForKey:@"loading"];
 }
 
@@ -610,21 +619,49 @@
         [self playWithJudgeNet];
     }
 }
+- (void)stopVideo
+{
+    if (_player) {
+        [_player stop];
+    }
+}
 #pragma mark/** 全屏 和退出全屏 */
+- (void)backDown
+{
+    if (_isFullScreen == NO) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self stopVideo];
+        }];
+    }else {
+        UIDeviceOrientation orientation;
+        _fullBtn.selected  = !_fullBtn.selected;
+        if (_fullBtn.selected == YES) {
+            orientation = UIDeviceOrientationLandscapeLeft;
+            NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
+            [[UIDevice currentDevice]setValue:value forKey:@"orientation"];
+            _isFullScreen = YES;
+        }else {
+            orientation = UIDeviceOrientationPortrait;
+            NSNumber *value = [NSNumber numberWithInt:UIDeviceOrientationPortrait];
+            [[UIDevice currentDevice]setValue:value forKey:@"orientation"];
+            _isFullScreen = NO;
+        }
+    }
+}
 - (void)videoFullAction {
     
     UIDeviceOrientation orientation;
     _fullBtn.selected  = !_fullBtn.selected;
     if (_fullBtn.selected == YES) {
         orientation = UIDeviceOrientationLandscapeLeft;
-        _backBtn.hidden = NO;
+        _isFullScreen = YES;
         NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
         [[UIDevice currentDevice]setValue:value forKey:@"orientation"];
     }else {
         orientation = UIDeviceOrientationPortrait;
         NSNumber *value = [NSNumber numberWithInt:UIDeviceOrientationPortrait];
         [[UIDevice currentDevice]setValue:value forKey:@"orientation"];
-        _backBtn.hidden = YES;
+        _isFullScreen = NO;
     }
 }
 
@@ -651,10 +688,9 @@
 - (UIButton *)backBtn {
     if (!_backBtn) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _backBtn.hidden = YES;
         _backBtn.titleLabel.font = [UIFont systemFontOfSize:17];
         [_backBtn setImage:[self imagesNamedFromCustomBundle:@"icon_back_white"] forState:UIControlStateNormal];
-        [_backBtn addTarget:self action:@selector(videoFullAction) forControlEvents:UIControlEventTouchUpInside];
+        [_backBtn addTarget:self action:@selector(backDown) forControlEvents:UIControlEventTouchUpInside];
     }
     return _backBtn;
 }
@@ -694,6 +730,7 @@
         _fullBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _fullBtn.frame = CGRectMake(0, 0, 21, 21);
         [_fullBtn setImage:[self imagesNamedFromCustomBundle:@"icon_video_fullscreen"] forState:UIControlStateNormal];
+        [_fullBtn setImage:[self imagesNamedFromCustomBundle:@"line_normal"] forState:UIControlStateSelected];
         [_fullBtn addTarget:self action:@selector(videoFullAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fullBtn;
@@ -753,13 +790,14 @@
         _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
         _loadingView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         _loadingView.layer.cornerRadius = 7;
+        
         [_loadingView addSubview:self.loadingImage];
         [_loadingImage mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self->_loadingView);
             make.size.mas_equalTo(CGSizeMake(31, 31));
         }];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(play)];
-        [_loadingView addGestureRecognizer:tap];
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(play)];
+//        [_loadingView addGestureRecognizer:tap];
     }
     return _loadingView;
 }
