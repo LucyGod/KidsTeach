@@ -79,7 +79,10 @@
 }
 
 - (void)addClick {
-    
+    if (self.textField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"网址不能为空"];
+        return;
+    }
     if (self.addSuccess) {
         self.addSuccess(self.textField.text);
         [self.navigationController popViewControllerAnimated:YES];
