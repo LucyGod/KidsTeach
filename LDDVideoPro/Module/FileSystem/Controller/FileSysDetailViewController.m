@@ -11,6 +11,7 @@
 #import "FileManagerTool.h"
 #import "FileSystemMoveSelecteView.h"
 #import "MoveFileViewController.h"
+#import "PlayerViewController.h"
 
 @interface FileSysDetailViewController ()<FileSystemMoveViewDelegate,DirectoryDetailDelegate,MoveFileSuccessDelegate>
 
@@ -37,6 +38,7 @@
     if (!_detailView) {
         _detailView = [[FileSystemDetailView alloc] initWithFrame:CGRectZero];
         _detailView.delegate = self;
+        _detailView.currentDir = self.title;
     }
     return _detailView;
 }
@@ -62,6 +64,11 @@
     NSString *finalPath = [[DocumentsPath stringByAppendingPathComponent:self.title] stringByAppendingPathComponent:filePath];
     
     NSLog(@"所点击的文件路径L：%@",finalPath);
+    
+    PlayerViewController *player = [[PlayerViewController alloc] init];
+    [player playWithVideoFilePath:finalPath];
+    player.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:player animated:YES completion:nil];
 }
 
 - (void)updateSelectedData:(NSMutableArray *)selectedArray{
@@ -102,7 +109,8 @@
     moveFileVC.originDirectory = self.title;
     moveFileVC.delegate = self;
     LYTBaseNavigationController *nav = [[LYTBaseNavigationController alloc] initWithRootViewController:moveFileVC];
-    
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
+
     [self presentViewController:nav animated:YES completion:nil];
 }
 

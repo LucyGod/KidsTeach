@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UITableView *tableView;
 
+/// 当前文件夹名称
+@property (nonatomic, copy) NSString *currentDir;
+
 @property (nonatomic, weak) id<DirectoryDetailDelegate> delegate;
 
 - (void)updateDetailView:(NSMutableArray*)dataArray;

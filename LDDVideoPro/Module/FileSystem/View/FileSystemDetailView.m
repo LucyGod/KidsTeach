@@ -10,6 +10,7 @@
 #import "FileSysDetailTableViewCell.h"
 #import "FileSystemDetailSectionView.h"
 #import "FileSystemNoDataView.h"
+#import "FileManagerTool.h"
 
 @interface FileSystemDetailView()<UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray *_dataArray;
@@ -99,9 +100,30 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FileSysDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailCell"];
-    NSString *name = _dataArray[indexPath.row];
-    cell.contentTitleLabel.text = name;
-    cell.contentSizeLabel.text = @"大小:";
+    NSString *fileName = _dataArray[indexPath.row];
+    NSString *filePath = [[DocumentsPath stringByAppendingPathComponent:self.currentDir] stringByAppendingPathComponent:fileName];
+    
+    cell.contentTitleLabel.text = fileName;
+    
+    //获取文件属性
+    NSDictionary * fileInfo = [[FileManagerTool sharedManagerTool] fileInfomation:filePath];
+    NSDate *date = fileInfo[@"NSFileCreationDate"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *dateStr = [dateFormatter stringFromDate:date];
+    cell.timeLabel.text = dateStr;
+    
+    //文件大小
+    long long  byteSize = [fileInfo[NSFileSize] unsignedLongLongValue];
+    CGFloat realSize = byteSize / (1024.0 * 1024.0);
+    if (realSize > 1024) {
+        cell.contentSizeLabel.text = [NSString stringWithFormat:@"大小：%.2fGB",realSize / 1024];
+    }else if (realSize < 1){
+        cell.contentSizeLabel.text = [NSString stringWithFormat:@"大小：%.2fkb",realSize * 1024];
+    }else{
+        cell.contentSizeLabel.text = [NSString stringWithFormat:@"大小：%.2fMB",realSize];
+    }
+    
     UIView *selectedBgView = [[UIView alloc] initWithFrame:cell.bounds];
     selectedBgView.backgroundColor = kTabBarBackgroundColor;
     cell.selectedBackgroundView = selectedBgView;
@@ -140,6 +162,26 @@
     if ([self.delegate respondsToSelector:@selector(updateSelectedData:)]) {
         [self.delegate updateSelectedData:_selectedArray];
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *fileName = _dataArray[indexPath.row];
+    NSString *filePath = [[DocumentsPath stringByAppendingPathComponent:self.currentDir] stringByAppendingPathComponent:fileName];
+    
+    [[FileManagerTool sharedManagerTool] deleteFileAtFilePath:filePath];
+        
+    [_dataArray removeObjectAtIndex:indexPath.row];
+    
+    [tableView deleteRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationFade];
+
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"删除";
 }
 
 - (void)updateDetailView:(NSMutableArray *)dataArray{

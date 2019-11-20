@@ -301,7 +301,7 @@
     _player.delegate = self;
     [_player stop];
     
-    VLCMedia *media = [VLCMedia mediaWithPath:[[NSBundle mainBundle] pathForResource:[self compareFilePath:FilePath].firstObject ofType:[NSString stringWithFormat:@".%@",[self compareFilePath:FilePath].lastObject]]];
+    VLCMedia *media = [VLCMedia mediaWithPath:FilePath];
     [_player setMedia:media];
     _totalTimeLabel.text = @"00:00";
     [_player play];

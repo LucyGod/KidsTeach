@@ -86,4 +86,8 @@
     return [_manager fileExistsAtPath:filePath];
 }
 
+- (NSDictionary*)fileInfomation:(NSString *)filePath{
+    return [_manager attributesOfItemAtPath:filePath error:nil];
+}
+
 @end
