@@ -12,6 +12,7 @@
 #import "FileSystemViewController.h"
 #import "ThirdViewController.h"
 #import "LYTBaseNavigationController.h"
+#import "PaymentViewController.h"
 static const NSArray *imageNames;
 static const NSArray *selectedImageNames;
 static UIMainConstructor *constructor;
@@ -100,17 +101,17 @@ static UIMainConstructor *constructor;
     LYTBaseNavigationController *circleNC = [[LYTBaseNavigationController alloc] initWithRootViewController:CircleVc];
     
     //我的
-    FourthViewController *meVc = [[FourthViewController alloc] init];
-    meVc.title = @"我的";
+    PaymentViewController *meVc = [[PaymentViewController alloc] init];
+    meVc.title = @"设置";
     meVc.hidesBottomBarWhenPushed =NO;
-    LYTBaseNavigationController *meNC = [[LYTBaseNavigationController alloc] initWithRootViewController:meVc];
+//    LYTBaseNavigationController *meNC = [[LYTBaseNavigationController alloc] initWithRootViewController:meVc];
     
     
     self.tabBarController.viewControllers = @[
         homeNC,
         findNC,
         circleNC,
-        meNC
+        meVc
     ];
     
     

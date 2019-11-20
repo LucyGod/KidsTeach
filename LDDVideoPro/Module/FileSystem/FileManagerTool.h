@@ -48,6 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param filePath 文件路径
 - (BOOL)fileExistsAtPath:(NSString*)filePath;
 
+
+/// 获取文件属性
+/// @param filePath 文件路径
+- (NSDictionary*)fileInfomation:(NSString*)filePath;
+
 @end
 
 NS_ASSUME_NONNULL_END

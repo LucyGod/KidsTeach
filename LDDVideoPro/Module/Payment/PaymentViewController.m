@@ -82,7 +82,7 @@
     }];
     
     UILabel *label2 = [[UILabel alloc] init];
-    label2.text = @"宝宝拼音识字";
+    label2.text = @"黄瓜视频";
     label2.textColor = [UIColor whiteColor];
     label2.font = [UIFont systemFontOfSize:30.0 weight:UIFontWeightSemibold];
     [self.view addSubview:label2];

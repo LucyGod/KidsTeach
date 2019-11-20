@@ -29,17 +29,25 @@
                         <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.8GB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqN-EB-Qqd">
-                        <rect key="frame" x="130" y="61" width="38" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqN-EB-Qqd">
+                        <rect key="frame" x="130" y="61" width="43" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大小：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybh-6E-xqO">
+                        <rect key="frame" x="364" y="61" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="fTC-4p-hf8" firstAttribute="top" secondItem="KPH-7n-Moo" secondAttribute="top" id="1GA-ky-8t5"/>
+                    <constraint firstItem="Ybh-6E-xqO" firstAttribute="trailing" secondItem="fTC-4p-hf8" secondAttribute="trailing" id="1Ye-iX-UIg"/>
                     <constraint firstItem="RqN-EB-Qqd" firstAttribute="bottom" secondItem="KPH-7n-Moo" secondAttribute="bottom" id="1zb-1z-1DH"/>
+                    <constraint firstItem="Ybh-6E-xqO" firstAttribute="centerY" secondItem="RqN-EB-Qqd" secondAttribute="centerY" id="Nft-oF-TwG"/>
                     <constraint firstItem="KPH-7n-Moo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="UE1-D1-91b"/>
                     <constraint firstAttribute="bottom" secondItem="KPH-7n-Moo" secondAttribute="bottom" constant="12" id="aqS-Zv-bGU"/>
                     <constraint firstAttribute="trailing" secondItem="fTC-4p-hf8" secondAttribute="trailing" constant="16" id="gqq-7m-0fl"/>
@@ -52,8 +60,9 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="contentImageView" destination="KPH-7n-Moo" id="877-sd-Ubk"/>
-                <outlet property="contentSizeLabel" destination="RqN-EB-Qqd" id="hT4-Ri-h5v"/>
+                <outlet property="contentSizeLabel" destination="Ybh-6E-xqO" id="xZN-IT-nfW"/>
                 <outlet property="contentTitleLabel" destination="fTC-4p-hf8" id="P9d-p3-veJ"/>
+                <outlet property="timeLabel" destination="RqN-EB-Qqd" id="XAV-Nc-i0d"/>
             </connections>
             <point key="canvasLocation" x="212.31884057971016" y="103.79464285714285"/>
         </tableViewCell>

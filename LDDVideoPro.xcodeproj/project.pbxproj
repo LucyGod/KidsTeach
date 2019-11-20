@@ -176,7 +176,7 @@
 		04233956235F0D1E00909703 /* UIColor+DarkMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DarkMode.h"; sourceTree = "<group>"; };
 		0426EDFC235E9EE9002A6616 /* FAPBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPBaseModel.h; sourceTree = "<group>"; };
 		0426EDFD235E9EE9002A6616 /* FAPBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPBaseModel.m; sourceTree = "<group>"; };
-		042F9B062284168700FF7F72 /* 宝宝拼音识字.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "宝宝拼音识字.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		042F9B062284168700FF7F72 /* 黄瓜视频.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "黄瓜视频.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		042F9B122284168800FF7F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		042F9B152284168800FF7F72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		042F9B262284241A00FF7F72 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -577,7 +577,7 @@
 		042F9B072284168700FF7F72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				042F9B062284168700FF7F72 /* 宝宝拼音识字.app */,
+				042F9B062284168700FF7F72 /* 黄瓜视频.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1179,7 +1179,7 @@
 			);
 			name = LDDVideoPro;
 			productName = ASOFutureProject;
-			productReference = 042F9B062284168700FF7F72 /* 宝宝拼音识字.app */;
+			productReference = 042F9B062284168700FF7F72 /* 黄瓜视频.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1574,7 +1574,7 @@
 					"$(PROJECT_DIR)/LDDVideoPro/Vendor/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.baby.jianji;
-				PRODUCT_NAME = "宝宝拼音识字";
+				PRODUCT_NAME = "黄瓜视频";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e";
@@ -1610,7 +1610,7 @@
 					"$(PROJECT_DIR)/LDDVideoPro/Vendor/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.baby.jianji;
-				PRODUCT_NAME = "宝宝拼音识字";
+				PRODUCT_NAME = "黄瓜视频";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e";
