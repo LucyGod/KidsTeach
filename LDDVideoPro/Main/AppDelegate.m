@@ -36,5 +36,11 @@
     
     [SVProgressHUD setMinimumDismissTimeInterval:1.0f];
 }
-
+-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if (self.allowRotation)
+    {
+        return  UIInterfaceOrientationMaskAllButUpsideDown;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

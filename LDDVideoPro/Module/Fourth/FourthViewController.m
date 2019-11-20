@@ -6,6 +6,7 @@
 //
 
 #import "FourthViewController.h"
+#import "PlayerViewController.h"
 
 @interface FourthViewController ()
 @end
@@ -16,5 +17,13 @@
     [super viewDidLoad];
 
 }
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    PlayerViewController *palyVC = [[PlayerViewController alloc] init];
+    palyVC.hidesBottomBarWhenPushed = YES;
+    [palyVC playWithVideoUrl:@"https://v-cdn.zjol.com.cn/280443.mp4"];
+    [self.navigationController presentViewController:palyVC animated:YES completion:^{
+        
+    }];
+}
 @end
