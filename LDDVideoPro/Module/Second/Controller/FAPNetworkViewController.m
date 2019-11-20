@@ -85,6 +85,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.textField.text = self.historyArray[indexPath.row];
     PlayerViewController *palyVC = [[PlayerViewController alloc] init];
     palyVC.hidesBottomBarWhenPushed = YES;
     [palyVC playWithVideoUrl:self.historyArray[indexPath.row]];
