@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFrame:(CGRect)frame desc:(NSString*)desc;
 
+- (instancetype)initWithFrame:(CGRect)frame desc:(NSString*)desc imageName:(NSString *)imageName;
+
 @end
 
 NS_ASSUME_NONNULL_END

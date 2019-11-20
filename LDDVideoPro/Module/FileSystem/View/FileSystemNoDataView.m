@@ -14,6 +14,8 @@
 /// 无数据描述
 @property (nonatomic, copy) NSString *desc;
 
+@property (nonatomic, copy) NSString *imageName;
+
 @end
 
 @implementation FileSystemNoDataView
@@ -27,9 +29,19 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame desc:(NSString*)desc imageName:(NSString *)imageName {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.desc = desc;
+        self.imageName = imageName;
+        [self configSubViews];
+    }
+    return self;
+}
+
 - (void)configSubViews{
-    
-    UIImageView *noDataView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NoFileIcon"]];
+    NSString *imageName = self.imageName.length > 0 ? self.imageName : @"NoFileIcon";
+    UIImageView *noDataView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     noDataView.contentMode = UIViewContentModeScaleToFill;
     [self addSubview:noDataView];
     [noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -41,6 +53,7 @@
     label.text = self.desc;
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
+    label.numberOfLines = 0;
     [self addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);

@@ -10,13 +10,34 @@
 #import "UIBarButtonItem+Extension.h"
 #import "HSDownloadManager.h"
 #import "FAPDownloadTableViewCell.h"
+#import "FileSystemNoDataView.h"
+#import "FAPNetworkViewController.h"
 @interface ThirdViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableV;
 @property (nonatomic, strong) NSMutableArray *dirArray; // 存储沙盒里面的所有文件
 @property (nonatomic, copy) NSString *downloadUrl;
+@property (nonatomic, strong) FileSystemNoDataView *noDataView;
 @end
 
 @implementation ThirdViewController
+
+- (FileSystemNoDataView*)noDataView{
+    if (!_noDataView) {
+        _noDataView = [[FileSystemNoDataView alloc] initWithFrame:CGRectZero desc:@"点击右上角的加号\n将网络上的视频下载到手机上" imageName:@""];
+    }
+    return _noDataView;
+}
+
+- (void)configNodataView {
+    if (self.dirArray.count == 0) {
+        [self.view addSubview:self.noDataView];
+        [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.view);
+        }];
+    } else {
+        [self.noDataView removeFromSuperview];
+    }
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -27,6 +48,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithBackgroudImageName:@"icon_add" highBackgroudImageName:@"icon_add" target:self action:@selector(addClick)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem BarButtonItemWithTitle:@"在线观看" style:UIBarButtonItemStylePlain target:self action:@selector(leftClick)];
     [self setupTableView];
     [self setupView];
 }
@@ -35,7 +57,14 @@
     
     self.dirArray = [[NSMutableArray alloc] init];
     [self.dirArray addObjectsFromArray:[ThirdViewController getAllHistoryList]];
+    [self configNodataView];
     [self.tableV reloadData];
+}
+
+- (void)leftClick {
+    FAPNetworkViewController *net = [[FAPNetworkViewController alloc] init];
+    net.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:net animated:YES];
 }
 
 - (void)addClick {
@@ -102,6 +131,7 @@
         [ThirdViewController delUrlFromHistoryList:url];
         [self.dirArray removeObject:url];
         [[HSDownloadManager sharedInstance] deleteFile:url];
+        [self configNodataView];
         [self.tableV reloadData];
     }
 }
@@ -138,6 +168,7 @@
                 {
                     [ThirdViewController delUrlFromHistoryList:url];
                     [self.dirArray removeObject:url];
+                    [self configNodataView];
                     [self.tableV reloadData];
                     [button setImage:[UIImage imageNamed:@"icon_play"] forState:UIControlStateNormal];
                 }

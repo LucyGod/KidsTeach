@@ -32,6 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithBackgroudImageName:@"bt_navigation_refresh" highBackgroudImageName:@"bt_navigation_refresh" target:self action:@selector(refreshClick)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem BarButtonItemWithTitle:@"iTunes传输" style:UIBarButtonItemStylePlain target:self action:@selector(leftClick)];
     UIView *bgView = [[UIView alloc] init];
     bgView.backgroundColor = [UIColor colorWithHexString:@"5fa6f8"];
     [self.view addSubview:bgView];
@@ -76,16 +77,13 @@
 
 }
 
-- (void)refreshClick {
-//    FAPNetworkViewController *net = [[FAPNetworkViewController alloc] init];
-//    net.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:net animated:YES];
-//    return;
+- (void)leftClick {
     FAPiTunesShareViewController *net = [[FAPiTunesShareViewController alloc] init];
     net.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:net animated:YES];
-    return;
-    
+}
+
+- (void)refreshClick {
     httpServer = [[HTTPServer alloc] init];
     [httpServer setType:@"_http._tcp."];
     // webPath是server搜寻HTML等文件的路径

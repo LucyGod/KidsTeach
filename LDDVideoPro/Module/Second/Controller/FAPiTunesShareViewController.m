@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"分享iTunes文件";
+    self.title = @"iTunes传输";
     self.titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel.text = @"此功能可将电脑里的图片/gif/视频通过分享iTunes文件导入到应用程序。";
     self.contentLabel.textColor = [UIColor whiteColor];
