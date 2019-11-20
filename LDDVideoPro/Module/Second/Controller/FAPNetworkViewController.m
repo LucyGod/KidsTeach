@@ -9,6 +9,7 @@
 #import "FAPNetworkViewController.h"
 #import "FAPNetworkHistoryCell.h"
 #import "FAPNetworkHeader.h"
+#import "PlayerViewController.h"
 @interface FAPNetworkViewController ()<UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong)UITextField *textField;
@@ -83,6 +84,15 @@
     return self.historyArray.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PlayerViewController *palyVC = [[PlayerViewController alloc] init];
+    palyVC.hidesBottomBarWhenPushed = YES;
+    [palyVC playWithVideoUrl:self.historyArray[indexPath.row]];
+    [self.navigationController presentViewController:palyVC animated:YES completion:^{
+        
+    }];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FAPNetworkHistoryCell * cell = [tableView dequeueReusableCellWithIdentifier:@"FAPNetworkHistoryCell"];
     cell.titleLabel.text = self.historyArray[indexPath.row];
@@ -111,6 +121,14 @@
         [FAPNetworkViewController addUrlToHistoryList:textField.text];
         [self.historyTableView reloadData];
         [textField endEditing:YES];
+        
+        PlayerViewController *palyVC = [[PlayerViewController alloc] init];
+        palyVC.hidesBottomBarWhenPushed = YES;
+        [palyVC playWithVideoUrl:textField.text];
+        [self.navigationController presentViewController:palyVC animated:YES completion:^{
+            
+        }];
+        
     } else {
         [SVProgressHUD showErrorWithStatus:@"网址不能为空"];
     }
