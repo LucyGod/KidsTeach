@@ -118,6 +118,9 @@
 		044A529D235EB22300FDC7D4 /* JXCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A5255235EB22300FDC7D4 /* JXCategoryBaseCellModel.m */; };
 		048CC766237EB5DC0080EF28 /* HmTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CC762237EB5DB0080EF28 /* HmTool.m */; };
 		048CC767237EB5DC0080EF28 /* HmHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CC764237EB5DC0080EF28 /* HmHTTPConnection.m */; };
+		04AAE6FC238512430097E230 /* tu.mov in Resources */ = {isa = PBXBuildFile; fileRef = 04AAE6F9238512430097E230 /* tu.mov */; };
+		04AAE6FD238512430097E230 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAE6FA238512430097E230 /* PlayerViewController.m */; };
+		04AAE6FE238512430097E230 /* PlayerImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04AAE6FB238512430097E230 /* PlayerImage.bundle */; };
 		04B2C571238230760049F5F0 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */; };
 		04B2C574238270670049F5F0 /* FAPNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C573238270670049F5F0 /* FAPNetworkViewController.m */; };
 		04B2C57A238278D30049F5F0 /* FAPNetworkHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C578238278D30049F5F0 /* FAPNetworkHistoryCell.m */; };
@@ -385,6 +388,10 @@
 		048CC763237EB5DB0080EF28 /* HmHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmHTTPConnection.h; sourceTree = "<group>"; };
 		048CC764237EB5DC0080EF28 /* HmHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HmHTTPConnection.m; sourceTree = "<group>"; };
 		048CC765237EB5DC0080EF28 /* HmTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmTool.h; sourceTree = "<group>"; };
+		04AAE6F8238512430097E230 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		04AAE6F9238512430097E230 /* tu.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = tu.mov; sourceTree = "<group>"; };
+		04AAE6FA238512430097E230 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		04AAE6FB238512430097E230 /* PlayerImage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PlayerImage.bundle; sourceTree = "<group>"; };
 		04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		04B2C570238230760049F5F0 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		04B2C572238270670049F5F0 /* FAPNetworkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPNetworkViewController.h; sourceTree = "<group>"; };
@@ -645,6 +652,7 @@
 		042F9B242284241A00FF7F72 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				04AAE6F7238512430097E230 /* Player */,
 				0420D5A1237E87F10088A799 /* Payment */,
 				0431CB1C237E5A1900CCE626 /* FileSystem */,
 				0431CB1F237E5A1A00CCE626 /* Second */,
@@ -1027,6 +1035,17 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		04AAE6F7238512430097E230 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				04AAE6F8238512430097E230 /* PlayerViewController.h */,
+				04AAE6F9238512430097E230 /* tu.mov */,
+				04AAE6FA238512430097E230 /* PlayerViewController.m */,
+				04AAE6FB238512430097E230 /* PlayerImage.bundle */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		04B2C5752382788C0049F5F0 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1200,9 +1219,11 @@
 				0436DFCD23828A23001DA7FF /* FileSysDetailTableViewCell.xib in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
+				04AAE6FC238512430097E230 /* tu.mov in Resources */,
 				0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */,
 				04B2C57B238278D30049F5F0 /* FAPNetworkHistoryCell.xib in Resources */,
 				04B2C5862382933F0049F5F0 /* FAPiTunesShareViewController.xib in Resources */,
+				04AAE6FE238512430097E230 /* PlayerImage.bundle in Resources */,
 				04B2C59C2383A6630049F5F0 /* FAPDownloadTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1297,6 +1318,7 @@
 				0434410C236006BD001CF8C2 /* YYhelp.m in Sources */,
 				044A5298235EB22300FDC7D4 /* JXCategoryViewAnimator.m in Sources */,
 				044A528C235EB22300FDC7D4 /* JXCategoryTitleCell.m in Sources */,
+				04AAE6FD238512430097E230 /* PlayerViewController.m in Sources */,
 				04B2C571238230760049F5F0 /* UIBarButtonItem+Extension.m in Sources */,
 				044A527C235EB22300FDC7D4 /* JXCategoryIndicatorRainbowLineView.m in Sources */,
 				04344112236006BD001CF8C2 /* UIColor+expanded.m in Sources */,
