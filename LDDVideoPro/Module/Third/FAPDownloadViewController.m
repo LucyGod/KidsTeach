@@ -84,6 +84,9 @@
         return;
     }
     if (self.addSuccess) {
+        NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+        [def setObject:@"YES" forKey:@"k_download"];
+        [def synchronize];
         self.addSuccess(self.textField.text);
         [self.navigationController popViewControllerAnimated:YES];
     }
