@@ -12,11 +12,14 @@
 #import "UIBarButtonItem+Extension.h"
 #import "FAPNetworkViewController.h"
 #import "FAPiTunesShareViewController.h"
+#import "PaymentViewController.h"
+
 @interface SecondViewController (){
     HTTPServer *httpServer;
 }
 
 @property (nonatomic, strong) UILabel *urlLabel;
+@property (nonatomic, strong) UIButton *payButton;
 
 @end
 
@@ -25,7 +28,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    if ([[PayHelp sharePayHelp] isApplePay] && [self.urlLabel.text isEqualToString:@"********************"]) {
+        [self initServer];
+    }
     
 }
 - (void)viewDidLoad {
@@ -82,7 +87,20 @@
         make.top.equalTo(titleLabel.mas_bottom).offset(20);
     }];
     
-    [self initServer];
+    if (![[PayHelp sharePayHelp] isApplePay]) {
+        [self.view addSubview:self.payButton];
+        [self.payButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(100, 40));
+            make.centerX.equalTo(self.view.mas_centerX);
+            make.top.equalTo(self.urlLabel.mas_bottom).offset(40);
+        }];
+        self.urlLabel.text = @"********************";
+        
+    } else {
+        [self initServer];
+    }
+    
+    
 
 }
 
@@ -93,6 +111,9 @@
 }
 
 - (void)refreshClick {
+    if (![[PayHelp sharePayHelp] isApplePay]) {
+        return;
+    }
     httpServer = [[HTTPServer alloc] init];
     [httpServer setType:@"_http._tcp."];
     // webPath是server搜寻HTML等文件的路径
@@ -136,6 +157,24 @@
         _urlLabel.textColor = [UIColor whiteColor];
     }
     return _urlLabel;
+}
+
+- (UIButton *)payButton {
+    if (!_payButton) {
+        _payButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _payButton.layer.cornerRadius = 3;
+        _payButton.layer.masksToBounds = YES;
+        [_payButton setTitle:@"开启服务" forState:UIControlStateNormal];
+        [_payButton addTarget:self action:@selector(payClick) forControlEvents:UIControlEventTouchUpInside];
+        [_payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _payButton.backgroundColor = [UIColor colorWithHexString:@"5fa6f8"];
+    }
+    return _payButton;
+}
+
+- (void)payClick {
+    PaymentViewController *pay = [[PaymentViewController alloc] init];
+    [self presentViewController:pay animated:YES completion:nil];
 }
 
 @end
