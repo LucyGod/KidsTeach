@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [self configSys:launchOptions];
+    [self configSys:launchOptions];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor clearColor];
@@ -29,8 +29,8 @@
 }
 
 - (void)configSys:(NSDictionary*)launchOptions {
-    [UMConfigure initWithAppkey:@"5dcbce42570df39fad00044f" channel:@"App Store"];
-    [self jpushRegWithAppKey:@"5ffcc70af91a611b474d2642" launchOptions:launchOptions];
+    [UMConfigure initWithAppkey:@"5dd62ecf570df3fc4e000a67" channel:@"App Store"];
+    [self jpushRegWithAppKey:@"cc3219240a331db0ec09af10" launchOptions:launchOptions];
     //GoogleAd
     [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
     
