@@ -21,7 +21,7 @@
 {
     PlayerViewController *palyVC = [[PlayerViewController alloc] init];
     palyVC.hidesBottomBarWhenPushed = YES;
-    [palyVC playWithVideoUrl:@"https://v-cdn.zjol.com.cn/280443.mp4"];
+    [palyVC playWithVideoUrl:@"http://kphbeijing.m.chenzhongtech.com/s/xUsmfCcw"];
     [self.navigationController presentViewController:palyVC animated:YES completion:^{
         
     }];

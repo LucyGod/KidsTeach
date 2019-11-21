@@ -121,9 +121,9 @@
 		0476B30C238686F000936988 /* PayMentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0476B30A238686F000936988 /* PayMentTableViewCell.xib */; };
 		048CC766237EB5DC0080EF28 /* HmTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CC762237EB5DB0080EF28 /* HmTool.m */; };
 		048CC767237EB5DC0080EF28 /* HmHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CC764237EB5DC0080EF28 /* HmHTTPConnection.m */; };
-		04AAE6FC238512430097E230 /* tu.mov in Resources */ = {isa = PBXBuildFile; fileRef = 04AAE6F9238512430097E230 /* tu.mov */; };
 		04AAE6FD238512430097E230 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAE6FA238512430097E230 /* PlayerViewController.m */; };
 		04AAE6FE238512430097E230 /* PlayerImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04AAE6FB238512430097E230 /* PlayerImage.bundle */; };
+		04AAE7092386432C0097E230 /* JKAlertDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAE7082386432C0097E230 /* JKAlertDialog.m */; };
 		04B2C571238230760049F5F0 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */; };
 		04B2C574238270670049F5F0 /* FAPNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C573238270670049F5F0 /* FAPNetworkViewController.m */; };
 		04B2C57A238278D30049F5F0 /* FAPNetworkHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C578238278D30049F5F0 /* FAPNetworkHistoryCell.m */; };
@@ -398,9 +398,10 @@
 		048CC764237EB5DC0080EF28 /* HmHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HmHTTPConnection.m; sourceTree = "<group>"; };
 		048CC765237EB5DC0080EF28 /* HmTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmTool.h; sourceTree = "<group>"; };
 		04AAE6F8238512430097E230 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
-		04AAE6F9238512430097E230 /* tu.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = tu.mov; sourceTree = "<group>"; };
 		04AAE6FA238512430097E230 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		04AAE6FB238512430097E230 /* PlayerImage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PlayerImage.bundle; sourceTree = "<group>"; };
+		04AAE7072386432C0097E230 /* JKAlertDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKAlertDialog.h; sourceTree = "<group>"; };
+		04AAE7082386432C0097E230 /* JKAlertDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKAlertDialog.m; sourceTree = "<group>"; };
 		04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		04B2C570238230760049F5F0 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		04B2C572238270670049F5F0 /* FAPNetworkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPNetworkViewController.h; sourceTree = "<group>"; };
@@ -1054,12 +1055,21 @@
 		04AAE6F7238512430097E230 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				04AAE7062386432C0097E230 /* JKAlertDialog */,
 				04AAE6F8238512430097E230 /* PlayerViewController.h */,
-				04AAE6F9238512430097E230 /* tu.mov */,
 				04AAE6FA238512430097E230 /* PlayerViewController.m */,
 				04AAE6FB238512430097E230 /* PlayerImage.bundle */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		04AAE7062386432C0097E230 /* JKAlertDialog */ = {
+			isa = PBXGroup;
+			children = (
+				04AAE7072386432C0097E230 /* JKAlertDialog.h */,
+				04AAE7082386432C0097E230 /* JKAlertDialog.m */,
+			);
+			path = JKAlertDialog;
 			sourceTree = "<group>";
 		};
 		04B2C5752382788C0049F5F0 /* View */ = {
@@ -1246,7 +1256,6 @@
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				0476B30723862CA400936988 /* settingConfig.json in Resources */,
 				04B2C5A123851D0C0049F5F0 /* upload.html in Resources */,
-				04AAE6FC238512430097E230 /* tu.mov in Resources */,
 				0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */,
 				04B2C57B238278D30049F5F0 /* FAPNetworkHistoryCell.xib in Resources */,
 				04B2C5862382933F0049F5F0 /* FAPiTunesShareViewController.xib in Resources */,
@@ -1382,6 +1391,7 @@
 				04344109236006BD001CF8C2 /* LYTRefreshTableView.m in Sources */,
 				04B2C593238392A00049F5F0 /* NSString+Hash.m in Sources */,
 				044A5282235EB22300FDC7D4 /* JXCategoryIndicatorCellModel.m in Sources */,
+				04AAE7092386432C0097E230 /* JKAlertDialog.m in Sources */,
 				04B5B3B9235EAA34002179AA /* LGScrollTitleViewStyle.m in Sources */,
 				0431CB17237E598D00CCE626 /* PayHelp.m in Sources */,
 				0436DFD0238293FA001DA7FF /* FileSystemDetailSectionView.m in Sources */,
