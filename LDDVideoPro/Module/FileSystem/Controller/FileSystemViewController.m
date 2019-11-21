@@ -14,9 +14,13 @@
 
 @interface FileSystemViewController ()<FileMainDelegate>{
     BOOL _isEdit;
+    GADBannerView *_bannerAdView;
 }
 
 @property (nonatomic,strong) FIleSystemMainView *fileSysView;
+
+/// 插屏广告
+@property (nonatomic, strong) GADInterstitial *Interstitial;
 
 @end
 
@@ -44,7 +48,52 @@
         make.edges.equalTo(self.view);
     }];
     
+    if (![[PayHelp sharePayHelp] isApplePay]) {
+           [self addAdViews];
+       }
+       
+       
+          
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(paymentSuccess) name:@"paySuccess" object:nil];
+    
 }
+
+- (void)paymentSuccess{
+    [_bannerAdView removeFromSuperview];
+    self.Interstitial = nil;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    if ([self.Interstitial isReady]) {
+        [self.Interstitial presentFromRootViewController:self];
+    }
+}
+
+- (void)addAdViews{
+    //加载广告
+    _bannerAdView = [[GADBannerView alloc] init];
+    _bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/3147726102";
+    _bannerAdView.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    
+    [_bannerAdView loadRequest:request];
+    [self.view addSubview:_bannerAdView];
+    
+    [_bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.equalTo(@50);
+    }];
+    
+    //插屏广告
+    self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-6864430072527422/1914535481"];
+    GADRequest *request1 = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    [self.Interstitial loadRequest:request1];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
