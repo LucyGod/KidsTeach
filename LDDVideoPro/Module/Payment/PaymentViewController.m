@@ -29,6 +29,8 @@
     [super viewDidLoad];
     
     [self initSubViews];
+    
+    [self configContentView];
 }
 
 - (void)initSubViews{
@@ -47,6 +49,7 @@
     UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [closeBtn setBackgroundImage:[UIImage imageNamed:@"btn_close"] forState:UIControlStateNormal];
     closeBtn.adjustsImageWhenHighlighted = NO;
+    closeBtn.hidden = YES;
     [closeBtn addTarget:self action:@selector(dismissCurrentVC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:closeBtn];
     [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -144,31 +147,36 @@
         make.right.equalTo(self.view).offset(-12);
         make.bottom.equalTo(contentView.mas_top).offset(-8);
     }];
-    
-//    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] init];
-//    swipe.direction = UISwipeGestureRecognizerDirectionDown;
-//    [swipe addTarget:self action:@selector(swipeAction:)];
-//    [self.view addGestureRecognizer:swipe];
-//
 }
-
-//- (void)swipeAction:(UISwipeGestureRecognizer*)swipe{
-////    NSLog(@"%f",swipe.)
-//}
 
 - (void)dismissCurrentVC{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)configContentView{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"settingConfig" ofType:@"json"];
+    NSData *dataStock = [NSData dataWithContentsOfFile:path];
+    NSArray *dataArr = [NSJSONSerialization JSONObjectWithData:dataStock options:0 error:nil];
+    
+    [self.contentView updateContentView:dataArr];
+}
+
 
 /// 购买
 - (void)buyBtnAction{
+    if ([[PayHelp sharePayHelp] isApplePay]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您已购买过专业版，无需重复购买。" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
     
+    [[PayHelp sharePayHelp] applePayWithProductId:@""];
 }
 
 /// 恢复购买
 - (void)reBuyBtnAction{
-    
+    [[PayHelp sharePayHelp]restorePurchase];
 }
 
 @end

@@ -9,7 +9,9 @@
 #import "PaymentContentView.h"
 #import "PaymentCollectionViewCell.h"
 
-@interface PaymentContentView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface PaymentContentView()<UICollectionViewDelegate,UICollectionViewDataSource>{
+    NSArray *_dataArray;
+}
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -42,6 +44,7 @@
 }
 
 - (void)initSubViews{
+    _dataArray = [NSArray array];
     self.backgroundColor = [UIColor clearColor];
     
     [self addSubview:self.collectionView];
@@ -51,17 +54,25 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 4;
+    return _dataArray.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     PaymentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"payCell" forIndexPath:indexPath];
+    NSDictionary *infoDic = _dataArray[indexPath.row];
     
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"PaymentCollectionViewCell" owner:self options:nil] firstObject];
     }
     
+    [cell configCell:infoDic];
+    
     return cell;
+}
+
+- (void)updateContentView:(NSArray*)dataArray{
+    _dataArray = dataArray;
+    [self.collectionView reloadData];
 }
 
 

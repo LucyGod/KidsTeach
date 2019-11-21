@@ -136,7 +136,7 @@
     
     [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.mediaView);
-        make.top.equalTo(self.mediaView).with.offset(20);
+        make.top.equalTo(self.mediaView).with.offset(Status_H);
         make.height.mas_equalTo(30);
     }];
     

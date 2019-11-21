@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PaymentContentView : UIView
 
+- (void)updateContentView:(NSArray*)dataArray;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,6 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PaymentCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *futuresImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *contentTitleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
+- (void)configCell:(NSDictionary*)dic;
+
 @end
 
 NS_ASSUME_NONNULL_END
