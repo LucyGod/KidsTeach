@@ -1557,9 +1557,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = LDDVideoPro/LDDVideoPro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = 84K35A5MS3;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1577,7 +1577,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LDDVideoPro/Vendor/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baby.jianji;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cuke.video;
 				PRODUCT_NAME = "黄瓜视频";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1593,9 +1593,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = LDDVideoPro/LDDVideoPro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = 84K35A5MS3;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1613,7 +1613,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LDDVideoPro/Vendor/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baby.jianji;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cuke.video;
 				PRODUCT_NAME = "黄瓜视频";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
