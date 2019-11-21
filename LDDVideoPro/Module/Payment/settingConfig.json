@@ -2,21 +2,21 @@
     {
         "title": "去除广告",
         "content" : "使用本应用时不显示广告",
-        "imageName": "",
+        "imageName": "future1",
     },
     {
         "title": "下载网络视频",
         "content" : "下载您喜爱的视频",
-        "imageName": "",
+        "imageName": "future4",
     },
     {
         "title": "WiFi传输文件",
         "content" : "通过局域网传输视频文件",
-        "imageName": "",
+        "imageName": "future2",
     },
     {
         "title": "播放多种格式视频",
         "content" : "支持所有格式影片高清播放",
-        "imageName": "",
+        "imageName": "future3",
     }
 ]

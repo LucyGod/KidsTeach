@@ -10,6 +10,7 @@
 #import "AppDelegate+JPush.h"
 #import <UMAnalytics/MobClick.h>
 #import <UMCommon/UMCommon.h>
+#import "FileManagerTool.h"
 
 @implementation AppDelegate
 
@@ -35,7 +36,17 @@
     [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
     
     [SVProgressHUD setMinimumDismissTimeInterval:1.0f];
+    
+    //创建默认文件夹
+    
+    NSArray *dirArray = @[@"电影",@"电视剧",@"动画片"];
+    for (NSString *dirName in dirArray) {
+        if (![[FileManagerTool sharedManagerTool] directoryIsExist:dirName]) {
+            [[FileManagerTool sharedManagerTool] createDirectoryWithDirectoryName:dirName];
+        }
+    }
 }
+
 -(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     if (self.allowRotation)
     {

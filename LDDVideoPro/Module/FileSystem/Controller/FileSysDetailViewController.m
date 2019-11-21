@@ -12,12 +12,20 @@
 #import "FileSystemMoveSelecteView.h"
 #import "MoveFileViewController.h"
 #import "PlayerViewController.h"
+#import "PaymentViewController.h"
 
 @interface FileSysDetailViewController ()<FileSystemMoveViewDelegate,DirectoryDetailDelegate,MoveFileSuccessDelegate>
 
 @property (nonatomic, strong) FileSystemDetailView *detailView;
 
 @property (nonatomic, strong) FileSystemMoveSelecteView *moveSelecteView;
+
+/// 插屏广告
+@property (nonatomic, strong) GADInterstitial *Interstitial;
+
+//banner广告
+@property (nonatomic, strong) GADBannerView *bannerAdView;
+
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -57,7 +65,53 @@
     }];
     
     [self getDirectoryDetailInfo];
+    
+    if (![[PayHelp sharePayHelp] isApplePay]) {
+        [self addAdViews];
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(paymentSuccess) name:@"paySuccess" object:nil];
 }
+
+- (void)paymentSuccess{
+    [_bannerAdView removeFromSuperview];
+    self.Interstitial = nil;
+}
+
+- (void)addAdViews{
+    //加载广告
+    _bannerAdView = [[GADBannerView alloc] init];
+    _bannerAdView.adUnitID = BannerADID;
+    _bannerAdView.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    
+    [_bannerAdView loadRequest:request];
+    [self.detailView addSubview:_bannerAdView];
+    
+    [_bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.detailView);
+        make.height.equalTo(@50);
+    }];
+    
+    //插屏广告
+    self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:InteredADID];
+    GADRequest *request1 = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    [self.Interstitial loadRequest:request1];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    if ([self.Interstitial isReady]) {
+        [self.Interstitial presentFromRootViewController:self];
+    }
+}
+
+- (void)dealloc{
+       [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 #pragma mark - 点击文件夹内的内容回调
 - (void)didClickedFileWithFilePath:(NSString *)filePath{
@@ -65,10 +119,26 @@
     
     NSLog(@"所点击的文件路径L：%@",finalPath);
     
-    PlayerViewController *player = [[PlayerViewController alloc] init];
-    [player playWithVideoFilePath:finalPath];
-    player.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:player animated:YES completion:nil];
+    if ([[PayHelp sharePayHelp] isApplePay]) {
+        //付费
+        PlayerViewController *player = [[PlayerViewController alloc] init];
+        [player playWithVideoFilePath:finalPath];
+        player.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:player animated:YES completion:nil];
+    }else{
+        //免费
+        NSString *fileExtension = [filePath pathExtension];
+           if ([fileExtension isEqualToString:@"mp4"] || [fileExtension isEqualToString:@"mov"] || [fileExtension isEqualToString:@"3gp"]) {
+               PlayerViewController *player = [[PlayerViewController alloc] init];
+               [player playWithVideoFilePath:finalPath];
+               player.modalPresentationStyle = UIModalPresentationFullScreen;
+               [self presentViewController:player animated:YES completion:nil];
+           }else{
+               PaymentViewController *payVC = [[PaymentViewController alloc] init];
+               
+               [self presentViewController:payVC animated:YES completion:nil];
+           }
+    }
 }
 
 - (void)updateSelectedData:(NSMutableArray *)selectedArray{

@@ -180,3 +180,14 @@ if (string) {\
 
 /** 系统Document文件夹路径*/
 #define DocumentsPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
+//测试Key
+#define BaseADAPPID @"ca-app-pub-3940256099942544~1458002511"
+//banner
+#define BannerADID @"ca-app-pub-3940256099942544/2934735716"
+//插屏广告
+#define InteredADID @"ca-app-pub-3940256099942544/4411468910"
+//原生广告
+#define NomalADID @"ca-app-pub-3940256099942544/3986624511"
+//激励广告
+#define GULIADID @"ca-app-pub-3940256099942544/1712485313"

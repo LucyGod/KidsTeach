@@ -11,6 +11,7 @@
 #import "FileManagerTool.h"
 #import "FileSysDetailViewController.h"
 #import "FileContentViewController.h"
+#import "PlayerViewController.h"
 
 @interface FileSystemViewController ()<FileMainDelegate>{
     BOOL _isEdit;
@@ -49,11 +50,11 @@
     }];
     
     if (![[PayHelp sharePayHelp] isApplePay]) {
-           [self addAdViews];
-       }
-       
-       
-          
+        [self addAdViews];
+    }
+    
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(paymentSuccess) name:@"paySuccess" object:nil];
     
 }
@@ -73,22 +74,22 @@
 - (void)addAdViews{
     //加载广告
     _bannerAdView = [[GADBannerView alloc] init];
-    _bannerAdView.adUnitID = @"ca-app-pub-6864430072527422/3147726102";
+    _bannerAdView.adUnitID = BannerADID;
     _bannerAdView.rootViewController = self;
     
     GADRequest *request = [GADRequest request];
     GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
     
     [_bannerAdView loadRequest:request];
-    [self.view addSubview:_bannerAdView];
+    [self.fileSysView addSubview:_bannerAdView];
     
     [_bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.equalTo(self.view);
+        make.left.bottom.right.equalTo(self.fileSysView);
         make.height.equalTo(@50);
     }];
     
     //插屏广告
-    self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-6864430072527422/1914535481"];
+    self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:InteredADID];
     GADRequest *request1 = [GADRequest request];
     GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
     [self.Interstitial loadRequest:request1];
@@ -136,11 +137,6 @@
 }
 
 - (void)editFileSysViewAction{
-    //    NSMutableArray *dataArray = [[FileManagerTool sharedManagerTool] contentsOfDirectory:DocumentsPath];
-    //    if (dataArray.count == 0) {
-    //
-    //
-    //    }else{
     _isEdit = !_isEdit;
     if (_isEdit) {
         [self.navigationItem.rightBarButtonItem setTitle:@"完成"];
@@ -170,14 +166,57 @@
         detailVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:detailVC animated:YES];
     }else{
+        
+        //文件后缀
+        NSString *fileExtension = [dirName pathExtension];
+        //文件路径
         NSString *filePath = [DocumentsPath stringByAppendingPathComponent:dirName];
-        FileContentViewController *contentVC = [[FileContentViewController alloc] init];
-        contentVC.hidesBottomBarWhenPushed = YES;
-        contentVC.filePath = filePath;
-        [self.navigationController pushViewController:contentVC animated:YES];
+        
+        if ([fileExtension isEqualToString:@"png"] || [fileExtension isEqualToString:@"jpg"]) {
+            //加载图片
+            FileContentViewController *contentVC = [[FileContentViewController alloc] init];
+            contentVC.hidesBottomBarWhenPushed = YES;
+            contentVC.filePath = filePath;
+            [self.navigationController pushViewController:contentVC animated:YES];
+            return;
+        }
+        
+        //播放视频
+        if ([[PayHelp sharePayHelp] isApplePay]) {
+            //付费播放全部类型
+            PlayerViewController *player = [[PlayerViewController alloc] init];
+            [player playWithVideoFilePath:filePath];
+            player.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:player animated:YES completion:nil];
+        }else{
+            //免费  播放三种格式
+            if ([fileExtension isEqualToString:@"mp4"] || [fileExtension isEqualToString:@"mov"] || [fileExtension isEqualToString:@"3gp"]) {
+                PlayerViewController *player = [[PlayerViewController alloc] init];
+                [player playWithVideoFilePath:filePath];
+                player.modalPresentationStyle = UIModalPresentationFullScreen;
+                [self presentViewController:player animated:YES completion:nil];
+            }else{
+                
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您使用的是基础版，不支持此格式视频播放，是否前去购买高级版？" preferredStyle:UIAlertControllerStyleAlert];
+                
+                [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    PaymentViewController *payVC = [[PaymentViewController alloc] init];
+                    [self presentViewController:payVC animated:YES completion:nil];
+                }]];
+                
+                [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+                [self presentViewController:alertController animated:YES completion:nil];
+                
+            }
+        }
+        
+        //        NSString *filePath = [DocumentsPath stringByAppendingPathComponent:dirName];
+        //        FileContentViewController *contentVC = [[FileContentViewController alloc] init];
+        //        contentVC.hidesBottomBarWhenPushed = YES;
+        //        contentVC.filePath = filePath;
+        //        [self.navigationController pushViewController:contentVC animated:YES];
     }
 }
-
 
 /// 删除文件夹
 /// @param indexPath indexpath
@@ -192,17 +231,21 @@
         [UIView animateWithDuration:0.3 animations:^{
             cell.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
         } completion:^(BOOL finished){
-//            cell.hidden = YES;
+            //            cell.hidden = YES;
         }];
         
         if ([[FileManagerTool sharedManagerTool] deleteFileAtFilePath:[DocumentsPath stringByAppendingPathComponent:dirName]]) {
             [self getFileViewData];
             cell.transform = CGAffineTransformMakeScale(1.0, 1.0);
-
+            
         }
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)dealloc{
+       [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

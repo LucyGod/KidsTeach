@@ -19,6 +19,13 @@
 @property (nonatomic, strong) NSMutableArray *dirArray; // 存储沙盒里面的所有文件
 @property (nonatomic, copy) NSString *downloadUrl;
 @property (nonatomic, strong) FileSystemNoDataView *noDataView;
+
+/// 插屏广告
+@property (nonatomic, strong) GADInterstitial *Interstitial;
+
+//banner广告
+@property (nonatomic, strong) GADBannerView *bannerAdView;
+
 @end
 
 @implementation ThirdViewController
@@ -53,6 +60,53 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem BarButtonItemWithTitle:@"在线观看" style:UIBarButtonItemStylePlain target:self action:@selector(leftClick)];
     [self setupTableView];
     [self setupView];
+    
+    
+    if (![[PayHelp sharePayHelp] isApplePay]) {
+        [self addAdViews];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(paymentSuccess) name:@"paySuccess" object:nil];
+}
+
+- (void)paymentSuccess{
+    [_bannerAdView removeFromSuperview];
+    self.Interstitial = nil;
+}
+
+- (void)addAdViews{
+    //加载广告
+    _bannerAdView = [[GADBannerView alloc] init];
+    _bannerAdView.adUnitID = BannerADID;
+    _bannerAdView.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    
+    [_bannerAdView loadRequest:request];
+    [self.view addSubview:_bannerAdView];
+    
+    [_bannerAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.equalTo(@50);
+    }];
+    
+    //插屏广告
+    self.Interstitial = [[GADInterstitial alloc] initWithAdUnitID:InteredADID];
+    GADRequest *request1 = [GADRequest request];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
+    [self.Interstitial loadRequest:request1];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    if ([self.Interstitial isReady]) {
+        [self.Interstitial presentFromRootViewController:self];
+    }
+}
+
+- (void)dealloc{
+       [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupView {

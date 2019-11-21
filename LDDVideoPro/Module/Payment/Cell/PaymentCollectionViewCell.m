@@ -21,7 +21,7 @@
 - (void)configCell:(NSDictionary*)dic{
     self.contentTitleLabel.text = dic[@"title"];
     self.contentLabel.text = dic[@"content"];
-    self.futuresImageView.image = [UIImage imageNamed:@"tempBG1"];
+    self.futuresImageView.image = [UIImage imageNamed:dic[@"imageName"]];
 }
 
 @end
