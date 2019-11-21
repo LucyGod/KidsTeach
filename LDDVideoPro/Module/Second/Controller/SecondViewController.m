@@ -41,6 +41,15 @@
         make.height.mas_equalTo(320);
     }];
     
+    UIImageView *sendImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_send_bg"]];
+    [bgView addSubview:sendImage];
+    [sendImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(bgView.mas_centerX);
+        make.width.mas_equalTo(SCREEN_Width - 60);
+        make.height.mas_equalTo(sendImage.mas_width).multipliedBy(0.3);
+        make.top.equalTo(bgView.mas_top).offset(50);
+    }];
+    
     UILabel *message = [[UILabel alloc] init];
     message.numberOfLines = 2;
     message.textAlignment = NSTextAlignmentCenter;
