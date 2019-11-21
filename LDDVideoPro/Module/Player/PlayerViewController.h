@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlayerViewController : UIViewController
+@interface PlayerViewController : FAPBaseViewController
 
 
 /// 网络视频
