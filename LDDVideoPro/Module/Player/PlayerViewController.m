@@ -10,6 +10,7 @@
 #import <MobileVLCKit/MobileVLCKit.h>
 #import "Masonry.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "JKAlertDialog.h"
 #define BrightnessStep 0.06f
 
 @interface PlayerViewController ()<VLCMediaPlayerDelegate,UIGestureRecognizerDelegate>
@@ -25,17 +26,18 @@
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UIButton *backBtn;
+@property (nonatomic, strong) UIButton *rateBtn;
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UIButton *fullBtn;
 @property (nonatomic, strong) UIButton *lockBtn;
 @property (nonatomic, strong) UIButton *playBtn;
 @property (nonatomic, strong) UILabel *currentTimeLabel;
 @property (nonatomic, strong) UILabel *totalTimeLabel;
-@property (nonatomic, strong) UIProgressView *progressView;
+@property (nonatomic, strong) UISlider *progressView;
 @property (nonatomic, strong) UISlider *videoSlider;
 @property (nonatomic, strong) CAGradientLayer *bottomGradientLayer;
 @property (nonatomic, strong) CAGradientLayer *topGradientLayer;
-
+@property (nonatomic ,strong) JKAlertDialog *alert ;
 
 // 手势
 @property(nonatomic, strong) UIPanGestureRecognizer *pan;
@@ -81,7 +83,7 @@
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification
 {
-   
+    
 }
 #pragma Mark 添加视图
 -(UIView *)mediaView
@@ -122,10 +124,10 @@
     
     [_topView addSubview:self.titleLab];
     [_topView addSubview:self.backBtn];
+    [_topView addSubview:self.rateBtn];
     [_bottomView addSubview:self.playBtn];
     [_bottomView addSubview:self.currentTimeLabel];
     [_bottomView addSubview:self.fullBtn];
-    [_bottomView addSubview:self.progressView];
     [_bottomView addSubview:self.videoSlider];
     [_bottomView addSubview:self.totalTimeLabel];
     [self.backgroundImage addSubview:self.loadingView];
@@ -144,6 +146,11 @@
         make.left.equalTo(self.topView).with.offset(5);
         make.top.equalTo(self.topView).with.offset(0);
         make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
+    [_rateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.topView).with.offset(-10);
+        make.top.equalTo(self.topView).with.offset(0);
+        make.size.mas_equalTo(CGSizeMake(40, 30));
     }];
     [_lockBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mediaView).with.offset(15);
@@ -179,11 +186,11 @@
         make.right.equalTo(self.fullBtn.mas_left).with.offset(-10);
         make.centerY.equalTo(self.playBtn);
     }];
-    [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.currentTimeLabel.mas_right).with.offset(10);
-        make.right.equalTo(self.totalTimeLabel.mas_left).with.offset(-10);
-        make.centerY.equalTo(self.playBtn);
-    }];
+    //    [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.left.equalTo(self.currentTimeLabel.mas_right).with.offset(10);
+    //        make.right.equalTo(self.totalTimeLabel.mas_left).with.offset(-10);
+    //        make.centerY.equalTo(self.playBtn);
+    //    }];
     [_videoSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.currentTimeLabel.mas_right).with.offset(10);
         make.right.equalTo(self.totalTimeLabel.mas_left).with.offset(-10);
@@ -299,10 +306,6 @@
 
 #pragma mark - public method
 
-- (void)fastForwardAtRate:(float)rate
-{
-    [_player fastForwardAtRate:rate];
-}
 #pragma 外界播放
 - (void)playWithVideoUrl:(NSString *)videoUrl {
     _player = [[VLCMediaPlayer alloc] initWithOptions:nil];
@@ -313,7 +316,6 @@
     [_player setMedia:media];
     if (videoUrl && videoUrl.length > 0) {
         self.videoSlider.value = 0;
-        self.progressView.progress =0;
         _currentTimeLabel.text = @"00:00";
     }
     _totalTimeLabel.text = @"00:00";
@@ -404,11 +406,20 @@
 }
 #pragma mark - slider事件
 - (void)progressSliderTouchBegan:(UISlider *)slider {
+    if (self.progressView) {
+        return;
+    }
     [_player pause];
     [self startLoading];
     [self showOrHideWith:YES];
 }
 - (void)progressSliderValueChanged:(UISlider *)slider {
+    if (self.progressView) {
+        CGFloat progressValue = _progressView.value;
+        [self fastForwardAtRate:progressValue];
+        _alert.labelTitle.text = [NSString stringWithFormat:@"当前速率：%.1f",progressValue];
+          return;
+      }
     if (!_player.isPlaying) {
         [_player play];
     }
@@ -427,11 +438,15 @@
     
 }
 - (void)progressSliderTouchEnded:(UISlider *)slider {
+    if (self.progressView) {
+          
+          return;
+      }
     if (!self.lockBtn.selected) {
         if (_player.state != VLCMediaPlayerStatePlaying) {
             return;
         }
-//
+        //
         VLCTime *vlcTime = [VLCTime timeWithInt:_touchEndValue];
         _player.time = vlcTime;
         [self stopLoading];
@@ -518,7 +533,7 @@
             
             {
                 _playBtn.selected = YES;
-//                [self stopLoading];
+                //                [self stopLoading];
                 [self hidePlayerSubviewWithTimer];
             }
             break;
@@ -625,6 +640,26 @@
         [_player stop];
     }
 }
+- (void)fastForwardAtRate:(float)rate
+{
+    [_player fastForwardAtRate:rate];
+}
+-(void)rateDown
+{
+    _alert = [[JKAlertDialog alloc]initWithTitle:[NSString stringWithFormat:@"当前速率：%.1f",_player.rate] message:@""];
+    _alert.contentView =  self.progressView;
+    [_alert addButton:Button_OTHER withTitle:@"恢复默认" handler:^(JKAlertDialogItem *item) {
+        self.progressView.value = 0;
+        [self fastForwardAtRate:1.0];
+        self->_alert.labelTitle.text = [NSString stringWithFormat:@"当前速率：1.0"];
+    }];
+    
+    [_alert addButton:Button_OTHER withTitle:@"确定" handler:^(JKAlertDialogItem *item) {
+        
+    }];
+    
+    [_alert show];
+}
 #pragma mark/** 全屏 和退出全屏 */
 - (void)backDown
 {
@@ -684,7 +719,19 @@
     }
     return _titleLab;
 }
-
+- (UIButton *)rateBtn {
+    if (!_rateBtn) {
+        _rateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _rateBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_rateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_rateBtn setTitle:@"倍速" forState:UIControlStateNormal];
+        _rateBtn.backgroundColor = [UIColor colorWithWhite:0 alpha:0.25];
+        _rateBtn.layer.masksToBounds = YES;
+        _rateBtn.layer.cornerRadius = 5;
+        [_rateBtn addTarget:self action:@selector(rateDown) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _rateBtn;
+}
 - (UIButton *)backBtn {
     if (!_backBtn) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -762,11 +809,20 @@
     }
     return _totalTimeLabel;
 }
-- (UIProgressView *)progressView {
+- (UISlider *)progressView {
     if (!_progressView) {
-        _progressView = [[UIProgressView alloc]init];
-        _progressView.progressTintColor    = [UIColor colorWithWhite:1 alpha:0.3];
-        _progressView.trackTintColor       = [UIColor colorWithRed:81/255.0 green:81/255.0 blue:81/255.0 alpha:0.5];
+        _progressView = [[UISlider alloc]initWithFrame:CGRectMake(0, 20, 270, 10)];
+        [_progressView setThumbImage:[self imagesNamedFromCustomBundle:@"spot"] forState:UIControlStateNormal];
+        _progressView.minimumTrackTintColor = [UIColor systemBlueColor];
+        _progressView.maximumTrackTintColor = [UIColor systemBlueColor];
+        _progressView.minimumValue = 1.0;
+        _progressView.maximumValue = 4.0;
+        // slider开始滑动事件
+        [_progressView addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];
+        // slider滑动中事件
+        [_progressView addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventTouchDragInside];
+        // slider结束滑动事件
+        [_progressView addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchCancel | UIControlEventTouchUpOutside];
     }
     return _progressView;
 }
@@ -796,8 +852,8 @@
             make.center.equalTo(self->_loadingView);
             make.size.mas_equalTo(CGSizeMake(31, 31));
         }];
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(play)];
-//        [_loadingView addGestureRecognizer:tap];
+        //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(play)];
+        //        [_loadingView addGestureRecognizer:tap];
     }
     return _loadingView;
 }
