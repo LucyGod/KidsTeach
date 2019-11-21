@@ -54,6 +54,8 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="285" height="201"/>
             <connections>
+                <outlet property="contentLabel" destination="XYc-co-6q4" id="7U5-0H-aTw"/>
+                <outlet property="contentTitleLabel" destination="miB-lm-AxD" id="CbE-B9-bjL"/>
                 <outlet property="futuresImageView" destination="KvB-Ep-TOX" id="V3A-C6-7mK"/>
             </connections>
             <point key="canvasLocation" x="110.86956521739131" y="106.80803571428571"/>

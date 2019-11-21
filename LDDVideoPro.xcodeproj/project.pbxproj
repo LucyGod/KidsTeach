@@ -116,6 +116,7 @@
 		044A529B235EB22300FDC7D4 /* JXCategoryBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A5253235EB22300FDC7D4 /* JXCategoryBaseView.m */; };
 		044A529C235EB22300FDC7D4 /* JXCategoryBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A5254235EB22300FDC7D4 /* JXCategoryBaseCell.m */; };
 		044A529D235EB22300FDC7D4 /* JXCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A5255235EB22300FDC7D4 /* JXCategoryBaseCellModel.m */; };
+		0476B30723862CA400936988 /* settingConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 0476B30623862CA400936988 /* settingConfig.json */; };
 		048CC766237EB5DC0080EF28 /* HmTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CC762237EB5DB0080EF28 /* HmTool.m */; };
 		048CC767237EB5DC0080EF28 /* HmHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CC764237EB5DC0080EF28 /* HmHTTPConnection.m */; };
 		04AAE6FC238512430097E230 /* tu.mov in Resources */ = {isa = PBXBuildFile; fileRef = 04AAE6F9238512430097E230 /* tu.mov */; };
@@ -385,6 +386,7 @@
 		044A5253235EB22300FDC7D4 /* JXCategoryBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryBaseView.m; sourceTree = "<group>"; };
 		044A5254235EB22300FDC7D4 /* JXCategoryBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryBaseCell.m; sourceTree = "<group>"; };
 		044A5255235EB22300FDC7D4 /* JXCategoryBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryBaseCellModel.m; sourceTree = "<group>"; };
+		0476B30623862CA400936988 /* settingConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settingConfig.json; sourceTree = "<group>"; };
 		04826B55229F7B9B00FDD82F /* LDDVideoPro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LDDVideoPro.entitlements; sourceTree = "<group>"; };
 		048CC762237EB5DB0080EF28 /* HmTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HmTool.m; sourceTree = "<group>"; };
 		048CC763237EB5DB0080EF28 /* HmHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmHTTPConnection.h; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 		0420D5A1237E87F10088A799 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				0476B30623862CA400936988 /* settingConfig.json */,
 				0420D5A2237E881D0088A799 /* PaymentViewController.h */,
 				0420D5A3237E881D0088A799 /* PaymentViewController.m */,
 				0420D5AE237E978B0088A799 /* View */,
@@ -1233,6 +1236,7 @@
 				0436DFCD23828A23001DA7FF /* FileSysDetailTableViewCell.xib in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
+				0476B30723862CA400936988 /* settingConfig.json in Resources */,
 				04B2C5A123851D0C0049F5F0 /* upload.html in Resources */,
 				04AAE6FC238512430097E230 /* tu.mov in Resources */,
 				0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */,

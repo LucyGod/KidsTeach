@@ -135,12 +135,15 @@
     NSString *fileName = _dataArray[indexPath.row];
     
     if (!_tableView.isEditing) {
+        [_selectedArray removeAllObjects];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         NSString *fileName = _dataArray[indexPath.row];
           
           if ([self.delegate respondsToSelector:@selector(didClickedFileWithFilePath:)]) {
               [self.delegate didClickedFileWithFilePath:fileName];
           }
+        
+        return;
     }
     
     //编辑状态下 记录所选索引或其他参数

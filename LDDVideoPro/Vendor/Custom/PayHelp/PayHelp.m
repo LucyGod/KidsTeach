@@ -108,6 +108,7 @@
 //反馈请求的产品信息结束后
 - (void)requestDidFinish:(SKRequest *)request{
     NSLog(@"信息反馈结束");
+    [SVProgressHUD dismiss];
 }
 
 
