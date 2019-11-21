@@ -23,7 +23,7 @@
 
 - (FileSystemNoDataView*)noDataView{
     if (!_noDataView) {
-        _noDataView = [[FileSystemNoDataView alloc] initWithFrame:CGRectZero desc:@"点击右上角的加号，将网络上的视频\n下载到手机上，下载完成后请前往首页查看" imageName:@""];
+        _noDataView = [[FileSystemNoDataView alloc] initWithFrame:CGRectZero desc:@"点击右上角的加号，将网络上的视频\n下载到手机上，下载完成后请前往首页查看" imageName:@"icon_download"];
     }
     return _noDataView;
 }

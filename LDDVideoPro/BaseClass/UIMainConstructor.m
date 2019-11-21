@@ -43,20 +43,20 @@ static UIMainConstructor *constructor;
     if (self = [super init])
     {
         if (!imageNames) {
-            imageNames = @[@"1",
-                           @"1",
+            imageNames = @[@"a",
+                           @"b",
                            
-                           @"1",
-                           @"1"
+                           @"c",
+                           @"d"
             ];
         }
         
         if (!selectedImageNames) {
-            selectedImageNames = @[@"a",
-                                   @"a",
+            selectedImageNames = @[@"1",
+                                   @"2",
                                    
-                                   @"a",
-                                   @"a"
+                                   @"3",
+                                   @"4"
             ];
         }
         
@@ -123,12 +123,13 @@ static UIMainConstructor *constructor;
     }];
     
     self.tabBarController.tabBar.barTintColor = RGBCOLOR(19, 29, 50);
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"5fa6f8"];
     self.tabBarController.tabBar.translucent = NO;
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.whiteColor,
-                                                        NSFontAttributeName:[UIFont fontWithName:fFont size:10.f]
-    } forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:RGBCOLOR(13, 117, 254)} forState:UIControlStateSelected];
-    [UITabBarItem appearance].titlePositionAdjustment = UIOffsetMake(0, -2.0f);
+//    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.whiteColor,
+//                                                        NSFontAttributeName:[UIFont fontWithName:fFont size:10.f]
+//    } forState:UIControlStateNormal];
+//    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:RGBCOLOR(13, 117, 254)} forState:UIControlStateSelected];
+//    [UITabBarItem appearance].titlePositionAdjustment = UIOffsetMake(0, -2.0f);
 }
 
 
