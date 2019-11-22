@@ -118,7 +118,9 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField; {
     if (textField.text.length > 0) {
-        [self.historyArray addObject:textField.text];
+        if (![self.historyArray containsObject:textField.text]) {
+            [self.historyArray addObject:textField.text];
+        }
         [FAPNetworkViewController addUrlToHistoryList:textField.text];
         [self.historyTableView reloadData];
         [textField endEditing:YES];

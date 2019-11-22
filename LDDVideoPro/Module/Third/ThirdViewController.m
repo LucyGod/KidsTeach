@@ -160,10 +160,12 @@
     FAPDownloadViewController *net = [[FAPDownloadViewController alloc] init];
     WEAKSELF
     [net setAddSuccess:^(NSString * _Nonnull url) {
-        [weakSelf.dirArray addObject:url];
-        [ThirdViewController addUrlToHistoryList:url];
-        weakSelf.downloadUrl = url;
-        [weakSelf.tableV reloadData];
+        if (![weakSelf.dirArray containsObject:url]) {
+            [weakSelf.dirArray addObject:url];
+            [ThirdViewController addUrlToHistoryList:url];
+            weakSelf.downloadUrl = url;
+            [weakSelf.tableV reloadData];
+        }
     }];
     net.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:net animated:YES];

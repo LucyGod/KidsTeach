@@ -155,7 +155,7 @@
     [_lockBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mediaView).with.offset(15);
         make.centerY.equalTo(self.mediaView);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.size.mas_equalTo(CGSizeMake(35, 35));
     }];
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.equalTo(self.topView);
@@ -521,8 +521,6 @@
             [_videoSlider setValue:0 animated:YES];
             VLCTime *time = [VLCTime timeWithInt:0];
             _player.time = time;
-            [_player play];
-            [self showPlayerSubview];
         }
             break;
         case VLCMediaPlayerStateOpening: {//1
@@ -634,10 +632,12 @@
         [self playWithJudgeNet];
     }
 }
+
 - (void)stopVideo
 {
     if (_player) {
         [_player stop];
+        _player = nil;
     }
 }
 - (void)fastForwardAtRate:(float)rate
@@ -922,6 +922,7 @@
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 - (void)dealloc {
+    NSLog(@"pppppppppppppppppppppppp");
     [self removeObserver];
 }
 - (void)viewWillDisappear:(BOOL)animated
