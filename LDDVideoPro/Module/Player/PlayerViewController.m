@@ -406,7 +406,7 @@
 }
 #pragma mark - slider事件
 - (void)progressSliderTouchBegan:(UISlider *)slider {
-    if (self.progressView) {
+    if (slider == self.progressView) {
         return;
     }
     [_player pause];
@@ -414,7 +414,7 @@
     [self showOrHideWith:YES];
 }
 - (void)progressSliderValueChanged:(UISlider *)slider {
-    if (self.progressView) {
+    if (slider == self.progressView) {
         CGFloat progressValue = _progressView.value;
         [self fastForwardAtRate:progressValue];
         _alert.labelTitle.text = [NSString stringWithFormat:@"当前速率：%.1f",progressValue];
@@ -438,7 +438,7 @@
     
 }
 - (void)progressSliderTouchEnded:(UISlider *)slider {
-    if (self.progressView) {
+    if (slider == self.progressView) {
           
           return;
       }
