@@ -814,7 +814,7 @@
         _progressView = [[UISlider alloc]initWithFrame:CGRectMake(0, 20, 270, 10)];
         [_progressView setThumbImage:[self imagesNamedFromCustomBundle:@"spot"] forState:UIControlStateNormal];
         _progressView.minimumTrackTintColor = [UIColor systemBlueColor];
-        _progressView.maximumTrackTintColor = [UIColor systemBlueColor];
+        _progressView.maximumTrackTintColor = [UIColor colorWithWhite:0.5 alpha:0.6];;
         _progressView.minimumValue = 1.0;
         _progressView.maximumValue = 4.0;
         // slider开始滑动事件
@@ -831,7 +831,7 @@
         _videoSlider = [[UISlider alloc]init];
         [_videoSlider setThumbImage:[self imagesNamedFromCustomBundle:@"icon_video_spot"] forState:UIControlStateNormal];
         _videoSlider.minimumTrackTintColor = [UIColor colorWithWhite:1 alpha:0.6];
-        _videoSlider.maximumTrackTintColor = [UIColor clearColor];
+        _videoSlider.maximumTrackTintColor = [UIColor colorWithWhite:0.5 alpha:0.6];
         // slider开始滑动事件
         [_videoSlider addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];
         // slider滑动中事件
