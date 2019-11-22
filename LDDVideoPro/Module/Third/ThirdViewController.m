@@ -118,9 +118,15 @@
 }
 
 - (void)leftClick {
-    FAPNetworkViewController *net = [[FAPNetworkViewController alloc] init];
-    net.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:net animated:YES];
+    if ([[PayHelp sharePayHelp] isApplePay]) {
+        FAPNetworkViewController *net = [[FAPNetworkViewController alloc] init];
+        net.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:net animated:YES];
+    } else {
+        PaymentViewController *pay = [[PaymentViewController alloc] init];
+        [self presentViewController:pay animated:YES completion:nil];
+    }
+    
 }
 
 - (void)addClick {
@@ -128,30 +134,8 @@
     if ([[PayHelp sharePayHelp] isApplePay]) {
         [self jumpDownload];
     } else {
-        NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
-        NSString *kdownload = [def objectForKey:@"k_download"];
-        if ([kdownload isEqualToString:@"YES"]) {
-            PaymentViewController *pay = [[PaymentViewController alloc] init];
-            [self presentViewController:pay animated:YES completion:nil];
-        } else {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您拥有一次免费试用的机会，下次使用请购买专业版" message:@"" preferredStyle: UIAlertControllerStyleActionSheet];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
-            }];
-            UIAlertAction *testAction = [UIAlertAction actionWithTitle:@"试用" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [self jumpDownload];
-            }];
-            UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"购买" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-                PaymentViewController *pay = [[PaymentViewController alloc] init];
-                [self presentViewController:pay animated:YES completion:nil];
-            }];
-            [alertController addAction:cancelAction];
-            [alertController addAction:testAction];
-            [alertController addAction:payAction];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
-            
-        }
+        PaymentViewController *pay = [[PaymentViewController alloc] init];
+        [self presentViewController:pay animated:YES completion:nil];
     }
     
 }

@@ -46,7 +46,7 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithBackgroudImageName:@"bt_navigation_refresh" highBackgroudImageName:@"bt_navigation_refresh" target:self action:@selector(refreshClick)];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem BarButtonItemWithTitle:@"iTunes传输" style:UIBarButtonItemStylePlain target:self action:@selector(leftClick)];
     UIView *bgView = [[UIView alloc] init];
-    bgView.backgroundColor = [UIColor colorWithHexString:@"5fa6f8"];
+    bgView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:bgView];
     [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.view);
@@ -63,21 +63,23 @@
     }];
     
     UILabel *message = [[UILabel alloc] init];
-    message.numberOfLines = 2;
+    message.numberOfLines = 3;
     message.textAlignment = NSTextAlignmentCenter;
-    message.text = @"确保您的iPhone和PC在同一局域网，文件\n上传过程中请勿退出";
+    message.text = @"确保您的iPhone和PC在同一局域网，文件上传过程中请勿退出，在您的在PC的浏览器中访问以下地址：";
     message.textColor = [UIColor whiteColor];
+    message.font = [UIFont systemFontOfSize:15.0];
     [bgView addSubview:message];
     [message mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(bgView);
-        make.height.mas_equalTo(60);
+        make.left.equalTo(bgView).offset(16);
+        make.right.equalTo(bgView).offset(-16);
+        make.height.mas_equalTo(80);
         make.bottom.equalTo(bgView.mas_bottom).offset(-60);
     }];
     
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.numberOfLines = 2;
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.text = @"在PC的浏览器中访问以下地址";
+    titleLabel.text = @"";
     titleLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,15 +93,16 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.width.mas_equalTo(280);
         make.height.mas_equalTo(44);
-        make.top.equalTo(titleLabel.mas_bottom).offset(20);
+        make.top.equalTo(message.mas_bottom).offset(20);
     }];
     
     if (![[PayHelp sharePayHelp] isApplePay]) {
         [self.view addSubview:self.payButton];
         [self.payButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(100, 40));
-            make.centerX.equalTo(self.view.mas_centerX);
-            make.top.equalTo(self.urlLabel.mas_bottom).offset(40);
+            make.left.equalTo(self.view).offset(20);
+            make.right.equalTo(self.view).offset(-20);
+            make.height.mas_equalTo(44);
+            make.bottom.equalTo(self.view).offset(-70);
         }];
         self.urlLabel.text = @"********************";
         
@@ -214,12 +217,10 @@
 - (UIButton *)payButton {
     if (!_payButton) {
         _payButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _payButton.layer.cornerRadius = 3;
-        _payButton.layer.masksToBounds = YES;
+        [_payButton setBackgroundImage:[UIImage imageNamed:@"paymentBtn"] forState:UIControlStateNormal];
         [_payButton setTitle:@"开启服务" forState:UIControlStateNormal];
         [_payButton addTarget:self action:@selector(payClick) forControlEvents:UIControlEventTouchUpInside];
         [_payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _payButton.backgroundColor = [UIColor colorWithHexString:@"5fa6f8"];
     }
     return _payButton;
 }

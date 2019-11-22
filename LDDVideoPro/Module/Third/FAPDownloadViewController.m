@@ -48,10 +48,6 @@
         make.bottom.equalTo(bgView.mas_bottom).offset(-5);
     }];
     
-    if (DEBUG) {
-        self.textField.text = @"https://v-cdn.zjol.com.cn/280443.mp4";
-    }
-    
     UIButton *downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [downloadButton setTitle:@"开始下载" forState:UIControlStateNormal];
     [downloadButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

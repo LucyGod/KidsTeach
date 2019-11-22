@@ -4,7 +4,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "2436h",
-      "filename" : "b819825bc7c98570f0a3a51216fd7616@3x@3xiPhoneXPortraitiOS11_375x812pt@3x.png",
+      "filename" : "矩形备份 16@3xiPhoneXPortraitiOS11_375x812pt@3x.png",
       "minimum-system-version" : "11.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -13,7 +13,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "b819825bc7c98570f0a3a51216fd7616@3x@3xiPhonePortraitiOS89_414x736pt@3x.png",
+      "filename" : "矩形备份 16@3xiPhonePortraitiOS89_414x736pt@3x.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -22,47 +22,47 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "667h",
-      "filename" : "b819825bc7c98570f0a3a51216fd7616@3x@3xiPhonePortraitiOS89_375x667pt@2x.png",
+      "filename" : "矩形备份 16@3xiPhonePortraitiOS89_375x667pt@2x.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "2x"
     },
     {
-      "extent" : "full-screen",
-      "idiom" : "iphone",
-      "filename" : "b819825bc7c98570f0a3a51216fd7616@3x@3xiPhonePortraitiOS789_320x480pt@2x.png",
-      "minimum-system-version" : "7.0",
       "orientation" : "portrait",
+      "idiom" : "iphone",
+      "filename" : "矩形备份 16@3xiPhonePortraitiOS789_320x480pt@2x.png",
+      "extent" : "full-screen",
+      "minimum-system-version" : "7.0",
       "scale" : "2x"
     },
     {
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "b819825bc7c98570f0a3a51216fd7616@3x@3xiPhonePortraitiOS789_320x568pt@2x.png",
+      "filename" : "矩形备份 16@3xiPhonePortraitiOS789_320x568pt@2x.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
     },
     {
-      "extent" : "full-screen",
-      "idiom" : "iphone",
-      "filename" : "b819825bc7c98570f0a3a51216fd7616@3x@3xiPhonePortraitiOS56_320x480pt.png",
       "orientation" : "portrait",
+      "idiom" : "iphone",
+      "filename" : "画板备份 9@1x.png",
+      "extent" : "full-screen",
       "scale" : "1x"
     },
     {
-      "extent" : "full-screen",
-      "idiom" : "iphone",
-      "filename" : "b819825bc7c98570f0a3a51216fd7616@3x@3xiPhonePortraitiOS56_320x480pt@2x.png",
       "orientation" : "portrait",
+      "idiom" : "iphone",
+      "filename" : "矩形备份 16@3xiPhonePortraitiOS56_320x480pt@2x.png",
+      "extent" : "full-screen",
       "scale" : "2x"
     },
     {
-      "extent" : "full-screen",
-      "idiom" : "iphone",
-      "filename" : "b819825bc7c98570f0a3a51216fd7616@3x@3xiPhonePortraitiOS56_320x568pt@2x.png",
       "orientation" : "portrait",
+      "idiom" : "iphone",
+      "filename" : "矩形备份 16@3xiPhonePortraitiOS56_320x568pt@2x.png",
+      "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
     }
