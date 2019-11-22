@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FileSysDetailTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *extensionLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *contentTitleLabel;

@@ -86,6 +86,11 @@
         
     NSString *directoryName = self.dataArray[indexPath.row];
     cell.directoryNameLabel.text = directoryName;
+    
+    if ([directoryName isEqualToString:@"Download"]) {
+        cell.iconImageView.image = [UIImage imageNamed:@"xiazai"];
+    }
+    
     return cell;
 }
 
