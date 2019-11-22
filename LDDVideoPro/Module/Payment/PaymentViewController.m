@@ -97,7 +97,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"PayMentTableViewCell" owner:self options:nil] firstObject];
     }
-    NSArray *titleArray = @[@"￥6 RMB/月",@"￥15 RMB/季",@"￥58 RMB/年"];
+    NSArray *titleArray = @[@"￥78 RMB/月",@"￥198 RMB/季",@"￥298 RMB/年"];
     cell.textLabel.text = titleArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -187,10 +187,7 @@
         make.centerY.equalTo(topImageView.mas_centerY);
     }];
     
-    UILabel *label2 = [[UILabel alloc] init];
-    label2.text = @"黄瓜视频";
-    label2.textColor = [UIColor whiteColor];
-    label2.font = [UIFont systemFontOfSize:30.0 weight:UIFontWeightSemibold];
+    UIImageView *label2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"paymentTitle"]];
     [self.mainView addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(label1);
@@ -198,12 +195,13 @@
     }];
     
     UILabel *label3 = [[UILabel alloc] init];
-    label3.text = @"一次购买，终身使用！";
-    label3.textColor = [UIColor whiteColor];
+    label3.text = @"专业版更懂你，随心畅用！";
+//    label3.textColor = [UIColor darkGrayColor];
+    label3.font = [UIFont systemFontOfSize:12.0];
     [self.mainView addSubview:label3];
     [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(label2);
-        make.top.equalTo(label2.mas_bottom).offset(8);
+        make.top.equalTo(label2.mas_bottom).offset(12);
     }];
     
     //    UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeSystem];

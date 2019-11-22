@@ -1,22 +1,23 @@
 [
     {
-        "title": "去除广告",
-        "content" : "使用本应用时不显示广告",
-        "imageName": "future1",
+        "title": "播放多种格式视频",
+        "content" : "所有格式影片高清无卡顿，懂你",
+        "imageName": "future3",
     },
     {
         "title": "下载网络视频",
-        "content" : "下载您喜爱的视频",
+        "content" : "喜欢的视频下载到本地永久保存",
         "imageName": "future4",
     },
     {
-        "title": "WiFi传输文件",
-        "content" : "通过局域网传输视频文件",
+        "title": "视频文件PC、手机互传",
+        "content" : "随时随地，看片儿更方便",
         "imageName": "future2",
     },
     {
-        "title": "播放多种格式视频",
-        "content" : "支持所有格式影片高清播放",
-        "imageName": "future3",
-    }
+        "title": "去除广告",
+        "content" : "永久去广告，看片儿不打扰",
+        "imageName": "future1",
+    },
+    
 ]

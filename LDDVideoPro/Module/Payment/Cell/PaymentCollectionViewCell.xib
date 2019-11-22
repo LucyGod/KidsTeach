@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="285" height="201"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tempBG1" translatesAutoresizingMaskIntoConstraints="NO" id="KvB-Ep-TOX">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KvB-Ep-TOX">
                         <rect key="frame" x="0.0" y="0.0" width="285" height="136"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="升级到专业版享受更多功能" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-co-6q4">
@@ -61,7 +61,4 @@
             <point key="canvasLocation" x="110.86956521739131" y="106.80803571428571"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="tempBG1" width="800" height="500"/>
-    </resources>
 </document>
