@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PaymentViewController : FAPBaseViewController
 
+@property (nonatomic, strong) UIButton *closeBtn;
+
 @end
 
 NS_ASSUME_NONNULL_END

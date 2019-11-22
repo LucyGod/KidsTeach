@@ -102,6 +102,7 @@ static UIMainConstructor *constructor;
     
     //我的
     PaymentViewController *meVc = [[PaymentViewController alloc] init];
+    meVc.closeBtn.hidden = YES;
     meVc.title = @"设置";
     meVc.hidesBottomBarWhenPushed =NO;
 //    LYTBaseNavigationController *meNC = [[LYTBaseNavigationController alloc] initWithRootViewController:meVc];

@@ -102,13 +102,13 @@
 //请求失败
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error{
     NSLog(@"error:%@", error);
+    [SVProgressHUD showErrorWithStatus:@"购买失败，请重试。"];
 //    [Help hideHUDWithTitle:SKPLocalizedString(@"The purchase failed, please try again")];
     //开启右滑动返回手势
 }
 //反馈请求的产品信息结束后
 - (void)requestDidFinish:(SKRequest *)request{
     NSLog(@"信息反馈结束");
-    [SVProgressHUD dismiss];
 }
 
 

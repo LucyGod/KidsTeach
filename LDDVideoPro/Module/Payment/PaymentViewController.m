@@ -48,6 +48,16 @@
     return _contentView;
 }
 
+- (UIButton *)closeBtn {
+    if (!_closeBtn) {
+        _closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_closeBtn setBackgroundImage:[UIImage imageNamed:@"btn_close"] forState:UIControlStateNormal];
+        _closeBtn.adjustsImageWhenHighlighted = NO;
+        [_closeBtn addTarget:self action:@selector(dismissCurrentVC) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _closeBtn;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenWidth*0.7 + 300)];
@@ -149,13 +159,8 @@
     }];
     
     //closeBtn
-    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [closeBtn setBackgroundImage:[UIImage imageNamed:@"btn_close"] forState:UIControlStateNormal];
-    closeBtn.adjustsImageWhenHighlighted = NO;
-    closeBtn.hidden = YES;
-    [closeBtn addTarget:self action:@selector(dismissCurrentVC) forControlEvents:UIControlEventTouchUpInside];
-    [self.mainView addSubview:closeBtn];
-    [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.mainView addSubview:self.closeBtn];
+    [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@23);
         make.left.equalTo(self.mainView).offset(20);
         make.top.equalTo(self.mainView).offset(Status_H + 12);
@@ -174,7 +179,7 @@
         make.height.equalTo(@30);
         make.width.equalTo(@100);
         make.right.equalTo(self.mainView).offset(-20);
-        make.centerY.equalTo(closeBtn.mas_centerY);
+        make.centerY.equalTo(self.closeBtn.mas_centerY);
     }];
     
     UILabel *label1 = [[UILabel alloc] init];
@@ -183,7 +188,7 @@
     label1.font = [UIFont systemFontOfSize:14.0];
     [self.mainView addSubview:label1];
     [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(closeBtn);
+        make.leading.equalTo(self.closeBtn);
         make.centerY.equalTo(topImageView.mas_centerY);
     }];
     

@@ -65,10 +65,6 @@
         make.bottom.equalTo(bgView.mas_bottom).offset(-5);
     }];
     
-    if (DEBUG) {
-        self.textField.text = @"https://v-cdn.zjol.com.cn/280443.mp4";
-    }
-    
     [self.view addSubview:self.historyTableView];
     [self.historyTableView registerNib:[UINib nibWithNibName:@"FAPNetworkHistoryCell" bundle:nil] forCellReuseIdentifier:@"FAPNetworkHistoryCell"];
     [self.historyTableView registerClass:[FAPNetworkHeader class] forHeaderFooterViewReuseIdentifier:@"FAPNetworkHeader"];
