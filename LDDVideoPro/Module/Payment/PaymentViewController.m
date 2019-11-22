@@ -107,7 +107,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"PayMentTableViewCell" owner:self options:nil] firstObject];
     }
-    NSArray *titleArray = @[@"￥78 RMB/月",@"￥198 RMB/季",@"￥298 RMB/年"];
+    NSArray *titleArray = @[@"￥298 /年(前3天免费试用)",@"￥198 /季",@"￥78 /月"];
     cell.textLabel.text = titleArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -119,7 +119,7 @@
     switch (indexPath.row) {
         case 0:
             //单月
-            proID = @"com.huangguashipin.6";
+            proID = @"com.huangguashipin.58";
             break;
             
         case 1:
@@ -129,7 +129,7 @@
             
         case 2:
             //包年
-            proID = @"com.huangguashipin.58";
+            proID = @"com.huangguashipin.6";
             break;
             
         default:
