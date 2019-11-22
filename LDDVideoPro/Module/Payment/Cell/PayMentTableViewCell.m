@@ -13,8 +13,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.buyImageView.layer.cornerRadius = 5.0;
-    self.buyImageView.layer.masksToBounds = YES;
+    self.firstButton.layer.cornerRadius = 5.0;
+    self.firstButton.layer.masksToBounds = YES;
+    
+    self.secondButton.layer.cornerRadius = 5.0;
+    self.secondButton.layer.masksToBounds = YES;
+    
+    self.thirdButton.layer.cornerRadius = 5.0;
+    self.thirdButton.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -23,4 +29,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)buybuttonAction:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(buyButtonActionHandler:)]) {
+        [self.delegate buyButtonActionHandler:sender.tag];
+    }
+}
 @end

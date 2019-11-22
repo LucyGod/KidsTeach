@@ -20,6 +20,9 @@
 @property (nonatomic, copy) NSString *downloadUrl;
 @property (nonatomic, strong) FileSystemNoDataView *noDataView;
 
+@property (nonatomic, strong) UIImageView *centerImageView;
+
+
 /// 插屏广告
 @property (nonatomic, strong) GADInterstitial *Interstitial;
 
@@ -30,6 +33,15 @@
 
 @implementation ThirdViewController
 
+
+- (UIImageView*)centerImageView{
+    if (!_centerImageView) {
+        _centerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cneterImg"]];
+        _centerImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _centerImageView;
+}
+
 - (FileSystemNoDataView*)noDataView{
     if (!_noDataView) {
         _noDataView = [[FileSystemNoDataView alloc] initWithFrame:CGRectZero desc:@"点击右上角的加号，将网络上的视频\n下载到手机上，下载完成后请前往首页查看" imageName:@"icon_download"];
@@ -39,12 +51,18 @@
 
 - (void)configNodataView {
     if (self.dirArray.count == 0) {
-        [self.view addSubview:self.noDataView];
-        [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.view addSubview:self.centerImageView];
+        [self.centerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self.view);
+            make.height.equalTo(@300);
         }];
+//        [self.view addSubview:self.noDataView];
+//        [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.center.equalTo(self.view);
+//        }];
     } else {
-        [self.noDataView removeFromSuperview];
+        [self.centerImageView removeFromSuperview];
+//        [self.noDataView removeFromSuperview];
     }
 }
 

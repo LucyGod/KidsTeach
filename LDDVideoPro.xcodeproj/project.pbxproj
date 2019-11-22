@@ -159,6 +159,8 @@
 		04B5B3B9235EAA34002179AA /* LGScrollTitleViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B3B4235EAA34002179AA /* LGScrollTitleViewStyle.m */; };
 		04D24AA5235FE76E00B18F28 /* JXCategoryNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D24AA4235FE76E00B18F28 /* JXCategoryNumberCell.m */; };
 		04E1D89F237C0BF300E0BA26 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E1D89E237C0BF300E0BA26 /* StoreKit.framework */; };
+		04F0A29D2387D7A2005E70DF /* PaymentNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A29B2387D7A2005E70DF /* PaymentNormalTableViewCell.m */; };
+		04F0A29E2387D7A2005E70DF /* PaymentNormalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F0A29C2387D7A2005E70DF /* PaymentNormalTableViewCell.xib */; };
 		4BCF0443E650D680546E9D7E /* Pods_LDDVideoPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E915767D7DD28060838A4D /* Pods_LDDVideoPro.framework */; };
 /* End PBXBuildFile section */
 
@@ -453,6 +455,9 @@
 		04D24AA3235FE76E00B18F28 /* JXCategoryNumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXCategoryNumberCell.h; sourceTree = "<group>"; };
 		04D24AA4235FE76E00B18F28 /* JXCategoryNumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryNumberCell.m; sourceTree = "<group>"; };
 		04E1D89E237C0BF300E0BA26 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		04F0A29A2387D7A2005E70DF /* PaymentNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentNormalTableViewCell.h; sourceTree = "<group>"; };
+		04F0A29B2387D7A2005E70DF /* PaymentNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentNormalTableViewCell.m; sourceTree = "<group>"; };
+		04F0A29C2387D7A2005E70DF /* PaymentNormalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentNormalTableViewCell.xib; sourceTree = "<group>"; };
 		2AF6C2DEE48DD516E3710650 /* Pods-LDDVideoPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDDVideoPro.debug.xcconfig"; path = "Target Support Files/Pods-LDDVideoPro/Pods-LDDVideoPro.debug.xcconfig"; sourceTree = "<group>"; };
 		3604EFAA2F3B8847605B14A0 /* Pods_ASOFutureProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASOFutureProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		571761D7F0FF150BAA409556 /* Pods-LDDVideoPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDDVideoPro.release.xcconfig"; path = "Target Support Files/Pods-LDDVideoPro/Pods-LDDVideoPro.release.xcconfig"; sourceTree = "<group>"; };
@@ -508,6 +513,9 @@
 				0476B308238686F000936988 /* PayMentTableViewCell.h */,
 				0476B309238686F000936988 /* PayMentTableViewCell.m */,
 				0476B30A238686F000936988 /* PayMentTableViewCell.xib */,
+				04F0A29A2387D7A2005E70DF /* PaymentNormalTableViewCell.h */,
+				04F0A29B2387D7A2005E70DF /* PaymentNormalTableViewCell.m */,
+				04F0A29C2387D7A2005E70DF /* PaymentNormalTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1257,6 +1265,7 @@
 				0476B30723862CA400936988 /* settingConfig.json in Resources */,
 				04B2C5A123851D0C0049F5F0 /* upload.html in Resources */,
 				0420D5AC237E97720088A799 /* PaymentCollectionViewCell.xib in Resources */,
+				04F0A29E2387D7A2005E70DF /* PaymentNormalTableViewCell.xib in Resources */,
 				04B2C57B238278D30049F5F0 /* FAPNetworkHistoryCell.xib in Resources */,
 				04B2C5862382933F0049F5F0 /* FAPiTunesShareViewController.xib in Resources */,
 				0476B30C238686F000936988 /* PayMentTableViewCell.xib in Resources */,
@@ -1358,6 +1367,7 @@
 				044A5298235EB22300FDC7D4 /* JXCategoryViewAnimator.m in Sources */,
 				044A528C235EB22300FDC7D4 /* JXCategoryTitleCell.m in Sources */,
 				04AAE6FD238512430097E230 /* PlayerViewController.m in Sources */,
+				04F0A29D2387D7A2005E70DF /* PaymentNormalTableViewCell.m in Sources */,
 				04B2C571238230760049F5F0 /* UIBarButtonItem+Extension.m in Sources */,
 				044A527C235EB22300FDC7D4 /* JXCategoryIndicatorRainbowLineView.m in Sources */,
 				04344112236006BD001CF8C2 /* UIColor+expanded.m in Sources */,
@@ -1576,7 +1586,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = LDDVideoPro/LDDVideoPro.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T26RMTSR2A;
@@ -1599,7 +1609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuke.video;
 				PRODUCT_NAME = "黄瓜视频";
-				PROVISIONING_PROFILE_SPECIFIER = dev;
+				PROVISIONING_PROFILE_SPECIFIER = dis;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e";
 			};

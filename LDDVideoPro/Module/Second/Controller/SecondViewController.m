@@ -218,7 +218,7 @@
     if (!_payButton) {
         _payButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_payButton setBackgroundImage:[UIImage imageNamed:@"paymentBtn"] forState:UIControlStateNormal];
-        [_payButton setTitle:@"开启服务" forState:UIControlStateNormal];
+        [_payButton setTitle:@"更多懂你的精彩" forState:UIControlStateNormal];
         [_payButton addTarget:self action:@selector(payClick) forControlEvents:UIControlEventTouchUpInside];
         [_payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }

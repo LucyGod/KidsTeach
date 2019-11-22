@@ -10,8 +10,10 @@
 #import "PaymentContentView.h"
 #import "PayHelp.h"
 #import "PayMentTableViewCell.h"
+#import "PaymentNormalTableViewCell.h"
 
-@interface PaymentViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@interface PaymentViewController ()<UITableViewDelegate,UITableViewDataSource,PaymentCellDelegate>
 
 @property (nonatomic,strong) PaymentContentView *contentView;
 
@@ -35,8 +37,10 @@
         _tableView.tableHeaderView = self.mainView;
         _tableView.tableFooterView = self.footerView;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.rowHeight = 50;
+        _tableView.rowHeight = 200;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableView registerNib:[UINib nibWithNibName:@"PayMentTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
+        [_tableView registerNib:[UINib nibWithNibName:@"PaymentNormalTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell1"];
     }
     return _tableView;
 }
@@ -63,7 +67,7 @@
     self.mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenWidth*0.7 + 300)];
     _mainView.backgroundColor = [UIColor clearColor];
     _mainView.userInteractionEnabled = YES;
- 
+    
     self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_Width, 180)];
     _footerView.backgroundColor = [UIColor clearColor];
     UILabel *contentLabel = [[UILabel alloc] init];
@@ -77,7 +81,7 @@
     paragraphStyle.alignment = NSTextAlignmentJustified; //设置两端对齐显示
     [attributedStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attributedStr.length)];
     [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(attributedStr.length - 40, 40)];
-
+    
     contentLabel.attributedText = attributedStr;
     contentLabel.textAlignment = NSTextAlignmentLeft;
     [_footerView addSubview:contentLabel];
@@ -99,37 +103,51 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PayMentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"PayMentTableViewCell" owner:self options:nil] firstObject];
+    
+    if (indexPath.row == 0) {
+        PaymentNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"PaymentNormalTableViewCell" owner:self options:nil] firstObject];
+        }
+        return cell;
+    }else{
+        PayMentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        cell.delegate = self;
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"PayMentTableViewCell" owner:self options:nil] firstObject];
+        }
+        return cell;
     }
-    NSArray *titleArray = @[@"￥298 /年(前3天免费试用)",@"￥198 /季",@"￥78 /月"];
-    cell.textLabel.text = titleArray[indexPath.row];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.textColor = [UIColor whiteColor];
-    return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        return 50;
+    }
+    return 200;
+}
+
+- (void)buyButtonActionHandler:(NSInteger)tag{
+    
     NSString *proID = @"";
-    switch (indexPath.row) {
+    switch (tag) {
         case 0:
             //单月
-            proID = @"com.huangguashipin.58";
+            proID = @"com.huangguashipin.6";
             break;
             
         case 1:
             //包季
-            proID = @"com.huangguashipin.15";
+            proID = @"com.huangguashipin.58";
             break;
             
         case 2:
             //包年
-            proID = @"com.huangguashipin.6";
+            proID = @"com.huangguashipin.15";
             break;
             
         default:
@@ -201,7 +219,7 @@
     
     UILabel *label3 = [[UILabel alloc] init];
     label3.text = @"专业版更懂你，随心畅用！";
-//    label3.textColor = [UIColor darkGrayColor];
+        label3.textColor = [UIColor blackColor];
     label3.font = [UIFont systemFontOfSize:12.0];
     [self.mainView addSubview:label3];
     [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -246,7 +264,7 @@
     }];
     
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.text = @"适用于高级版";
+    titleLabel.text = @"适用于专业版";
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.font = [UIFont systemFontOfSize:19.0 weight:UIFontWeightSemibold];
     [self.mainView addSubview:titleLabel];

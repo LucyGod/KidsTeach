@@ -39,7 +39,7 @@
     
     //创建默认文件夹
     
-    NSArray *dirArray = @[@"电影",@"电视剧",@"动画片"];
+    NSArray *dirArray = @[@"电影",@"电视剧",@"动作片",@"小电影"];
     for (NSString *dirName in dirArray) {
         if (![[FileManagerTool sharedManagerTool] directoryIsExist:dirName]) {
             [[FileManagerTool sharedManagerTool] createDirectoryWithDirectoryName:dirName];
