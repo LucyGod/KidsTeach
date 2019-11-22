@@ -127,6 +127,7 @@
     UIView *selectedBgView = [[UIView alloc] initWithFrame:cell.bounds];
     selectedBgView.backgroundColor = kTabBarBackgroundColor;
     cell.selectedBackgroundView = selectedBgView;
+    cell.extensionLabel.text = [fileName pathExtension];
     return cell;
 }
 
