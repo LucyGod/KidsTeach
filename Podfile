@@ -19,5 +19,5 @@ target 'LDDVideoPro' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'CocoaHTTPServer'
   pod 'YYCategories'
-
+  pod 'MobileVLCKit', '3.3.0'
 end
