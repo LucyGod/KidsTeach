@@ -96,7 +96,7 @@ static UIMainConstructor *constructor;
     
     //社区
     FAPNetworkViewController *CircleVc = [[FAPNetworkViewController alloc] init];
-    CircleVc.title = @"在线观看";
+    CircleVc.title = @"在线";
     CircleVc.hidesBottomBarWhenPushed =NO;
     LYTBaseNavigationController *circleNC = [[LYTBaseNavigationController alloc] initWithRootViewController:CircleVc];
     

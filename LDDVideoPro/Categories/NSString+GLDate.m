@@ -51,4 +51,22 @@
     return todayDate;
 }
 
++ (int)compareOneDay:(NSString *)oneDay withAnotherDay:(NSString *)anotherDay format:(NSString *)format {
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:format];
+    NSDate *dateA = [dateFormat dateFromString:oneDay];
+    NSDate *dateB = [dateFormat dateFromString:anotherDay];
+    NSComparisonResult result = [dateA compare:dateB];
+    if (result == NSOrderedDescending) {
+            //NSLog(@"oneDay比 anotherDay时间晚");
+        return 1;
+    }
+    else if (result == NSOrderedAscending){
+            //NSLog(@"oneDay比 anotherDay时间早");
+        return -1;
+    }
+        //NSLog(@"两者时间是同一个时间");
+    return 0;
+}
+
 @end

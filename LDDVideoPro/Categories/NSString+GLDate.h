@@ -31,5 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSDate *)gl_getTodayStartStamp;
 
++ (int)compareOneDay:(NSString *)oneDay withAnotherDay:(NSString *)anotherDay format:(NSString *)format;
+
 @end
 NS_ASSUME_NONNULL_END

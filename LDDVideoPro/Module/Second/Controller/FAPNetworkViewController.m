@@ -26,8 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"在线观看";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithBackgroudImageName:@"icon_add" highBackgroudImageName:@"icon_add" target:self action:@selector(addClick)];
+    self.title = @"在线";
+    
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateTime = [dateFormat stringFromDate:[NSDate date]];
+//
+//    NSString *dateTime = [NSDate datestrFromDate:[NSDate date] withDateFormat:@"yyyy-MM-dd"];
+    if ([NSString compareOneDay:dateTime withAnotherDay:@"2019-11-30" format:@"yyyy-MM-dd"] == 1) {
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithTitle:@"下载" style:UIBarButtonItemStylePlain target:self action:@selector(addClick)];
+    }
+    
+    
 //    UILabel *titleLabel = [[UILabel alloc] init];
 //    titleLabel.numberOfLines = 2;
 //    titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -95,18 +105,6 @@
     ThirdViewController *three = [[ThirdViewController alloc] init];
     three.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:three animated:YES];
-//    FAPDownloadViewController *net = [[FAPDownloadViewController alloc] init];
-//    WEAKSELF
-//    [net setAddSuccess:^(NSString * _Nonnull url) {
-//        if (![weakSelf.dirArray containsObject:url]) {
-//            [weakSelf.dirArray addObject:url];
-//            [ThirdViewController addUrlToHistoryList:url];
-//            weakSelf.downloadUrl = url;
-//            [weakSelf.tableV reloadData];
-//        }
-//    }];
-//    net.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:net animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
