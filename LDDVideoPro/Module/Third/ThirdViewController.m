@@ -75,7 +75,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithBackgroudImageName:@"icon_add" highBackgroudImageName:@"icon_add" target:self action:@selector(addClick)];
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem BarButtonItemWithTitle:@"在线观看" style:UIBarButtonItemStylePlain target:self action:@selector(leftClick)];
+//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem BarButtonItemWithTitle:@"在线观看" style:UIBarButtonItemStylePlain target:self action:@selector(leftClick)];
     [self setupTableView];
     [self setupView];
     

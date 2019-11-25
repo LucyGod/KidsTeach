@@ -181,13 +181,25 @@ if (string) {\
 /** 系统Document文件夹路径*/
 #define DocumentsPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
+////测试Key
+//#define BaseADAPPID @"ca-app-pub-6864430072527422~9932626301"
+////banner
+//#define BannerADID @"ca-app-pub-6864430072527422/1557983277"
+////插屏广告
+//#define InteredADID @"ca-app-pub-6864430072527422/7931819933"
+////原生广告
+//#define NomalADID @"ca-app-pub-6864430072527422/8044829565"
+////激励广告
+//#define GULIADID @"ca-app-pub-6864430072527422/3992574922"
+
+
 //测试Key
-#define BaseADAPPID @"ca-app-pub-6864430072527422~9932626301"
+#define BaseADAPPID @"ca-app-pub-~9932626301"
 //banner
-#define BannerADID @"ca-app-pub-6864430072527422/1557983277"
+#define BannerADID @"ca-app-pub-/1557983277"
 //插屏广告
-#define InteredADID @"ca-app-pub-6864430072527422/7931819933"
+#define InteredADID @"ca-app-pub-/7931819933"
 //原生广告
-#define NomalADID @"ca-app-pub-6864430072527422/8044829565"
+#define NomalADID @"ca-app-pub-/8044829565"
 //激励广告
-#define GULIADID @"ca-app-pub-6864430072527422/3992574922"
+#define GULIADID @"ca-app-pub-/3992574922"

@@ -10,6 +10,9 @@
 #import "FAPNetworkHistoryCell.h"
 #import "FAPNetworkHeader.h"
 #import "PlayerViewController.h"
+#import "PaymentViewController.h"
+#import "ThirdViewController.h"
+#import "UIBarButtonItem+Extension.h"
 @interface FAPNetworkViewController ()<UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong)UITextField *textField;
@@ -24,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"在线观看";
-    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem BarButtonItemWithBackgroudImageName:@"icon_add" highBackgroudImageName:@"icon_add" target:self action:@selector(addClick)];
 //    UILabel *titleLabel = [[UILabel alloc] init];
 //    titleLabel.numberOfLines = 2;
 //    titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -74,6 +77,36 @@
         make.bottom.equalTo(self.view.mas_bottom).offset(-20);
     }];
     
+}
+
+
+- (void)addClick {
+    
+    if ([[PayHelp sharePayHelp] isApplePay]) {
+        [self jumpDownload];
+    } else {
+        PaymentViewController *pay = [[PaymentViewController alloc] init];
+        [self presentViewController:pay animated:YES completion:nil];
+    }
+    
+}
+
+- (void)jumpDownload {
+    ThirdViewController *three = [[ThirdViewController alloc] init];
+    three.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:three animated:YES];
+//    FAPDownloadViewController *net = [[FAPDownloadViewController alloc] init];
+//    WEAKSELF
+//    [net setAddSuccess:^(NSString * _Nonnull url) {
+//        if (![weakSelf.dirArray containsObject:url]) {
+//            [weakSelf.dirArray addObject:url];
+//            [ThirdViewController addUrlToHistoryList:url];
+//            weakSelf.downloadUrl = url;
+//            [weakSelf.tableV reloadData];
+//        }
+//    }];
+//    net.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:net animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

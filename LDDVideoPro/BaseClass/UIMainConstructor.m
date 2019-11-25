@@ -10,7 +10,7 @@
 #import "FourthViewController.h"
 #import "SecondViewController.h"
 #import "FileSystemViewController.h"
-#import "ThirdViewController.h"
+#import "FAPNetworkViewController.h"
 #import "LYTBaseNavigationController.h"
 #import "PaymentViewController.h"
 static const NSArray *imageNames;
@@ -95,8 +95,8 @@ static UIMainConstructor *constructor;
     LYTBaseNavigationController *findNC = [[LYTBaseNavigationController alloc] initWithRootViewController:findVc];
     
     //社区
-    ThirdViewController *CircleVc = [[ThirdViewController alloc] init];
-    CircleVc.title = @"下载";
+    FAPNetworkViewController *CircleVc = [[FAPNetworkViewController alloc] init];
+    CircleVc.title = @"在线观看";
     CircleVc.hidesBottomBarWhenPushed =NO;
     LYTBaseNavigationController *circleNC = [[LYTBaseNavigationController alloc] initWithRootViewController:CircleVc];
     
