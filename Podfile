@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '11.0'
 source 'https://github.com/CocoaPods/Specs.git'
-target 'LDDVideoPro' do
+target 'UncompressTeam' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   use_frameworks!
  
@@ -19,5 +19,4 @@ target 'LDDVideoPro' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'CocoaHTTPServer'
   pod 'YYCategories'
-  pod 'MobileVLCKit', '3.3.0'
 end

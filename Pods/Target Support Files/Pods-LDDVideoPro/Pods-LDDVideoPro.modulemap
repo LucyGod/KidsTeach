@@ -1,6 +1,0 @@
-framework module Pods_LDDVideoPro {
-  umbrella header "Pods-LDDVideoPro-umbrella.h"
-
-  export *
-  module * { export * }
-}

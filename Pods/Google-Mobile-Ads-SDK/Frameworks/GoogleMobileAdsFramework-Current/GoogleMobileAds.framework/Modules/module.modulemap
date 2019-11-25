@@ -36,7 +36,6 @@ framework module GoogleMobileAds {
   header "GADAdMetadataKeys.h"
   header "GADAdNetworkExtras.h"
   header "GADAdSize.h"
-  header "GADAdValue.h"
   header "GADAppOpenAd.h"
   header "GADAudioVideoManager.h"
   header "GADAudioVideoManagerDelegate.h"
