@@ -258,6 +258,8 @@
         [SVProgressHUD dismiss];
     };
     [unarchive deCompressWithDirectoryName:dirName];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
    UIImage *  eimage = [info objectForKey:UIImagePickerControllerOriginalImage];

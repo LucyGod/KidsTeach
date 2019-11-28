@@ -85,6 +85,11 @@
 		04561FA8238F67C000B3D644 /* SMBSection1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561FA6238F67C000B3D644 /* SMBSection1TableViewCell.m */; };
 		04561FA9238F67C000B3D644 /* SMBSection1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04561FA7238F67C000B3D644 /* SMBSection1TableViewCell.xib */; };
 		04561FAC238F681F00B3D644 /* SMBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561FAB238F681F00B3D644 /* SMBViewController.m */; };
+		04698D81238FE4A90070DFF4 /* ZLShowImageViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CDD238FA62000F9E494 /* ZLShowImageViewController.h */; };
+		04698D82238FE4A90070DFF4 /* ZLShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CD8238FA62000F9E494 /* ZLShowImageViewController.m */; };
+		04698D83238FE4A90070DFF4 /* ZLPhotoHelper.h in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CD9238FA62000F9E494 /* ZLPhotoHelper.h */; };
+		04698D84238FE4A90070DFF4 /* ZLPickPhotoViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CDE238FA62000F9E494 /* ZLPickPhotoViewController.h */; };
+		04698D85238FE4A90070DFF4 /* ZLPickPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CDA238FA62000F9E494 /* ZLPickPhotoViewController.m */; };
 		046ADF8F238CCA050098AF3F /* FAPDLloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046ADF8E238CCA050098AF3F /* FAPDLloadViewController.m */; };
 		046ADF92238CCBB70098AF3F /* FAPiTunesDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046ADF91238CCBB70098AF3F /* FAPiTunesDownloadViewController.m */; };
 		046ADF95238CD0230098AF3F /* FAPWiFiTransmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046ADF94238CD0230098AF3F /* FAPWiFiTransmitViewController.m */; };
@@ -98,8 +103,6 @@
 		047C54CE238F9F5600029E36 /* SMBFileTootListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047C54CC238F9F5600029E36 /* SMBFileTootListTableViewCell.xib */; };
 		047C54D1238FA30500029E36 /* SMBListFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047C54D0238FA30500029E36 /* SMBListFileViewController.m */; };
 		047D1CD6238D35F900F9E494 /* MainFileManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D4CF12238D299000B9E3D8 /* MainFileManageViewController.m */; };
-		047D1CE1238FA62000F9E494 /* ZLShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CD8238FA62000F9E494 /* ZLShowImageViewController.m */; };
-		047D1CE2238FA62000F9E494 /* ZLPickPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CDA238FA62000F9E494 /* ZLPickPhotoViewController.m */; };
 		047D1CE3238FA62000F9E494 /* ZLPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CDB238FA62000F9E494 /* ZLPhotoCell.m */; };
 		047D1CE4238FA62000F9E494 /* ZLPhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D1CDC238FA62000F9E494 /* ZLPhotoHelper.m */; };
 		047D1CE5238FA62000F9E494 /* ZLPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047D1CDF238FA62000F9E494 /* ZLPhotoCell.xib */; };
@@ -335,7 +338,6 @@
 		047D1CDE238FA62000F9E494 /* ZLPickPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPickPhotoViewController.h; sourceTree = "<group>"; };
 		047D1CDF238FA62000F9E494 /* ZLPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLPhotoCell.xib; sourceTree = "<group>"; };
 		047D1CE0238FA62000F9E494 /* ZLPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPhotoCell.h; sourceTree = "<group>"; };
-		047D1CE6238FD46100F9E494 /* 黄瓜视频.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "黄瓜视频.entitlements"; sourceTree = "<group>"; };
 		04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		04B2C570238230760049F5F0 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		04B2C59E23851D0C0049F5F0 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
@@ -1102,6 +1104,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04698D81238FE4A90070DFF4 /* ZLShowImageViewController.h in Sources */,
+				04698D82238FE4A90070DFF4 /* ZLShowImageViewController.m in Sources */,
+				04698D83238FE4A90070DFF4 /* ZLPhotoHelper.h in Sources */,
+				04698D84238FE4A90070DFF4 /* ZLPickPhotoViewController.h in Sources */,
+				04698D85238FE4A90070DFF4 /* ZLPickPhotoViewController.m in Sources */,
 				047D1CD6238D35F900F9E494 /* MainFileManageViewController.m in Sources */,
 				042F9B4E2284271500FF7F72 /* NSString+GLDate.m in Sources */,
 				047C54D1238FA30500029E36 /* SMBListFileViewController.m in Sources */,
@@ -1119,9 +1126,6 @@
 				04344110236006BD001CF8C2 /* WTTextView.m in Sources */,
 				04344113236006BD001CF8C2 /* UPLoadManager.m in Sources */,
 				043BC6CA2361AEC900BBF43A /* AppDelegate+JPush.m in Sources */,
-				044A5297235EB22300FDC7D4 /* JXCategoryIndicatorParamsModel.m in Sources */,
-				04D24AA5235FE76E00B18F28 /* JXCategoryNumberCell.m in Sources */,
-				047D1CE1238FA62000F9E494 /* ZLShowImageViewController.m in Sources */,
 				04D4CF10238D27B600B9E3D8 /* DataModel.m in Sources */,
 				04344104236006BD001CF8C2 /* UIView+ParentController.m in Sources */,
 				04561ED7238CFEA300B3D644 /* HmTool.m in Sources */,

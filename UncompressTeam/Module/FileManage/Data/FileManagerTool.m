@@ -56,7 +56,6 @@
     return YES;
 }
 
--(BOOL)renameDirectoryWithDirectoryName:(NSString *)name filePath:(NSString *)path
 - (void)createTxtName:(NSString*)name filePath:(nonnull NSString *)path
 {
     NSData *data = [@"" dataUsingEncoding:NSUTF8StringEncoding];
