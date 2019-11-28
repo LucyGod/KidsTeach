@@ -96,6 +96,45 @@
 		044A529B235EB22300FDC7D4 /* JXCategoryBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A5253235EB22300FDC7D4 /* JXCategoryBaseView.m */; };
 		044A529C235EB22300FDC7D4 /* JXCategoryBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A5254235EB22300FDC7D4 /* JXCategoryBaseCell.m */; };
 		044A529D235EB22300FDC7D4 /* JXCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044A5255235EB22300FDC7D4 /* JXCategoryBaseCellModel.m */; };
+		04561ED6238CFEA300B3D644 /* HmHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561ED3238CFEA300B3D644 /* HmHTTPConnection.m */; };
+		04561ED7238CFEA300B3D644 /* HmTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561ED5238CFEA300B3D644 /* HmTool.m */; };
+		04561EDA238D0A1000B3D644 /* FAPDownLoadHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561ED9238D0A1000B3D644 /* FAPDownLoadHeader.m */; };
+		04561EDE238D0B9D00B3D644 /* FAPDownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EDB238D0B9D00B3D644 /* FAPDownloadTableViewCell.m */; };
+		04561EDF238D0B9D00B3D644 /* FAPDownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04561EDD238D0B9D00B3D644 /* FAPDownloadTableViewCell.xib */; };
+		04561EE6238D0C3400B3D644 /* HSSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EE0238D0C3400B3D644 /* HSSessionModel.m */; };
+		04561EE7238D0C3400B3D644 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EE1238D0C3400B3D644 /* NSString+Hash.m */; };
+		04561EE8238D0C3400B3D644 /* HSDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EE4238D0C3400B3D644 /* HSDownloadManager.m */; };
+		04561EEC238E180A00B3D644 /* iCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EEB238E180A00B3D644 /* iCloudManager.m */; };
+		04561EEF238E185900B3D644 /* ZZDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EEE238E185900B3D644 /* ZZDocument.m */; };
+		04561EF6238E4BE200B3D644 /* ImageTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EF4238E4BE200B3D644 /* ImageTitleTableViewCell.m */; };
+		04561EF7238E4BE200B3D644 /* ImageTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04561EF5238E4BE200B3D644 /* ImageTitleTableViewCell.xib */; };
+		04561EFA238E675100B3D644 /* ImageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EF9238E675100B3D644 /* ImageListViewController.m */; };
+		04561EFE238E6DB600B3D644 /* ImageListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561EFC238E6DB600B3D644 /* ImageListTableViewCell.m */; };
+		04561EFF238E6DB600B3D644 /* ImageListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04561EFD238E6DB600B3D644 /* ImageListTableViewCell.xib */; };
+		04561F90238F649100B3D644 /* SMBFileServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F6B238F649100B3D644 /* SMBFileServer.m */; };
+		04561F91238F649100B3D644 /* SMBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F6C238F649100B3D644 /* SMBDevice.m */; };
+		04561F92238F649100B3D644 /* SMBFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F6E238F649100B3D644 /* SMBFile.m */; };
+		04561F93238F649100B3D644 /* SMBShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F6F238F649100B3D644 /* SMBShare.m */; };
+		04561F94238F649100B3D644 /* SMBError.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F72238F649100B3D644 /* SMBError.m */; };
+		04561F96238F649100B3D644 /* SMBDiscovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F78238F649100B3D644 /* SMBDiscovery.m */; };
+		04561F97238F649100B3D644 /* libdsm-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04561F7D238F649100B3D644 /* libdsm-tvOS.a */; };
+		04561F98238F649100B3D644 /* libdsm-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04561F89238F649100B3D644 /* libdsm-iOS.a */; };
+		04561F99238F649100B3D644 /* libtasn1-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04561F8B238F649100B3D644 /* libtasn1-tvOS.a */; };
+		04561F9A238F649100B3D644 /* libtasn1-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04561F8E238F649100B3D644 /* libtasn1-iOS.a */; };
+		04561F9D238F64CD00B3D644 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04561F9C238F64CD00B3D644 /* libiconv.tbd */; };
+		04561F9F238F64DF00B3D644 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04561F9E238F64DF00B3D644 /* libiconv.tbd */; };
+		04561FA3238F67A900B3D644 /* SMBSection0TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561FA1238F67A900B3D644 /* SMBSection0TableViewCell.m */; };
+		04561FA4238F67A900B3D644 /* SMBSection0TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04561FA2238F67A900B3D644 /* SMBSection0TableViewCell.xib */; };
+		04561FA8238F67C000B3D644 /* SMBSection1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561FA6238F67C000B3D644 /* SMBSection1TableViewCell.m */; };
+		04561FA9238F67C000B3D644 /* SMBSection1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04561FA7238F67C000B3D644 /* SMBSection1TableViewCell.xib */; };
+		04561FAC238F681F00B3D644 /* SMBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561FAB238F681F00B3D644 /* SMBViewController.m */; };
+		046ADF8F238CCA050098AF3F /* FAPDLloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046ADF8E238CCA050098AF3F /* FAPDLloadViewController.m */; };
+		046ADF92238CCBB70098AF3F /* FAPiTunesDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046ADF91238CCBB70098AF3F /* FAPiTunesDownloadViewController.m */; };
+		046ADF95238CD0230098AF3F /* FAPWiFiTransmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046ADF94238CD0230098AF3F /* FAPWiFiTransmitViewController.m */; };
+		046ADF9B238CD5E30098AF3F /* WiFiTransmitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046ADF99238CD5E30098AF3F /* WiFiTransmitTableViewCell.m */; };
+		046ADF9C238CD5E30098AF3F /* WiFiTransmitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046ADF9A238CD5E30098AF3F /* WiFiTransmitTableViewCell.xib */; };
+		046ADFA0238CF9750098AF3F /* TitleSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046ADF9E238CF9750098AF3F /* TitleSwitchTableViewCell.m */; };
+		046ADFA1238CF9750098AF3F /* TitleSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046ADF9F238CF9750098AF3F /* TitleSwitchTableViewCell.xib */; };
 		047D1CD6238D35F900F9E494 /* MainFileManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D4CF12238D299000B9E3D8 /* MainFileManageViewController.m */; };
 		04B2C571238230760049F5F0 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */; };
 		04B2C5A023851D0C0049F5F0 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 04B2C59E23851D0C0049F5F0 /* index.html */; };
@@ -325,7 +364,87 @@
 		044A5253235EB22300FDC7D4 /* JXCategoryBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryBaseView.m; sourceTree = "<group>"; };
 		044A5254235EB22300FDC7D4 /* JXCategoryBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryBaseCell.m; sourceTree = "<group>"; };
 		044A5255235EB22300FDC7D4 /* JXCategoryBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCategoryBaseCellModel.m; sourceTree = "<group>"; };
-		04826B55229F7B9B00FDD82F /* UncompressTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UncompressTeam.entitlements; sourceTree = "<group>"; };
+		04561ED2238CFEA300B3D644 /* HmTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmTool.h; sourceTree = "<group>"; };
+		04561ED3238CFEA300B3D644 /* HmHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HmHTTPConnection.m; sourceTree = "<group>"; };
+		04561ED4238CFEA300B3D644 /* HmHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmHTTPConnection.h; sourceTree = "<group>"; };
+		04561ED5238CFEA300B3D644 /* HmTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HmTool.m; sourceTree = "<group>"; };
+		04561ED8238D0A1000B3D644 /* FAPDownLoadHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAPDownLoadHeader.h; sourceTree = "<group>"; };
+		04561ED9238D0A1000B3D644 /* FAPDownLoadHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAPDownLoadHeader.m; sourceTree = "<group>"; };
+		04561EDB238D0B9D00B3D644 /* FAPDownloadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAPDownloadTableViewCell.m; sourceTree = "<group>"; };
+		04561EDC238D0B9D00B3D644 /* FAPDownloadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAPDownloadTableViewCell.h; sourceTree = "<group>"; };
+		04561EDD238D0B9D00B3D644 /* FAPDownloadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FAPDownloadTableViewCell.xib; sourceTree = "<group>"; };
+		04561EE0238D0C3400B3D644 /* HSSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSSessionModel.m; sourceTree = "<group>"; };
+		04561EE1238D0C3400B3D644 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		04561EE2238D0C3400B3D644 /* HSDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSDownloadManager.h; sourceTree = "<group>"; };
+		04561EE3238D0C3400B3D644 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		04561EE4238D0C3400B3D644 /* HSDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDownloadManager.m; sourceTree = "<group>"; };
+		04561EE5238D0C3400B3D644 /* HSSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSSessionModel.h; sourceTree = "<group>"; };
+		04561EE9238E15BE00B3D644 /* 黄瓜视频.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "黄瓜视频.entitlements"; sourceTree = "<group>"; };
+		04561EEA238E180A00B3D644 /* iCloudManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iCloudManager.h; sourceTree = "<group>"; };
+		04561EEB238E180A00B3D644 /* iCloudManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloudManager.m; sourceTree = "<group>"; };
+		04561EED238E185900B3D644 /* ZZDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZDocument.h; sourceTree = "<group>"; };
+		04561EEE238E185900B3D644 /* ZZDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZDocument.m; sourceTree = "<group>"; };
+		04561EF3238E4BE200B3D644 /* ImageTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageTitleTableViewCell.h; sourceTree = "<group>"; };
+		04561EF4238E4BE200B3D644 /* ImageTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageTitleTableViewCell.m; sourceTree = "<group>"; };
+		04561EF5238E4BE200B3D644 /* ImageTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTitleTableViewCell.xib; sourceTree = "<group>"; };
+		04561EF8238E675100B3D644 /* ImageListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageListViewController.h; sourceTree = "<group>"; };
+		04561EF9238E675100B3D644 /* ImageListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageListViewController.m; sourceTree = "<group>"; };
+		04561EFB238E6DB600B3D644 /* ImageListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageListTableViewCell.h; sourceTree = "<group>"; };
+		04561EFC238E6DB600B3D644 /* ImageListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageListTableViewCell.m; sourceTree = "<group>"; };
+		04561EFD238E6DB600B3D644 /* ImageListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageListTableViewCell.xib; sourceTree = "<group>"; };
+		04561F69238F649100B3D644 /* SMBShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBShare.h; sourceTree = "<group>"; };
+		04561F6A238F649100B3D644 /* SMBFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBFile.h; sourceTree = "<group>"; };
+		04561F6B238F649100B3D644 /* SMBFileServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBFileServer.m; sourceTree = "<group>"; };
+		04561F6C238F649100B3D644 /* SMBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBDevice.m; sourceTree = "<group>"; };
+		04561F6D238F649100B3D644 /* SMBDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBDiscovery.h; sourceTree = "<group>"; };
+		04561F6E238F649100B3D644 /* SMBFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBFile.m; sourceTree = "<group>"; };
+		04561F6F238F649100B3D644 /* SMBShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBShare.m; sourceTree = "<group>"; };
+		04561F70238F649100B3D644 /* SMBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBClient.h; sourceTree = "<group>"; };
+		04561F72238F649100B3D644 /* SMBError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBError.m; sourceTree = "<group>"; };
+		04561F73238F649100B3D644 /* SMBFile_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBFile_Protected.h; sourceTree = "<group>"; };
+		04561F74238F649100B3D644 /* SMBShare_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBShare_Protected.h; sourceTree = "<group>"; };
+		04561F75238F649100B3D644 /* SMBError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBError.h; sourceTree = "<group>"; };
+		04561F76238F649100B3D644 /* SMBFileServer_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBFileServer_Protected.h; sourceTree = "<group>"; };
+		04561F78238F649100B3D644 /* SMBDiscovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBDiscovery.m; sourceTree = "<group>"; };
+		04561F79238F649100B3D644 /* SMBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBDevice.h; sourceTree = "<group>"; };
+		04561F7A238F649100B3D644 /* SMBFileServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBFileServer.h; sourceTree = "<group>"; };
+		04561F7D238F649100B3D644 /* libdsm-tvOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libdsm-tvOS.a"; sourceTree = "<group>"; };
+		04561F7F238F649100B3D644 /* smb_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_types.h; sourceTree = "<group>"; };
+		04561F80238F649100B3D644 /* smb_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_file.h; sourceTree = "<group>"; };
+		04561F81238F649100B3D644 /* smb_stat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_stat.h; sourceTree = "<group>"; };
+		04561F82238F649100B3D644 /* netbios_defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netbios_defs.h; sourceTree = "<group>"; };
+		04561F83238F649100B3D644 /* bdsm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bdsm.h; sourceTree = "<group>"; };
+		04561F84238F649100B3D644 /* smb_session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_session.h; sourceTree = "<group>"; };
+		04561F85238F649100B3D644 /* netbios_ns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netbios_ns.h; sourceTree = "<group>"; };
+		04561F86238F649100B3D644 /* smb_defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_defs.h; sourceTree = "<group>"; };
+		04561F87238F649100B3D644 /* smb_share.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_share.h; sourceTree = "<group>"; };
+		04561F88238F649100B3D644 /* smb_dir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_dir.h; sourceTree = "<group>"; };
+		04561F89238F649100B3D644 /* libdsm-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libdsm-iOS.a"; sourceTree = "<group>"; };
+		04561F8B238F649100B3D644 /* libtasn1-tvOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libtasn1-tvOS.a"; sourceTree = "<group>"; };
+		04561F8D238F649100B3D644 /* libtasn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libtasn1.h; sourceTree = "<group>"; };
+		04561F8E238F649100B3D644 /* libtasn1-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libtasn1-iOS.a"; sourceTree = "<group>"; };
+		04561F9C238F64CD00B3D644 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		04561F9E238F64DF00B3D644 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		04561FA0238F67A900B3D644 /* SMBSection0TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBSection0TableViewCell.h; sourceTree = "<group>"; };
+		04561FA1238F67A900B3D644 /* SMBSection0TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBSection0TableViewCell.m; sourceTree = "<group>"; };
+		04561FA2238F67A900B3D644 /* SMBSection0TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SMBSection0TableViewCell.xib; sourceTree = "<group>"; };
+		04561FA5238F67C000B3D644 /* SMBSection1TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBSection1TableViewCell.h; sourceTree = "<group>"; };
+		04561FA6238F67C000B3D644 /* SMBSection1TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBSection1TableViewCell.m; sourceTree = "<group>"; };
+		04561FA7238F67C000B3D644 /* SMBSection1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SMBSection1TableViewCell.xib; sourceTree = "<group>"; };
+		04561FAA238F681F00B3D644 /* SMBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBViewController.h; sourceTree = "<group>"; };
+		04561FAB238F681F00B3D644 /* SMBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBViewController.m; sourceTree = "<group>"; };
+		046ADF8D238CCA050098AF3F /* FAPDLloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPDLloadViewController.h; sourceTree = "<group>"; };
+		046ADF8E238CCA050098AF3F /* FAPDLloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPDLloadViewController.m; sourceTree = "<group>"; };
+		046ADF90238CCBB70098AF3F /* FAPiTunesDownloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPiTunesDownloadViewController.h; sourceTree = "<group>"; };
+		046ADF91238CCBB70098AF3F /* FAPiTunesDownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPiTunesDownloadViewController.m; sourceTree = "<group>"; };
+		046ADF93238CD0230098AF3F /* FAPWiFiTransmitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAPWiFiTransmitViewController.h; sourceTree = "<group>"; };
+		046ADF94238CD0230098AF3F /* FAPWiFiTransmitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAPWiFiTransmitViewController.m; sourceTree = "<group>"; };
+		046ADF98238CD5E30098AF3F /* WiFiTransmitTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WiFiTransmitTableViewCell.h; sourceTree = "<group>"; };
+		046ADF99238CD5E30098AF3F /* WiFiTransmitTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WiFiTransmitTableViewCell.m; sourceTree = "<group>"; };
+		046ADF9A238CD5E30098AF3F /* WiFiTransmitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WiFiTransmitTableViewCell.xib; sourceTree = "<group>"; };
+		046ADF9D238CF9750098AF3F /* TitleSwitchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleSwitchTableViewCell.h; sourceTree = "<group>"; };
+		046ADF9E238CF9750098AF3F /* TitleSwitchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleSwitchTableViewCell.m; sourceTree = "<group>"; };
+		046ADF9F238CF9750098AF3F /* TitleSwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		04B2C570238230760049F5F0 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		04B2C59E23851D0C0049F5F0 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
@@ -397,19 +516,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04561F9D238F64CD00B3D644 /* libiconv.tbd in Frameworks */,
+				04561F97238F649100B3D644 /* libdsm-tvOS.a in Frameworks */,
 				04B3CEA2237A4FE4002CBEC4 /* libc++.tbd in Frameworks */,
 				04B3CEA0237A4FDD002CBEC4 /* CoreGraphics.framework in Frameworks */,
+				04561F99238F649100B3D644 /* libtasn1-tvOS.a in Frameworks */,
 				04B3CE9E237A4FD7002CBEC4 /* QuartzCore.framework in Frameworks */,
 				04E1D89F237C0BF300E0BA26 /* StoreKit.framework in Frameworks */,
 				04B3CE9C237A4FD1002CBEC4 /* AddressBook.framework in Frameworks */,
 				04B3CE9A237A4FCA002CBEC4 /* Contacts.framework in Frameworks */,
 				04B3CE98237A4FC3002CBEC4 /* CoreLocation.framework in Frameworks */,
+				04561F9A238F649100B3D644 /* libtasn1-iOS.a in Frameworks */,
 				04B3CE96237A4FBC002CBEC4 /* UIKit.framework in Frameworks */,
 				04B3CE94237A4FB5002CBEC4 /* AudioToolbox.framework in Frameworks */,
 				04B3CE92237A4FAD002CBEC4 /* CoreTelephony.framework in Frameworks */,
+				04561F98238F649100B3D644 /* libdsm-iOS.a in Frameworks */,
 				04B3CE90237A4FA5002CBEC4 /* Foundation.framework in Frameworks */,
 				04B3CE8E237A4F9B002CBEC4 /* SystemConfiguration.framework in Frameworks */,
 				04B3CE8C237A4F92002CBEC4 /* AVFoundation.framework in Frameworks */,
+				04561F9F238F64DF00B3D644 /* libiconv.tbd in Frameworks */,
 				04B3CE8A237A4F89002CBEC4 /* libz.tbd in Frameworks */,
 				ACD0DCC3EF4CAC26CA6A0484 /* Pods_UncompressTeam.framework in Frameworks */,
 			);
@@ -448,8 +573,9 @@
 		042F9B082284168700FF7F72 /* UncompressTeam */ = {
 			isa = PBXGroup;
 			children = (
+				04561EE9238E15BE00B3D644 /* 黄瓜视频.entitlements */,
+				04561F9E238F64DF00B3D644 /* libiconv.tbd */,
 				04B2C59D23851D0B0049F5F0 /* web */,
-				04826B55229F7B9B00FDD82F /* UncompressTeam.entitlements */,
 				042F9B222284241900FF7F72 /* BaseClass */,
 				042F9B202284241900FF7F72 /* Categories */,
 				042F9B2A2284241A00FF7F72 /* Macro */,
@@ -545,6 +671,8 @@
 			isa = PBXGroup;
 			children = (
 				04307FEF238F78B100638640 /* Resource */,
+				04561F68238F649100B3D644 /* SMBClient */,
+				04561F7B238F649100B3D644 /* ThirdParty */,
 				04D4CEE9238D10F300B9E3D8 /* Resources.bundle */,
 				042F9B6C2284295A00FF7F72 /* Custom */,
 			);
@@ -642,8 +770,9 @@
 		0431CB1F237E5A1A00CCE626 /* Second */ = {
 			isa = PBXGroup;
 			children = (
-				04D4CEBF238BDFD000B9E3D8 /* SecondViewController.h */,
-				04D4CEC0238BDFD000B9E3D8 /* SecondViewController.m */,
+				04561ED1238CFE9400B3D644 /* Tool */,
+				046ADF97238CD57B0098AF3F /* Controller */,
+				046ADF96238CD5750098AF3F /* View */,
 			);
 			path = Second;
 			sourceTree = "<group>";
@@ -891,6 +1020,161 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		04561ED1238CFE9400B3D644 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				04561EE2238D0C3400B3D644 /* HSDownloadManager.h */,
+				04561EE4238D0C3400B3D644 /* HSDownloadManager.m */,
+				04561EE5238D0C3400B3D644 /* HSSessionModel.h */,
+				04561EE0238D0C3400B3D644 /* HSSessionModel.m */,
+				04561EE3238D0C3400B3D644 /* NSString+Hash.h */,
+				04561EE1238D0C3400B3D644 /* NSString+Hash.m */,
+				04561ED4238CFEA300B3D644 /* HmHTTPConnection.h */,
+				04561ED3238CFEA300B3D644 /* HmHTTPConnection.m */,
+				04561ED2238CFEA300B3D644 /* HmTool.h */,
+				04561ED5238CFEA300B3D644 /* HmTool.m */,
+				04561EEA238E180A00B3D644 /* iCloudManager.h */,
+				04561EEB238E180A00B3D644 /* iCloudManager.m */,
+				04561EED238E185900B3D644 /* ZZDocument.h */,
+				04561EEE238E185900B3D644 /* ZZDocument.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		04561F68238F649100B3D644 /* SMBClient */ = {
+			isa = PBXGroup;
+			children = (
+				04561F70238F649100B3D644 /* SMBClient.h */,
+				04561F69238F649100B3D644 /* SMBShare.h */,
+				04561F6F238F649100B3D644 /* SMBShare.m */,
+				04561F6A238F649100B3D644 /* SMBFile.h */,
+				04561F6E238F649100B3D644 /* SMBFile.m */,
+				04561F7A238F649100B3D644 /* SMBFileServer.h */,
+				04561F6B238F649100B3D644 /* SMBFileServer.m */,
+				04561F79238F649100B3D644 /* SMBDevice.h */,
+				04561F6C238F649100B3D644 /* SMBDevice.m */,
+				04561F6D238F649100B3D644 /* SMBDiscovery.h */,
+				04561F78238F649100B3D644 /* SMBDiscovery.m */,
+				04561F71238F649100B3D644 /* Protected */,
+			);
+			path = SMBClient;
+			sourceTree = "<group>";
+		};
+		04561F71238F649100B3D644 /* Protected */ = {
+			isa = PBXGroup;
+			children = (
+				04561F72238F649100B3D644 /* SMBError.m */,
+				04561F73238F649100B3D644 /* SMBFile_Protected.h */,
+				04561F74238F649100B3D644 /* SMBShare_Protected.h */,
+				04561F75238F649100B3D644 /* SMBError.h */,
+				04561F76238F649100B3D644 /* SMBFileServer_Protected.h */,
+			);
+			path = Protected;
+			sourceTree = "<group>";
+		};
+		04561F7B238F649100B3D644 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				04561F7C238F649100B3D644 /* libdsm */,
+				04561F8A238F649100B3D644 /* libtasn1 */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		04561F7C238F649100B3D644 /* libdsm */ = {
+			isa = PBXGroup;
+			children = (
+				04561F7D238F649100B3D644 /* libdsm-tvOS.a */,
+				04561F7E238F649100B3D644 /* include */,
+				04561F89238F649100B3D644 /* libdsm-iOS.a */,
+			);
+			path = libdsm;
+			sourceTree = "<group>";
+		};
+		04561F7E238F649100B3D644 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				04561F7F238F649100B3D644 /* smb_types.h */,
+				04561F80238F649100B3D644 /* smb_file.h */,
+				04561F81238F649100B3D644 /* smb_stat.h */,
+				04561F82238F649100B3D644 /* netbios_defs.h */,
+				04561F83238F649100B3D644 /* bdsm.h */,
+				04561F84238F649100B3D644 /* smb_session.h */,
+				04561F85238F649100B3D644 /* netbios_ns.h */,
+				04561F86238F649100B3D644 /* smb_defs.h */,
+				04561F87238F649100B3D644 /* smb_share.h */,
+				04561F88238F649100B3D644 /* smb_dir.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		04561F8A238F649100B3D644 /* libtasn1 */ = {
+			isa = PBXGroup;
+			children = (
+				04561F8B238F649100B3D644 /* libtasn1-tvOS.a */,
+				04561F8C238F649100B3D644 /* include */,
+				04561F8E238F649100B3D644 /* libtasn1-iOS.a */,
+			);
+			path = libtasn1;
+			sourceTree = "<group>";
+		};
+		04561F8C238F649100B3D644 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				04561F8D238F649100B3D644 /* libtasn1.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		046ADF96238CD5750098AF3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04561EDC238D0B9D00B3D644 /* FAPDownloadTableViewCell.h */,
+				04561EDB238D0B9D00B3D644 /* FAPDownloadTableViewCell.m */,
+				04561EDD238D0B9D00B3D644 /* FAPDownloadTableViewCell.xib */,
+				04561ED8238D0A1000B3D644 /* FAPDownLoadHeader.h */,
+				04561ED9238D0A1000B3D644 /* FAPDownLoadHeader.m */,
+				046ADF98238CD5E30098AF3F /* WiFiTransmitTableViewCell.h */,
+				046ADF99238CD5E30098AF3F /* WiFiTransmitTableViewCell.m */,
+				046ADF9A238CD5E30098AF3F /* WiFiTransmitTableViewCell.xib */,
+				046ADF9D238CF9750098AF3F /* TitleSwitchTableViewCell.h */,
+				046ADF9E238CF9750098AF3F /* TitleSwitchTableViewCell.m */,
+				046ADF9F238CF9750098AF3F /* TitleSwitchTableViewCell.xib */,
+				04561EF3238E4BE200B3D644 /* ImageTitleTableViewCell.h */,
+				04561EF4238E4BE200B3D644 /* ImageTitleTableViewCell.m */,
+				04561EF5238E4BE200B3D644 /* ImageTitleTableViewCell.xib */,
+				04561EFB238E6DB600B3D644 /* ImageListTableViewCell.h */,
+				04561EFC238E6DB600B3D644 /* ImageListTableViewCell.m */,
+				04561EFD238E6DB600B3D644 /* ImageListTableViewCell.xib */,
+				04561FA0238F67A900B3D644 /* SMBSection0TableViewCell.h */,
+				04561FA1238F67A900B3D644 /* SMBSection0TableViewCell.m */,
+				04561FA2238F67A900B3D644 /* SMBSection0TableViewCell.xib */,
+				04561FA5238F67C000B3D644 /* SMBSection1TableViewCell.h */,
+				04561FA6238F67C000B3D644 /* SMBSection1TableViewCell.m */,
+				04561FA7238F67C000B3D644 /* SMBSection1TableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		046ADF97238CD57B0098AF3F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CEBF238BDFD000B9E3D8 /* SecondViewController.h */,
+				04D4CEC0238BDFD000B9E3D8 /* SecondViewController.m */,
+				046ADF8D238CCA050098AF3F /* FAPDLloadViewController.h */,
+				046ADF8E238CCA050098AF3F /* FAPDLloadViewController.m */,
+				046ADF90238CCBB70098AF3F /* FAPiTunesDownloadViewController.h */,
+				046ADF91238CCBB70098AF3F /* FAPiTunesDownloadViewController.m */,
+				046ADF93238CD0230098AF3F /* FAPWiFiTransmitViewController.h */,
+				046ADF94238CD0230098AF3F /* FAPWiFiTransmitViewController.m */,
+				04561EF8238E675100B3D644 /* ImageListViewController.h */,
+				04561EF9238E675100B3D644 /* ImageListViewController.m */,
+				04561FAA238F681F00B3D644 /* SMBViewController.h */,
+				04561FAB238F681F00B3D644 /* SMBViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		04B2C59D23851D0B0049F5F0 /* web */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,6 +1264,7 @@
 		07EA8BD656AB2E69831A54E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04561F9C238F64CD00B3D644 /* libiconv.tbd */,
 				04E1D89E237C0BF300E0BA26 /* StoreKit.framework */,
 				04B3CEA1237A4FE4002CBEC4 /* libc++.tbd */,
 				04B3CE9F237A4FDD002CBEC4 /* CoreGraphics.framework */,
@@ -1081,13 +1366,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04561FA9238F67C000B3D644 /* SMBSection1TableViewCell.xib in Resources */,
+				042F9B162284168800FF7F72 /* LaunchScreen.storyboard in Resources */,
+				04561FA4238F67A900B3D644 /* SMBSection0TableViewCell.xib in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				04D4CEEA238D10F300B9E3D8 /* Resources.bundle in Resources */,
 				04307FF1238F799500638640 /* demo.zip in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				04B2C5A123851D0C0049F5F0 /* upload.html in Resources */,
+				046ADF9C238CD5E30098AF3F /* WiFiTransmitTableViewCell.xib in Resources */,
 				04D4CF09238D27B600B9E3D8 /* PopViewCell.xib in Resources */,
 				04B2C5A023851D0C0049F5F0 /* index.html in Resources */,
+				04561EF7238E4BE200B3D644 /* ImageTitleTableViewCell.xib in Resources */,
+				046ADFA1238CF9750098AF3F /* TitleSwitchTableViewCell.xib in Resources */,
+				04561EDF238D0B9D00B3D644 /* FAPDownloadTableViewCell.xib in Resources */,
+				04561EFF238E6DB600B3D644 /* ImageListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,7 +1448,9 @@
 				04344111236006BD001CF8C2 /* UIView+Extension.m in Sources */,
 				0426EDFE235E9EE9002A6616 /* FAPBaseModel.m in Sources */,
 				04D4CEC1238BDFD000B9E3D8 /* SecondViewController.m in Sources */,
+				04561FA8238F67C000B3D644 /* SMBSection1TableViewCell.m in Sources */,
 				044A529A235EB22300FDC7D4 /* UIColor+JXAdd.m in Sources */,
+				04561EFA238E675100B3D644 /* ImageListViewController.m in Sources */,
 				044A5286235EB22300FDC7D4 /* JXCategoryDotView.m in Sources */,
 				04344110236006BD001CF8C2 /* WTTextView.m in Sources */,
 				04344113236006BD001CF8C2 /* UPLoadManager.m in Sources */,
@@ -1164,12 +1459,15 @@
 				04D24AA5235FE76E00B18F28 /* JXCategoryNumberCell.m in Sources */,
 				04D4CF10238D27B600B9E3D8 /* DataModel.m in Sources */,
 				04344104236006BD001CF8C2 /* UIView+ParentController.m in Sources */,
+				04561ED7238CFEA300B3D644 /* HmTool.m in Sources */,
 				044A528D235EB22300FDC7D4 /* JXCategoryTitleView.m in Sources */,
 				044A527E235EB22300FDC7D4 /* JXCategoryIndicatorBallView.m in Sources */,
 				044A529D235EB22300FDC7D4 /* JXCategoryBaseCellModel.m in Sources */,
 				044A5295235EB22300FDC7D4 /* JXCategoryFactory.m in Sources */,
+				04561F91238F649100B3D644 /* SMBDevice.m in Sources */,
 				042F9B582284271500FF7F72 /* UIFont+ScaleSize.m in Sources */,
 				04B5B3B6235EAA34002179AA /* LGScrollTitleMenuLabel.m in Sources */,
+				04561EDA238D0A1000B3D644 /* FAPDownLoadHeader.m in Sources */,
 				04344116236006BD001CF8C2 /* LYTBaseNavigationController.m in Sources */,
 				042F9B562284271500FF7F72 /* NSString+Attribute.m in Sources */,
 				04D4CF0F238D27B600B9E3D8 /* FileIcon.m in Sources */,
@@ -1178,26 +1476,38 @@
 				044A5280235EB22300FDC7D4 /* JXCategoryIndicatorDotLineView.m in Sources */,
 				0434410C236006BD001CF8C2 /* YYhelp.m in Sources */,
 				044A5298235EB22300FDC7D4 /* JXCategoryViewAnimator.m in Sources */,
+				04561EDE238D0B9D00B3D644 /* FAPDownloadTableViewCell.m in Sources */,
 				044A528C235EB22300FDC7D4 /* JXCategoryTitleCell.m in Sources */,
 				04B2C571238230760049F5F0 /* UIBarButtonItem+Extension.m in Sources */,
 				044A527C235EB22300FDC7D4 /* JXCategoryIndicatorRainbowLineView.m in Sources */,
 				04D4CF06238D27B600B9E3D8 /* FileCollectionViewController.m in Sources */,
 				04344112236006BD001CF8C2 /* UIColor+expanded.m in Sources */,
 				042F9B522284271500FF7F72 /* NSNumber+digitalValue.m in Sources */,
+				04561EEC238E180A00B3D644 /* iCloudManager.m in Sources */,
+				04561F93238F649100B3D644 /* SMBShare.m in Sources */,
+				04561FAC238F681F00B3D644 /* SMBViewController.m in Sources */,
 				043440FD236006BD001CF8C2 /* Reachability.m in Sources */,
+				04561EEF238E185900B3D644 /* ZZDocument.m in Sources */,
 				042F9B5F2284273E00FF7F72 /* FAPBaseListView.m in Sources */,
 				042F9B532284271500FF7F72 /* UIView+Frame.m in Sources */,
+				04561FA3238F67A900B3D644 /* SMBSection0TableViewCell.m in Sources */,
 				04344108236006BD001CF8C2 /* NSDictionary+Extension.m in Sources */,
+				046ADF9B238CD5E30098AF3F /* WiFiTransmitTableViewCell.m in Sources */,
+				04D4CEBE238BDFC200B9E3D8 /* FirstViewController.m in Sources */,
+				04561EE7238D0C3400B3D644 /* NSString+Hash.m in Sources */,
 				04D4CF08238D27B600B9E3D8 /* ShowTypePopViewController.m in Sources */,
 				04D4CF0A238D27B600B9E3D8 /* CollectionViewCell.m in Sources */,
 				044A527F235EB22300FDC7D4 /* JXCategoryIndicatorComponentView.m in Sources */,
 				042F9B542284271500FF7F72 /* NSString+Path.m in Sources */,
+				04561ED6238CFEA300B3D644 /* HmHTTPConnection.m in Sources */,
 				044A528A235EB22300FDC7D4 /* JXCategoryTitleImageCellModel.m in Sources */,
 				042F9B2B2284241A00FF7F72 /* main.m in Sources */,
 				044A5291235EB22300FDC7D4 /* JXCategoryNumberView.m in Sources */,
+				04561EE8238D0C3400B3D644 /* HSDownloadManager.m in Sources */,
 				042F9C1A2284295A00FF7F72 /* ASORefreshFooter.m in Sources */,
 				044A5278235EB22300FDC7D4 /* JXCategoryTitleVerticalZoomCell.m in Sources */,
 				044A5283235EB22300FDC7D4 /* JXCategoryIndicatorCell.m in Sources */,
+				04561F94238F649100B3D644 /* SMBError.m in Sources */,
 				04344114236006BD001CF8C2 /* UIImage+fixOrientation.m in Sources */,
 				044A528F235EB22300FDC7D4 /* JXCategoryImageCell.m in Sources */,
 				04233957235F0D1E00909703 /* UIColor+DarkMode.m in Sources */,
@@ -1209,10 +1519,13 @@
 				04D4CF0C238D27B600B9E3D8 /* FileManagerTool.m in Sources */,
 				04D4CF0D238D27B600B9E3D8 /* FileSystemHandle.m in Sources */,
 				044A5282235EB22300FDC7D4 /* JXCategoryIndicatorCellModel.m in Sources */,
+				04561F96238F649100B3D644 /* SMBDiscovery.m in Sources */,
 				04B5B3B9235EAA34002179AA /* LGScrollTitleViewStyle.m in Sources */,
 				0431CB17237E598D00CCE626 /* PayHelp.m in Sources */,
 				04B5B3B8235EAA34002179AA /* LGScrollPageView.m in Sources */,
+				046ADFA0238CF9750098AF3F /* TitleSwitchTableViewCell.m in Sources */,
 				042F9C382284295A00FF7F72 /* TabControlView.m in Sources */,
+				04561EF6238E4BE200B3D644 /* ImageTitleTableViewCell.m in Sources */,
 				042F9B592284271500FF7F72 /* UIView+DrawBGColor.m in Sources */,
 				044A527D235EB22300FDC7D4 /* JXCategoryIndicatorImageView.m in Sources */,
 				044A5281235EB22300FDC7D4 /* JXCategoryIndicatorBackgroundView.m in Sources */,
@@ -1230,8 +1543,15 @@
 				044A5288235EB22300FDC7D4 /* JXCategoryTitleImageView.m in Sources */,
 				0434410D236006BD001CF8C2 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				042F9B552284271500FF7F72 /* NSString+Verify.m in Sources */,
+				04561EFE238E6DB600B3D644 /* ImageListTableViewCell.m in Sources */,
+				04561F90238F649100B3D644 /* SMBFileServer.m in Sources */,
+				04561F92238F649100B3D644 /* SMBFile.m in Sources */,
+				04561EE6238D0C3400B3D644 /* HSSessionModel.m in Sources */,
 				044A5290235EB22300FDC7D4 /* JXCategoryImageCellModel.m in Sources */,
+				046ADF8F238CCA050098AF3F /* FAPDLloadViewController.m in Sources */,
+				046ADF92238CCBB70098AF3F /* FAPiTunesDownloadViewController.m in Sources */,
 				04344106236006BD001CF8C2 /* myUILabel.m in Sources */,
+				046ADF95238CD0230098AF3F /* FAPWiFiTransmitViewController.m in Sources */,
 				0434410B236006BD001CF8C2 /* StringManager.m in Sources */,
 				04344105236006BD001CF8C2 /* UIScrollView+Touch.m in Sources */,
 				042F9B502284271500FF7F72 /* NSDictionary+InfoDictionary.m in Sources */,
@@ -1370,6 +1690,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "UncompressTeam/黄瓜视频.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YMQ78W25VH;
 				CODE_SIGN_ENTITLEMENTS = UncompressTeam/UncompressTeam.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
@@ -1391,8 +1716,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UncompressTeam/Vendor/JPush",
+					"$(PROJECT_DIR)/UncompressTeam/Vendor/ThirdParty/libdsm",
+					"$(PROJECT_DIR)/UncompressTeam/Vendor/ThirdParty/libtasn1",
+					"$(PROJECT_DIR)/UncompressTeam/Vendor/ThirdParty",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cuke.video;
+				PRODUCT_BUNDLE_IDENTIFIER = net.circle.www;
 				PRODUCT_NAME = "黄瓜视频";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1406,6 +1734,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "UncompressTeam/黄瓜视频.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YMQ78W25VH;
 				CODE_SIGN_ENTITLEMENTS = UncompressTeam/UncompressTeam.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
@@ -1427,8 +1760,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UncompressTeam/Vendor/JPush",
+					"$(PROJECT_DIR)/UncompressTeam/Vendor/ThirdParty/libdsm",
+					"$(PROJECT_DIR)/UncompressTeam/Vendor/ThirdParty/libtasn1",
+					"$(PROJECT_DIR)/UncompressTeam/Vendor/ThirdParty",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cuke.video;
+				PRODUCT_BUNDLE_IDENTIFIER = net.circle.www;
 				PRODUCT_NAME = "黄瓜视频";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

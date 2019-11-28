@@ -50,4 +50,23 @@
     [data1 writeToFile:[DocumentsPath stringByAppendingPathComponent:@"demo.txt"] atomically:YES];
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    
+    NSLog(@"url  %@",[url absoluteString]);
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    if ([[url absoluteString] containsString:@"file"]) {
+        NSArray *array = [[url absoluteString] componentsSeparatedByString:@"/"];
+        NSString *fileName = [array lastObject];
+        fileName = [fileName stringByRemovingPercentEncoding];
+        
+        NSString *path = [documentsPath stringByAppendingPathComponent:fileName];
+        
+        NSData *data = [NSData dataWithContentsOfFile:path];
+         [data writeToFile:path atomically:YES];
+        
+        [SVProgressHUD showSuccessWithStatus:@"传输成功"];
+    }
+    return YES;
+}
+
 @end
