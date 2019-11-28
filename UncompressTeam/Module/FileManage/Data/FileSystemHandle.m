@@ -39,21 +39,30 @@
     
     //复制
     [alert addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSString *originlName = [[fileName componentsSeparatedByString:@"."] firstObject];
-        NSString *originlExtension = [[fileName componentsSeparatedByString:@"."] lastObject];
+        
+        //拷贝文件夹
+        if ([[FileManagerTool sharedManagerTool] directoryIsExist:fileName]) {
+            NSString *newName = [fileName stringByAppendingString:@"(副本)"];//新的文件名
+            NSString *newSubPath = [[path componentsSeparatedByString:fileName] firstObject];
+            NSString *newFilePath = [newSubPath stringByAppendingPathComponent:newName];
+            [[FileManagerTool sharedManagerTool] copyItemAtPath:path toPath:newFilePath];
+        }else{
+            //拷贝文件
+            NSString *originlName = [[fileName componentsSeparatedByString:@"."] firstObject]; //获取文件名
+            NSString *originlExtension = [[fileName componentsSeparatedByString:@"."] lastObject];//文件后缀
 
-        NSString *newName = [originlName stringByAppendingString:@"(副本)"];
-        NSString *newFullName = [[newName stringByAppendingString:@"."] stringByAppendingString:originlExtension];
-        
-        NSString *newPath = [[path componentsSeparatedByString:fileName] firstObject];
-        NSString *new = [newPath stringByAppendingPathComponent:newFullName];
-        
-        [[FileManagerTool sharedManagerTool] copyItemAtPath:path toPath:new];
+            NSString *newName = [originlName stringByAppendingString:@"(副本)"];//新的文件名
+            NSString *newFullName = [[newName stringByAppendingString:@"."] stringByAppendingString:originlExtension];//新的文件名加后缀
+            
+            NSString *newSubPath = [[path componentsSeparatedByString:fileName] firstObject];
+            NSString *newFilePath = [newSubPath stringByAppendingPathComponent:newFullName];
+            
+            [[FileManagerTool sharedManagerTool] copyItemAtPath:path toPath:newFilePath];
+        }
                 
         [collVC reloadData];
         
         NSLog(@"%@",path);
-        
     }]];
     
     
