@@ -7,7 +7,7 @@
 //
 
 #import "UIMainConstructor.h"
-#import "FirstViewController.h"
+#import "MainFileManageViewController.h"
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
 #import "FourthViewController.h"
@@ -80,7 +80,7 @@ static UIMainConstructor *constructor;
     
     
     // 主页
-    FirstViewController *homeVc = [[FirstViewController alloc] init];
+    MainFileManageViewController *homeVc = [[MainFileManageViewController alloc] init];
     
     homeVc.title = @"文件";
     homeVc.hidesBottomBarWhenPushed = NO;
