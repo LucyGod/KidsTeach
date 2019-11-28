@@ -52,25 +52,50 @@
     return [_filePath stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"/%@",lastObject] withString:@""];
 }
 
-
-#pragma mark - Decompressing Methods
-- (void)decompress{
-    //    NSLog(@"_fileType : %@",_fileType);
-    if ( [_fileType compare:rar options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
-        [self rarDecompress];
-    }
-    else if ( [_fileType compare:zip options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
-        [self zipDecompress];
-    }
-    else if ( [_fileType compare:@"7z" options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
-        [self decompress7z];
+#pragma mark - 是否需要密码
+- (BOOL)isNeedPassword{
+    if ([_fileType compare:rar options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
+        //判断rar格式的压缩文件是否需要解压密码
+        URKArchive *archive = [[URKArchive alloc] initWithPath:_filePath error:nil];
+        if (archive.isPasswordProtected) {
+            NSLog(@"rar格式的压缩文件需要解压密码");
+            return YES;
+        }
+        return NO;
+    }else{
+        //判断zip格式的压缩文件是否需要解压密码
+        return NO;
     }
 }
 
-- (void)rarDecompress {
-    NSString *tmpDirname = @"Extract rar";
-    _destinationPath = [_destinationPath stringByAppendingPathComponent:tmpDirname];
-//    _filePath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"rar"];
+#pragma mark - Decompressing Methods
+- (void)deCompressWithDirectoryName:(NSString*)dirName{
+      if ( [_fileType compare:rar options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
+          [self rarDecompress:dirName];
+      }
+      else if ( [_fileType compare:zip options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
+          [self zipDecompress:dirName];
+      }
+      else if ( [_fileType compare:@"7z" options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
+          [self decompress7z:dirName];
+      }
+}
+
+- (void)deCompressWithDirectoryName:(NSString *)dirName password:(NSString *)psd{
+    _password = psd;
+    if ( [_fileType compare:rar options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
+        [self rarDecompress:dirName];
+    }
+    else if ( [_fileType compare:zip options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
+        [self zipDecompress:dirName];
+    }
+    else if ( [_fileType compare:@"7z" options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
+        [self decompress7z:dirName];
+    }
+}
+
+- (void)rarDecompress:(NSString*)dirName {
+    _destinationPath = [_destinationPath stringByAppendingPathComponent:dirName];
     NSLog(@"filePath : %@",_filePath);
     NSLog(@"destinationPath : %@",_destinationPath);
 
@@ -94,12 +119,8 @@
         return;
     }
     
-//    for (NSString *filename in filenames) {
-//        NSLog(@"File: %@", filename);
-//    }
-    
     // Extract a file into memory just to validate if it works/extracts
-    [archive extractDataFromFile:filenames[0] progress:nil error:&error];
+    [archive extractDataFromFile:filenames[0] error:&error];
     
     if (error) {
         if (error.code == ERAR_MISSING_PASSWORD) {
@@ -122,11 +143,10 @@
     
 }
 
-- (void)zipDecompress{
-    NSString *tmpDirname = @"Extract zip";
-    _destinationPath = [_destinationPath stringByAppendingPathComponent:tmpDirname];
+- (void)zipDecompress:(NSString*)dirName{
+    _destinationPath = [_destinationPath stringByAppendingPathComponent:dirName];
     BOOL unzipped = [SSZipArchive unzipFileAtPath:_filePath toDestination:_destinationPath delegate:self];
-//    NSLog(@"unzipped : %d",unzipped);
+    
     NSError *error;
     if (self.password != nil && self.password.length > 0) {
         unzipped = [SSZipArchive unzipFileAtPath:_filePath toDestination:_destinationPath overwrite:NO password:self.password error:&error delegate:self];
@@ -137,31 +157,19 @@
         failureBlock();
     }
     
-    NSLog(@"________%@",self.completionBlock);
     if (self.completionBlock) {
         self.completionBlock(@[@"asd"]);
     }
 }
 
-- (void)decompress7z{
-    NSString *tmpDirname = @"Extract 7z";    
-    _destinationPath = [_destinationPath stringByAppendingPathComponent:tmpDirname];
+- (void)decompress7z:(NSString*)dirName{
+    _destinationPath = [_destinationPath stringByAppendingPathComponent:dirName];
     NSLog(@"_filePath: %@", _filePath);
     NSLog(@"_destinationPath: %@", _destinationPath);
     
-//    LzmaSDKObjCReader *reader = [[LzmaSDKObjCReader alloc] initWithFileURL:[NSURL fileURLWithPath:_filePath]];
-    // 1.2 Or create with predefined archive type if path doesn't containes suitable extension
     LzmaSDKObjCReader *reader = [[LzmaSDKObjCReader alloc] initWithFileURL:[NSURL fileURLWithPath:_filePath] andType:LzmaSDKObjCFileType7z];
     
-//    // Optionaly: assign weak delegate for tracking extract progress.
-//    reader.delegate = self;
-    
-    // If achive encrypted - define password getter handler.
-    // NOTES:
-    // - Encrypted file needs password for extract process.
-    // - Encrypted file with encrypted header needs password for list(iterate) and extract archive items.
     reader.passwordGetter = ^NSString*(void){
-//        return @"password to my achive";
         NSLog(@"self.password: %@", self.password);
         return self.password;
     };
@@ -178,11 +186,10 @@
     NSMutableArray * items = [NSMutableArray array]; // Array with selected items.
     // Iterate all archive items, track what items do you need & hold them in array.
     [reader iterateWithHandler:^BOOL(LzmaSDKObjCItem * item, NSError * error){
-//        NSLog(@"\nitem:%@", item);
         if (item) {
             [items addObject:item]; // if needs this item - store to array.
             if (!item.isDirectory) {
-                NSString *filePath = [_destinationPath stringByAppendingPathComponent:item.directoryPath];
+                NSString *filePath = [self->_destinationPath stringByAppendingPathComponent:item.directoryPath];
                 filePath = [filePath stringByAppendingPathComponent:item.fileName];
                 [filePathsArray addObject:filePath];
             }
@@ -215,7 +222,9 @@
 - (void)zipArchiveDidUnzipArchiveAtPath:(NSString *)path zipInfo:(unz_global_info)zipInfo unzippedPath:(NSString *)unzippedPath WithFilePaths:(NSMutableArray *)filePaths{
     //    NSLog(@"path : %@",path);
     //    NSLog(@"unzippedPath : %@",unzippedPath);
-    self.completionBlock(filePaths);
+    if (self.completionBlock) {
+        self.completionBlock(filePaths);
+    }
 }
 
 
@@ -227,18 +236,12 @@
     return basePath;
 }
 
-
-
-
-
 #pragma mark - Not using these methods now
 //Writing this for Unrar4iOS, since it just unrar's(decompresses) the files into the compressed(rar) file's folder path
 - (void)moveFilesToDestinationPathFromCompletePaths:(NSArray *)completeFilePathsArray withFilePaths:(NSArray *)filePathsArray withArchive:(URKArchive*)archive{
     
     NSError *error;
-    [archive extractFilesTo:_destinationPath overwrite:NO progress:^(URKFileInfo *currentFile, CGFloat percentArchiveDecompressed) {
-//        NSLog(@"Extracting %@: %f%% complete", currentFile.filename, percentArchiveDecompressed);
-    } error:&error];
+    [archive extractFilesTo:_destinationPath overwrite:NO error:&error];
     NSLog(@"Error: %@", error);
 }
 

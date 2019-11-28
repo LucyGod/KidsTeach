@@ -45,6 +45,17 @@
     }
     return YES;
 }
+
+- (BOOL)directoryIsExistWithFullPath:(NSString*)dirName{
+    BOOL isDir = NO;
+    // fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
+    BOOL existed = [_manager fileExistsAtPath:dirName isDirectory:&isDir];
+    if ( !(isDir == YES && existed == YES) ) {//如果文件夹不存在
+        return NO;
+    }
+    return YES;
+}
+
 -(BOOL)renameDirectoryWithDirectoryName:(NSString *)name filePath:(NSString *)path
 {
     NSString * rarFilePath = [path?path:DocumentsPath stringByAppendingPathComponent:name];//将需要创建的串拼接到后面

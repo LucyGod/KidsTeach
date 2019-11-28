@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param dirName 文件夹名称
 - (BOOL)directoryIsExist:(NSString*)dirName;
 
+/// 判断文件夹是否存在
+/// @param dirName 文件夹路径
+- (BOOL)directoryIsExistWithFullPath:(NSString*)dirName;
+
 /// 在Document目录下创建文件夹
 /// @param name 文件夹名字
 - (BOOL)createDirectoryWithDirectoryName:(NSString*)name filePath:(NSString*)path;

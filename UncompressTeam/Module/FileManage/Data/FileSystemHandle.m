@@ -71,7 +71,21 @@
     if ([fileExtension isEqualToString:@"zip"] || [fileExtension isEqualToString:@"rar"]) {
         //压缩文件显示 解压缩菜单
         [alert addAction:[UIAlertAction actionWithTitle:@"解压缩" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self unArchiveWithFilePath:path VC:vc];
+            
+            NSInteger fileIndex = 0;
+            NSString *oldSubPath = [[path componentsSeparatedByString:fileName] firstObject];
+            
+            NSString *newName = [[fileName componentsSeparatedByString:@"."] firstObject];
+            NSString *newPath = [oldSubPath stringByAppendingPathComponent:newName];
+            
+            while ([[FileManagerTool sharedManagerTool] directoryIsExistWithFullPath:newPath]) {
+                fileIndex ++;
+                //如果新路径个之前文件夹名字重复 则换名字
+                newName = [[[fileName componentsSeparatedByString:@"."] firstObject] stringByAppendingString:[NSString stringWithFormat:@"%ld",fileIndex]];
+                newPath = [oldSubPath stringByAppendingPathComponent:newName];
+            }
+            
+            [self unArchiveWithFilePath:path VC:collVC unArchiveDirectionName:newName];
         }]];
     }
    
@@ -174,14 +188,14 @@
 
 /// 解压缩文件
 /// @param filePath 文件路径
-+ (void)unArchiveWithFilePath:(NSString*)filePath VC:(UIViewController*)vc{
++ (void)unArchiveWithFilePath:(NSString*)filePath VC:(FileCollectionViewController*)vc unArchiveDirectionName:(NSString*)dirName{
     [SVProgressHUD showWithStatus:@"解压中..."];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     SARUnArchiveANY *unarchive = [[SARUnArchiveANY alloc]initWithPath:filePath];
-//    unarchive.destinationPath = destPath;//(Optional). If it is not given, then the file is unarchived in the same location of its archive file.
     unarchive.completionBlock = ^(NSArray *filePaths){
         [SVProgressHUD dismiss];
-      NSLog(@"For Archive : %@",filePath);
+        [vc reloadData];
+        NSLog(@"For Archive : %@",filePath);
         for (NSString *filename in filePaths) {
             NSLog(@"File: %@", filename);
         }
@@ -189,7 +203,7 @@
     unarchive.failureBlock = ^(){
         [SVProgressHUD dismiss];
     };
-    [unarchive decompress];
+    [unarchive deCompressWithDirectoryName:dirName];
 }
 
 @end

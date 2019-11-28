@@ -20,7 +20,7 @@ static UNIQUE_KEY( rar );
 static UNIQUE_KEY( zip );
 
 typedef void(^Completion)(NSArray *filePaths);
-typedef void(^Failure)();
+typedef void(^Failure)(void);
 
 @interface SARUnArchiveANY : NSObject <SSZipArchiveDelegate>{
     SSZipArchive *_zipArchive;
@@ -33,7 +33,23 @@ typedef void(^Failure)();
 @property (nonatomic, copy) Completion completionBlock;
 @property (nonatomic, copy) Failure failureBlock;
 
+
+/// 普通方式初始化
+/// @param path 文件路径
 - (id)initWithPath:(NSString *)path;
-- (void)decompress;
+
+
+/// 解压缩是否需要密码
+- (BOOL)isNeedPassword;
+
+/// 解压缩
+/// @param dirName 解压缩后的文件夹名
+- (void)deCompressWithDirectoryName:(NSString*)dirName;
+
+
+/// 解压缩
+/// @param dirName 加压缩后的文件夹名
+/// @param psd 解压缩密码
+- (void)deCompressWithDirectoryName:(NSString*)dirName password:(NSString*)psd;
 
 @end
