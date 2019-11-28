@@ -20,8 +20,9 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor clearColor];
     
-    UITabBarController *tabBarController = [[UIMainConstructor sharedUIConstructor] constructUI];
-    self.window.rootViewController = tabBarController;
+    _viewController = [[MainFileManageViewController alloc] initWithFile:nil fileName:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:_viewController];
+    self.window.rootViewController = nav;
     
     [self.window makeKeyAndVisible];
         
@@ -38,11 +39,4 @@
     
 }
 
--(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-    if (self.allowRotation)
-    {
-        return  UIInterfaceOrientationMaskAllButUpsideDown;
-    }
-    return UIInterfaceOrientationMaskPortrait;
-}
 @end
