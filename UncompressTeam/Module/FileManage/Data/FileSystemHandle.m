@@ -71,7 +71,7 @@
     if ([fileExtension isEqualToString:@"zip"] || [fileExtension isEqualToString:@"rar"]) {
         //压缩文件显示 解压缩菜单
         [alert addAction:[UIAlertAction actionWithTitle:@"解压缩" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self unArchiveWithFilePath:path];
+            [self unArchiveWithFilePath:path VC:vc];
         }]];
     }
    
@@ -174,8 +174,22 @@
 
 /// 解压缩文件
 /// @param filePath 文件路径
-+ (void)unArchiveWithFilePath:(NSString*)filePath{
-    
++ (void)unArchiveWithFilePath:(NSString*)filePath VC:(UIViewController*)vc{
+    [SVProgressHUD showWithStatus:@"解压中..."];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    SARUnArchiveANY *unarchive = [[SARUnArchiveANY alloc]initWithPath:filePath];
+//    unarchive.destinationPath = destPath;//(Optional). If it is not given, then the file is unarchived in the same location of its archive file.
+    unarchive.completionBlock = ^(NSArray *filePaths){
+        [SVProgressHUD dismiss];
+      NSLog(@"For Archive : %@",filePath);
+        for (NSString *filename in filePaths) {
+            NSLog(@"File: %@", filename);
+        }
+    };
+    unarchive.failureBlock = ^(){
+        [SVProgressHUD dismiss];
+    };
+    [unarchive decompress];
 }
 
 @end

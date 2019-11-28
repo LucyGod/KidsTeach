@@ -14,7 +14,7 @@
 @import LzmaSDK_ObjC;
 
 @implementation SARUnArchiveANY
-@synthesize completionBlock;
+//@synthesize completionBlock;
 @synthesize failureBlock;
 
 
@@ -115,8 +115,8 @@
             [filePathsArray addObject:[_destinationPath stringByAppendingPathComponent:filePath]];
         }
         [self moveFilesToDestinationPathFromCompletePaths:filePathsArray withFilePaths:filenames withArchive:archive];
-        if (completionBlock != nil) {
-            completionBlock(filePathsArray);
+        if (self.completionBlock) {
+            self.completionBlock(filePathsArray);
         }
     }
     
@@ -135,6 +135,11 @@
     
     if ( !unzipped ) {
         failureBlock();
+    }
+    
+    NSLog(@"________%@",self.completionBlock);
+    if (self.completionBlock) {
+        self.completionBlock(@[@"asd"]);
     }
 }
 
@@ -201,7 +206,7 @@
         failureBlock();
     }
     else {
-        completionBlock(filePathsArray);
+        self.completionBlock(filePathsArray);
     }
     
 }
@@ -210,7 +215,7 @@
 - (void)zipArchiveDidUnzipArchiveAtPath:(NSString *)path zipInfo:(unz_global_info)zipInfo unzippedPath:(NSString *)unzippedPath WithFilePaths:(NSMutableArray *)filePaths{
     //    NSLog(@"path : %@",path);
     //    NSLog(@"unzippedPath : %@",unzippedPath);
-    completionBlock(filePaths);
+    self.completionBlock(filePaths);
 }
 
 
