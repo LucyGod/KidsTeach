@@ -24,7 +24,7 @@
         //在这里呢 如果想分享图片 就把图片添加进去  文字什么的通上
         NSArray *activityItems = @[textToShare,imageToShare];
         UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
-        activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll];
+//        activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll];
         [vc presentViewController:activityVC animated:YES completion:nil];
         activityVC.completionWithItemsHandler = ^(UIActivityType  _Nullable activityType, BOOL completed, NSArray * _Nullable returnedItems, NSError * _Nullable activityError) {
             if (completed) {
@@ -38,15 +38,31 @@
     }]];
     
     //复制
-    [alert addAction:[UIAlertAction actionWithTitle:@"复制" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        //文件后缀
-//        NSString *fileExtension = [fileName pathExtension];
-//        //文件路径
-//        NSString *filePath = [DocumentsPath stringByAppendingPathComponent:fileName];
+    [alert addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [FileManagerTool moveItemAtPath:path toPath:path overwrite:NO error:nil];
+        //拷贝文件夹
+        if ([[FileManagerTool sharedManagerTool] directoryIsExist:fileName]) {
+            NSString *newName = [fileName stringByAppendingString:@"(副本)"];//新的文件名
+            NSString *newSubPath = [[path componentsSeparatedByString:fileName] firstObject];
+            NSString *newFilePath = [newSubPath stringByAppendingPathComponent:newName];
+            [[FileManagerTool sharedManagerTool] copyItemAtPath:path toPath:newFilePath];
+        }else{
+            //拷贝文件
+            NSString *originlName = [[fileName componentsSeparatedByString:@"."] firstObject]; //获取文件名
+            NSString *originlExtension = [[fileName componentsSeparatedByString:@"."] lastObject];//文件后缀
+
+            NSString *newName = [originlName stringByAppendingString:@"(副本)"];//新的文件名
+            NSString *newFullName = [[newName stringByAppendingString:@"."] stringByAppendingString:originlExtension];//新的文件名加后缀
+            
+            NSString *newSubPath = [[path componentsSeparatedByString:fileName] firstObject];
+            NSString *newFilePath = [newSubPath stringByAppendingPathComponent:newFullName];
+            
+            [[FileManagerTool sharedManagerTool] copyItemAtPath:path toPath:newFilePath];
+        }
+                
         [collVC reloadData];
         
+        NSLog(@"%@",path);
     }]];
     
     
@@ -77,8 +93,15 @@
                                 return;
                             }
                             
+                            NSString *originlExtension = [[fileName componentsSeparatedByString:@"."] lastObject];
+
+                            NSString *newFullName = [[textField.text stringByAppendingString:@"."] stringByAppendingString:originlExtension];
+                            
+                            NSString *newSubPath = [[path componentsSeparatedByString:fileName] firstObject];
+                            NSString *newFullPath = [newSubPath stringByAppendingPathComponent:newFullName];
+                            
                             //重命名文件夹
-                            [[FileManagerTool sharedManagerTool] renameDirectoryWithDirectoryName:textField.text?textField.text:fileName filePath:path];
+                            [[FileManagerTool sharedManagerTool] moveItemAtPath:path toPath:newFullPath];
                             [collVC  reloadData];
                             
                         }]];
