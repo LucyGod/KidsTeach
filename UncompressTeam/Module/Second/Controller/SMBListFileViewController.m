@@ -122,9 +122,49 @@
         SMBListFileViewController *listFile = [[SMBListFileViewController alloc] init];
         listFile.file = file;
         [self.navigationController pushViewController:listFile animated:YES];
+    } else {
+        NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *path = [documentsPath stringByAppendingPathComponent:file.path];
+        NSUInteger bufferSize = 12000;
+        NSMutableData *result = [NSMutableData new];
+        
+        [file open:SMBFileModeRead completion:^(NSError *error) {
+            if (error) {
+                NSLog(@"Unable to open the file: %@", error);
+            } else {
+                NSLog(@"File opened: %@", file.name);
+                [SVProgressHUD show];
+                [file read:bufferSize
+                  progress:^BOOL(unsigned long long bytesReadTotal, NSData *data, BOOL complete, NSError *error) {
+
+                    if (error) {
+                        NSLog(@"Unable to read from the file: %@", error);
+                    } else {
+                        [SVProgressHUD showProgress:((double)bytesReadTotal / file.size * 100) status:@"下载中"];
+                        NSLog(@"Read %ld bytes, in total %llu bytes (%0.2f %%)",
+                              data.length, bytesReadTotal, (double)bytesReadTotal / file.size * 100);
+                    
+                        if (data) {
+                            [result appendData:data];
+                        }
+                    }
+                    
+                    if (complete) {
+                        [file close:^(NSError *error) {
+                            NSLog(@"Finished reading file");
+                            [SVProgressHUD dismiss];
+                            [SVProgressHUD showSuccessWithStatus:@"下载成功"];
+                            [result writeToFile:path atomically:YES];
+                        }];
+                    }
+                    
+                    return YES;
+                }];
+            }
+        }];
+        
     }
 }
-
 
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {

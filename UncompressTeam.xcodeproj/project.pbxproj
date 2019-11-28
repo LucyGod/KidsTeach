@@ -246,7 +246,6 @@
 		04561EE3238D0C3400B3D644 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		04561EE4238D0C3400B3D644 /* HSDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDownloadManager.m; sourceTree = "<group>"; };
 		04561EE5238D0C3400B3D644 /* HSSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSSessionModel.h; sourceTree = "<group>"; };
-		04561EE9238E15BE00B3D644 /* UncompressTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UncompressTeam.entitlements; sourceTree = "<group>"; };
 		04561EEA238E180A00B3D644 /* iCloudManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iCloudManager.h; sourceTree = "<group>"; };
 		04561EEB238E180A00B3D644 /* iCloudManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloudManager.m; sourceTree = "<group>"; };
 		04561EED238E185900B3D644 /* ZZDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZDocument.h; sourceTree = "<group>"; };
@@ -316,12 +315,12 @@
 		047C54C4238F822800029E36 /* SMBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBManager.m; sourceTree = "<group>"; };
 		047C54C6238F841500029E36 /* SMBFileTootListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBFileTootListViewController.h; sourceTree = "<group>"; };
 		047C54C7238F841500029E36 /* SMBFileTootListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBFileTootListViewController.m; sourceTree = "<group>"; };
-		047C54C9238F9D5100029E36 /* 黄瓜视频.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "黄瓜视频.entitlements"; sourceTree = "<group>"; };
 		047C54CA238F9F5600029E36 /* SMBFileTootListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBFileTootListTableViewCell.h; sourceTree = "<group>"; };
 		047C54CB238F9F5600029E36 /* SMBFileTootListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBFileTootListTableViewCell.m; sourceTree = "<group>"; };
 		047C54CC238F9F5600029E36 /* SMBFileTootListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SMBFileTootListTableViewCell.xib; sourceTree = "<group>"; };
 		047C54CF238FA30500029E36 /* SMBListFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMBListFileViewController.h; sourceTree = "<group>"; };
 		047C54D0238FA30500029E36 /* SMBListFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMBListFileViewController.m; sourceTree = "<group>"; };
+		047C54D3238FB13C00029E36 /* 解压专家.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "解压专家.entitlements"; sourceTree = "<group>"; };
 		04B2C56F238230760049F5F0 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		04B2C570238230760049F5F0 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		04B2C59E23851D0C0049F5F0 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
@@ -438,8 +437,7 @@
 		042F9B082284168700FF7F72 /* UncompressTeam */ = {
 			isa = PBXGroup;
 			children = (
-				047C54C9238F9D5100029E36 /* 黄瓜视频.entitlements */,
-				04561EE9238E15BE00B3D644 /* UncompressTeam.entitlements */,
+				047C54D3238FB13C00029E36 /* 解压专家.entitlements */,
 				04561F9E238F64DF00B3D644 /* libiconv.tbd */,
 				04B2C59D23851D0B0049F5F0 /* web */,
 				042F9B222284241900FF7F72 /* BaseClass */,
@@ -1132,7 +1130,6 @@
 				04561F96238F649100B3D644 /* SMBDiscovery.m in Sources */,
 				0431CB17237E598D00CCE626 /* PayHelp.m in Sources */,
 				046ADFA0238CF9750098AF3F /* TitleSwitchTableViewCell.m in Sources */,
-				042F9C382284295A00FF7F72 /* TabControlView.m in Sources */,
 				047C54C5238F822800029E36 /* SMBManager.m in Sources */,
 				04561EF6238E4BE200B3D644 /* ImageTitleTableViewCell.m in Sources */,
 				042F9B592284271500FF7F72 /* UIView+DrawBGColor.m in Sources */,
@@ -1283,16 +1280,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "UncompressTeam/黄瓜视频.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "UncompressTeam/解压专家.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YMQ78W25VH;
-				CODE_SIGN_ENTITLEMENTS = UncompressTeam/UncompressTeam.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1327,16 +1319,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "UncompressTeam/黄瓜视频.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "UncompressTeam/解压专家.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YMQ78W25VH;
-				CODE_SIGN_ENTITLEMENTS = UncompressTeam/UncompressTeam.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
