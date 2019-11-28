@@ -17,6 +17,8 @@
     self.bottomLine = [[UILabel alloc] init];
     self.bottomLine.backgroundColor = [UIColor lightGrayColor];
     self.bottomLine.alpha = 0.3;
+    self.moreButton.hidden = YES;
+    [self.moreButton addTarget:self action:@selector(moreClick) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.bottomLine];
     [self.bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).offset(0);
@@ -24,6 +26,12 @@
         make.bottom.equalTo(self.mas_bottom).offset(0);
         make.height.mas_equalTo(0.5);
     }];
+}
+
+- (void)moreClick {
+    if (self.success) {
+        self.success();
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

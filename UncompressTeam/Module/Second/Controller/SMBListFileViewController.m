@@ -111,9 +111,84 @@
         [cell.iconImageView setImage:[UIImage imageNamed:@"fileIcon_small"]];
     } else {
         [cell.iconImageView setImage:[UIImage imageNamed:getFileIcon(file.name)]];
+        
     }
-    
+    WEAKSELF
+    [cell setSuccess:^{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"文件管理" message:@"" preferredStyle: UIAlertControllerStyleActionSheet];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *archiveAction = [UIAlertAction actionWithTitle:@"下载" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [weakSelf downLoadWith:indexPath];
+        }];
+        UIAlertAction *artAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [weakSelf delWith:indexPath];
+        }];
+        [alertController addAction:cancelAction];
+        [alertController addAction:archiveAction];
+        [alertController addAction:artAction];
+        [weakSelf presentViewController:alertController animated:YES completion:nil];
+    }];
+    cell.moreButton.hidden = NO;
     return cell;
+}
+
+- (void)delWith:(NSIndexPath *)indexPath {
+    SMBFile *file = [self.dataArray objectAtIndex:indexPath.row];
+    [SVProgressHUD show];
+    [file delete:^(NSError * _Nullable error) {
+        [SVProgressHUD dismiss];
+        if (error) {
+            [SVProgressHUD showSuccessWithStatus:@"删除失败"];
+        } else {
+            [self.dataArray removeObject:file];
+            [self.myTableView reloadData];
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+        }
+    }];
+}
+
+- (void)downLoadWith:(NSIndexPath *)indexPath {
+    SMBFile *file = [self.dataArray objectAtIndex:indexPath.row];
+    NSString *path = [DocumentsPath stringByAppendingPathComponent:file.path];
+    NSUInteger bufferSize = 12000;
+    NSMutableData *result = [NSMutableData new];
+    
+    [file open:SMBFileModeRead completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"Unable to open the file: %@", error);
+        } else {
+            NSLog(@"File opened: %@", file.name);
+            [SVProgressHUD show];
+            [file read:bufferSize
+              progress:^BOOL(unsigned long long bytesReadTotal, NSData *data, BOOL complete, NSError *error) {
+
+                if (error) {
+                    NSLog(@"Unable to read from the file: %@", error);
+                } else {
+                    [SVProgressHUD showProgress:((double)bytesReadTotal / file.size * 100) status:@"下载中"];
+                    NSLog(@"Read %ld bytes, in total %llu bytes (%0.2f %%)",
+                          data.length, bytesReadTotal, (double)bytesReadTotal / file.size * 100);
+                
+                    if (data) {
+                        [result appendData:data];
+                    }
+                }
+                
+                if (complete) {
+                    [file close:^(NSError *error) {
+                        NSLog(@"Finished reading file");
+                        [SVProgressHUD dismiss];
+                        [SVProgressHUD showSuccessWithStatus:@"下载成功"];
+                        [result writeToFile:path atomically:YES];
+                    }];
+                }
+                
+                return YES;
+            }];
+        }
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,45 +198,7 @@
         listFile.file = file;
         [self.navigationController pushViewController:listFile animated:YES];
     } else {
-        NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *path = [documentsPath stringByAppendingPathComponent:file.path];
-        NSUInteger bufferSize = 12000;
-        NSMutableData *result = [NSMutableData new];
         
-        [file open:SMBFileModeRead completion:^(NSError *error) {
-            if (error) {
-                NSLog(@"Unable to open the file: %@", error);
-            } else {
-                NSLog(@"File opened: %@", file.name);
-                [SVProgressHUD show];
-                [file read:bufferSize
-                  progress:^BOOL(unsigned long long bytesReadTotal, NSData *data, BOOL complete, NSError *error) {
-
-                    if (error) {
-                        NSLog(@"Unable to read from the file: %@", error);
-                    } else {
-                        [SVProgressHUD showProgress:((double)bytesReadTotal / file.size * 100) status:@"下载中"];
-                        NSLog(@"Read %ld bytes, in total %llu bytes (%0.2f %%)",
-                              data.length, bytesReadTotal, (double)bytesReadTotal / file.size * 100);
-                    
-                        if (data) {
-                            [result appendData:data];
-                        }
-                    }
-                    
-                    if (complete) {
-                        [file close:^(NSError *error) {
-                            NSLog(@"Finished reading file");
-                            [SVProgressHUD dismiss];
-                            [SVProgressHUD showSuccessWithStatus:@"下载成功"];
-                            [result writeToFile:path atomically:YES];
-                        }];
-                    }
-                    
-                    return YES;
-                }];
-            }
-        }];
         
     }
 }
