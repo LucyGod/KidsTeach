@@ -1,5 +1,5 @@
 //
-//  SMBSection1TableViewCell.h
+//  SMBFileTootListTableViewCell.h
 //  UncompressTeam
 //
 //  Created by MAC on 28/11/2019.
@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SMBSection1TableViewCell : UITableViewCell
-@property (nonatomic, strong)UILabel *bottomLine;
+@interface SMBFileTootListTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (nonatomic, strong)UILabel *bottomLine;
 @end
 
 NS_ASSUME_NONNULL_END
