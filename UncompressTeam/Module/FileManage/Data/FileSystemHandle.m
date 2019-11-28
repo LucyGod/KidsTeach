@@ -8,6 +8,16 @@
 
 #import "FileSystemHandle.h"
 #import "FileManagerTool.h"
+#import "ZLPickPhotoViewController.h"
+#import <PhotosUI/PhotosUI.h>
+
+@interface FileSystemHandle ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (nonatomic ,strong) UIImagePickerController *imgPicker;
+@property (nonatomic ,weak) FileCollectionViewController *weakVC;
+@property (nonatomic ,copy) NSString *weakPath;
+
+
+@end
 
 @implementation FileSystemHandle
 
@@ -145,12 +155,56 @@
                  [vc presentViewController:alertController animated:YES completion:nil];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"新建文本" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        /// 添加新文件夹
+              UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"文件" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                            textField.placeholder = @"请输入名称";
+                        }];
+                        [alertController addAction:[UIAlertAction actionWithTitle:@"创建" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            UITextField *textField = [alertController.textFields firstObject];
+                            
+                            if (textField.text.length == 0) {
+                                [SVProgressHUD showErrorWithStatus:@"文本名称不可为空！"];
+                                return ;
+                            }
+                    
+                            //创建文本
+                            [[FileManagerTool sharedManagerTool] createTxtName:textField.text filePath:path];
+                            [collVC  reloadData];
+                            
+                        }]];
+                        [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+                        [vc presentViewController:alertController animated:YES completion:nil];
+       
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"导入相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        ZLPickPhotoViewController *photo = [[ZLPickPhotoViewController alloc] initWithCompleteHandle:^(NSArray *images,NSArray *assetArr) {
+            for (int i = 0; i < images.count; i++) {
+                PHAsset *asset = assetArr[i];
+                NSData *data = UIImageJPEGRepresentation(images[i], 1);
+                
+                [data writeToFile:[path?path:DocumentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[asset valueForKey:@"filename"]]] atomically:YES];
+                [collVC reloadData];
+            }
+        }];
+        // 限制最多能选多少张
+//        photo.limitCount = 99;
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:photo];
+        [vc presentViewController:nav animated:YES completion:nil];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        #if TARGET_IPHONE_SIMULATOR
+                //模拟器
+                return;
+        #elif TARGET_OS_IPHONE
+                [FileSystemHandle sharedManagerHandel].weakVC = collVC;
+                     [FileSystemHandle sharedManagerHandel].weakPath = path;
+                //真机
+          [FileSystemHandle sharedManagerHandel].imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+          [vc presentViewController:[FileSystemHandle sharedManagerHandel].imgPicker animated:YES completion:nil];
+
+        #endif
         
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -158,4 +212,42 @@
     }]];
     [vc presentViewController:alert animated:YES completion:nil];
 }
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+   UIImage *  eimage = [info objectForKey:UIImagePickerControllerOriginalImage];
+   NSData *data = UIImageJPEGRepresentation(eimage, 1);
+  [data writeToFile:[_weakPath?_weakPath:DocumentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.JPG",[self getCurrentTime]]] atomically:YES];
+  [_weakVC reloadData];
+    //关闭相册界面
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+-(NSString *)getCurrentTime
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-hh-mm-ss"];
+        NSDate *nowDate = [NSDate date];
+    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMT];
+    nowDate = [nowDate dateByAddingTimeInterval:interval];
+    NSString *nowDateString = [dateFormatter stringFromDate:nowDate];
+    return nowDateString;
+}
+-(UIImagePickerController *)imgPicker
+{
+    if (!_imgPicker) {
+        _imgPicker = [[UIImagePickerController alloc] init];
+        _imgPicker.delegate = self;
+    }
+    return _imgPicker;
+}
++ (instancetype)sharedManagerHandel {
+    static FileSystemHandle *managerHandle= nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        managerHandle = [[FileSystemHandle alloc] init];
+    });
+    
+    return managerHandle;
+}
+
 @end

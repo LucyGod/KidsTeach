@@ -45,13 +45,11 @@
     }
     return YES;
 }
--(BOOL)renameDirectoryWithDirectoryName:(NSString *)name filePath:(NSString *)path
+
+- (void)createTxtName:(NSString*)name filePath:(nonnull NSString *)path
 {
-    NSString * rarFilePath = [path?path:DocumentsPath stringByAppendingPathComponent:name];//将需要创建的串拼接到后面
-     if (![self directoryIsExist:rarFilePath]) {
-         return [_manager createDirectoryAtPath:rarFilePath withIntermediateDirectories:YES attributes:nil error:nil];
-     }
-     return NO;
+    NSData *data = [@"" dataUsingEncoding:NSUTF8StringEncoding];
+    [data writeToFile:[path?path:DocumentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.txt",name]] atomically:YES];
 }
 - (BOOL)createDirectoryWithDirectoryName:(NSString*)name filePath:(nonnull NSString *)path{
     NSString * rarFilePath = [path?path:DocumentsPath stringByAppendingPathComponent:name];//将需要创建的串拼接到后面
