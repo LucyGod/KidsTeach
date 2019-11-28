@@ -16,6 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self configSys:launchOptions];
+    [self addDefaultFile];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor clearColor];
@@ -37,6 +38,16 @@
     
     [SVProgressHUD setMinimumDismissTimeInterval:1.0f];
     
+}
+
+- (void)addDefaultFile{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"zip"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    [data writeToFile:[DocumentsPath stringByAppendingPathComponent:@"demo.zip"] atomically:YES];
+    
+    
+    NSData *data1 = [@"hello world" dataUsingEncoding:NSUTF8StringEncoding];
+    [data1 writeToFile:[DocumentsPath stringByAppendingPathComponent:@"demo.txt"] atomically:YES];
 }
 
 @end

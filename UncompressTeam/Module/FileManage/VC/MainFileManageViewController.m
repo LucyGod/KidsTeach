@@ -111,15 +111,13 @@
     [self.view addSubview:collectionController.view];
     
     UILongPressGestureRecognizer *longpress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(pressAction:)];
+    longpress.minimumPressDuration = 0.5;
     [collectionController.collectionView addGestureRecognizer:longpress];
     dataArr = collectionController.dataArr;
 }
 - (void)pressAction:(UILongPressGestureRecognizer *)longPressGesture
 {
-    if (longPressGesture.state == UIGestureRecognizerStateBegan) {//手势开始
-        
-    }
-    if (longPressGesture.state == UIGestureRecognizerStateEnded)//手势结束
+    if (longPressGesture.state == UIGestureRecognizerStateBegan)//手势结束
     {
         CGPoint point = [longPressGesture locationInView:collectionController.collectionView];
         NSIndexPath *currentIndexPath = [collectionController.collectionView indexPathForItemAtPoint:point];

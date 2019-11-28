@@ -33,6 +33,7 @@
 		042F9C382284295A00FF7F72 /* TabControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F9BD42284295A00FF7F72 /* TabControlView.m */; };
 		042F9C5522842A2300FF7F72 /* UIView+CenterLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F9C5322842A2300FF7F72 /* UIView+CenterLoading.m */; };
 		042F9C5822842A2F00FF7F72 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F9C5622842A2F00FF7F72 /* UITextView+Placeholder.m */; };
+		04307FF1238F799500638640 /* demo.zip in Resources */ = {isa = PBXBuildFile; fileRef = 04307FF0238F799500638640 /* demo.zip */; };
 		0431CB17237E598D00CCE626 /* PayHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB15237E598C00CCE626 /* PayHelp.m */; };
 		0431CB25237E5A1B00CCE626 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB1B237E5A1800CCE626 /* FourthViewController.m */; };
 		0431CB2B237E5B8C00CCE626 /* UIMainConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431CB29237E5B8B00CCE626 /* UIMainConstructor.m */; };
@@ -190,6 +191,7 @@
 		042F9C5422842A2300FF7F72 /* UIView+CenterLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CenterLoading.h"; sourceTree = "<group>"; };
 		042F9C5622842A2F00FF7F72 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		042F9C5722842A2F00FF7F72 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		04307FF0238F799500638640 /* demo.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = demo.zip; sourceTree = "<group>"; };
 		0431CB15237E598C00CCE626 /* PayHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayHelp.m; sourceTree = "<group>"; };
 		0431CB16237E598D00CCE626 /* PayHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayHelp.h; sourceTree = "<group>"; };
 		0431CB1A237E5A1800CCE626 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 		042F9B292284241A00FF7F72 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				04307FEF238F78B100638640 /* Resource */,
 				04D4CEE9238D10F300B9E3D8 /* Resources.bundle */,
 				042F9B6C2284295A00FF7F72 /* Custom */,
 			);
@@ -608,6 +611,14 @@
 				042F9BD42284295A00FF7F72 /* TabControlView.m */,
 			);
 			path = TabControl;
+			sourceTree = "<group>";
+		};
+		04307FEF238F78B100638640 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				04307FF0238F799500638640 /* demo.zip */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		0431CB18237E599300CCE626 /* PayHelp */ = {
@@ -1072,6 +1083,7 @@
 			files = (
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				04D4CEEA238D10F300B9E3D8 /* Resources.bundle in Resources */,
+				04307FF1238F799500638640 /* demo.zip in Resources */,
 				042F9B132284168800FF7F72 /* Assets.xcassets in Resources */,
 				04B2C5A123851D0C0049F5F0 /* upload.html in Resources */,
 				04D4CF09238D27B600B9E3D8 /* PopViewCell.xib in Resources */,
