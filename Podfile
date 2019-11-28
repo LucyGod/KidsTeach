@@ -19,4 +19,5 @@ target 'UncompressTeam' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'CocoaHTTPServer'
   pod 'YYCategories'
+  pod 'SARUnArchiveANY'
 end
