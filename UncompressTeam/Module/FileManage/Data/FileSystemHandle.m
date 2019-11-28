@@ -66,12 +66,15 @@
     }]];
     
     
-    //压缩
-    [alert addAction:[UIAlertAction actionWithTitle:@"压缩" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }]];
-    
-    
+    //是都显示解压缩菜单
+    NSString *fileExtension = [[fileName pathExtension] lowercaseString];
+    if ([fileExtension isEqualToString:@"zip"] || [fileExtension isEqualToString:@"rar"]) {
+        //压缩文件显示 解压缩菜单
+        [alert addAction:[UIAlertAction actionWithTitle:@"解压缩" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self unArchiveWithFilePath:path];
+        }]];
+    }
+   
     //重命名
     [alert addAction:[UIAlertAction actionWithTitle:@"重命名" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -167,4 +170,12 @@
     }]];
     [vc presentViewController:alert animated:YES completion:nil];
 }
+
+
+/// 解压缩文件
+/// @param filePath 文件路径
++ (void)unArchiveWithFilePath:(NSString*)filePath{
+    
+}
+
 @end
