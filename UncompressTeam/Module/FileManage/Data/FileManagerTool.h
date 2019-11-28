@@ -40,7 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param toPath 目的path
 - (BOOL)moveItemAtPath:(NSString*)path toPath:(NSString*)toPath;
 
-
 - (BOOL)copyItemAtPath:(NSString*)path toPath:(NSString*)toPath;
 
 
