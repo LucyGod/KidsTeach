@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "042F9B052284168700FF7F72"
-               BuildableName = "&#x9ec4;&#x74dc;&#x89c6;&#x9891;.app"
+               BuildableName = "&#x89e3;&#x538b;&#x4e13;&#x5bb6;.app"
                BlueprintName = "UncompressTeam"
                ReferencedContainer = "container:UncompressTeam.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "042F9B052284168700FF7F72"
-            BuildableName = "&#x9ec4;&#x74dc;&#x89c6;&#x9891;.app"
+            BuildableName = "&#x89e3;&#x538b;&#x4e13;&#x5bb6;.app"
             BlueprintName = "UncompressTeam"
             ReferencedContainer = "container:UncompressTeam.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "042F9B052284168700FF7F72"
-            BuildableName = "&#x9ec4;&#x74dc;&#x89c6;&#x9891;.app"
+            BuildableName = "&#x89e3;&#x538b;&#x4e13;&#x5bb6;.app"
             BlueprintName = "UncompressTeam"
             ReferencedContainer = "container:UncompressTeam.xcodeproj">
          </BuildableReference>

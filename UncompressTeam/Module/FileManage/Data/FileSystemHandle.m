@@ -174,7 +174,7 @@
 
 /// 解压缩文件
 /// @param filePath 文件路径
-- (void)unArchiveWithFilePath:(NSString*)filePath{
++ (void)unArchiveWithFilePath:(NSString*)filePath{
     
 }
 
