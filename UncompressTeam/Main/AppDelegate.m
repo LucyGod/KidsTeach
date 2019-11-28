@@ -39,14 +39,6 @@
     
 }
 
--(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-    if (self.allowRotation)
-    {
-        return  UIInterfaceOrientationMaskAllButUpsideDown;
-    }
-    return UIInterfaceOrientationMaskPortrait;
-}
-
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     
     NSLog(@"url  %@",[url absoluteString]);
