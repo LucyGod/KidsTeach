@@ -13,6 +13,7 @@
 #import "iCloudManager.h"
 #import "ImageTitleTableViewCell.h"
 #import "SMBViewController.h"
+#import "SecondHeaderView.h"
 @interface SecondViewController ()<UITableViewDelegate, UITableViewDataSource,UIDocumentPickerDelegate>
 @property (nonatomic,strong) UITableView *myTableView;
 @property (nonatomic,copy) NSArray *nameArray;
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"更多功能";
     _myTableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         tableView.backgroundColor = [UIColor whiteColor];
@@ -40,21 +42,34 @@
         make.top.bottom.equalTo(self.view);
     }];
     [_myTableView registerNib:[UINib nibWithNibName:@"ImageTitleTableViewCell" bundle:nil] forCellReuseIdentifier:@"ImageTitleTableViewCell"];
-     [_myTableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"HEADER"];
+     [_myTableView registerClass:[SecondHeaderView class] forHeaderFooterViewReuseIdentifier:@"HEADER"];
 }
 
 #pragma mark - UITableView
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.nameArray.count;
+    if (section == 0) {
+        return self.nameArray.count;
+    } else {
+        return 2;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 0.01;
+    return 14;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"HEADER"];
+    SecondHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"HEADER"];
+    if (section == 0) {
+        header.timeLabel.text = @"传输";
+    } else {
+        header.timeLabel.text = @"内购";
+    }
     return header;
 }
 
@@ -63,69 +78,80 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ImageTitleTableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:@"ImageTitleTableViewCell" forIndexPath:indexPath];
-    cell.titleLabel.text = self.nameArray[indexPath.row];
-    return cell;
+    if (indexPath.section == 0) {
+        ImageTitleTableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:@"ImageTitleTableViewCell" forIndexPath:indexPath];
+        cell.titleLabel.text = self.nameArray[indexPath.row];
+        return cell;
+    } else {
+        ImageTitleTableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:@"ImageTitleTableViewCell" forIndexPath:indexPath];
+        if (indexPath.row == 0) {
+            cell.titleLabel.text = @"购买";
+        } else {
+            cell.titleLabel.text = @"恢复购买（已购买过的点此处）";
+        }
+        
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-        {
-            FAPWiFiTransmitViewController *wifi = [[FAPWiFiTransmitViewController alloc] init];
-            wifi.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:wifi animated:YES];
-        }
-            break;
-        case 1:
-        {
-            FAPiTunesDownloadViewController *itunes = [[FAPiTunesDownloadViewController alloc] init];
-            itunes.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:itunes animated:YES];
-        }
-            break;
-        case 2:
-        {
-            FAPDLloadViewController *download = [[FAPDLloadViewController alloc] init];
-            download.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:download animated:YES];
-        }
-            break;
-        case 3:
-        {
-           UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.data"]
-                                                                                                                          inMode:UIDocumentPickerModeImport];
-                  documentPicker.delegate = self;
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+                case 0:
+                {
+                    FAPWiFiTransmitViewController *wifi = [[FAPWiFiTransmitViewController alloc] init];
+                    wifi.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:wifi animated:YES];
+                }
+                    break;
+                case 1:
+                {
+                    FAPiTunesDownloadViewController *itunes = [[FAPiTunesDownloadViewController alloc] init];
+                    itunes.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:itunes animated:YES];
+                }
+                    break;
+                case 2:
+                {
+                    FAPDLloadViewController *download = [[FAPDLloadViewController alloc] init];
+                    download.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:download animated:YES];
+                }
+                    break;
+                case 3:
+                {
+                   UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.data"]
+                                                                                                                                  inMode:UIDocumentPickerModeImport];
+                          documentPicker.delegate = self;
 
-            documentPicker.modalPresentationStyle = UIModalPresentationFormSheet;
-            [self presentViewController:documentPicker animated:YES completion:nil];
+                    documentPicker.modalPresentationStyle = UIModalPresentationFormSheet;
+                    [self presentViewController:documentPicker animated:YES completion:nil];
+                }
+                    break;
+                case 4:
+                {
+                    SMBViewController *smb = [[SMBViewController alloc] init];
+                    smb.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:smb animated:YES];
+                }
+                    break;
+
+                    
+                default:
+                    break;
+            }
+    } else {
+        if (indexPath.row == 0) { //购买
+            PayViewController *pay = [[PayViewController alloc] init];
+            pay.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:pay animated:YES completion:^{
+                
+            }];
+        } else {//恢复购买
+            [[PayHelp sharePayHelp] restorePurchase];
         }
-            break;
-        case 4:
-        {
-            SMBViewController *smb = [[SMBViewController alloc] init];
-            smb.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:smb animated:YES];
-//            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]]) {
-//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"weixin://"] options:@{} completionHandler:nil];
-//            } else {
-//                [SVProgressHUD showErrorWithStatus:@"您还没有安装微信"];
-//            }
-        }
-            break;
-        case 5:
-        {
-//            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]]) {
-//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mqq://"] options:@{} completionHandler:nil];
-//            } else {
-//                [SVProgressHUD showErrorWithStatus:@"您还没有安装QQ"];
-//            }
-        }
-            break;
-            
-        default:
-            break;
     }
+    
 }
 
 #pragma mark - iCloud files
@@ -152,7 +178,7 @@
 
 - (NSArray *)nameArray {
     if (!_nameArray) {
-        _nameArray = [NSArray arrayWithObjects:@"WiFi传输",@"iTunes传输",@"浏览器下载",@"文件/iCloud Driver",@"SMB",@"设置", nil];
+        _nameArray = [NSArray arrayWithObjects:@"WiFi传输",@"iTunes传输",@"浏览器下载",@"文件/iCloud Driver",@"SMB", nil];
     }
     return _nameArray;
 }

@@ -109,17 +109,28 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField; {
-    if (textField.text.length > 0) {
-        if (![self.downloadArray containsObject:textField.text]) {
-            [self.downloadArray addObject:textField.text];
+    
+    if ([[PayHelp sharePayHelp] isApplePay]) {
+        if (textField.text.length > 0) {
+            if (![self.downloadArray containsObject:textField.text]) {
+                [self.downloadArray addObject:textField.text];
+            }
+            [FAPDLloadViewController addUrlToHistoryList:textField.text];
+            self.currentUrl = textField.text;
+            [self.downloadTableView reloadData];
+            
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"网址不能为空"];
         }
-        [FAPDLloadViewController addUrlToHistoryList:textField.text];
-        self.currentUrl = textField.text;
-        [self.downloadTableView reloadData];
-        
     } else {
-        [SVProgressHUD showErrorWithStatus:@"网址不能为空"];
+        PayViewController *pay = [[PayViewController alloc] init];
+        pay.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:pay animated:YES completion:^{
+            
+        }];
     }
+    
+    
     
     return YES;
 }

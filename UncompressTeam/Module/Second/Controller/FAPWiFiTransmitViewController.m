@@ -95,26 +95,37 @@
 }
 
 - (void)valueChanged:(UISwitch *)mySwitch {
-    if (mySwitch.on) {
-        self.isOpen = YES;
-        httpServer = [[HTTPServer alloc] init];
-        [httpServer setType:@"_http._tcp."];
-        // webPath是server搜寻HTML等文件的路径
-        NSString *webPath = [[NSBundle mainBundle] resourcePath];
-        [httpServer setDocumentRoot:webPath];
-        [httpServer setConnectionClass:[HmHTTPConnection class]];
-        NSError *error;
-        if ([httpServer start:&error]) {
-            self.urlString = [NSString stringWithFormat:@"http://%@:%hu",[HmTool getIPAddress:YES],[httpServer listeningPort]];
-            NSLog(@"IP: %@:%hu", [HmTool getIPAddress:YES], [httpServer listeningPort]);
-        }else {
-            self.urlString = @"http://error";
+    if ([[PayHelp sharePayHelp] isApplePay]) {
+        if (mySwitch.on) {
+            self.isOpen = YES;
+            httpServer = [[HTTPServer alloc] init];
+            [httpServer setType:@"_http._tcp."];
+            // webPath是server搜寻HTML等文件的路径
+            NSString *webPath = [[NSBundle mainBundle] resourcePath];
+            [httpServer setDocumentRoot:webPath];
+            [httpServer setConnectionClass:[HmHTTPConnection class]];
+            NSError *error;
+            if ([httpServer start:&error]) {
+                self.urlString = [NSString stringWithFormat:@"http://%@:%hu",[HmTool getIPAddress:YES],[httpServer listeningPort]];
+                NSLog(@"IP: %@:%hu", [HmTool getIPAddress:YES], [httpServer listeningPort]);
+            }else {
+                self.urlString = @"http://error";
+            }
+        } else {
+            self.isOpen = NO;
+            
         }
+        [_myTableView reloadData];
     } else {
         self.isOpen = NO;
-        
+        [_myTableView reloadData];
+        PayViewController *pay = [[PayViewController alloc] init];
+        pay.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:pay animated:YES completion:^{
+            
+        }];
     }
-    [_myTableView reloadData];
+    
 }
  
 @end

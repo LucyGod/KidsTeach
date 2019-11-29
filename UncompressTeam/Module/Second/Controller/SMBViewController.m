@@ -63,7 +63,8 @@
             [weakSelf.dataArray removeObject:device];
         }
         NSLog(@"Device removed: %@", device);
-        [weakSelf.myTableView reloadData];
+        [weakSelf.myTableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+//        [weakSelf.myTableView reloadData];
     }];
 }
 
@@ -72,27 +73,39 @@
 }
 
 - (void)rightClick {
-    if (self.IPAddress.length == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请输入主机IP"];
-        return;
-    }
-    NSString *host = self.IPAddress;
-    WEAKSELF
-    SMBFileServer *fileServer = [[SMBFileServer alloc] initWithHost:host netbiosName:host group:nil];
-    [SMBManager sharedInstance].fileServer = fileServer;
-    [fileServer connectAsUser:self.userName password:self.password completion:^(BOOL guest, NSError *error) {
-        if (error) {
-            NSLog(@"Unable to connect: %@", error);
-            [SVProgressHUD showErrorWithStatus:@"链接失败"];
-        } else if (guest) {
-            NSLog(@"Logged in as guest");
-        } else {
-            NSLog(@"Logged in");
-            
-            SMBFileTootListViewController *root = [[SMBFileTootListViewController alloc] init];
-            [weakSelf.navigationController pushViewController:root animated:YES];
+    if ([[PayHelp sharePayHelp] isApplePay]) {
+        if (self.IPAddress.length == 0) {
+            [SVProgressHUD showErrorWithStatus:@"请输入主机IP"];
+            return;
         }
-    }];
+        NSString *host = self.IPAddress;
+        WEAKSELF
+        [SVProgressHUD show];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        SMBFileServer *fileServer = [[SMBFileServer alloc] initWithHost:host netbiosName:host group:nil];
+        [SMBManager sharedInstance].fileServer = fileServer;
+        [fileServer connectAsUser:self.userName password:self.password completion:^(BOOL guest, NSError *error) {
+            [SVProgressHUD dismiss];
+            if (error) {
+                NSLog(@"Unable to connect: %@", error);
+                [SVProgressHUD showErrorWithStatus:@"链接失败"];
+            } else if (guest) {
+                NSLog(@"Logged in as guest");
+            } else {
+                NSLog(@"Logged in");
+                
+                SMBFileTootListViewController *root = [[SMBFileTootListViewController alloc] init];
+                [weakSelf.navigationController pushViewController:root animated:YES];
+            }
+        }];
+    } else {
+        PayViewController *pay = [[PayViewController alloc] init];
+        pay.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:pay animated:YES completion:^{
+            
+        }];
+    }
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
