@@ -10,7 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// <#Description#>
 @interface FileManagerTool : NSObject
 
 + (instancetype)sharedManagerTool;
@@ -20,11 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param dirName 文件夹名称
 - (BOOL)directoryIsExist:(NSString*)dirName;
 
+/// 判断文件夹是否存在
+/// @param dirName 文件夹路径
+- (BOOL)directoryIsExistWithFullPath:(NSString*)dirName;
+
 /// 在Document目录下创建文件夹
 /// @param name 文件夹名字
 - (BOOL)createDirectoryWithDirectoryName:(NSString*)name filePath:(NSString*)path;
 
-- (BOOL)renameDirectoryWithDirectoryName:(NSString*)name filePath:(NSString*)path;
+//创建文本文件
+- (void)createTxtName:(NSString*)name filePath:(nonnull NSString *)path;
+
 /// 文件夹下的目录
 /// @param dirPath 具体文件夹
 - (NSMutableArray*)contentsOfDirectory:(NSString*)dirPath;
