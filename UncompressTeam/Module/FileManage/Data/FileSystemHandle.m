@@ -97,6 +97,42 @@
             
             [self unArchiveWithFilePath:path VC:collVC unArchiveDirectionName:newName];
         }]];
+    }else{
+        [alert addAction:[UIAlertAction actionWithTitle:@"压缩文件" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+            //仅支持zip格式压缩
+            NSInteger fileIndex = 0;
+            NSString *absoluteName = [[fileName componentsSeparatedByString:@"."] firstObject];
+            NSString *subPath = [[path componentsSeparatedByString:fileName] firstObject];
+            
+            NSString *compressName = [[absoluteName stringByAppendingString:@"."] stringByAppendingString:@"zip"];
+            NSString *fullCompressPath = [subPath stringByAppendingPathComponent:compressName];
+            
+            while ([[FileManagerTool sharedManagerTool] fileIsExistWithFullPath:fullCompressPath]) {
+                fileIndex ++;
+                absoluteName = [[[fileName componentsSeparatedByString:@"."] firstObject] stringByAppendingString:[NSString stringWithFormat:@"%ld",fileIndex]];
+                compressName = [[absoluteName stringByAppendingString:@"."] stringByAppendingString:@"zip"];
+                fullCompressPath = [subPath stringByAppendingPathComponent:compressName];
+            }
+            
+            [self archiveFileWithPath:path VC:collVC archiveDiectionName:compressName];
+//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"请选择压缩类型" preferredStyle:UIAlertControllerStyleActionSheet];
+//            [alertController addAction:[UIAlertAction actionWithTitle:@"rar" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//                [self archiveFileWithPath:path VC:collVC archiveDiectionName:@"测试压缩文件.rar"];
+//
+//            }]];
+//
+//            [alertController addAction:[UIAlertAction actionWithTitle:@"zip" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//
+//            }]];
+//
+//            [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+//
+//            [vc presentViewController:alertController animated:YES completion:nil];
+
+        }]];
     }
    
     //重命名
@@ -256,8 +292,29 @@
     };
     unarchive.failureBlock = ^(){
         [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"文件解压失败!"];
     };
     [unarchive deCompressWithDirectoryName:dirName];
+}
+
++ (void)archiveFileWithPath:(NSString*)filePath VC:(FileCollectionViewController*)vc archiveDiectionName:(NSString*)dirName{
+    
+    SARUnArchiveANY *archive = [[SARUnArchiveANY alloc]initWithPath:filePath];
+    
+    archive.completionBlock = ^(NSArray *filePaths) {
+        [SVProgressHUD dismiss];
+        [vc reloadData];
+        
+        NSLog(@"压缩文件成功后的回调%@",filePaths);
+    };
+    
+    archive.failureBlock = ^{
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"压缩文件失败!"];
+        NSLog(@"压缩文件失败");
+    };
+    
+    [archive compressFileWithCompressType:[dirName pathExtension] fileName:dirName];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

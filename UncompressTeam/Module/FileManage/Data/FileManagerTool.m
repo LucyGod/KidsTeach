@@ -56,6 +56,15 @@
     return YES;
 }
 
+- (BOOL)fileIsExistWithFullPath:(NSString*)dirName{
+    BOOL isDir = NO;
+    BOOL existed = [_manager fileExistsAtPath:dirName isDirectory:&isDir];
+    if (existed) {//如果文件夹不存在
+        return YES;
+    }
+    return NO;
+}
+
 - (void)createTxtName:(NSString*)name filePath:(nonnull NSString *)path
 {
     NSData *data = [@"" dataUsingEncoding:NSUTF8StringEncoding];

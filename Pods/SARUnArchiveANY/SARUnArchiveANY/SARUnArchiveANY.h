@@ -52,4 +52,11 @@ typedef void(^Failure)(void);
 /// @param psd 解压缩密码
 - (void)deCompressWithDirectoryName:(NSString*)dirName password:(NSString*)psd;
 
+
+
+/// 压缩文件
+/// @param compressType 压缩类型，rar  zip
+/// @param fileName 文件名称
+- (void)compressFileWithCompressType:(NSString*)compressType fileName:(NSString*)fileName;
+
 @end
