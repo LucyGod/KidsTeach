@@ -67,6 +67,10 @@
     }];
 }
 
+- (void)dealloc {
+    [[SMBDiscovery sharedInstance] stopDiscovery];
+}
+
 - (void)rightClick {
     if (self.IPAddress.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入主机IP"];

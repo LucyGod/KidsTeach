@@ -103,6 +103,9 @@
             break;
         case 4:
         {
+            SMBViewController *smb = [[SMBViewController alloc] init];
+            smb.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:smb animated:YES];
 //            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]]) {
 //                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"weixin://"] options:@{} completionHandler:nil];
 //            } else {
@@ -112,9 +115,6 @@
             break;
         case 5:
         {
-            SMBViewController *smb = [[SMBViewController alloc] init];
-            smb.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:smb animated:YES];
 //            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]]) {
 //                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mqq://"] options:@{} completionHandler:nil];
 //            } else {
@@ -152,7 +152,7 @@
 
 - (NSArray *)nameArray {
     if (!_nameArray) {
-        _nameArray = [NSArray arrayWithObjects:@"WiFi传输",@"iTunes传输",@"浏览器下载",@"文件/iCloud Driver",@"隔空投送",@"设置", nil];
+        _nameArray = [NSArray arrayWithObjects:@"WiFi传输",@"iTunes传输",@"浏览器下载",@"文件/iCloud Driver",@"SMB",@"设置", nil];
     }
     return _nameArray;
 }
