@@ -81,6 +81,7 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
             [self.dataArr addObject:dataModel.dataSource[i]];
         }
     }
+    
 }
 -(void)reloadData
 {

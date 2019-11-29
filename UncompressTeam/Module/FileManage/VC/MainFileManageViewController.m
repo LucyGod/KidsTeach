@@ -35,7 +35,7 @@
     UIBarButtonItem *deleteBarBtn;
     UIBarButtonItem *zipBtn;
     UIBarButtonItem *saveBtn;
-
+    
     AppDelegate *appDelegate;
     BOOL isDirectoryFirst;//是否勾选目录优先
     BOOL isDesc;//是否升序
@@ -82,9 +82,9 @@
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"默认", @"名称",@"大小",@"日期",@"类型"]];
     self.segmentedControl.frame = CGRectMake(10, 5 , SCREEN_Width-20, 40);
     NSDictionary *norDic = [NSDictionary dictionaryWithObjectsAndKeys:ASOColorTheme,NSForegroundColorAttributeName,[UIFont systemFontOfSize:14],NSFontAttributeName ,nil];
-//    self.segmentedControl.layer.masksToBounds = YES;
-//    self.segmentedControl.layer.borderColor = ASOColorTheme.CGColor;
-//    self.segmentedControl.layer.borderWidth = 1;
+    //    self.segmentedControl.layer.masksToBounds = YES;
+    //    self.segmentedControl.layer.borderColor = ASOColorTheme.CGColor;
+    //    self.segmentedControl.layer.borderWidth = 1;
     [self.segmentedControl setTitleTextAttributes:norDic forState:UIControlStateNormal];
     self.segmentedControl.selectedSegmentIndex = 0;
     [self.segmentedControl addTarget:self action:@selector(selectItem:) forControlEvents:UIControlEventValueChanged];
@@ -103,11 +103,11 @@
     if (self.sourcePath) {
         [collectionController initFilePath:self.sourcePath];
     } else {
-//                NSString *homePath = NSHomeDirectory();
-//                [collectionController initFilePath:DocumentsPath];
-      
+        //                NSString *homePath = NSHomeDirectory();
+        //                [collectionController initFilePath:DocumentsPath];
+        
         [collectionController initFilePath:DocumentsPath];
-//    [collectionController initFilePath:[NSString stringWithFormat:@"%@/Resource",[[NSBundle mainBundle] pathForResource:@"Resources" ofType:@"bundle"]]];
+        //    [collectionController initFilePath:[NSString stringWithFormat:@"%@/Resource",[[NSBundle mainBundle] pathForResource:@"Resources" ofType:@"bundle"]]];
     }
     [self addChildViewController:collectionController];
     [self.view addSubview:collectionController.view];
@@ -125,7 +125,7 @@
         NSIndexPath *currentIndexPath = [collectionController.collectionView indexPathForItemAtPoint:point];
         NSString *nameStr = dataArr[currentIndexPath.row][@"name"];
         NSString *pathStr = dataArr[currentIndexPath.row][@"path"];
-
+        
         [FileSystemHandle fileHandleAlertShowFileName:nameStr FilePath:pathStr collectionVC:collectionController withVC:self ];
     }
 }
@@ -310,34 +310,104 @@
             NSString *fileName = dic[@"name"];
             NSString *path = dic[@"path"];
             
+            //仅支持zip格式压缩
+            NSInteger fileIndex = 0;
+            NSString *absoluteName = [[fileName componentsSeparatedByString:@"."] firstObject];
+            NSString *subPath = [[path componentsSeparatedByString:fileName] firstObject];
+            
+            NSString *compressName = [[absoluteName stringByAppendingString:@"."] stringByAppendingString:@"zip"];
+            NSString *fullCompressPath = [subPath stringByAppendingPathComponent:compressName];
+            
+            while ([[FileManagerTool sharedManagerTool] fileIsExistWithFullPath:fullCompressPath]) {
+                fileIndex ++;
+                absoluteName = [[[fileName componentsSeparatedByString:@"."] firstObject] stringByAppendingString:[NSString stringWithFormat:@"%ld",fileIndex]];
+                compressName = [[absoluteName stringByAppendingString:@"."] stringByAppendingString:@"zip"];
+                fullCompressPath = [subPath stringByAppendingPathComponent:compressName];
+            }
+            
+            [self archiveFileWithPath:path VC:collectionController archiveDiectionName:compressName];
         }
-        [collectionController reloadData];
+        
     }
     else if ([str isEqualToString:@"保存"])
     {
+        BOOL isContainOtherFile = NO;
+        NSMutableArray *saveImageArray = [NSMutableArray array];
+        
         for (NSDictionary *dic in collectionController.selectedArr) {
-            NSString *fileName = dic[@"name"];
             NSString *path = dic[@"path"];
-            bool isPicture = [FileIcon isImage:fileName];
-            if (!isPicture) {
-                [SVProgressHUD showInfoWithStatus:@"相册无法保存该文件"];
+            NSString *fileFullName = [[path componentsSeparatedByString:@"/"] lastObject];   //文件全名
+            NSString *fileExtension = [fileFullName pathExtension];  //文件后缀
+            
+            if (![FileIcon isImage:[fileExtension lowercaseString]]) {
+                //不是图片
+                isContainOtherFile = YES;
+            }else{
+                //要保存到相册里的图片
+                [saveImageArray addObject:dic];
             }
-            else
-            {
-                [SVProgressHUD showWithStatus:@"保存中……"];
-                NSData *data = [NSData dataWithContentsOfFile:path];
-                UIImage *image = [UIImage imageWithData:data];
-                //参数1:图片对象
-                //参数2:成功方法绑定的target
-                //参数3:成功后调用方法
-                //参数4:需要传递信息(成功后调用方法的参数)
-                UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-            }
-
         }
-        [collectionController reloadData];
+        
+        if (isContainOtherFile) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您选择的文件中包含非图片类型，只有图片文件可以保存到系统相册，是否继续操作？" preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self saveImageWithDataArray:saveImageArray];
+            }]];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+        }else{
+            [self saveImageWithDataArray:saveImageArray];
+        }
     }
-   
+}
+
+
+/// 压缩文件
+/// @param filePath 原文件路径
+/// @param vc 刷新数据的VC
+/// @param dirName 压缩后的文件名称
+- (void)archiveFileWithPath:(NSString*)filePath VC:(FileCollectionViewController*)vc archiveDiectionName:(NSString*)dirName{
+    
+    SARUnArchiveANY *archive = [[SARUnArchiveANY alloc]initWithPath:filePath];
+    
+    archive.completionBlock = ^(NSArray *filePaths) {
+        [SVProgressHUD dismiss];
+        [vc reloadData];
+        
+        NSLog(@"压缩文件成功后的回调%@",filePaths);
+    };
+    
+    archive.failureBlock = ^{
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"压缩文件失败!"];
+        NSLog(@"压缩文件失败");
+    };
+    
+    [archive compressFileWithCompressType:[dirName pathExtension] fileName:dirName];
+}
+
+/// 将图片保存到相册
+/// @param dataArray 图片信息array
+- (void)saveImageWithDataArray:(NSMutableArray*)dataArray{
+    if (dataArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"已保存0个文件"];
+        return;
+    }
+    [SVProgressHUD showWithStatus:@"保存中……"];
+    for (NSDictionary *imageInfoDic in dataArray) {
+        NSString *path = imageInfoDic[@"path"];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        UIImage *image = [UIImage imageWithData:data];
+        //参数1:图片对象
+        //参数2:成功方法绑定的target
+        //参数3:成功后调用方法
+        //参数4:需要传递信息(成功后调用方法的参数)
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }
 }
 
 #pragma mark -- <保存到相册>
@@ -346,7 +416,7 @@
     if(error){
         msg = @"保存图片失败" ;
         [SVProgressHUD showInfoWithStatus:msg];
-
+        
     }else{
         msg = @"图片已成功保存到相册，请查看。" ;
         [SVProgressHUD showSuccessWithStatus:msg];
