@@ -109,9 +109,10 @@
     cell.nameLabel.text = file.name;
     if (file.isDirectory) {
         [cell.iconImageView setImage:[UIImage imageNamed:@"fileIcon_small"]];
+        cell.moreButton.hidden = YES;
     } else {
         [cell.iconImageView setImage:[UIImage imageNamed:getFileIcon(file.name)]];
-        
+        cell.moreButton.hidden = NO;
     }
     WEAKSELF
     [cell setSuccess:^{
@@ -130,7 +131,6 @@
         [alertController addAction:artAction];
         [weakSelf presentViewController:alertController animated:YES completion:nil];
     }];
-    cell.moreButton.hidden = NO;
     return cell;
 }
 

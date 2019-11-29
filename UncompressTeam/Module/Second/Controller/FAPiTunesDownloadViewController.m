@@ -50,7 +50,6 @@
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.text = @"此功能可将电脑里的图片/gif/视频通过分享iTunes文件导入到应用程序。";
-        _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.numberOfLines = 2;
     }
     return _titleLabel;
@@ -61,7 +60,6 @@
         _detailLabel = [[UILabel alloc] init];
         _detailLabel.font = [UIFont systemFontOfSize:14];
         _detailLabel.text = @"1.将设备连接到电脑，然后在电脑上打开iTunes。\n2.选择应用程序菜单，然后往下滑到iTunes文件共享。\n3.在iTunes文件共享，选择应用程序。\n4.拖放图片/gif/视频文件或使用添加按钮而添加文件。";
-        _detailLabel.textColor = [UIColor whiteColor];
         _detailLabel.numberOfLines = 0;
     }
     return _detailLabel;

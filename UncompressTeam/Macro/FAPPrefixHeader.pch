@@ -59,6 +59,7 @@
 #import "FAPBaseListView.h"
 #import "UIMainConstructor.h"
 #import "PayHelp.h"
+#import "PayViewController.h"
 #import "LYTBaseNavigationController.h"
 
 

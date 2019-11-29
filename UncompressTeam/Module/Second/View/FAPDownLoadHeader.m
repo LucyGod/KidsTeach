@@ -30,7 +30,7 @@
 }
 
 - (void)configUI {
-    self.contentView.backgroundColor = [UIColor colorWithHexString:@"5fa6f8"];
+    self.contentView.backgroundColor = ASOColorTheme;
     UILabel *label = [[UILabel alloc] init];
     label.textColor = [UIColor whiteColor];
     label.font = [UIFont systemFontOfSize:13];
