@@ -16,7 +16,8 @@
 #import "CollectionViewCell.h"
 #import "FileManagerTool.h"
 #define BLUECOLOR [UIColor colorWithDisplayP3Red:51/255.0 green:171/255.0 blue:238/255.0 alpha:1]
-
+#import "FileManagerTool.h"
+#import "FileIcon.h"
 @interface MainFileManageViewController () <ShowTypePopViewControllerDelegate, UIPopoverPresentationControllerDelegate, UIGestureRecognizerDelegate, UISearchBarDelegate>
 {
     UICollectionViewFlowLayout *flowlayout;
@@ -80,9 +81,10 @@
 {
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"默认", @"名称",@"大小",@"日期",@"类型"]];
     self.segmentedControl.frame = CGRectMake(10, 5 , SCREEN_Width-20, 40);
-    
     NSDictionary *norDic = [NSDictionary dictionaryWithObjectsAndKeys:ASOColorTheme,NSForegroundColorAttributeName,[UIFont systemFontOfSize:14],NSFontAttributeName ,nil];
-    
+//    self.segmentedControl.layer.masksToBounds = YES;
+//    self.segmentedControl.layer.borderColor = ASOColorTheme.CGColor;
+//    self.segmentedControl.layer.borderWidth = 1;
     [self.segmentedControl setTitleTextAttributes:norDic forState:UIControlStateNormal];
     self.segmentedControl.selectedSegmentIndex = 0;
     [self.segmentedControl addTarget:self action:@selector(selectItem:) forControlEvents:UIControlEventValueChanged];
@@ -207,12 +209,11 @@
     self.selectAllBtn = [[UIBarButtonItem alloc] initWithTitle:@"全选" style:UIBarButtonItemStylePlain target:self action:@selector(selectAllBtn:)];
     self.navigationItem.leftBarButtonItem = self.selectAllBtn;
     
-    deleteBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"deletes"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteData)];
-     copyBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"copys"] style:UIBarButtonItemStylePlain  target:self action:@selector(deleteData)];
-     cuteBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"jianqies"] style:UIBarButtonItemStylePlain  target:self action:@selector(deleteData)];
-     zipBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"zips"] style:UIBarButtonItemStylePlain  target:self action:@selector(deleteData)];
-    saveBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"saves"] style:UIBarButtonItemStylePlain  target:self action:@selector(deleteData)];
-    [self setToolbarItems:@[deleteBtn,spaceItem, copyBtn,spaceItem, cuteBtn,spaceItem, zipBtn,spaceItem, saveBtn] animated:YES];
+    deleteBtn = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStylePlain target:self action:@selector(handleData:)];
+    copyBtn = [[UIBarButtonItem alloc]initWithTitle:@"复制" style:UIBarButtonItemStylePlain  target:self action:@selector(handleData:)];
+    zipBtn = [[UIBarButtonItem alloc] initWithTitle:@"压缩" style:UIBarButtonItemStylePlain  target:self action:@selector(handleData:)];
+    saveBtn = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain  target:self action:@selector(handleData:)];
+    [self setToolbarItems:@[deleteBtn,spaceItem, copyBtn,spaceItem,  zipBtn,spaceItem, saveBtn] animated:YES];
 }
 
 //全选
@@ -226,7 +227,6 @@
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
             [collectionController.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }
-        //点击全选的时候需要清除selectedArr里面的数据，防止原来的selectedArr里面有残留数据
         if (collectionController.selectedArr.count >0) {
             [collectionController.selectedArr removeAllObjects];
         }
@@ -245,18 +245,20 @@
     }
 }
 
-//删除弹框
-- (void)deleteData {
+//处理弹框
+- (void)handleData:(UIBarButtonItem*)btn {
+    UIBarButtonItem *cuBtn = (UIBarButtonItem*)btn;
+    NSString *nameStr = cuBtn.title;
     if (collectionController.selectedArr.count > 0) {
         NSString *i = [[NSString alloc] init];
         if (collectionController.selectedArr.count == 1) {
-            i = @"删除项目";
+            i = [NSString stringWithFormat:@"%@项目",nameStr];
         } else {
-            i = [NSString stringWithFormat:@"删除%ld个项目", (long)collectionController.selectedNum];
+            i = [NSString stringWithFormat:@"%@%ld个项目", nameStr,(long)collectionController.selectedNum];
         }
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:i style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action){
-            [self confirmDelete];
+            [self confirmHandle:nameStr];
         }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:confirmAction];
@@ -264,19 +266,91 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
-
-//确认删除
-- (void)confirmDelete {
+#pragma mark 确认操作：删除、复制、压缩、保存
+//确认操作：删除、复制、压缩、保存
+- (void)confirmHandle:(NSString*)str {
     self.navigationItem.title = @"选择项目";
-//    collectionController.selectedNum = 0;
-    [collectionController.dataArr removeObjectsInArray:collectionController.selectedArr];
-    for (NSDictionary *dic in collectionController.selectedArr) {
-          [[FileManagerTool sharedManagerTool] deleteFileAtFilePath:dic[@"path"]];
-      }
-    [collectionController.selectedArr removeAllObjects];
-    [collectionController.collectionView  selectItemAtIndexPath:nil animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-  
-    [collectionController.collectionView reloadData];
+    if ([str isEqualToString:@"删除"]) {
+        [collectionController.dataArr removeObjectsInArray:collectionController.selectedArr];
+        for (NSDictionary *dic in collectionController.selectedArr) {
+            [[FileManagerTool sharedManagerTool] deleteFileAtFilePath:dic[@"path"]];
+        }
+        [collectionController.selectedArr removeAllObjects];
+        [collectionController.collectionView  selectItemAtIndexPath:nil animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        
+        [collectionController.collectionView reloadData];
+    }
+    else if ([str isEqualToString:@"复制"])
+    {
+        for (NSDictionary *dic in collectionController.selectedArr) {
+            NSString *fileName = dic[@"name"];
+            NSString *path = dic[@"path"];
+            //拷贝文件夹
+            if ([[FileManagerTool sharedManagerTool] directoryIsExist:fileName]) {
+                NSString *newName = [fileName stringByAppendingString:@"(副本)"];//新的文件名
+                NSString *newSubPath = [[path componentsSeparatedByString:fileName] firstObject];
+                NSString *newFilePath = [newSubPath stringByAppendingPathComponent:newName];
+                [[FileManagerTool sharedManagerTool] copyItemAtPath:path toPath:newFilePath];
+            }else{
+                //拷贝文件
+                NSString *originlName = [[fileName componentsSeparatedByString:@"."] firstObject]; //获取文件名
+                NSString *originlExtension = [[fileName componentsSeparatedByString:@"."] lastObject];//文件后缀
+                NSString *newName = [originlName stringByAppendingString:@"(副本)"];//新的文件名
+                NSString *newFullName = [[newName stringByAppendingString:@"."] stringByAppendingString:originlExtension];//新的文件名加后缀
+                NSString *newSubPath = [[path componentsSeparatedByString:fileName] firstObject];
+                NSString *newFilePath = [newSubPath stringByAppendingPathComponent:newFullName];
+                [[FileManagerTool sharedManagerTool] copyItemAtPath:path toPath:newFilePath];
+            }
+        }
+        [collectionController reloadData];
+    }
+    else if ([str isEqualToString:@"压缩"])
+    {
+        for (NSDictionary *dic in collectionController.selectedArr) {
+            NSString *fileName = dic[@"name"];
+            NSString *path = dic[@"path"];
+            
+        }
+        [collectionController reloadData];
+    }
+    else if ([str isEqualToString:@"保存"])
+    {
+        for (NSDictionary *dic in collectionController.selectedArr) {
+            NSString *fileName = dic[@"name"];
+            NSString *path = dic[@"path"];
+            bool isPicture = [FileIcon isImage:fileName];
+            if (!isPicture) {
+                [SVProgressHUD showInfoWithStatus:@"相册无法保存该文件"];
+            }
+            else
+            {
+                [SVProgressHUD showWithStatus:@"保存中……"];
+                NSData *data = [NSData dataWithContentsOfFile:path];
+                UIImage *image = [UIImage imageWithData:data];
+                //参数1:图片对象
+                //参数2:成功方法绑定的target
+                //参数3:成功后调用方法
+                //参数4:需要传递信息(成功后调用方法的参数)
+                UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+            }
+
+        }
+        [collectionController reloadData];
+    }
+   
+}
+
+#pragma mark -- <保存到相册>
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    NSString *msg = nil ;
+    if(error){
+        msg = @"保存图片失败" ;
+        [SVProgressHUD showInfoWithStatus:msg];
+
+    }else{
+        msg = @"图片已成功保存到相册，请查看。" ;
+        [SVProgressHUD showSuccessWithStatus:msg];
+    }
 }
 
 #pragma mark - 切换视图模式 排序
