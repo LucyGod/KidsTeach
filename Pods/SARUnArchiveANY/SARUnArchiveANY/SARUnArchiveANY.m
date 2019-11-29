@@ -103,7 +103,9 @@
     URKArchive *archive = [[URKArchive alloc] initWithPath:_filePath error:&archiveError];
     
     if (!archive) {
-        NSLog(@"Failed!");
+        if (self.failureBlock) {
+              self.failureBlock();
+        }
         return;
     }
     
@@ -115,8 +117,11 @@
     }
     
     if (error) {
-        NSLog(@"Error reading archive: %@", error);
-        return;
+        if (self.failureBlock) {
+            self.failureBlock();
+        }
+//        NSLog(@"Error reading archive: %@", error);
+//        return;
     }
     
     // Extract a file into memory just to validate if it works/extracts
@@ -126,8 +131,9 @@
         if (error.code == ERAR_MISSING_PASSWORD) {
             NSLog(@"Password protected archive! Please provide a password for the archived file.");
         }
-        if (failureBlock != nil) {
-            failureBlock();
+       
+        if (self.failureBlock) {
+              self.failureBlock();
         }
     }
     else {
@@ -154,7 +160,9 @@
     }
     
     if ( !unzipped ) {
-        failureBlock();
+        if (self.failureBlock) {
+              self.failureBlock();
+        }
     }
     
     if (self.completionBlock) {
@@ -216,6 +224,47 @@
         self.completionBlock(filePathsArray);
     }
     
+}
+
+- (void)compressFileWithCompressType:(NSString*)compressType fileName:(NSString*)fileName{
+    if ([compressType isEqualToString:@"rar"]) {
+        [self rarCompress:fileName];
+    }else{
+        [self zipCompress:fileName];
+    }
+}
+
+
+/// rar格式压缩
+- (void)rarCompress:(NSString*)fileName{
+    _destinationPath = [_destinationPath stringByAppendingPathComponent:fileName];
+
+    NSString *originPath = _filePath;
+    NSString *destinPath = _destinationPath;
+    
+    URKArchive *archive = [[URKArchive alloc] initWithPath:originPath error:nil];
+    
+    
+    
+}
+
+/// zip格式压缩
+- (void)zipCompress:(NSString*)fileName{
+    _destinationPath = [_destinationPath stringByAppendingPathComponent:fileName];
+
+    NSString *originPath = _filePath;
+    NSString *destinPath = _destinationPath;
+    
+    BOOL isCompress = [SSZipArchive createZipFileAtPath:destinPath withFilesAtPaths:@[originPath]];
+    if (isCompress) {
+        if (self.completionBlock) {
+            self.completionBlock(@[@"success"]);
+        }
+    }else{
+        if (self.failureBlock) {
+            self.failureBlock();
+        }
+    }
 }
 
 #pragma mark - SSZipArchive Delegates

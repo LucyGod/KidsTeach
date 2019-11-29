@@ -28,7 +28,8 @@
 @implementation FileIcon
 
 BOOL isFileInExtensionList(NSString* extension, NSArray* extensionlist) {
-    if (extension == nil || extensionlist.count == 0) return NO;
+    if (extension == nil || extensionlist.count == 0)
+        return NO;
     return [extensionlist containsObject:extension];
 }
 
@@ -41,9 +42,19 @@ BOOL isVedioFile(NSString* fileName) {
 }
 
 BOOL isPictureFile(NSString* fileName) {
-    return isFileInExtensionList(fileName, @[@"jpg", @"png", @"bmp", @"jpeg", @"gif", @"tiff", @"tif",@"eps",@"mif",@"miff",@"tif",@"tiff",@"svg",@"wmf",@"jpe",@"dib",@"ico",@"icon"]);
+    return isFileInExtensionList(fileName, @[@"jpg",@"JPG",@"PNG", @"png", @"bmp", @"jpeg", @"gif", @"tiff", @"tif",@"eps",@"mif",@"miff",@"tif",@"tiff",@"svg",@"wmf",@"jpe",@"dib",@"ico",@"icon"]);
 }
-
++(BOOL)isImage:(NSString *)str
+{
+    BOOL isPic = NO;
+    NSArray *imgArr = @[@"jpg",@"JPG",@"PNG", @"png", @"bmp", @"jpeg", @"gif", @"tiff", @"tif",@"eps",@"mif",@"miff",@"tif",@"tiff",@"svg",@"wmf",@"jpe",@"dib",@"ico",@"icon"];
+    for (NSString *subStr  in imgArr) {
+        if ([str containsString:subStr]) {
+            isPic = YES;
+        }
+    }
+    return isPic;
+}
 BOOL isCompressFile(NSString *filename) {
     return isFileInExtensionList(filename, @[@"zip", @"rar", @"tar", @"gz", @"bz2"]);
 }

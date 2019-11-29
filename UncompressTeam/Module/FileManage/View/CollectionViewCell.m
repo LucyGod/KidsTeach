@@ -15,7 +15,7 @@
 #define IMAGE_HEIGHT 60
 #define NAMELAB_WIDTH self.bounds.size.width - IMAGE_WIDTH - SPACE * 4
 #define NAMELAB_HEIGHT 20
-#define TIMELAB_WIDTH 130
+#define TIMELAB_WIDTH 140
 #define TIMELAB_HEIGHT 14
 #define SIZELAB_WIDTH 65
 #define SIZELAB_HEIGHT 14

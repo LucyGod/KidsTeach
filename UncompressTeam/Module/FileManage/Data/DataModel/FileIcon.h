@@ -11,5 +11,5 @@
 @interface FileIcon : NSObject
 
 NSString* getFileIcon(NSString *fileName);
-
++(BOOL)isImage:(NSString*)str;
 @end
