@@ -27,7 +27,7 @@
     [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(23, 23));
         make.left.equalTo(bgImageView.mas_left).offset(20);
-        make.top.equalTo(bgImageView.mas_top).offset(20);
+        make.top.equalTo(bgImageView.mas_top).offset(20 + TabMustAdd);
     }];
     [self.view addSubview:self.payBtn];
     [self.payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
